@@ -1,6 +1,6 @@
-![Alkemy, Inc.](https://ucarecdn.com/36cf610a-72a1-4940-8a16-14f3eedd118a/-/resize/150x/)
-**Alkemy, Inc.**
-https://www.alkemyinc.com
+![Alkemy, Inc.](https://ucarecdn.com/36cf610a-72a1-4940-8a16-14f3eedd118a/-/resize/150x/)<br>
+**Alkemy, Inc.**<br>
+https://www.alkemyinc.com<br>
 Coral Springs, FL 33067
 
 # Main Website Codebase
