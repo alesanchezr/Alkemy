@@ -3,7 +3,6 @@
 https://www.alkemyinc.com
 Coral Springs, FL 33067
 
-
 # Main Website Codebase
 
 This readme breaks down the project specs in detail.
