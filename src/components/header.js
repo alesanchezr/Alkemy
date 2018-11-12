@@ -2,7 +2,25 @@ import React from 'react'
 import { Link } from 'gatsby'
 import ReactNavbar from './Navbar.jsx'
 
-const Header = ({ siteTitle, hideHeader }) =>(
+var _menuArray = [
+  {name: 'Home', id: '1', drop:false, url: '/'},
+  {
+    name: 'Solutions',
+    id: '2',
+    drop: true,
+    submenu: [
+      {name: 'Web Design', id: '2a', url: '/web-design'},
+      {name: 'Web Development', id: '2b', url: '/web-development'},
+      {name: 'E-Commerce Design', id: '2c', url: '/ecommerce-design'},
+      {name: 'Digital Marketing', id: '2d', url: '/digital-marketing'},
+    ]
+  },
+  {name: 'Alkemy Blog', id: '3', drop:false, url: '/alkemy-blog'},
+  {name: 'About Alkemy', id: '4', drop:false, url: '/about-alkemy'},
+  {name: 'Contact Alkemy', id: '5', drop:false, url: '/contact-alkemy'},
+];
+
+const Header = ({ siteTitle, hideHeader, menuArray }) =>(
     <div>
       <div
         style={{
@@ -17,7 +35,7 @@ const Header = ({ siteTitle, hideHeader }) =>(
           position: 'fixed'
         }}
       >
-        <ReactNavbar />
+      <ReactNavbar menuArray={_menuArray} />
       </div>
       {
         (!hideHeader)

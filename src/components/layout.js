@@ -5,7 +5,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import { TypographyStyle, GoogleFont } from 'react-typography'
 import typography from '../utils/typography'
 import Header from './header'
-import '../assets/css/layout.css'
+import '../assets/css/layout.scss'
 import '../assets/css/bootstrap.min.css'
 
 const Layout = ({ children, pageTitle, headerTitle }) => (
@@ -105,7 +105,7 @@ const Layout = ({ children, pageTitle, headerTitle }) => (
         {/* Google Tag Manager (noscript) */}
       	<noscript>
           <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRL98WJ"
-      	height="0" width="0" style="display:none;visibility:hidden"></iframe>
+      	height="0" width="0" style={{display:'none',visibility:'hidden'}} title="googletagmanager"/>
         </noscript>
       	{/* End Google Tag Manager (noscript) */}
 

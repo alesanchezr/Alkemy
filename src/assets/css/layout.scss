@@ -44,6 +44,13 @@ a:active,
 a:hover {
   outline-width: 0;
 }
+
+.dropdown-item:hover{
+  background: inherit !important;
+  a{
+    color: #F0C611 !important;
+  }
+}
 abbr[title] {
   border-bottom: none;
   text-decoration: underline;
