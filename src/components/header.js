@@ -2,6 +2,16 @@ import React from 'react'
 import { Link } from 'gatsby'
 import ReactNavbar from './Navbar.jsx'
 
+
+/*
+_menuArray object details:
+  name:  the title of the menu item (link text)
+  id: id used for unique key. top level is numbered, submenu adds letters.
+  drop: true/false, specifies if it is a dropdown menu
+  url: the url for Link
+  submenu: a nested array for dropdown menu items
+*/
+
 var _menuArray = [
   {name: 'Home', id: '1', drop:false, url: '/'},
   {
@@ -20,14 +30,13 @@ var _menuArray = [
   {name: 'Contact Alkemy', id: '5', drop:false, url: '/contact-alkemy'},
 ];
 
-const Header = ({ siteTitle, hideHeader, menuArray }) =>(
+const Header = ({ siteTitle, hideHeader }) =>(
     <div>
       <div
         style={{
           background: 'rgba(8,11,13,.85)',
           color: 'white',
-          marginBottom: '1.45rem',
-          height: '12vh',
+          height: '100px',
           top: '0',
           left: '0',
           right: '0',
@@ -38,12 +47,12 @@ const Header = ({ siteTitle, hideHeader, menuArray }) =>(
       <ReactNavbar menuArray={_menuArray} />
       </div>
       {
-        (!hideHeader)
+        (hideHeader===true)
         ?(
           <div
             id='subHeader'
             style={{
-              marginTop: '12vh',
+              marginTop: '100px',
               width: '100%',
               padding: '1.45rem 1.0875rem',
             }}

@@ -57,15 +57,15 @@ export default class ReactNavbar extends React.Component {
     return this.props.menuArray.map(item=>{
       if(!item.drop){
         return(
-          <NavItem className="ml-4" key={item.id}>
+          <NavItem className="ml-4 my-auto" key={item.id}>
             <Link to={item.url} className="text-white">{item.name}</Link>
           </NavItem>
         );
       }else{
         return(
-          <Dropdown className="ml-4 bg-dark" onMouseOver={this.onMouseEnter} onMouseLeave={this.onMouseLeave} isOpen={this.state.dropdownOpen} toggle={this.toggle} key={item.id}>
-            <DropdownToggle tag="p" className="text-white" caret>{item.name}</DropdownToggle>
-            <DropdownMenu tag="ul" className="list-unstyled" className="bg-dark">
+          <Dropdown className="ml-4 my-auto bg-dark" onMouseOver={this.onMouseEnter} onMouseLeave={this.onMouseLeave} isOpen={this.state.dropdownOpen} toggle={this.toggle} key={item.id}>
+            <DropdownToggle tag="p" className="text-white my-auto" caret>{item.name}</DropdownToggle>
+            <DropdownMenu tag="ul" className="bg-dark">
             {
               item.submenu.map(subitem=>{
                 return(
@@ -94,7 +94,7 @@ export default class ReactNavbar extends React.Component {
             <p>Call Us Today! 877-4ALKEMY (425-5369)</p>
             <Nav className="ml-auto" navbar>
               {this.renderMenuLinks()}
-              <Button>Reserve Appointment</Button>
+              <Button className="ml-4">Reserve Appointment</Button>
             </Nav>
 
           </Collapse>
