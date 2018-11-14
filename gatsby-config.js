@@ -11,7 +11,19 @@ module.exports = {
         path: `${__dirname}/src/assets/images`,
       },
     },
-    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `videos`,
+        path: `${__dirname}/src/assets/video`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        includePaths: ["src/assets/css"],
+      },
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
@@ -29,7 +41,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography`,
+        pathToConfigModule: `src/utils/typography.js`,
       }
     },
     {

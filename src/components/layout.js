@@ -5,8 +5,9 @@ import { StaticQuery, graphql } from 'gatsby'
 import { TypographyStyle, GoogleFont } from 'react-typography'
 import typography from '../utils/typography'
 import Header from './header'
-import '../assets/css/layout.scss'
+import '../assets/css/layout.css'
 import '../assets/css/bootstrap.min.css'
+import '../assets/css/style.scss'
 
 const Layout = ({ children, pageTitle, headerTitle }) => (
   <StaticQuery
@@ -25,7 +26,7 @@ const Layout = ({ children, pageTitle, headerTitle }) => (
         id="___gatsby"
       >
         <Helmet
-          title={data.site.siteMetadata.title}
+          title={pageTitle}
           meta={[
             { name: 'charset', content: 'UTF-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' },
@@ -115,7 +116,6 @@ const Layout = ({ children, pageTitle, headerTitle }) => (
           style={{
             margin: '0 auto',
             maxWidth: 1920,
-            padding: '0px 1.0875rem 1.45rem',
             paddingTop: 0,
           }}
         >
