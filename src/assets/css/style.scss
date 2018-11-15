@@ -2,32 +2,16 @@
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
   font-weight: 600 !important;
 }
+
 a:hover,
 .dropdown-toggle:hover{
   color: #F0C611 !important;
 }
+
 /* dropdown menu restyle */
 .dropdown-item:hover{
   background: inherit !important;
   a{
     color: #F0C611 !important;
   }
-}
-
-.example-enter {
-  opacity: 0.01;
-}
-
-.example-enter.example-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-.example-leave {
-  opacity: 1;
-}
-
-.example-leave.example-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
 }
