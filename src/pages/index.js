@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import Image from '../components/image'
+import Carousel from '../components/carousel'
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import VideoCarousel from '../components/videoCarousel'
 

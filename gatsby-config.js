@@ -12,13 +12,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `videos`,
-        path: `${__dirname}/src/assets/video`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-sass`,
       options: {
         includePaths: ["src/assets/css"],
