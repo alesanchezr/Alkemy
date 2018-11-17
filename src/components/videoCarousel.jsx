@@ -1,13 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components';
 
-export default class VideoCarousel extends React.Component{
+class VideoCarousel extends React.Component{
   constructor(props){
     super(props);
 
     this.state = {
       currentIndex: 0,
-      slides: this.props.slides
+      slides: this.props.slides,
+      vidClasses: "vc-video"
     };
 
     this.handleEnded = this.handleEnded.bind(this);
@@ -18,6 +20,7 @@ export default class VideoCarousel extends React.Component{
   componentDidMount(){
     this.video.addEventListener("ended", e => this.handleEnded);
   }
+
   componentDidUpdate(prevProps, prevState) {
     this.video.play();
   }
@@ -50,21 +53,26 @@ export default class VideoCarousel extends React.Component{
     }
   }
 
+
   render(){
     return(
-      <div className="vc-wrap" style={{height:'100vh',width:'100vw',overflow:'hidden'}} >
+      <div className="vc-wrap" style={{height:'100vh',width:'100vw',overflow:'hidden',background:'black'}} >
         {this.showIndicators}
+        <div style={{background:'transparent'}}>{this.props.children}</div>
         <video
-          autoPlay="true"
-          muted="true"
-          playsInline="true"
+          autoPlay={true}
+          muted={true}
+          playsInline={true}
           crossOrigin="true"
           onEnded={this.handleEnded}
+          className={this.state.vidClasses}
           src={this.state.slides[this.state.currentIndex].mp4}
           style={{objectFit:'cover',width:'100%',height:'100%',overflow:'hidden'}}
           poster={this.state.slides[this.state.currentIndex].img}
           ref={el => {this.video = el}}
           />
+
+
       </div>
     )
   }
@@ -73,3 +81,5 @@ export default class VideoCarousel extends React.Component{
 VideoCarousel.propTypes = {
   slides: PropTypes.array
 }
+
+export default VideoCarousel;

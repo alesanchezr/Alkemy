@@ -28,6 +28,7 @@
     "react-transition-group": "^2.5.0",
     "react-typography": "^0.16.13",
     "reactstrap": "^6.5.0",
+    "styled-components": "^4.1.1",
     "typography": "^0.16.17"
   },
   "keywords": [

@@ -17,9 +17,6 @@ import video_2_mp4 from '../assets/video/Aloha-Mundo/Aloha-Mundo.mp4'
 import video_3_jpg from '../assets/video/Office-Day/Office-Day.jpg'
 import video_3_mp4 from '../assets/video/Office-Day/Office-Day.mp4'
 
-import video_4_jpg from '../assets/video/Into_the_Wild/Into_the_Wild.jpg'
-import video_4_mp4 from '../assets/video/Into_the_Wild/Into_the_Wild.mp4'
-
 /* Define Slide Array
 Each object(slide) in array should have 2 keys:
     1. img - image for the video fallback poster
@@ -37,10 +34,6 @@ const slideArray = [
   {
     img: video_3_jpg,
     mp4: video_3_mp4,
-  },
-  {
-    img: video_4_jpg,
-    mp4: video_4_mp4,
   }
 ];
 
@@ -60,21 +53,39 @@ const HomePage = () => (
 
     {/* Section 1 - Hero */}
     <section className="homeHero">
-    	<div  className="container-fluid px-0 position-relative">
+    	<div  className="container-fluid px-0 position-relative" style={{position: 'relative'}}>
 
         {/* Cover Video Slider */}
-        <VideoCarousel slides={slideArray} showIndicators={false}/>
+        <VideoCarousel slides={slideArray} showIndicators={false} >
+          {/* Cover Text */}
 
-    		{/* Cover Text */}
+      		<div id="cover-text" style={{zIndex:'100',width:'100%',height:'100%'}}>
+      			<div className="cover-text-1a" style={{
+                position:'absolute',
+                top:'30%',
+                left:'30vw',
+                fontSize:'3rem',
+                textShadow: '2px 2px gray',
+                color:'white'
+              }}>
+      				Your Brand Deserves
+      			</div>
+      			<div className="cover-text-1b" style={{
+                position:'absolute',
+                top:'42%',
+                right:'20vw',
+                fontWeight: 'bold',
+                fontSize: '5.5rem',
+                textShadow: '2px 2px gray',
+                color:'white'
+              }}>
+      				Only The Best
+      			</div>
+      		</div>
 
-    		<div id="cover-text">
-    			<div  className="cover-text-1a">
-    				Your Brand Deserves
-    			</div>
-    			<div  className="cover-text-1b">
-    				Only The Best
-    			</div>
-    		</div>
+        </VideoCarousel>
+
+
 
     		{/* Cover CTA */}
         <div id="hero-cta-div"  className="d-none d-sm-block position-absolute">

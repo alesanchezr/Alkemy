@@ -9,6 +9,13 @@ import '../assets/css/layout.css'
 import '../assets/css/bootstrap.min.css'
 import '../assets/css/style.scss'
 
+import favicon from '../assets/images/favicon.ico'
+import favicon16 from '../assets/images/favicon-16x16.png'
+import favicon32 from '../assets/images/favicon-32x32.png'
+
+
+
+
 const Layout = ({ children, pageTitle, headerTitle }) => (
   <StaticQuery
     query={graphql`
@@ -52,11 +59,11 @@ const Layout = ({ children, pageTitle, headerTitle }) => (
 
           {/* App Icons and Favicon */}
           <link rel="apple-touch-icon" sizes="180x180" href="<?php echo THEME_DIR; ?>/assets/images/apple-touch-icon.png" />
-        	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo THEME_DIR; ?>/assets/images/favicon-32x32.png" />
-        	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo THEME_DIR; ?>/assets/images/favicon-16x16.png" />
+        	<link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
+        	<link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
         	<link rel="manifest" href="<?php echo THEME_DIR; ?>/assets/images/site.webmanifest" />
         	<link rel="mask-icon" href="<?php echo THEME_DIR; ?>/assets/images/safari-pinned-tab.svg" color="#44baff" />
-        	<link rel="shortcut icon" href="/src/images/favicon.ico" />
+        	<link rel="shortcut icon" href={favicon} />
 
           <TypographyStyle typography={typography} />
           <GoogleFont typography={typography} />

@@ -13,21 +13,21 @@ _menuArray object details:
 */
 
 var _menuArray = [
-  {name: 'Home', id: '1', drop:false, url: '/'},
   {
     name: 'Solutions',
-    id: '2',
+    id: '1',
     drop: true,
+    title: true,
     submenu: [
-      {name: 'Web Design', id: '2a', url: '/web-design'},
-      {name: 'Web Development', id: '2b', url: '/web-development'},
-      {name: 'E-Commerce Design', id: '2c', url: '/ecommerce-design'},
-      {name: 'Digital Marketing', id: '2d', url: '/digital-marketing'},
+      {name: 'Web Design', id: '1a', url: '/web-design'},
+      {name: 'Web Development', id: '1b', url: '/web-development'},
+      {name: 'E-Commerce Design', id: '1c', url: '/ecommerce-design'},
+      {name: 'Digital Marketing', id: '1d', url: '/digital-marketing'},
     ]
   },
-  {name: 'Alkemy Blog', id: '3', drop:false, url: '/alkemy-blog'},
-  {name: 'About Alkemy', id: '4', drop:false, url: '/about-alkemy'},
-  {name: 'Contact Alkemy', id: '5', drop:false, url: '/contact-alkemy'},
+  {name: 'Alkemy Blog', title: true, id: '2', drop:false, url: '/alkemy-blog'},
+  {name: 'About Alkemy', title: true, id: '3', drop:false, url: '/about-alkemy'},
+  {name: 'Contact Alkemy', title: true, id: '4', drop:false, url: '/contact-alkemy'},
 ];
 
 const Header = ({ siteTitle, hideHeader }) =>(

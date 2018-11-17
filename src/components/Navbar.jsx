@@ -20,22 +20,35 @@ export default class ReactNavbar extends React.Component {
   constructor(props) {
     super(props);
 
-    this.toggleNavbar = this.toggleNavbar.bind(this);
+    this.toggleMobileMenu = this.toggleMobileMenu.bind(this);
     this.toggle = this.toggle.bind(this);
     this.onMouseEnter = this.onMouseEnter.bind(this);
     this.onMouseLeave = this.onMouseLeave.bind(this);
 
     this.state = {
       isOpen: false,
-      dropdownOpen: false
+      dropdownOpen: false,
+      mobileMenuClasses: "d-block d-lg-none mobileMenu"
     };
   }
 
+
   // Navbar Toggler Function
-  toggleNavbar() {
+  toggleMobileMenu(prevState) {
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !this.state.isOpen,
     });
+
+    if(this.state.isOpen){
+      this.setState({
+        mobileMenuClasses: "d-block d-lg-none mobileMenu open"
+      });
+      document.body.classList.add('open');
+    }else{
+      this.setState({
+        mobileMenuClasses: "d-block d-lg-none mobileMenu"
+      });
+    }
   }
 
   // Functions for Dropdown menu
@@ -82,23 +95,59 @@ export default class ReactNavbar extends React.Component {
     });
   }
 
+  renderMobileLinks() {
+    return this.props.menuArray.map(item=>{
+      if(item.drop){
+        return(
+          <>
+            <NavItem className="mx-auto font-weight-bold siteTitle" key={item.id}>
+              <Link to={item.url} className="text-white">{item.name}</Link>
+            </NavItem>
+            <ul className="mobileSubMenu list-unstyled mx-auto text-center mb-5">
+              {
+                item.submenu.map(subitem=>{
+                  return(
+                    <NavItem key={subitem.id}>
+                      <Link to={subitem.url} className="text-white">{subitem.name}</Link>
+                    </NavItem>
+                  )
+                })
+              }
+            </ul>
+          </>
+        );
+      }else{
+        return(
+          <NavItem className="mx-auto font-weight-bold" key={item.id}>
+            <Link to={item.url} className="text-white">{item.name}</Link>
+          </NavItem>
+        )
+      }
+    })
+  }
+
   render() {
     return (
       <div>
-        <Navbar fixed='top' expand="md">
+        <Navbar fixed='top' expand="lg" dark>
           <NavbarBrand to="/" className="mr-auto">
             <img src={alkemyLogo} alt="Alkemy, Inc." style={{maxHeight:'100px',margin:'auto'}} />
           </NavbarBrand>
-          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-          <Collapse isOpen={!this.state.isOpen} navbar>
-            <p>Call Us Today! 877-4ALKEMY (425-5369)</p>
-            <Nav className="ml-auto" navbar>
+          <NavbarToggler onClick={this.preventDefault,this.toggleMobileMenu} className="mr-2" color="white"/>
+          <Collapse className="d-none d-lg-block" navbar>
+            <p className="callUs">Call Us Today! 877-4ALKEMY (425-5369)</p>
+            <Nav className="ml-auto" navbar style={{marginTop:'2rem'}}>
               {this.renderMenuLinks()}
-              <Button className="ml-4">Reserve Appointment</Button>
+              <Button outline color="light" className="ml-4">Reserve Appointment</Button>
             </Nav>
-
           </Collapse>
         </Navbar>
+        <div className={this.state.mobileMenuClasses} >
+          <hr/>
+          <Nav className="mx-auto" navbar>
+            {this.renderMobileLinks()}
+          </Nav>
+        </div>
       </div>
     );
   }
