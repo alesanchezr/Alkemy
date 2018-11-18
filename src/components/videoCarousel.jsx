@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components';
 
 class VideoCarousel extends React.Component{
   constructor(props){
@@ -9,70 +8,71 @@ class VideoCarousel extends React.Component{
     this.state = {
       currentIndex: 0,
       slides: this.props.slides,
-      vidClasses: "vc-video"
+      vidClasses: "vc-video",
+      containerClasses: "vc-wrap"
     };
 
     this.handleEnded = this.handleEnded.bind(this);
+    this.handlePlay = this.handlePlay.bind(this);
     this.prevSlide = this.prevSlide.bind(this);
     this.nextSlide = this.nextSlide.bind(this);
   }
 
-  componentDidMount(){
-    this.video.addEventListener("ended", e => this.handleEnded);
-  }
 
-  componentDidUpdate(prevProps, prevState) {
+  handlePlay = (e) => {
     this.video.play();
   }
 
-  handleEnded(e) {
+  handleEnded = (e) =>{
     const nextIndex = this.state.currentIndex + 1 < this.state.slides.length ? this.state.currentIndex + 1 : 0
     this.setState({ currentIndex: nextIndex });
   }
 
-  prevSlide(){
+  prevSlide = () =>{
     var prevSlide = this.state.currentIndex - 1 < 0 ? this.state.slides.length - 1 : this.state.currentIndex - 1;
     this.setState({
       currentIndex: prevSlide
     })
   }
 
-  nextSlide(){
+  nextSlide = () =>{
     var nextSlide = this.state.currentIndex + 1 < this.state.slides.length ? this.state.currentIndex + 1 : 0;
     this.setState({
       currentIndex: nextSlide
     })
   }
 
-  showIndicators(){
-    if(this.props.showIndicators===true){
-      return(<div className="carousel__prev" onClick={this.prevSlide}>◀︎</div>)
-    }
-    if(this.props.showIndicators===true){
-      return(<div className="carousel__next" onClick={this.nextSlide}>▶︎</div>)
-    }
-  }
-
 
   render(){
     return(
-      <div className="vc-wrap" style={{height:'100vh',width:'100vw',overflow:'hidden',background:'black'}} >
-        {this.showIndicators}
-        <div style={{background:'transparent'}}>{this.props.children}</div>
-        <video
-          autoPlay={true}
-          muted={true}
-          playsInline={true}
-          crossOrigin="true"
-          onEnded={this.handleEnded}
-          className={this.state.vidClasses}
-          src={this.state.slides[this.state.currentIndex].mp4}
-          style={{objectFit:'cover',width:'100%',height:'100%',overflow:'hidden'}}
-          poster={this.state.slides[this.state.currentIndex].img}
-          ref={el => {this.video = el}}
-          />
-
-
+      <div className="vc">
+        <div className={this.state.containerClasses} >
+          {
+            (this.props.showIndicators===true)
+            ? (
+                <>
+                <div className="carousel__prev" onClick={this.prevSlide}>◀︎</div>
+                <div className="carousel__next" onClick={this.nextSlide}>▶︎</div>
+                </>
+              )
+            : ("")
+          }
+          <div style={{background:'transparent'}}>{this.props.children}</div>
+          <video
+            autoPlay={true}
+            muted={true}
+            playsInline={true}
+            crossOrigin="true"
+            onPlay={this.handlePlay}
+            onEnded={this.handleEnded}
+            className={this.state.vidClasses}
+            src={this.state.slides[this.state.currentIndex].mp4}
+            style={{objectFit:'cover',width:'100%',height:'100%',overflow:'hidden'}}
+            poster={this.state.slides[this.state.currentIndex].img}
+            ref={el => {this.video = el}}
+            >
+          </video>
+        </div>
       </div>
     )
   }

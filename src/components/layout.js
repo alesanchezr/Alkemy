@@ -8,6 +8,7 @@ import Header from './header'
 import '../assets/css/layout.css'
 import '../assets/css/bootstrap.min.css'
 import '../assets/css/style.scss'
+import '../assets/css/animate.css'
 
 import favicon from '../assets/images/favicon.ico'
 import favicon16 from '../assets/images/favicon-16x16.png'

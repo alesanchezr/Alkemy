@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import {
   Collapse,
-  Navbar,
   NavbarToggler,
+  Navbar,
   NavbarBrand,
   Nav,
   NavItem,
@@ -15,6 +15,7 @@ import {
   DropdownItem
 } from "reactstrap"
 import alkemyLogo from '../assets/images/alkemy_logo.png'
+
 
 export default class ReactNavbar extends React.Component {
   constructor(props) {
@@ -28,10 +29,14 @@ export default class ReactNavbar extends React.Component {
     this.state = {
       isOpen: false,
       dropdownOpen: false,
-      mobileMenuClasses: "d-block d-lg-none mobileMenu"
+      mobileMenuClasses: "d-block d-lg-none mobileMenu",
+      togglerClasses: "mr-2 d-lg-none hamburger hamburger--slider"
     };
   }
 
+  componentDidMount(){
+
+  }
 
   // Navbar Toggler Function
   toggleMobileMenu(prevState) {
@@ -41,32 +46,34 @@ export default class ReactNavbar extends React.Component {
 
     if(this.state.isOpen){
       this.setState({
-        mobileMenuClasses: "d-block d-lg-none mobileMenu open"
+        mobileMenuClasses: "d-block d-lg-none mobileMenu open",
+        togglerClasses: "mr-2 d-lg-none hamburger hamburger--slider is-active"
       });
       document.body.classList.add('open');
     }else{
       this.setState({
-        mobileMenuClasses: "d-block d-lg-none mobileMenu"
+        mobileMenuClasses: "d-block d-lg-none mobileMenu",
+        togglerClasses: "mr-2 d-lg-none hamburger hamburger--slider"
       });
     }
   }
 
   // Functions for Dropdown menu
-  toggle() {
+  toggle = () => {
     this.setState({
       dropdownOpen: !this.state.dropdownOpen
-    });
+    })
   }
 
-  onMouseEnter() {
+  onMouseEnter = () => {
     this.setState({dropdownOpen: true});
   }
 
-  onMouseLeave() {
+  onMouseLeave = () => {
     this.setState({dropdownOpen: false});
   }
 
-  renderMenuLinks() {
+  renderMenuLinks = () => {
     return this.props.menuArray.map(item=>{
       if(!item.drop){
         return(
@@ -95,13 +102,13 @@ export default class ReactNavbar extends React.Component {
     });
   }
 
-  renderMobileLinks() {
+  renderMobileLinks = () => {
     return this.props.menuArray.map(item=>{
       if(item.drop){
         return(
-          <>
-            <NavItem className="mx-auto font-weight-bold siteTitle" key={item.id}>
-              <Link to={item.url} className="text-white">{item.name}</Link>
+          <div key={item.id}>
+            <NavItem className="text-center font-weight-bold siteTitle">
+              <p className="text-white">{item.name}</p>
             </NavItem>
             <ul className="mobileSubMenu list-unstyled mx-auto text-center mb-5">
               {
@@ -114,8 +121,8 @@ export default class ReactNavbar extends React.Component {
                 })
               }
             </ul>
-          </>
-        );
+          </div>
+        )
       }else{
         return(
           <NavItem className="mx-auto font-weight-bold" key={item.id}>
@@ -128,12 +135,19 @@ export default class ReactNavbar extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <Navbar fixed='top' expand="lg" dark>
-          <NavbarBrand to="/" className="mr-auto">
-            <img src={alkemyLogo} alt="Alkemy, Inc." style={{maxHeight:'100px',margin:'auto'}} />
+          <NavbarBrand to="/" className="mr-lg-auto mx-auto">
+            <img src={alkemyLogo} alt="Alkemy, Inc." style={{maxHeight:'100px'}} />
           </NavbarBrand>
-          <NavbarToggler onClick={this.preventDefault,this.toggleMobileMenu} className="mr-2" color="white"/>
+          <NavbarToggler
+            onClickCapture={this.toggleMobileMenu}
+            className={this.state.togglerClasses}
+            >
+            <span className="hamburger-box">
+              <span className="hamburger-inner"></span>
+            </span>
+          </NavbarToggler>
           <Collapse className="d-none d-lg-block" navbar>
             <p className="callUs">Call Us Today! 877-4ALKEMY (425-5369)</p>
             <Nav className="ml-auto" navbar style={{marginTop:'2rem'}}>
@@ -146,9 +160,11 @@ export default class ReactNavbar extends React.Component {
           <hr/>
           <Nav className="mx-auto" navbar>
             {this.renderMobileLinks()}
+            <Button outline color="light" className="mx-auto">Reserve Appointment</Button>
+            <p className="mx-auto">Call Us Today! 877-4ALKEMY (425-5369)</p>
           </Nav>
         </div>
-      </div>
+      </>
     );
   }
 }

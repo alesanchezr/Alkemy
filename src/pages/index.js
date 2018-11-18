@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import Image from '../components/image'
-import Carousel from '../components/carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import VideoCarousel from '../components/videoCarousel'
@@ -82,15 +81,15 @@ const HomePage = () => (
       				Only The Best
       			</div>
       		</div>
-
+          {/* Cover CTA */}
+          <div className="hero-cta-div d-none d-sm-block position-absolute">
+            <a href="/about-alkemy/"  className="btn btn-primary btn-lg pulse">Learn More</a>
+          </div>
         </VideoCarousel>
 
 
 
-    		{/* Cover CTA */}
-        <div id="hero-cta-div"  className="d-none d-sm-block position-absolute">
-          <a href="/about-alkemy/"  className="btn btn-primary btn-lg pulse">Learn More</a>
-        </div>
+
       </div>
     </section>
 

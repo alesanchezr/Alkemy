@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import ReactNavbar from './Navbar.jsx'
-
+import WOW from "wowjs";
 
 /*
 _menuArray object details:
@@ -31,21 +31,10 @@ var _menuArray = [
 ];
 
 const Header = ({ siteTitle, hideHeader }) =>(
-    <div>
-      <div
-        style={{
-          background: 'rgba(8,11,13,.70)',
-          color: 'white',
-          height: '130px',
-          top: '0',
-          left: '0',
-          right: '0',
-          zIndex: '1000',
-          position: 'fixed'
-        }}
-      >
-      <ReactNavbar menuArray={_menuArray} />
-      </div>
+    <div className="header wow fadeInDown">
+      <>
+        <ReactNavbar menuArray={_menuArray} />
+      </>
       {
         (hideHeader===true)
         ?(
