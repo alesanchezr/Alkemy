@@ -1,10 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+
 import { TypographyStyle, GoogleFont } from 'react-typography'
 import typography from '../utils/typography'
 import Header from './header'
+
 import '../assets/css/layout.css'
 import '../assets/css/bootstrap.min.css'
 import '../assets/css/style.scss'
@@ -13,6 +16,20 @@ import '../assets/css/animate.css'
 import favicon from '../assets/images/favicon.ico'
 import favicon16 from '../assets/images/favicon-16x16.png'
 import favicon32 from '../assets/images/favicon-32x32.png'
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faCalendarAlt,faCalendarPlus } from '@fortawesome/free-regular-svg-icons'
+
+library.add(
+  fab,
+  faChevronDown,
+  faCalendarAlt,
+  faCalendarPlus
+)
+
+
 
 
 

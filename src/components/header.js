@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import ReactNavbar from './Navbar.jsx'
-import WOW from "wowjs";
 
 /*
 _menuArray object details:

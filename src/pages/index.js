@@ -1,8 +1,11 @@
 import React from 'react'
 import { Link } from 'gatsby'
+
+import { Button } from 'reactstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import Layout from '../components/layout'
 import Image from '../components/image'
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import VideoCarousel from '../components/videoCarousel'
 
@@ -45,6 +48,7 @@ Layout props:
         string (subheader text)
       ]
 */
+
 const HomePage = () => (
   <Layout
     pageTitle="Alkemy, Inc. | Web Design, Development, eCommerce, and Marketing"
@@ -56,40 +60,23 @@ const HomePage = () => (
 
         {/* Cover Video Slider */}
         <VideoCarousel slides={slideArray} showIndicators={false} >
-          {/* Cover Text */}
 
-      		<div id="cover-text" style={{zIndex:'100',width:'100%',height:'100%'}}>
-      			<div className="cover-text-1a" style={{
-                position:'absolute',
-                top:'30%',
-                left:'30vw',
-                fontSize:'3rem',
-                textShadow: '2px 2px gray',
-                color:'white'
-              }}>
-      				Your Brand Deserves
-      			</div>
-      			<div className="cover-text-1b" style={{
-                position:'absolute',
-                top:'42%',
-                right:'20vw',
-                fontWeight: 'bold',
-                fontSize: '5.5rem',
-                textShadow: '2px 2px gray',
-                color:'white'
-              }}>
-      				Only The Best
-      			</div>
+          {/* Cover Text */}
+      		<div id="cover-text">
+      			<div className="cover-text-1a">Your Brand Deserves</div>
+      			<div className="cover-text-1b">Only The Best</div>
       		</div>
+
           {/* Cover CTA */}
           <div className="hero-cta-div d-none d-sm-block position-absolute">
-            <a href="/about-alkemy/"  className="btn btn-primary btn-lg pulse">Learn More</a>
+            <Button to="/about-alkemy" className="btn btn-primary btn-lg">Learn More</Button>
           </div>
+
+          {/* Caret */}
+          <Button>
+            <FontAwesomeIcon icon="chevron-down" size="3x" color="white" className="heroChevron"/>
+          </Button>
         </VideoCarousel>
-
-
-
-
       </div>
     </section>
 

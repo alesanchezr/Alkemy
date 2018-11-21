@@ -14,6 +14,7 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import alkemyLogo from '../assets/images/alkemy_logo.png'
 
 
@@ -26,16 +27,27 @@ export default class ReactNavbar extends React.Component {
     this.onMouseEnter = this.onMouseEnter.bind(this);
     this.onMouseLeave = this.onMouseLeave.bind(this);
 
+    this.handleButtonHover = this.handleButtonHover.bind(this);
+
     this.state = {
       isOpen: false,
       dropdownOpen: false,
       mobileMenuClasses: "d-block d-lg-none mobileMenu",
-      togglerClasses: "mr-2 d-lg-none hamburger hamburger--slider"
+      togglerClasses: "mr-2 d-lg-none hamburger hamburger--slider",
+      icon: ['far','calendar-alt']
     };
   }
 
-  componentDidMount(){
-
+  handleButtonHover = (e) => {
+    if(e.type=="mouseover"){
+      this.setState({
+        icon: ['far','calendar-plus']
+      });
+    }else{
+      this.setState({
+        icon: ['far','calendar-alt']
+      });
+    }
   }
 
   // Navbar Toggler Function
@@ -152,7 +164,10 @@ export default class ReactNavbar extends React.Component {
             <p className="callUs">Call Us Today! 877-4ALKEMY (425-5369)</p>
             <Nav className="ml-auto" navbar style={{marginTop:'2rem'}}>
               {this.renderMenuLinks()}
-              <Button outline color="light" className="ml-4">Reserve Appointment</Button>
+              <Button outline color="light" onMouseOver={this.handleButtonHover} onMouseOut={this.handleButtonHover} className="ml-4 align-middle">
+                <FontAwesomeIcon icon={this.state.icon} color="white" size="lg" className="mr-2"/>
+                Reserve Appointment
+              </Button>
             </Nav>
           </Collapse>
         </Navbar>
@@ -160,7 +175,10 @@ export default class ReactNavbar extends React.Component {
           <hr/>
           <Nav className="mx-auto" navbar>
             {this.renderMobileLinks()}
-            <Button outline color="light" className="mx-auto">Reserve Appointment</Button>
+            <Button outline color="light" className="mx-auto align-middle">
+              <FontAwesomeIcon icon={this.state.icon} color="white" size="lg"/>
+              Reserve Appointment
+            </Button>
             <p className="mx-auto">Call Us Today! 877-4ALKEMY (425-5369)</p>
           </Nav>
         </div>
