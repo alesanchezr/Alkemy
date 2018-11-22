@@ -52,7 +52,8 @@ Layout props:
 const HomePage = () => (
   <Layout
     pageTitle="Alkemy, Inc. | Web Design, Development, eCommerce, and Marketing"
-    headerTitle={[false,""]}>
+    headerTitle={[false,""]}
+    >
 
     {/* Section 1 - Hero */}
     <section className="homeHero">
@@ -73,14 +74,28 @@ const HomePage = () => (
           </div>
 
           {/* Caret */}
-          <Button>
+          <Button onClick={handleCaretClick}>
             <FontAwesomeIcon icon="chevron-down" size="3x" color="white" className="heroChevron"/>
           </Button>
         </VideoCarousel>
       </div>
     </section>
-
+    <section ref={introSection}>
+      <h1></h1>
+      <p></p>
+      <h1></h1>
+      <p></p>
+    </section>
   </Layout>
 )
+
+var introSection = React.createRef();
+
+const handleCaretClick = () =>{
+  window.scrollTo({
+    top: introSection.current.offsetTop,
+    behavior: "smooth"
+  })
+}
 
 export default HomePage
