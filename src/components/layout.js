@@ -29,12 +29,7 @@ library.add(
   faCalendarPlus
 )
 
-
-
-
-
-
-const Layout = ({ children, pageTitle, headerTitle }) => (
+const Layout = ({ children, pageTitle, headerTitle, headerType }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -51,6 +46,7 @@ const Layout = ({ children, pageTitle, headerTitle }) => (
         id="___gatsby"
       >
         <Helmet
+          bodyAttributes={(headerType==="blog")?{class: 'blog'}:{class: 'page'}}
           title={pageTitle}
           meta={[
             { name: 'charset', content: 'UTF-8' },

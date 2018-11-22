@@ -149,7 +149,7 @@ export default class ReactNavbar extends React.Component {
     return (
       <>
         <Navbar fixed='top' expand="lg" dark>
-          <NavbarBrand to="/" className="mr-lg-auto mx-auto">
+          <NavbarBrand href="/" className="mr-lg-auto mx-auto">
             <img src={alkemyLogo} alt="Alkemy, Inc." style={{maxHeight:'100px'}} />
           </NavbarBrand>
           <NavbarToggler

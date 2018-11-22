@@ -13,7 +13,7 @@
 /**********************/
 
 /* Mobile Menu */
-
+$header-height: 130px; // Set height of header
 $animation-time: 400ms; // Set the animation speed
 $animation-function: ease; // Set the animation type
 
@@ -39,15 +39,27 @@ $linkedin: #0077b5;
 $facebook: #3b5998;
 $twitter: #1da1f2;
 
+body.blog{
+  div.header{
+    background: $alkemy_darkest_blue;
+    ul.dropdown-menu{
+      background: $alkemy_darkest_blue !important;
+    }
+  }
+  section.blog-post-container{
+    margin-top: $header-height+20px;
+  }
+}
+
 /* bootstrap override */
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
   font-weight: 600 !important;
 }
 
 .header{
-  background: rgba(8,11,13,.70);
+  background: rgba($alkemy_darkest_blue,.70);
   color: white;
-  height: 130px;
+  height: $header-height;
   top: 0;
   left: 0;
   right: 0;

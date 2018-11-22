@@ -20,8 +20,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 };
 
 const getTemplate = (pagePath) => {
-  if(pagePath.indexOf('/content/page/') != -1){
-    return path.resolve(`./src/templates/page.js`);
+  if(pagePath.indexOf('/content/lesson/') != -1){
+    return path.resolve(`./src/templates/lesson.js`);
   }
   return path.resolve(`./src/templates/blog-post.js`);
 };
@@ -48,10 +48,6 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
     `).then(result => {
-      if (result.errors) {
-        return Promise.reject(result.errors)
-      }
-      
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
 
         createPage({
