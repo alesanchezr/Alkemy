@@ -76,7 +76,7 @@ body{
   z-index: 1000;
   position: fixed;
   animation-duration: 2s;
-  transition: .5s ease;
+  transition: .5s linear;
 
   a:hover,
   .dropdown-toggle:hover{
