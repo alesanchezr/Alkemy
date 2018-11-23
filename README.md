@@ -43,6 +43,7 @@ We implemented a couple of key factors with generating the site, such as:
 
 # Directory Structure
 
+```bash
 src
 ├── assets
 │   ├── css (sass/css stylesheets)
@@ -69,3 +70,4 @@ src
 │   └── tags.js (tag template to generate tags)
 └── utils
     └── typography.js (control for typographical styles)
+```
