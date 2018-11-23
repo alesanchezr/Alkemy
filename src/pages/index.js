@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { graphql } from 'gatsby'
-import { Button } from 'reactstrap'
+import { Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Layout from '../components/layout'
@@ -83,14 +84,63 @@ const HomePage = ({data}) => (
     <section ref={introSection}>
       <div className="container-fluid p-5">
         <h1 className="mb-4">{data.homepageJson.sections[0].blocks[0].heading}</h1>
-        <p className="mb-4">{data.homepageJson.sections[0].blocks[0].content}</p>
+        <p className="mb-5">{data.homepageJson.sections[0].blocks[0].content}</p>
 
         <h1 className="mb-4">{data.homepageJson.sections[0].blocks[1].heading}</h1>
         <p className="mb-4">{data.homepageJson.sections[0].blocks[1].content}</p>
       </div>
     </section>
     <section style={{height:"400px"}}>
-
+      <div className="row px-5">
+        <div className="col-12 col-sm-6 col-lg-3">
+          <Card>
+            <div className="rounded-circle bg-light">
+              <CardImg top width="100%" src={data.homepageJson.sections[1].blocks[0].image} alt="Professional Web Design Services" />
+            </div>
+            <CardBody>
+              <CardTitle>{data.homepageJson.sections[1].blocks[0].heading}</CardTitle>
+              <CardText>{data.homepageJson.sections[1].blocks[0].content}</CardText>
+              <Button>Button</Button>
+            </CardBody>
+          </Card>
+        </div>
+        <div className="col-12 col-sm-6 col-lg-3">
+          <Card>
+            <div className="rounded-circle bg-light">
+              <CardImg top width="100%" src={data.homepageJson.sections[1].blocks[1].image} alt="Professional Web Design Services" />
+            </div>
+            <CardBody>
+              <CardTitle>{data.homepageJson.sections[1].blocks[1].heading}</CardTitle>
+              <CardText>{data.homepageJson.sections[1].blocks[1].content}</CardText>
+              <Button>Button</Button>
+            </CardBody>
+          </Card>
+        </div>
+        <div className="col-12 col-sm-6 col-lg-3">
+          <Card>
+            <div className="rounded-circle bg-light">
+              <CardImg top width="100%" src={data.homepageJson.sections[1].blocks[2].image} alt="Professional Web Design Services" />
+            </div>
+            <CardBody>
+              <CardTitle>{data.homepageJson.sections[1].blocks[2].heading}</CardTitle>
+              <CardText>{data.homepageJson.sections[1].blocks[2].content}</CardText>
+              <Button>Button</Button>
+            </CardBody>
+          </Card>
+        </div>
+        <div className="col-12 col-sm-6 col-lg-3">
+          <Card>
+            <div className="rounded-circle bg-light">
+              <CardImg top width="100%" src={data.homepageJson.sections[1].blocks[3].image} alt="Professional Web Design Services" />
+            </div>
+            <CardBody>
+              <CardTitle>{data.homepageJson.sections[1].blocks[3].heading}</CardTitle>
+              <CardText>{data.homepageJson.sections[1].blocks[3].content}</CardText>
+              <Button>Button</Button>
+            </CardBody>
+          </Card>
+        </div>
+      </div>
     </section>
   </Layout>
 </ScrollWrapper>
