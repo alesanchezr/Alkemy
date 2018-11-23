@@ -131,7 +131,7 @@ const Layout = ({ children, pageTitle, headerTitle, headerType }) => (
         </noscript>
       	{/* End Google Tag Manager (noscript) */}
 
-        <Header siteTitle={headerTitle[1]} hideHeader={headerTitle[0]}/>
+        <Header hideHeader={headerTitle[0]} siteTitle={headerTitle[1]} />
 
         <div
           style={{
@@ -142,6 +142,9 @@ const Layout = ({ children, pageTitle, headerTitle, headerType }) => (
         >
           {children}
         </div>
+
+
+
       </div>
     )}
   />

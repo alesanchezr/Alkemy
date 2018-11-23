@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-
+import { graphql } from 'gatsby'
 import { Button } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -49,7 +49,7 @@ Layout props:
       ]
 */
 
-const HomePage = () => (
+const HomePage = ({data}) => (
   <Layout
     pageTitle="Alkemy, Inc. | Web Design, Development, eCommerce, and Marketing"
     headerTitle={[false,""]}
@@ -74,17 +74,21 @@ const HomePage = () => (
           </div>
 
           {/* Caret */}
-          <Button onClick={handleCaretClick}>
-            <FontAwesomeIcon icon="chevron-down" size="3x" color="white" className="heroChevron"/>
-          </Button>
+          <FontAwesomeIcon onClick={handleCaretClick} icon="chevron-down" size="3x" color="white" className="heroChevron"/>
         </VideoCarousel>
       </div>
     </section>
     <section ref={introSection}>
-      <h1></h1>
-      <p></p>
-      <h1></h1>
-      <p></p>
+      <div class="container-fluid p-5">
+        <h1 class="mb-4">{data.homepageJson.sections[0].blocks[0].heading}</h1>
+        <p class="mb-4">{data.homepageJson.sections[0].blocks[0].content}</p>
+
+        <h1 class="mb-4">{data.homepageJson.sections[0].blocks[1].heading}</h1>
+        <p class="mb-4">{data.homepageJson.sections[0].blocks[1].content}</p>
+      </div>
+    </section>
+    <section>
+      
     </section>
   </Layout>
 )
@@ -97,5 +101,28 @@ const handleCaretClick = () =>{
     behavior: "smooth"
   })
 }
+
+export const query = graphql`
+{
+  homepageJson{
+    sections{
+      id
+      blocks {
+        heading
+        image
+        content
+      }
+      statsCounter{
+        heading
+        stats{
+          title
+          value
+        }
+      }
+    }
+  }
+}
+`;
+
 
 export default HomePage

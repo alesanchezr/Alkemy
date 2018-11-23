@@ -3,7 +3,6 @@ module.exports = {
     title: 'Alkemy, Inc.',
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -12,20 +11,32 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `page`,
+        path: `${__dirname}/src/content/pages/`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-json`,
+      typeName: `json`
+    },
+    {
       resolve: `gatsby-plugin-sass`,
       options: {
         includePaths: ["src/assets/css"],
       },
     },
+    'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'Alkemy, Inc.',
+        short_name: 'alkemyinc',
         start_url: '/',
-        background_color: '#663399',
+        background_color: '#fff',
         theme_color: '#663399',
         display: 'minimal-ui',
         icon: 'src/assets/images/gatsby-icon.png', // This path is relative to the root of the site.

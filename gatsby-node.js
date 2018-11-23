@@ -9,22 +9,27 @@ md().use(fa);
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `content` });
+    const slug = createFilePath({ node, getNode, basePath: `content/posts` });
     createNodeField({
       node,
       name: `slug`,
       value: slug,
     });
   }
-
-};
-
-const getTemplate = (pagePath) => {
-  if(pagePath.indexOf('/content/lesson/') != -1){
-    return path.resolve(`./src/templates/lesson.js`);
+  if (node.internal.type === `Json`) {
+    const slug = createFilePath({ node, getNode, basePath: `content/pages` });
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    });
   }
-  return path.resolve(`./src/templates/blog-post.js`);
 };
+
+const getTemplate = ()=>{
+  return path.resolve(`./src/templates/blog-post.js`);
+}
+
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;

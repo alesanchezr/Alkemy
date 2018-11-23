@@ -1,0 +1,81 @@
+[
+  {
+    "sections":[
+      {
+        "id": "1",
+        "blocks": [
+          {
+            "image": "",
+            "heading": "Quality Web Design & Software Development",
+            "content": "Great businesses all start with a great idea. The secret to success, however, lies in the follow-up. When it comes to your business, Alkemy is who you want on your side. Our experienced team will help you pave the way to a unique digital experience that will put your company on the map. Innovative Ideas, Care and Diligence, First Class Support, and the software development skill to follow through. Let us guide your business to the success it so rightly deserves."
+          },
+          {
+            "image": "",
+            "heading": "High Quality Web Services to Accelerate Your Business",
+            "content": "Alkemy provides an assortment of Web Design, Software Development, and Digital Marketing services that are uniquely designed to help grow your business. We pride ourselves in helping you come up with the right plan to reach your goals. Then we skillfully implement that plan with our professionalism and industry expertise to ensure maximum effect."
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "blocks": [
+          {
+            "image": "",
+            "heading": "Responsive Web Design",
+            "content": "At Alkemy, we pride ourselves on creating Pixel Perfect, Fully Responsive Web design that will awe your customers no matter what platform or browser they visit your website from."
+          },
+          {
+            "image": "",
+            "heading": "Web Development",
+            "content": "Have a web development project that needs a seasoned eye? We’ll help you navigate the planning, development, and ensure a successful launch for your product or platform."
+          },
+          {
+            "image": "",
+            "heading": "E-commerce Design",
+            "content": "Whether you are using Shopify, 3dcart, Woo-Commerce, or want a custom built solution, we are happy to help you create an E-commerce website that will drive your conversions."
+          },
+          {
+            "image": "",
+            "heading": "Digital Marketing",
+            "content": "Every website needs marketing to succeed. We are ready to help you market your unique business. Whether it’s SEO/SEM, Social Media Marketing, or Email Campaigns - Alkemy can Help!"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "blocks": [
+          {
+            "image": "",
+            "heading": "Our Passion",
+            "content": "What drives us? The desire to create Awesome Software that answers the needs of our world. We meet complex problems with creative and innovative solutions every day. At our center is the idea that each member of our team brings something unique to the table and we strive to show it every chance we get."
+          }
+        ]
+      },
+      {
+        "statsCounter": [
+          {
+            "heading": "Our Roadmap to Success…",
+            "stats": [
+              {
+                "title": "Products Sold",
+                "value": "137,124"
+              },
+              {
+                "title": "Campaign Impressions",
+                "value": "24,315"
+              },
+              {
+                "title": "Lines of Code",
+                "value": "539,854"
+              },
+              {
+                "title": "Coffees Consumed",
+                "value": "1,534"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
