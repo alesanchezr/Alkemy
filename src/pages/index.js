@@ -5,6 +5,7 @@ import { Button } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Layout from '../components/layout'
+import ScrollWrapper from '../components/scrollWrapper.jsx'
 import Image from '../components/image'
 
 import VideoCarousel from '../components/videoCarousel'
@@ -50,6 +51,7 @@ Layout props:
 */
 
 const HomePage = ({data}) => (
+  <ScrollWrapper onWindowScroll={handleScroll}>
   <Layout
     pageTitle="Alkemy, Inc. | Web Design, Development, eCommerce, and Marketing"
     headerTitle={[false,""]}
@@ -57,7 +59,7 @@ const HomePage = ({data}) => (
 
     {/* Section 1 - Hero */}
     <section className="homeHero">
-    	<div  className="container-fluid px-0 position-relative" style={{position: 'relative'}}>
+    	<div className="container-fluid px-0 position-relative" style={{position: 'relative'}}>
 
         {/* Cover Video Slider */}
         <VideoCarousel slides={slideArray} showIndicators={false} >
@@ -70,7 +72,7 @@ const HomePage = ({data}) => (
 
           {/* Cover CTA */}
           <div className="hero-cta-div d-none d-sm-block position-absolute">
-            <Button to="/about-alkemy" className="btn btn-primary btn-lg">Learn More</Button>
+            <Button to="/about-alkemy" className="btn btn-primary btn-lg pulse">Learn More</Button>
           </div>
 
           {/* Caret */}
@@ -79,27 +81,38 @@ const HomePage = ({data}) => (
       </div>
     </section>
     <section ref={introSection}>
-      <div class="container-fluid p-5">
-        <h1 class="mb-4">{data.homepageJson.sections[0].blocks[0].heading}</h1>
-        <p class="mb-4">{data.homepageJson.sections[0].blocks[0].content}</p>
+      <div className="container-fluid p-5">
+        <h1 className="mb-4">{data.homepageJson.sections[0].blocks[0].heading}</h1>
+        <p className="mb-4">{data.homepageJson.sections[0].blocks[0].content}</p>
 
-        <h1 class="mb-4">{data.homepageJson.sections[0].blocks[1].heading}</h1>
-        <p class="mb-4">{data.homepageJson.sections[0].blocks[1].content}</p>
+        <h1 className="mb-4">{data.homepageJson.sections[0].blocks[1].heading}</h1>
+        <p className="mb-4">{data.homepageJson.sections[0].blocks[1].content}</p>
       </div>
     </section>
-    <section>
-      
+    <section style={{height:"400px"}}>
+
     </section>
   </Layout>
+</ScrollWrapper>
 )
+
 
 var introSection = React.createRef();
 
 const handleCaretClick = () =>{
   window.scrollTo({
-    top: introSection.current.offsetTop,
+    top: introSection.current.offsetTop-130,
     behavior: "smooth"
   })
+}
+
+const handleScroll = () =>{
+  var top = introSection.current.offsetTop-130;
+  if(window.pageYOffset>=top){
+    document.body.classList.add('solid');
+  }else{
+    document.body.classList.remove('solid');
+  }
 }
 
 export const query = graphql`
