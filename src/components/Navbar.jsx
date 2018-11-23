@@ -28,7 +28,6 @@ export default class ReactNavbar extends React.Component {
     this.onMouseLeave = this.onMouseLeave.bind(this);
 
     this.handleButtonHover = this.handleButtonHover.bind(this);
-    this.handleScroll = this.handleScroll.bind(this);
 
     this.state = {
       isOpen: false,
@@ -37,10 +36,6 @@ export default class ReactNavbar extends React.Component {
       togglerClasses: "mr-2 d-lg-none hamburger hamburger--slider",
       icon: ['far','calendar-alt']
     };
-  }
-
-  componentDidMount(){
-    window.addEventListener('scroll', this.handleScroll);
   }
 
   handleButtonHover = (e) => {
@@ -52,16 +47,6 @@ export default class ReactNavbar extends React.Component {
       this.setState({
         icon: ['far','calendar-alt']
       });
-    }
-  }
-
-  handleScroll = (e) => {
-    let top = window.innerHeight;
-    if(e.srcElement.body.scrollTop>=top){
-      alert('hi');
-      document.body.classList.add('solid');
-    }else{
-      document.body.classList.remove('solid');
     }
   }
 
