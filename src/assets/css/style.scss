@@ -173,7 +173,7 @@ a {
   top: 30%;
   left: 30vw;
   font-size: 3rem;
-  text-shadow: 2px 2px gray;
+  text-shadow: 1px 1px #444;
   color: white;
   -webkit-animation: slideFromLeft 0.5s backwards;
   -webkit-animation-delay: 2s;
@@ -186,7 +186,7 @@ a {
   right: 20vw;
   font-weight: bold;
   font-size: 5.5rem;
-  text-shadow: 2px 2px gray;
+  text-shadow: 1px 1px #444;
   color: white;
   -webkit-animation: slideFromRight 0.5s backwards;
   -webkit-animation-delay: 2s;
@@ -500,4 +500,39 @@ button:focus {
 
 .hamburger--slider.is-active .hamburger-inner::after {
 	transform: translate3d(0, -20px, 0) rotate(-90deg);
+}
+
+
+// HomePage
+.image-services{
+  @media only screen and (min-width: 650px){
+    width: 50%;
+    height: 50%;
+    object-fit: scale-down;
+  }
+}
+
+.card{
+  .card-img-overlay{
+    transition: .3s linear;
+    @media only screen and (min-width: 1080px){
+      opacity: 0;
+    }
+  }
+
+  &:hover{
+    .card-img-overlay {
+      opacity: 1;
+      color: white;
+      background: rgba(0,0,0,.90);
+    }
+  }
+}
+
+.statsCounter{
+  background: $alkemy_dark_blue;
+  color: white;
+  div h1{
+    color: $alkemy_yellow;
+  }
 }

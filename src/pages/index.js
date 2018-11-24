@@ -1,14 +1,20 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { graphql } from 'gatsby'
-import { Card, CardImg, CardText, CardBody,
+import { Card, CardImg, CardText, CardBody,CardImgOverlay,
   CardTitle, CardSubtitle, Button } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Layout from '../components/layout'
 import ScrollWrapper from '../components/scrollWrapper.jsx'
-import Image from '../components/image'
 
+// Images
+import webDesign from '../assets/images/responsive.png'
+import webDevelopment from '../assets/images/development.png'
+import eCommerce from '../assets/images/ecommerce.png'
+import digitalMarketing from '../assets/images/marketing.png'
+
+// Carousel
 import VideoCarousel from '../components/videoCarousel'
 
 // Import video assets
@@ -81,7 +87,7 @@ const HomePage = ({data}) => (
         </VideoCarousel>
       </div>
     </section>
-    <section ref={introSection}>
+    <section ref={introSection} className="introHome">
       <div className="container-fluid p-5">
         <h1 className="mb-4">{data.homepageJson.sections[0].blocks[0].heading}</h1>
         <p className="mb-5">{data.homepageJson.sections[0].blocks[0].content}</p>
@@ -90,55 +96,79 @@ const HomePage = ({data}) => (
         <p className="mb-4">{data.homepageJson.sections[0].blocks[1].content}</p>
       </div>
     </section>
-    <section style={{height:"400px"}}>
-      <div className="row px-5">
+    <section className="servicesHome my-5">
+      <div className="row px-5 align-content-center">
         <div className="col-12 col-sm-6 col-lg-3">
-          <Card>
-            <div className="rounded-circle bg-light">
-              <CardImg top width="100%" src={data.homepageJson.sections[1].blocks[0].image} alt="Professional Web Design Services" />
-            </div>
-            <CardBody>
-              <CardTitle>{data.homepageJson.sections[1].blocks[0].heading}</CardTitle>
-              <CardText>{data.homepageJson.sections[1].blocks[0].content}</CardText>
-              <Button>Button</Button>
-            </CardBody>
+          <Card className="h-100 border-0 text-justify">
+            <Card className="h-100 border-0 text-justify">
+                <CardImg top className="image-services mx-auto mb-3" src={webDesign} alt="Responsive Web Design Service" />
+                <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[0].heading}</CardTitle>
+                <CardImgOverlay>
+                  <div className="container">
+                    <CardText className="h-75">{data.homepageJson.sections[1].blocks[0].content}</CardText>
+                    <Button href="/responsive-web-design" className="form-control align-bottom my-auto">Learn More</Button>
+                  </div>
+                </CardImgOverlay>
+            </Card>
           </Card>
         </div>
         <div className="col-12 col-sm-6 col-lg-3">
-          <Card>
-            <div className="rounded-circle bg-light">
-              <CardImg top width="100%" src={data.homepageJson.sections[1].blocks[1].image} alt="Professional Web Design Services" />
-            </div>
-            <CardBody>
-              <CardTitle>{data.homepageJson.sections[1].blocks[1].heading}</CardTitle>
-              <CardText>{data.homepageJson.sections[1].blocks[1].content}</CardText>
-              <Button>Button</Button>
-            </CardBody>
+          <Card className="h-100 border-0 text-justify">
+              <CardImg top className="image-services mx-auto mb-3" src={webDevelopment} alt="Quality Web Development Service" />
+              <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[1].heading}</CardTitle>
+              <CardImgOverlay>
+                <CardText className="h-75">{data.homepageJson.sections[1].blocks[1].content}</CardText>
+                <Button href="/quality-web-development" className="form-control align-bottom my-auto">Learn More</Button>
+              </CardImgOverlay>
           </Card>
         </div>
         <div className="col-12 col-sm-6 col-lg-3">
-          <Card>
-            <div className="rounded-circle bg-light">
-              <CardImg top width="100%" src={data.homepageJson.sections[1].blocks[2].image} alt="Professional Web Design Services" />
-            </div>
-            <CardBody>
-              <CardTitle>{data.homepageJson.sections[1].blocks[2].heading}</CardTitle>
-              <CardText>{data.homepageJson.sections[1].blocks[2].content}</CardText>
-              <Button>Button</Button>
-            </CardBody>
+          <Card className="h-100 border-0 text-justify">
+            <CardImg top className="image-services mx-auto mb-3" src={eCommerce} alt="Ecommerce Design Services" />
+            <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[2].heading}</CardTitle>
+            <CardImgOverlay>
+              <div className="container">
+                <CardText className="h-75">{data.homepageJson.sections[1].blocks[2].content}</CardText>
+                <Button href="/responsive-web-design" className="form-control align-bottom my-auto">Learn More</Button>
+              </div>
+            </CardImgOverlay>
           </Card>
         </div>
         <div className="col-12 col-sm-6 col-lg-3">
-          <Card>
-            <div className="rounded-circle bg-light">
-              <CardImg top width="100%" src={data.homepageJson.sections[1].blocks[3].image} alt="Professional Web Design Services" />
-            </div>
-            <CardBody>
-              <CardTitle>{data.homepageJson.sections[1].blocks[3].heading}</CardTitle>
-              <CardText>{data.homepageJson.sections[1].blocks[3].content}</CardText>
-              <Button>Button</Button>
-            </CardBody>
+          <Card className="h-100 border-0 text-justify">
+            <CardImg top className="image-services mx-auto mb-3" src={digitalMarketing} alt="Digital Marketing Services" />
+            <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[3].heading}</CardTitle>
+            <CardImgOverlay>
+              <div className="container">
+                <CardText className="h-75">{data.homepageJson.sections[1].blocks[3].content}</CardText>
+                <Button href="/responsive-web-design" className="form-control align-bottom my-auto">Learn More</Button>
+              </div>
+            </CardImgOverlay>
           </Card>
+        </div>
+      </div>
+    </section>
+    <section className="statsCounter my-5 text-center py-4">
+      <h1>{data.homepageJson.sections[3].statsCounter[0].heading}</h1>
+      <div className="row px-5 pt-4">
+        <div className="col-12 col-md-6 col-lg-3">
+          <h1>{data.homepageJson.sections[3].statsCounter[0].stats[0].value}</h1>
+          <h5 className="text-muted">{data.homepageJson.sections[3].statsCounter[0].stats[0].title}</h5>
+        </div>
+
+        <div className="col-12 col-md-6 col-lg-3">
+          <h1>{data.homepageJson.sections[3].statsCounter[0].stats[1].value}</h1>
+          <h5 className="text-muted">{data.homepageJson.sections[3].statsCounter[0].stats[1].title}</h5>
+        </div>
+
+        <div className="col-12 col-md-6 col-lg-3">
+          <h1>{data.homepageJson.sections[3].statsCounter[0].stats[2].value}</h1>
+          <h5 className="text-muted">{data.homepageJson.sections[3].statsCounter[0].stats[2].title}</h5>
+        </div>
+
+        <div className="col-12 col-md-6 col-lg-3">
+          <h1>{data.homepageJson.sections[3].statsCounter[0].stats[3].value}</h1>
+          <h5 className="text-muted">{data.homepageJson.sections[3].statsCounter[0].stats[3].title}</h5>
         </div>
       </div>
     </section>
@@ -157,7 +187,7 @@ const handleCaretClick = () =>{
 }
 
 const handleScroll = () =>{
-  var top = introSection.current.offsetTop-130;
+  var top = window.innerHeight-130;
   if(window.pageYOffset>=top){
     document.body.classList.add('solid');
   }else{

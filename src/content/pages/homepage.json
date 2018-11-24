@@ -20,24 +20,20 @@
         "id": "2",
         "blocks": [
           {
-            "image": "",
             "heading": "Responsive Web Design",
-            "content": "At Alkemy, we pride ourselves on creating Pixel Perfect, Fully Responsive Web design that will awe your customers no matter what platform or browser they visit your website from."
+            "content": "At Alkemy, we pride ourselves on creating Pixel Perfect, Fully Responsive Websites that will awe your customers no matter what platform or browser they visit from."
           },
           {
-            "image": "",
             "heading": "Web Development",
-            "content": "Have a web development project that needs a seasoned eye? We’ll help you navigate the planning, development, and ensure a successful launch for your product or platform."
+            "content": "Have a project that needs Software Development? Let our experienced team navigate the planning, design, and development to ensure a successful launch for your product idea or platform."
           },
           {
-            "image": "",
             "heading": "E-commerce Design",
             "content": "Whether you are using Shopify, 3dcart, Woo-Commerce, or want a custom built solution, we are happy to help you create an E-commerce website that will drive your conversions."
           },
           {
-            "image": "",
             "heading": "Digital Marketing",
-            "content": "Every website needs marketing to succeed. We are ready to help you market your unique business. Whether it’s SEO/SEM, Social Media Marketing, or Email Campaigns - Alkemy can Help!"
+            "content": "Every website needs marketing to succeed. We are ready to help you market your unique business! Whether it’s SEO/SEM, Social Media Marketing, or Email Campaigns — Alkemy Can Help!"
           }
         ]
       },
