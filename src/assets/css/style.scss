@@ -504,35 +504,49 @@ button:focus {
 
 
 // HomePage
+
 .image-services{
-  @media only screen and (min-width: 650px){
-    width: 50%;
-    height: 50%;
-    object-fit: scale-down;
-  }
+  object-fit: contain;
+  margin-bottom: 2rem;
 }
 
 .card{
+  .card-img-top{height: 100px;}
+  .card-title{height: 50%;margin: auto;}
+
   .card-img-overlay{
+    position: relative;
     transition: .3s linear;
-    @media only screen and (min-width: 1080px){
+    height: fit-content;
+    @media only screen and (min-width: 1280px){
+      position: absolute;
       opacity: 0;
     }
   }
 
   &:hover{
-    .card-img-overlay {
-      opacity: 1;
-      color: white;
-      background: rgba(0,0,0,.90);
+    @media only screen and (min-width: 1280px){
+      .card-img-overlay {
+        opacity: 1;
+        color: white;
+        background: rgba(0,0,0,.90);
+      }
     }
   }
 }
 
-.statsCounter{
+section.statsCounter{
   background: $alkemy_dark_blue;
   color: white;
+  @media (min-width: 1080px){
+    margin-top: 5rem;
+  }
+
   div h1{
     color: $alkemy_yellow;
+  }
+  .text-muted{
+    color: $alkemy_blue !important;
+    font-size: 1.2rem;
   }
 }

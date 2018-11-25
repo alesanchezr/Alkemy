@@ -62,6 +62,7 @@ const HomePage = ({data}) => (
   <Layout
     pageTitle="Alkemy, Inc. | Web Design, Development, eCommerce, and Marketing"
     headerTitle={[false,""]}
+    bodyClasses="home"
     >
 
     {/* Section 1 - Hero */}
@@ -87,8 +88,8 @@ const HomePage = ({data}) => (
         </VideoCarousel>
       </div>
     </section>
-    <section ref={introSection} className="introHome">
-      <div className="container-fluid p-5">
+    <section ref={introSection} className="introHome my-4">
+      <div className="container-fluid px-5 py-4">
         <h1 className="mb-4">{data.homepageJson.sections[0].blocks[0].heading}</h1>
         <p className="mb-5">{data.homepageJson.sections[0].blocks[0].content}</p>
 
@@ -96,81 +97,95 @@ const HomePage = ({data}) => (
         <p className="mb-4">{data.homepageJson.sections[0].blocks[1].content}</p>
       </div>
     </section>
-    <section className="servicesHome my-5">
-      <div className="row px-5 align-content-center">
+    <section className="servicesHome mb-5">
+      <div className="row px-5">
         <div className="col-12 col-sm-6 col-lg-3">
-          <Card className="h-100 border-0 text-justify">
-            <Card className="h-100 border-0 text-justify">
-                <CardImg top className="image-services mx-auto mb-3" src={webDesign} alt="Responsive Web Design Service" />
-                <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[0].heading}</CardTitle>
-                <CardImgOverlay>
-                  <div className="container">
-                    <CardText className="h-75">{data.homepageJson.sections[1].blocks[0].content}</CardText>
-                    <Button href="/responsive-web-design" className="form-control align-bottom my-auto">Learn More</Button>
-                  </div>
-                </CardImgOverlay>
-            </Card>
-          </Card>
-        </div>
-        <div className="col-12 col-sm-6 col-lg-3">
-          <Card className="h-100 border-0 text-justify">
-              <CardImg top className="image-services mx-auto mb-3" src={webDevelopment} alt="Quality Web Development Service" />
-              <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[1].heading}</CardTitle>
-              <CardImgOverlay>
-                <CardText className="h-75">{data.homepageJson.sections[1].blocks[1].content}</CardText>
-                <Button href="/quality-web-development" className="form-control align-bottom my-auto">Learn More</Button>
-              </CardImgOverlay>
-          </Card>
-        </div>
-        <div className="col-12 col-sm-6 col-lg-3">
-          <Card className="h-100 border-0 text-justify">
-            <CardImg top className="image-services mx-auto mb-3" src={eCommerce} alt="Ecommerce Design Services" />
-            <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[2].heading}</CardTitle>
+          <Card className="border-0 h-100 p-3">
+            <div className="row h-100">
+              <CardImg top className="image-services mx-auto" src={webDesign} alt="Responsive Web Design Service" />
+              <CardTitle tag="h4" className="text-center my-auto">{data.homepageJson.sections[1].blocks[0].heading}</CardTitle>
+            </div>
             <CardImgOverlay>
               <div className="container">
-                <CardText className="h-75">{data.homepageJson.sections[1].blocks[2].content}</CardText>
-                <Button href="/responsive-web-design" className="form-control align-bottom my-auto">Learn More</Button>
+                <CardText>{data.homepageJson.sections[1].blocks[0].content}</CardText>
+                <Button href="/responsive-web-design" className="btn btn-primary form-control my-auto">Learn More</Button>
               </div>
             </CardImgOverlay>
           </Card>
         </div>
         <div className="col-12 col-sm-6 col-lg-3">
-          <Card className="h-100 border-0 text-justify">
-            <CardImg top className="image-services mx-auto mb-3" src={digitalMarketing} alt="Digital Marketing Services" />
-            <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[3].heading}</CardTitle>
+          <Card className="border-0 h-100 p-3">
+            <div className="row h-100">
+              <CardImg top className="image-services mx-auto" src={webDevelopment} alt="Quality Web Development Service" />
+              <CardTitle tag="h4" className="text-center my-auto">{data.homepageJson.sections[1].blocks[1].heading}</CardTitle>
+            </div>
+            <CardImgOverlay>
+              <CardText>{data.homepageJson.sections[1].blocks[1].content}</CardText>
+              <Button href="/quality-web-development" className="btn btn-primary form-control my-auto">Learn More</Button>
+            </CardImgOverlay>
+          </Card>
+        </div>
+        <div className="col-12 col-sm-6 col-lg-3">
+          <Card className="border-0 h-100 p-3">
+            <div className="row h-100">
+              <CardImg top className="image-services mx-auto" src={eCommerce} alt="Ecommerce Design Services" />
+              <CardTitle tag="h4" className="text-center my-auto">{data.homepageJson.sections[1].blocks[2].heading}</CardTitle>
+            </div>
             <CardImgOverlay>
               <div className="container">
-                <CardText className="h-75">{data.homepageJson.sections[1].blocks[3].content}</CardText>
-                <Button href="/responsive-web-design" className="form-control align-bottom my-auto">Learn More</Button>
+                <CardText>{data.homepageJson.sections[1].blocks[2].content}</CardText>
+                <Button href="/responsive-web-design" className="btn btn-primary form-control my-auto">Learn More</Button>
+              </div>
+            </CardImgOverlay>
+          </Card>
+        </div>
+        <div className="col-12 col-sm-6 col-lg-3">
+          <Card className="border-0 h-100 p-3">
+            <div className="row h-100">
+              <CardImg top className="image-services mx-auto" src={digitalMarketing} alt="Digital Marketing Services" />
+              <CardTitle tag="h4" className="text-center my-auto">{data.homepageJson.sections[1].blocks[3].heading}</CardTitle>
+            </div>
+            <CardImgOverlay>
+              <div className="container">
+                <CardText>{data.homepageJson.sections[1].blocks[3].content}</CardText>
+                <Button href="/responsive-web-design" className="btn btn-primary form-control my-auto">Learn More</Button>
               </div>
             </CardImgOverlay>
           </Card>
         </div>
       </div>
     </section>
-    <section className="statsCounter my-5 text-center py-4">
+    <section className="statsCounter mb-4 text-center py-4">
       <h1>{data.homepageJson.sections[3].statsCounter[0].heading}</h1>
       <div className="row px-5 pt-4">
         <div className="col-12 col-md-6 col-lg-3">
           <h1>{data.homepageJson.sections[3].statsCounter[0].stats[0].value}</h1>
-          <h5 className="text-muted">{data.homepageJson.sections[3].statsCounter[0].stats[0].title}</h5>
+          <p className="text-muted">{data.homepageJson.sections[3].statsCounter[0].stats[0].title}</p>
         </div>
 
         <div className="col-12 col-md-6 col-lg-3">
           <h1>{data.homepageJson.sections[3].statsCounter[0].stats[1].value}</h1>
-          <h5 className="text-muted">{data.homepageJson.sections[3].statsCounter[0].stats[1].title}</h5>
+          <p className="text-muted">{data.homepageJson.sections[3].statsCounter[0].stats[1].title}</p>
         </div>
 
         <div className="col-12 col-md-6 col-lg-3">
           <h1>{data.homepageJson.sections[3].statsCounter[0].stats[2].value}</h1>
-          <h5 className="text-muted">{data.homepageJson.sections[3].statsCounter[0].stats[2].title}</h5>
+          <p className="text-muted">{data.homepageJson.sections[3].statsCounter[0].stats[2].title}</p>
         </div>
 
         <div className="col-12 col-md-6 col-lg-3">
           <h1>{data.homepageJson.sections[3].statsCounter[0].stats[3].value}</h1>
-          <h5 className="text-muted">{data.homepageJson.sections[3].statsCounter[0].stats[3].title}</h5>
+          <p className="text-muted">{data.homepageJson.sections[3].statsCounter[0].stats[3].title}</p>
         </div>
       </div>
+    </section>
+    <section className="ourPassion">
+    </section>
+    <section className="">
+    </section>
+    <section className="">
+    </section>
+    <section className="">
     </section>
   </Layout>
 </ScrollWrapper>
