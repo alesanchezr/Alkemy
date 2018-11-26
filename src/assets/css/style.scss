@@ -570,3 +570,16 @@ section.ourPassion{
     object-fit:cover;
   }
 }
+
+section.recentBlogPosts{
+  .container{
+    max-width:80vw;
+    .card{
+      max-width:25%;
+      .card-footer{
+        background-color: unset;
+        border-top: unset;
+      }
+    }
+  }
+}
