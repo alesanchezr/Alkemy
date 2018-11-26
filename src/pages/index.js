@@ -2,7 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { graphql } from 'gatsby'
 import { Card, CardImg, CardText, CardImgOverlay,
-  CardTitle,CardBody, CardFooter, CardDeck, Button } from 'reactstrap'
+  CardTitle,CardBody, CardFooter, CardDeck, Button,
+  Col, Row, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Layout from '../components/layout'
@@ -206,7 +207,37 @@ const HomePage = ({data}) => (
     <section className="recentBlogPosts py-4">
       <BlogWidget posts={data.allMarkdownRemark.edges}/>
     </section>
-    <section className="contactForm">
+    <section className="contactForm py-5">
+      <h1 className="text-center">LET'S GET STARTED</h1>
+      <div className="container">
+        <p>Are you interested in a Completely FREE Analysis of your Website and it's SEO ? Please provide us with your name, email address, and website’s URL and we’ll handle the rest!</p>
+        <Form>
+          <Row form className="my-4 py-0">
+            <Col md={6}>
+              <FormGroup>
+                <Input type="text" name="fullName" id="fullName" placeholder="Please tell us your Full Name" />
+              </FormGroup>
+            </Col>
+            <Col md={6}>
+              <FormGroup>
+                <Input type="email" name="email" id="email" placeholder="Enter your Email Address" />
+              </FormGroup>
+            </Col>
+          </Row>
+          <FormGroup className="my-4">
+            <Input type="url" name="webAddress" id="webAddress" placeholder="What is your Website Address? (ex. www.yourwebsite.com)"/>
+          </FormGroup>
+          <FormGroup check className="my-4 text-center">
+            <Label check>
+              <Input type="checkbox" />&emsp;
+              I authorize Alkemy, Inc. to contact me via email so that I may recieve my free website analysis.
+            </Label>
+          </FormGroup>
+          <FormGroup className="text-center">
+            <Button className="btn btn-primary" type="submit" value="submit">Send me my FREE Website and SEO Analysis</Button>
+          </FormGroup>
+        </Form>
+      </div>
     </section>
   </Layout>
 </ScrollWrapper>
