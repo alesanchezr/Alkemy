@@ -22,6 +22,7 @@ module.exports = {
       options: {
         name: `image`,
         path: `${__dirname}/src/assets/images/`,
+        publicPath: `${__dirname}/images/`
       },
     },
     {

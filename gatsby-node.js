@@ -3,8 +3,22 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 const path = require("path");
 var md = require('markdown-it');
 var fa = require('markdown-it-fontawesome');
+var shell = require('shelljs');
 
 md().use(fa);
+
+exports.onPostBootstrap = (pages) => {
+  if(!shell.test('-d', 'public/images')){
+    shell.mkdir("public/images")
+  }else{
+    shell.cp("-r", "src/assets/images/*", "public/images")
+  }
+
+  if(shell.test('-f', 'src/assets/.nojekyll')) shell.cp("-r", "src/assets/.nojekyll", "public")
+  if(shell.test('-f', 'src/assets/.gitignore')) shell.cp("-r", "src/assets/.gitignore", "public")
+  if(shell.test('-f', 'src/assets/.gitignore')) shell.cp("-r", "src/assets/.well-known", "public")
+  shell.continue;
+}
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
