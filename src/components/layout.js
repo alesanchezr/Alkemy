@@ -19,14 +19,15 @@ import favicon32 from '../assets/images/favicon-32x32.png'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown,faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { faCalendarAlt,faCalendarPlus } from '@fortawesome/free-regular-svg-icons'
 
 library.add(
   fab,
   faChevronDown,
   faCalendarAlt,
-  faCalendarPlus
+  faCalendarPlus,
+  faSpinner
 )
 
 const Layout = ({ children, pageTitle, headerTitle, headerType, bodyClasses }) => (

@@ -65,6 +65,7 @@ exports.createPages = ({ actions, graphql }) => {
                 title
                 tags
                 excerpt
+                cover
               }
               children {
                 id

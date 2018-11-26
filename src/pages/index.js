@@ -2,11 +2,12 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { graphql } from 'gatsby'
 import { Card, CardImg, CardText, CardImgOverlay,
-  CardTitle, Button } from 'reactstrap'
+  CardTitle, CardDeck, Button } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Layout from '../components/layout'
 import ScrollWrapper from '../components/scrollWrapper.jsx'
+import BlogWidget from '../components/BlogWidget.jsx'
 
 // Images
 import webDesign from '../assets/images/responsive.png'
@@ -99,8 +100,7 @@ const HomePage = ({data}) => (
       </div>
     </section>
     <section className="servicesHome my-auto">
-      <div className="row px-5">
-        <div className="col-12 col-sm-6 col-xl-3 h-100">
+      <CardDeck>
           <Card className="border-0 h-100 p-3">
             <CardImg top className="image-services mx-auto" src={webDesign} alt="Responsive Web Design Service" />
             <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[0].heading}</CardTitle>
@@ -109,8 +109,8 @@ const HomePage = ({data}) => (
               <Button href="/responsive-web-design" className="btn btn-primary form-control">Learn More</Button>
             </CardImgOverlay>
           </Card>
-        </div>
-        <div className="col-12 col-sm-6 col-xl-3 h-100">
+
+
           <Card className="border-0 h-100 p-3">
             <CardImg top className="image-services mx-auto" src={webDevelopment} alt="Quality Web Development Service" />
             <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[1].heading}</CardTitle>
@@ -119,8 +119,8 @@ const HomePage = ({data}) => (
               <Button href="/quality-web-development" className="btn btn-primary form-control">Learn More</Button>
             </CardImgOverlay>
           </Card>
-        </div>
-        <div className="col-12 col-sm-6 col-xl-3 h-100">
+
+
           <Card className="border-0 h-100 p-3">
             <CardImg top className="image-services mx-auto" src={eCommerce} alt="Ecommerce Design Services" />
             <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[2].heading}</CardTitle>
@@ -129,8 +129,7 @@ const HomePage = ({data}) => (
               <Button href="/responsive-web-design" className="btn btn-primary form-control">Learn More</Button>
             </CardImgOverlay>
           </Card>
-        </div>
-        <div className="col-12 col-sm-6 col-xl-3 h-100">
+
           <Card className="border-0 h-100 p-3">
             <CardImg top className="image-services mx-auto" src={digitalMarketing} alt="Digital Marketing Services" />
             <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[3].heading}</CardTitle>
@@ -139,8 +138,8 @@ const HomePage = ({data}) => (
               <Button href="/responsive-web-design" className="btn btn-primary form-control">Learn More</Button>
             </CardImgOverlay>
           </Card>
-        </div>
-      </div>
+
+        </CardDeck>
     </section>
     <section className="statsCounter mb-4 text-center py-4">
       <h1>{data.homepageJson.sections[3].statsCounter[0].heading}</h1>
@@ -181,6 +180,7 @@ const HomePage = ({data}) => (
       </div>
     </section>
     <section className="recentBlogPosts">
+      <BlogWidget posts={data.allMarkdownRemark.edges}/>
     </section>
     <section className="contactForm">
     </section>
@@ -222,6 +222,21 @@ export const query = graphql`
         stats{
           title
           value
+        }
+      }
+    }
+  }
+  allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    edges {
+      node {
+        id
+        excerpt(pruneLength: 250)
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          path
+          title
+          excerpt
+          cover
         }
       }
     }
