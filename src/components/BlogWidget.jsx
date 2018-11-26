@@ -3,12 +3,15 @@ import PropTypes from 'prop-types'
 import { Card, CardImg, CardText,
   CardTitle, CardDeck, CardBody,CardFooter, Button } from "reactstrap"
 
+// Blog post widget to display 3 blog posts from graphQL data.
+// When using this widget, make sure to pass a prop, "posts",
+// that contains the result of data.allMarkdownRemark.edges
 
 const BlogWidget = (props) => {
   const size = 3
   const Posts = props.posts
-    .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-    .slice(0, size)
+    .filter(edge => !!edge.node.frontmatter.date) // filter based on date
+    .slice(0, size) // select only 3 posts (query should organize by DESC)
     .map(edge => {
       return(
         <Card key={edge.node.id} className="mx-auto">
