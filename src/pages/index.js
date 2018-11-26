@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { graphql } from 'gatsby'
-import { Card, CardImg, CardText, CardBody,CardImgOverlay,
-  CardTitle, CardSubtitle, Button } from 'reactstrap'
+import { Card, CardImg, CardText, CardImgOverlay,
+  CardTitle, Button } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Layout from '../components/layout'
@@ -170,7 +170,7 @@ const HomePage = ({data}) => (
       <div className="container px-0">
         <div className="row align-items-center">
           <div className="col-5 align-items-center">
-            <img src={ourPassion} className="ourPassionImg"/>
+            <img src={ourPassion} className="ourPassionImg" alt="About Alkemy, Inc."/>
           </div>
           <div className="col-7 align-items-center">
             <h2>{data.homepageJson.sections[2].blocks[0].heading}</h2>

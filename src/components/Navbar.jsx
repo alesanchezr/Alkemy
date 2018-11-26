@@ -39,7 +39,7 @@ export default class ReactNavbar extends React.Component {
   }
 
   handleButtonHover = (e) => {
-    if(e.type=="mouseover"){
+    if(e.type==="mouseover"){
       this.setState({
         icon: ['far','calendar-plus']
       });
