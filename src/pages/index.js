@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { graphql } from 'gatsby'
 import { Card, CardImg, CardText, CardImgOverlay,
-  CardTitle, CardDeck, Button } from 'reactstrap'
+  CardTitle,CardBody, CardFooter, CardDeck, Button } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Layout from '../components/layout'
@@ -103,39 +103,63 @@ const HomePage = ({data}) => (
       <CardDeck>
           <Card className="border-0 h-100 p-3">
             <CardImg top className="image-services mx-auto" src={webDesign} alt="Responsive Web Design Service" />
-            <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[0].heading}</CardTitle>
+            <CardBody>
+              <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[0].heading}</CardTitle>
+            </CardBody>
             <CardImgOverlay>
-              <CardText>{data.homepageJson.sections[1].blocks[0].content}</CardText>
-              <Button href="/responsive-web-design" className="btn btn-primary form-control">Learn More</Button>
+              <CardBody>
+                <CardText>{data.homepageJson.sections[1].blocks[0].content}</CardText>
+              </CardBody>
+              <CardFooter>
+                <Button href="/responsive-web-design" className="btn btn-primary form-control">Learn More</Button>
+              </CardFooter>
             </CardImgOverlay>
           </Card>
 
 
           <Card className="border-0 h-100 p-3">
             <CardImg top className="image-services mx-auto" src={webDevelopment} alt="Quality Web Development Service" />
-            <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[1].heading}</CardTitle>
+            <CardBody>
+              <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[1].heading}</CardTitle>
+            </CardBody>
             <CardImgOverlay>
-              <CardText>{data.homepageJson.sections[1].blocks[1].content}</CardText>
-              <Button href="/quality-web-development" className="btn btn-primary form-control">Learn More</Button>
+              <CardBody>
+                <CardText>{data.homepageJson.sections[1].blocks[1].content}</CardText>
+              </CardBody>
+              <CardFooter>
+                <Button href="/quality-web-development" className="btn btn-primary form-control">Learn More</Button>
+              </CardFooter>
             </CardImgOverlay>
           </Card>
 
 
           <Card className="border-0 h-100 p-3">
             <CardImg top className="image-services mx-auto" src={eCommerce} alt="Ecommerce Design Services" />
-            <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[2].heading}</CardTitle>
+            <CardBody>
+              <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[2].heading}</CardTitle>
+            </CardBody>
             <CardImgOverlay>
-              <CardText>{data.homepageJson.sections[1].blocks[2].content}</CardText>
-              <Button href="/responsive-web-design" className="btn btn-primary form-control">Learn More</Button>
+              <CardBody>
+                <CardText>{data.homepageJson.sections[1].blocks[2].content}</CardText>
+              </CardBody>
+              <CardFooter>
+                <Button href="/responsive-web-design" className="btn btn-primary form-control">Learn More</Button>
+              </CardFooter>
             </CardImgOverlay>
           </Card>
 
           <Card className="border-0 h-100 p-3">
             <CardImg top className="image-services mx-auto" src={digitalMarketing} alt="Digital Marketing Services" />
-            <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[3].heading}</CardTitle>
+            <CardBody>
+              <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[3].heading}</CardTitle>
+            </CardBody>
             <CardImgOverlay>
-              <CardText>{data.homepageJson.sections[1].blocks[3].content}</CardText>
-              <Button href="/responsive-web-design" className="btn btn-primary form-control">Learn More</Button>
+              <CardBody>
+                <CardText>{data.homepageJson.sections[1].blocks[3].content}</CardText>
+              </CardBody>
+              <CardFooter>
+                <Button href="/responsive-web-design" className="btn btn-primary form-control">Learn More</Button>
+              </CardFooter>
             </CardImgOverlay>
           </Card>
 
@@ -179,7 +203,7 @@ const HomePage = ({data}) => (
         </div>
       </div>
     </section>
-    <section className="recentBlogPosts">
+    <section className="recentBlogPosts py-4">
       <BlogWidget posts={data.allMarkdownRemark.edges}/>
     </section>
     <section className="contactForm">

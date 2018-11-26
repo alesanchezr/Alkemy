@@ -99,6 +99,10 @@ a {
     text-decoration: none;
     background-color: transparent;
 }
+.card-footer{
+  background-color: unset;
+  border-top: unset;
+}
 
 
 .callUs{
@@ -508,26 +512,23 @@ button:focus {
 .servicesHome{min-height: 100% !important;}
 
 .card{
-  margin-top: 2rem;
+  height: 100%;
   .image-services.card-img-top{
     max-height: 100px;
     max-width: 25vw;
     object-fit: contain;
     margin-bottom: 2rem;
   }
-  .card-text{margin: 2rem auto;}
-  .card-title{margin: auto;}
 
 
   .card-img-overlay{
     position: relative;
     transition: .3s linear;
-    min-height: 5rem;
+    height: 100%;
     padding: 0;
 
     @media only screen and (min-width: 1280px){
-      height: fit-content;
-      padding: 1rem;
+      min-height: fit-content;
       position: absolute;
       opacity: 0;
     }
@@ -547,7 +548,6 @@ button:focus {
 section.statsCounter{
   background: $alkemy_dark_blue;
   color: white;
-  margin: 5rem auto;
 
   h1:first-child{margin-top: 2rem;}
   .row div{
@@ -574,12 +574,9 @@ section.ourPassion{
 section.recentBlogPosts{
   .container{
     max-width:80vw;
+    padding-top:3rem;
     .card{
       max-width:25%;
-      .card-footer{
-        background-color: unset;
-        border-top: unset;
-      }
     }
   }
 }

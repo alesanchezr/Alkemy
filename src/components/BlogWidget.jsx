@@ -12,12 +12,12 @@ const BlogWidget = (props) => {
     .map(edge => {
       return(
         <Card key={edge.node.id} className="mx-auto">
-          <CardImg top width="100%" src={edge.node.frontmatter.cover} alt={edge.node.frontmatter.title}/>
+          <CardImg top width="100%" src={edge.node.frontmatter.cover} alt={edge.node.frontmatter.title} className="mb-1"/>
           <CardBody>
-            <CardTitle>{edge.node.frontmatter.title}</CardTitle>
+            <CardTitle className="my-0">{edge.node.frontmatter.title}</CardTitle>
           </CardBody>
           <CardFooter>
-            <Button href={edge.node.frontmatter.path} className="btn btn-primary form-control">Read Blog Post</Button>
+            <Button href={edge.node.frontmatter.path} className="btn btn-primary form-control mt-0">Read Blog Post</Button>
           </CardFooter>
         </Card>
       )
