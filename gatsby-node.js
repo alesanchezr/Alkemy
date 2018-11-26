@@ -46,7 +46,14 @@ exports.createPages = ({ actions, graphql }) => {
                 slug
               }
               frontmatter{
+                path
+                date
+                title
                 tags
+                excerpt
+              }
+              children {
+                id
               }
             }
           }
@@ -56,7 +63,7 @@ exports.createPages = ({ actions, graphql }) => {
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
 
         createPage({
-          path: node.fields.slug,
+          path: node.frontmatter.path,
           component: getTemplate(node.fileAbsolutePath),
           context: {
             // Data passed to context is available in page queries as GraphQL variables.

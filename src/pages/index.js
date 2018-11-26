@@ -13,6 +13,7 @@ import webDesign from '../assets/images/responsive.png'
 import webDevelopment from '../assets/images/development.png'
 import eCommerce from '../assets/images/ecommerce.png'
 import digitalMarketing from '../assets/images/marketing.png'
+import ourPassion from '../assets/images/pexels-photo-450271.jpeg'
 
 // Carousel
 import VideoCarousel from '../components/videoCarousel'
@@ -97,59 +98,45 @@ const HomePage = ({data}) => (
         <p className="mb-4">{data.homepageJson.sections[0].blocks[1].content}</p>
       </div>
     </section>
-    <section className="servicesHome mb-5">
+    <section className="servicesHome my-auto">
       <div className="row px-5">
-        <div className="col-12 col-sm-6 col-lg-3">
+        <div className="col-12 col-sm-6 col-xl-3 h-100">
           <Card className="border-0 h-100 p-3">
-            <div className="row h-100">
-              <CardImg top className="image-services mx-auto" src={webDesign} alt="Responsive Web Design Service" />
-              <CardTitle tag="h4" className="text-center my-auto">{data.homepageJson.sections[1].blocks[0].heading}</CardTitle>
-            </div>
+            <CardImg top className="image-services mx-auto" src={webDesign} alt="Responsive Web Design Service" />
+            <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[0].heading}</CardTitle>
             <CardImgOverlay>
-              <div className="container">
-                <CardText>{data.homepageJson.sections[1].blocks[0].content}</CardText>
-                <Button href="/responsive-web-design" className="btn btn-primary form-control my-auto">Learn More</Button>
-              </div>
+              <CardText>{data.homepageJson.sections[1].blocks[0].content}</CardText>
+              <Button href="/responsive-web-design" className="btn btn-primary form-control">Learn More</Button>
             </CardImgOverlay>
           </Card>
         </div>
-        <div className="col-12 col-sm-6 col-lg-3">
+        <div className="col-12 col-sm-6 col-xl-3 h-100">
           <Card className="border-0 h-100 p-3">
-            <div className="row h-100">
-              <CardImg top className="image-services mx-auto" src={webDevelopment} alt="Quality Web Development Service" />
-              <CardTitle tag="h4" className="text-center my-auto">{data.homepageJson.sections[1].blocks[1].heading}</CardTitle>
-            </div>
+            <CardImg top className="image-services mx-auto" src={webDevelopment} alt="Quality Web Development Service" />
+            <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[1].heading}</CardTitle>
             <CardImgOverlay>
               <CardText>{data.homepageJson.sections[1].blocks[1].content}</CardText>
-              <Button href="/quality-web-development" className="btn btn-primary form-control my-auto">Learn More</Button>
+              <Button href="/quality-web-development" className="btn btn-primary form-control">Learn More</Button>
             </CardImgOverlay>
           </Card>
         </div>
-        <div className="col-12 col-sm-6 col-lg-3">
+        <div className="col-12 col-sm-6 col-xl-3 h-100">
           <Card className="border-0 h-100 p-3">
-            <div className="row h-100">
-              <CardImg top className="image-services mx-auto" src={eCommerce} alt="Ecommerce Design Services" />
-              <CardTitle tag="h4" className="text-center my-auto">{data.homepageJson.sections[1].blocks[2].heading}</CardTitle>
-            </div>
+            <CardImg top className="image-services mx-auto" src={eCommerce} alt="Ecommerce Design Services" />
+            <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[2].heading}</CardTitle>
             <CardImgOverlay>
-              <div className="container">
-                <CardText>{data.homepageJson.sections[1].blocks[2].content}</CardText>
-                <Button href="/responsive-web-design" className="btn btn-primary form-control my-auto">Learn More</Button>
-              </div>
+              <CardText>{data.homepageJson.sections[1].blocks[2].content}</CardText>
+              <Button href="/responsive-web-design" className="btn btn-primary form-control">Learn More</Button>
             </CardImgOverlay>
           </Card>
         </div>
-        <div className="col-12 col-sm-6 col-lg-3">
+        <div className="col-12 col-sm-6 col-xl-3 h-100">
           <Card className="border-0 h-100 p-3">
-            <div className="row h-100">
-              <CardImg top className="image-services mx-auto" src={digitalMarketing} alt="Digital Marketing Services" />
-              <CardTitle tag="h4" className="text-center my-auto">{data.homepageJson.sections[1].blocks[3].heading}</CardTitle>
-            </div>
+            <CardImg top className="image-services mx-auto" src={digitalMarketing} alt="Digital Marketing Services" />
+            <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[3].heading}</CardTitle>
             <CardImgOverlay>
-              <div className="container">
-                <CardText>{data.homepageJson.sections[1].blocks[3].content}</CardText>
-                <Button href="/responsive-web-design" className="btn btn-primary form-control my-auto">Learn More</Button>
-              </div>
+              <CardText>{data.homepageJson.sections[1].blocks[3].content}</CardText>
+              <Button href="/responsive-web-design" className="btn btn-primary form-control">Learn More</Button>
             </CardImgOverlay>
           </Card>
         </div>
@@ -158,34 +145,44 @@ const HomePage = ({data}) => (
     <section className="statsCounter mb-4 text-center py-4">
       <h1>{data.homepageJson.sections[3].statsCounter[0].heading}</h1>
       <div className="row px-5 pt-4">
-        <div className="col-12 col-md-6 col-lg-3">
+        <div className="col-12 col-sm-6 col-lg-3">
           <h1>{data.homepageJson.sections[3].statsCounter[0].stats[0].value}</h1>
           <p className="text-muted">{data.homepageJson.sections[3].statsCounter[0].stats[0].title}</p>
         </div>
 
-        <div className="col-12 col-md-6 col-lg-3">
+        <div className="col-12 col-sm-6 col-lg-3">
           <h1>{data.homepageJson.sections[3].statsCounter[0].stats[1].value}</h1>
           <p className="text-muted">{data.homepageJson.sections[3].statsCounter[0].stats[1].title}</p>
         </div>
 
-        <div className="col-12 col-md-6 col-lg-3">
+        <div className="col-12 col-sm-6 col-lg-3">
           <h1>{data.homepageJson.sections[3].statsCounter[0].stats[2].value}</h1>
           <p className="text-muted">{data.homepageJson.sections[3].statsCounter[0].stats[2].title}</p>
         </div>
 
-        <div className="col-12 col-md-6 col-lg-3">
+        <div className="col-12 col-sm-6 col-lg-3">
           <h1>{data.homepageJson.sections[3].statsCounter[0].stats[3].value}</h1>
           <p className="text-muted">{data.homepageJson.sections[3].statsCounter[0].stats[3].title}</p>
         </div>
       </div>
     </section>
     <section className="ourPassion">
+      <div className="container px-0">
+        <div className="row align-items-center">
+          <div className="col-5 align-items-center">
+            <img src={ourPassion} className="ourPassionImg"/>
+          </div>
+          <div className="col-7 align-items-center">
+            <h2>{data.homepageJson.sections[2].blocks[0].heading}</h2>
+            <p>{data.homepageJson.sections[2].blocks[0].content}</p>
+            <Button href="/about-alkemy/" className="btn btn-primary">Discover Our Passion</Button>
+          </div>
+        </div>
+      </div>
     </section>
-    <section className="">
+    <section className="recentBlogPosts">
     </section>
-    <section className="">
-    </section>
-    <section className="">
+    <section className="contactForm">
     </section>
   </Layout>
 </ScrollWrapper>
