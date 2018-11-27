@@ -30,7 +30,7 @@ var _menuArray = [
 ];
 
 const Header = ({ siteTitle, hideHeader }) =>(
-    <div className="header wow fadeInDown">
+    <header className="header wow fadeInDown">
       <>
         <ReactNavbar menuArray={_menuArray} />
       </>
@@ -60,7 +60,7 @@ const Header = ({ siteTitle, hideHeader }) =>(
         )
         :''
       }
-    </div>
+    </header>
   )
 
 

@@ -7,6 +7,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import { TypographyStyle, GoogleFont } from 'react-typography'
 import typography from '../utils/typography'
 import Header from './header'
+import Footer from './footer'
 
 import '../assets/css/layout.css'
 import '../assets/css/bootstrap.min.css'
@@ -144,7 +145,7 @@ const Layout = ({ children, pageTitle, headerTitle, headerType, bodyClasses }) =
           {children}
         </div>
 
-
+        <Footer />
 
       </div>
     )}

@@ -41,7 +41,7 @@ $twitter: #1da1f2;
 
 body{
   &.solid{
-    div.header{
+    header.header{
       background: $alkemy_darkest_blue;
       ul.dropdown-menu{
         background: $alkemy_darkest_blue !important;
@@ -49,7 +49,7 @@ body{
     }
   }
   &.blog{
-    div.header{
+    header.header{
       background: $alkemy_darkest_blue;
       ul.dropdown-menu{
         background: $alkemy_darkest_blue !important;
@@ -61,11 +61,56 @@ body{
   }
 }
 
-/* bootstrap override */
+/* Bootstrap Override */
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
   font-weight: 600 !important;
 }
 
+/* Checkboxes styles */
+input[type="checkbox"] { display: none; }
+
+input[type="checkbox"] + label {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 20px;
+  font: 14px/20px 'Open Sans', Arial, sans-serif;
+  color: black;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+input[type="checkbox"] + label:last-child { margin-bottom: 0; }
+
+input[type="checkbox"] + label:before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid $alkemy_dark_blue;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: .6;
+  -webkit-transition: all .12s, border-color .08s;
+  transition: all .12s, border-color .08s;
+}
+
+input[type="checkbox"]:checked + label:before {
+  width: 10px;
+  top: -5px;
+  left: 5px;
+  border-radius: 0;
+  opacity: 1;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+/* Header */
 .header{
   background: rgba($alkemy_darkest_blue,.70);
   color: white;
@@ -218,12 +263,12 @@ a {
 .btn-primary {
     color: black;
     background-color: $alkemy_yellow;
-    border-color: $alkemy_dark_gray;
+    border-color: $alkemy_gold;
+    border-radius: 2px;
 
     &:hover{
       color: black;
       background-color: darken($alkemy_yellow, 7%);
-      border-color: $alkemy_yellow;
     }
 }
 .header {
@@ -524,7 +569,7 @@ button:focus {
   .card-img-overlay{
     position: relative;
     transition: .3s linear;
-    height: 100%;
+    /* height: 100%; */
     padding: 0;
 
     @media only screen and (min-width: 1280px){
@@ -583,4 +628,15 @@ section.recentBlogPosts{
 
 section.contactForm{
   background: rgba($alkemy_blue,.25);
+  form{
+    input{
+      &[type=text],
+      &[type=email],
+      &[type=url] {
+        box-shadow: 2px 4px 6px;
+        padding: 1.4rem;
+        border-radius: 2px;
+      }
+    }
+  }
 }

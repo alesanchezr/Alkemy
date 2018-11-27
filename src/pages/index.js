@@ -101,8 +101,8 @@ const HomePage = ({data}) => (
       </div>
     </section>
     <section className="servicesHome my-auto">
-      <CardDeck>
-          <Card className="border-0 h-100 p-3">
+      <CardDeck className="d-flex flex-row align-items-stretch">
+          <Card className="border-0 p-3">
             <CardImg top className="image-services mx-auto" src={webDesign} alt="Responsive Web Design Service" />
             <CardBody>
               <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[0].heading}</CardTitle>
@@ -112,13 +112,13 @@ const HomePage = ({data}) => (
                 <CardText>{data.homepageJson.sections[1].blocks[0].content}</CardText>
               </CardBody>
               <CardFooter>
-                <Button href="/responsive-web-design" className="btn btn-primary form-control">Learn More</Button>
+                <Button href="/responsive-web-design" color="primary" block>Learn More</Button>
               </CardFooter>
             </CardImgOverlay>
           </Card>
 
 
-          <Card className="border-0 h-100 p-3">
+          <Card className="border-0 p-3">
             <CardImg top className="image-services mx-auto" src={webDevelopment} alt="Quality Web Development Service" />
             <CardBody>
               <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[1].heading}</CardTitle>
@@ -128,13 +128,13 @@ const HomePage = ({data}) => (
                 <CardText>{data.homepageJson.sections[1].blocks[1].content}</CardText>
               </CardBody>
               <CardFooter>
-                <Button href="/quality-web-development" className="btn btn-primary form-control">Learn More</Button>
+                <Button href="/quality-web-development" color="primary" block>Learn More</Button>
               </CardFooter>
             </CardImgOverlay>
           </Card>
 
 
-          <Card className="border-0 h-100 p-3">
+          <Card className="border-0 p-3">
             <CardImg top className="image-services mx-auto" src={eCommerce} alt="Ecommerce Design Services" />
             <CardBody>
               <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[2].heading}</CardTitle>
@@ -144,12 +144,12 @@ const HomePage = ({data}) => (
                 <CardText>{data.homepageJson.sections[1].blocks[2].content}</CardText>
               </CardBody>
               <CardFooter>
-                <Button href="/responsive-web-design" className="btn btn-primary form-control">Learn More</Button>
+                <Button href="/responsive-web-design" color="primary" block>Learn More</Button>
               </CardFooter>
             </CardImgOverlay>
           </Card>
 
-          <Card className="border-0 h-100 p-3">
+          <Card className="border-0 p-3">
             <CardImg top className="image-services mx-auto" src={digitalMarketing} alt="Digital Marketing Services" />
             <CardBody>
               <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[3].heading}</CardTitle>
@@ -159,7 +159,7 @@ const HomePage = ({data}) => (
                 <CardText>{data.homepageJson.sections[1].blocks[3].content}</CardText>
               </CardBody>
               <CardFooter>
-                <Button href="/responsive-web-design" className="btn btn-primary form-control">Learn More</Button>
+                <Button href="/responsive-web-design" color="primary" block>Learn More</Button>
               </CardFooter>
             </CardImgOverlay>
           </Card>
@@ -168,40 +168,40 @@ const HomePage = ({data}) => (
     </section>
     <section className="statsCounter mb-4 text-center py-4">
       <h1>{data.homepageJson.sections[3].statsCounter[0].heading}</h1>
-      <div className="row px-5 pt-4">
-        <div className="col-12 col-sm-6 col-lg-3">
+      <Row className="px-5 pt-4">
+        <Col xs={12} sm={6} lg={3}>
           <h1>{data.homepageJson.sections[3].statsCounter[0].stats[0].value}</h1>
           <p className="text-muted">{data.homepageJson.sections[3].statsCounter[0].stats[0].title}</p>
-        </div>
+        </Col>
 
-        <div className="col-12 col-sm-6 col-lg-3">
+        <Col xs={12} sm={6} lg={3}>
           <h1>{data.homepageJson.sections[3].statsCounter[0].stats[1].value}</h1>
           <p className="text-muted">{data.homepageJson.sections[3].statsCounter[0].stats[1].title}</p>
-        </div>
+        </Col>
 
-        <div className="col-12 col-sm-6 col-lg-3">
+        <Col xs={12} sm={6} lg={3}>
           <h1>{data.homepageJson.sections[3].statsCounter[0].stats[2].value}</h1>
           <p className="text-muted">{data.homepageJson.sections[3].statsCounter[0].stats[2].title}</p>
-        </div>
+        </Col>
 
-        <div className="col-12 col-sm-6 col-lg-3">
+        <Col xs={12} sm={6} lg={3}>
           <h1>{data.homepageJson.sections[3].statsCounter[0].stats[3].value}</h1>
           <p className="text-muted">{data.homepageJson.sections[3].statsCounter[0].stats[3].title}</p>
-        </div>
-      </div>
+        </Col>
+      </Row>
     </section>
     <section className="ourPassion">
       <div className="container px-0">
-        <div className="row align-items-center">
-          <div className="col-5 align-items-center">
+        <Row className="align-items-center">
+          <Col xs={12} md={5} className="align-items-center">
             <img src={ourPassion} className="ourPassionImg" alt="About Alkemy, Inc."/>
-          </div>
-          <div className="col-7 align-items-center">
+          </Col>
+          <Col xs={12} md={7} className="align-items-center">
             <h2>{data.homepageJson.sections[2].blocks[0].heading}</h2>
             <p>{data.homepageJson.sections[2].blocks[0].content}</p>
             <Button href="/about-alkemy/" className="btn btn-primary">Discover Our Passion</Button>
-          </div>
-        </div>
+          </Col>
+        </Row>
       </div>
     </section>
     <section className="recentBlogPosts py-4">
@@ -211,14 +211,14 @@ const HomePage = ({data}) => (
       <h1 className="text-center">LET'S GET STARTED</h1>
       <div className="container">
         <p>Are you interested in a Completely FREE Analysis of your Website and it's SEO ? Please provide us with your name, email address, and website’s URL and we’ll handle the rest!</p>
-        <Form>
+        <Form onSubmit={(e)=>e.preventDefault()}>
           <Row form className="my-4 py-0">
-            <Col md={6}>
+            <Col xs={12} md={6}>
               <FormGroup>
                 <Input type="text" name="fullName" id="fullName" placeholder="Please tell us your Full Name" />
               </FormGroup>
             </Col>
-            <Col md={6}>
+            <Col xs={12} md={6}>
               <FormGroup>
                 <Input type="email" name="email" id="email" placeholder="Enter your Email Address" />
               </FormGroup>
@@ -228,8 +228,8 @@ const HomePage = ({data}) => (
             <Input type="url" name="webAddress" id="webAddress" placeholder="What is your Website Address? (ex. www.yourwebsite.com)"/>
           </FormGroup>
           <FormGroup check className="my-4 text-center">
-            <Label check>
-              <Input type="checkbox" />&emsp;
+            <Input type="checkbox" id="authCheck"/>
+            <Label for="authCheck">
               I authorize Alkemy, Inc. to contact me via email so that I may recieve my free website analysis.
             </Label>
           </FormGroup>
