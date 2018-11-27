@@ -278,6 +278,43 @@ a {
     }
   }
 }
+.footer{
+  color: white;
+  display: block;
+  position: relative;
+
+  &:before{
+    content: '';
+    opacity: .5;
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    background: $alkemy_darkest_blue;
+  }
+  &:after{
+    content: '';
+    background: url("../images/connectwork.png");
+    filter: contrast(120%) brightness(80%);
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index: -1;
+  }
+
+  a{
+    color: inherit;
+  }
+
+  .copyText{
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
 
 .btn-group-lg>.btn, .btn-lg {
   padding: .25rem 2rem;
