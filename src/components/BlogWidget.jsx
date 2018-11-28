@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Card, CardImg, CardText,
-  CardTitle, CardDeck, CardBody,CardFooter, Button } from "reactstrap"
+  CardTitle, CardDeck, CardBody, Button } from "reactstrap"
 import Loading from './loading.jsx'
 
 // Blog post widget to display 3 blog posts from graphQL data.

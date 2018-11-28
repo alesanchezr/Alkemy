@@ -5,7 +5,7 @@ import Loading from './loading.jsx'
 
 
 const Counter = props => (
-  <h1><CountUp start={0} end={props.num} duration={3} separator=',' /></h1>
+  <h1><CountUp start={0} end={props.num} duration={3} separator=',' redraw={false}/></h1>
 )
 
 export default Watch(
@@ -19,7 +19,7 @@ export default Watch(
       return(
         <>
           {
-            (this.props.isFullyInViewport || this.props.isInViewport)
+            (!this.props.isInViewport)
             ? (<Counter num={Number(this.props.theNumber)}/>)
             : (<Loading />)
           }

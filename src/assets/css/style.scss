@@ -736,5 +736,10 @@ section.contactForm{
         border-radius: 2px;
       }
     }
+    button{
+      &:hover{
+        max-width: 50%;
+      }
+    }
   }
 }
