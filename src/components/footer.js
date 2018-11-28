@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { Col, Row } from 'reactstrap'
+import SocialLinks from './SocialLinks.jsx'
 /*
 _menuArray object details:
   name:  the title of the menu item (link text)
@@ -55,18 +56,18 @@ const _subLinks = [
 ]
 
 const Footer = (props) => (
-    <footer className="footer wow fadeInUp py-5">
-      <div className="container">
+    <footer className="footer wow fadeInUp p-5">
         <Row>
           {renderLinkAreas(_menuArray)}
         </Row>
+
         <Row>
           <div className="copyText text-center position-absolute my-0">
             Copyright &copy; 2018, Alkemy, Inc.&nbsp;&mdash;&nbsp;
             {renderSubLinks(_subLinks)}
+            <SocialLinks className="position-absolute"/>
           </div>
         </Row>
-      </div>
     </footer>
   )
 
@@ -80,7 +81,7 @@ const renderLinkAreas = (menu) => {
           {(item.phone)
             &&(item.phone.map(phone=>{
               return(
-                <li key={phone.id}>{phone.name}: <br/><Link to={phone.url}><strong>{phone.textNumber}</strong></Link><p>&emsp;&emsp;({phone.number})</p></li>
+                <li key={phone.id}>{phone.name}: <br/><a href={phone.url}><strong>{phone.textNumber}</strong></a><p>&emsp;&emsp;({phone.number})</p></li>
               )
             })
           )}
@@ -92,7 +93,7 @@ const renderLinkAreas = (menu) => {
 
 const renderSubLinks = (menu) => {
   return menu.map((item,index)=>{
-    if(index!=menu.length-1){
+    if(index!==menu.length-1){
       return(
         <span key={item.id}><Link to={item.url}>{item.name}&nbsp;|&nbsp;</Link></span>
       )

@@ -47,27 +47,23 @@
         ]
       },
       {
-        "statsCounter": [
+        "heading": "Our Roadmap to Success…",
+        "stats": [
           {
-            "heading": "Our Roadmap to Success…",
-            "stats": [
-              {
-                "title": "Products Sold",
-                "value": "137,124"
-              },
-              {
-                "title": "Campaign Impressions",
-                "value": "24,315"
-              },
-              {
-                "title": "Lines of Code",
-                "value": "539,854"
-              },
-              {
-                "title": "Coffees Consumed",
-                "value": "1,534"
-              }
-            ]
+            "title": "Products Sold",
+            "value": 137124
+          },
+          {
+            "title": "Campaign Impressions",
+            "value": 24315
+          },
+          {
+            "title": "Lines of Code",
+            "value": 539854
+          },
+          {
+            "title": "Coffees Consumed",
+            "value": 1534
           }
         ]
       }

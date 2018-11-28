@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Card, CardImg, CardText,
   CardTitle, CardDeck, CardBody,CardFooter, Button } from "reactstrap"
+import Loading from './loading.jsx'
 
 // Blog post widget to display 3 blog posts from graphQL data.
 // When using this widget, make sure to pass a prop, "posts",
@@ -14,24 +15,26 @@ const BlogWidget = (props) => {
     .slice(0, size) // select only 3 posts (query should organize by DESC)
     .map(edge => {
       return(
-        <Card key={edge.node.id} className="mx-auto">
-          <CardImg top width="100%" src={edge.node.frontmatter.cover} alt={edge.node.frontmatter.title} className="mb-1"/>
+        <Card key={edge.node.id} className="mx-3 h-100">
+          <CardImg top src={edge.node.frontmatter.cover} alt={edge.node.frontmatter.title} className="mb-1"/>
           <CardBody>
             <CardTitle className="my-0">{edge.node.frontmatter.title}</CardTitle>
+            <CardText>{edge.node.frontmatter.excerpt?edge.node.frontmatter.excerpt:(<Loading />)}</CardText>
+            <Button href={edge.node.frontmatter.path} className="mt-0 w-100" size="md" color="secondary">Read More...</Button>
           </CardBody>
-          <CardFooter>
-            <Button href={edge.node.frontmatter.path} className="btn btn-primary form-control mt-0">Read Blog Post</Button>
-          </CardFooter>
         </Card>
       )
     })
   return (
-    <div>
-      <h2 className="text-center">Recent Activity from the Alkemy Blog</h2>
-      <div className="container">
-        <CardDeck>{Posts}</CardDeck>
+    <>
+
+      <div className="container-fluid px-5">
+        <h2>Latest Blogs</h2>
+        <CardDeck className='h-100'>
+          {Posts}
+        </CardDeck>
       </div>
-    </div>
+    </>
   )
 
 }
