@@ -8,9 +8,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // Don't forget to import the icon to the library on layout.js
 
 const _linkArray= [
-  {id:1,platform: 'facebook', url: '//www.facebook.com/alkemydev/', icon: 'facebook', color:'#3b5998'},
-  {id:2,platform: 'twitter', url: '//twitter.com/alkemyDev', icon: 'twitter', color: '#00aced'},
-  {id:3,platform: 'linkedin', url: '//www.linkedin.com/company/alkemydev', icon: 'linkedin', color:'#007bb6'},
+  {id:1,platform: 'facebook', url: '//www.facebook.com/alkemydev/', icon: 'facebook', color:'white'},
+  {id:2,platform: 'twitter', url: '//twitter.com/alkemyDev', icon: 'twitter', color: 'white'},
+  {id:3,platform: 'linkedin', url: '//www.linkedin.com/company/alkemydev', icon: 'linkedin', color:'white'},
 ]
 
 const SocialLinks = (props) => {

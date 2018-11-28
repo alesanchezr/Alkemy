@@ -3,7 +3,7 @@ path: "/alkemy-inc-website-launch"
 date: "2018-04-25"
 title: "Alkemy, Inc. - We've launched our NEW website presence!"
 tags: ['website','company news','launch']
-cover: "./images/design-your-dream.jpeg"
+cover: "./images/screenshot-may-2018.png"
 excerpt: "Today is the launch of the new Alkemy, Inc. website! We hope you enjoy using it as much as we loved creating it. We'll be updating our site very frequently in the future to ensure quality content, so make sure to check back periodically."
 ---
 

@@ -3,7 +3,7 @@ path: "/may-2018-web-design-promo"
 date: "2018-05-07"
 title: "May 2018 - 20% Off Web Design Packages"
 tags: ['promo','company news']
-cover: "./images/design-your-dream.jpeg"
+cover: "./images/may-2018-promo.png"
 excerpt: "Today is the launch of the new Alkemy, Inc. website! We hope you enjoy using it as much as we loved creating it. We'll be updating our site very frequently in the future to ensure quality content, so make sure to check back periodically."
 ---
 
