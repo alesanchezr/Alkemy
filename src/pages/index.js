@@ -67,7 +67,6 @@ const HomePage = ({data}) => {
   const secondNumber = data.homepageJson.sections[3].stats[1].value
   const thirdNumber = data.homepageJson.sections[3].stats[2].value
   const fourthNumber = data.homepageJson.sections[3].stats[3].value
-  console.log(firstNumber)
   return(
   <ScrollWrapper onWindowScroll={handleScroll}>
     <Layout
@@ -178,7 +177,7 @@ const HomePage = ({data}) => {
         <h1>{data.homepageJson.sections[3].heading}</h1>
             <Row className="px-5 pt-4">
               <Col xs={12} sm={6} lg={3}>
-                <ReactCounter stateChange={receiveStateChange} theNumber={firstNumber}/>
+                <ReactCounter theNumber={firstNumber}/>
                 <p className="text-muted">{data.homepageJson.sections[3].stats[0].title}</p>
               </Col>
 
@@ -271,10 +270,6 @@ const handleScroll = () => {
   }else{
     document.body.classList.remove('solid');
   }
-}
-
-const receiveStateChange = (watcher) =>{
-  console.log('state changed!', watcher.isInViewport)
 }
 
 export const query = graphql`
