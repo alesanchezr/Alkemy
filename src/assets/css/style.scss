@@ -13,7 +13,7 @@
 /**********************/
 
 /* Mobile Menu */
-$header-height: 130px; // Set height of header
+$header-height: 80px; // Set height of header
 $animation-time: 400ms; // Set the animation speed
 $animation-function: ease; // Set the animation type
 
@@ -27,11 +27,60 @@ $animation-function: ease; // Set the animation type
   transition: $property $time $function;
 }
 
+/* Fonts */
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+$min_width: 320px;
+$max_width: 1980px;
+$min_font: 16px;
+$max_font: 24px;
+
+html {
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+}
+
+$mod_1: 1.2; // mobile
+$mod_2: 1.5; // desktop
+
+h1 {
+  font-size: $mod_1*$mod_1*$mod_1*$mod_1 *1rem;
+  @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font);
+}
+h2 {
+  font-size: $mod_1*$mod_1*$mod_1 *1rem;
+  @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font);
+}
+h3 {
+  font-size: $mod_1*$mod_1 *1rem;
+  @include fluid-type($min_width, $max_width, $mod_1*$mod_1 *$min_font, $mod_2*$mod_2 *$min_font);
+}
+
 /* Colors */
 
-$alkemy_darkest_blue: rgb(20,27,34); //#141B22
-$alkemy_blue: #328CC1;
-$alkemy_dark_blue: #0B3C5D;
+$alkemy_darkest_blue: darken(#206a98,35%); //#141B22
+$alkemy_blue: #2bb3e5;
+$alkemy_dark_blue: #206a98; //#0B3C5D
 $alkemy_dark_gray: #707070;
 $alkemy_yellow: #F0C611;
 $alkemy_gold: #79640A;
@@ -41,6 +90,12 @@ $twitter: #1da1f2;
 
 .wow{
   visibility: hidden;
+}
+
+html{
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 body{
@@ -127,6 +182,10 @@ input[type="checkbox"]:checked + label:before {
   animation-duration: 2s;
   transition: .5s linear;
 
+  .navbar{
+    font-size: 1.1rem;
+  }
+
   a:hover,
   .dropdown-toggle:hover{
     color: $alkemy_yellow !important;
@@ -153,19 +212,6 @@ a {
   border-top: unset;
 }
 
-
-.callUs{
-  position: absolute;
-  top: .5rem;
-  right: 1rem;
-  font-size: 1.6rem;
-  color: $alkemy_yellow;
-
-  @media only screen and (max-width: 1080px){
-    display: none !important;
-  }
-}
-
 .vc{
   background: black;
   overflow: hidden;
@@ -188,20 +234,22 @@ a {
   height: 100vh;
   transition: top 350ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
 
-  hr{
-    border-color: $alkemy_dark_gray;
-    top: 15vh;
-    position: absolute;
-    left: 0;
-    right: 0;
+  &.open ~.navbar{
+    border-bottom: 2px solid lightgray !important;
   }
   .navbar-nav {
-    font-size: 1.6rem;
-    margin: 22vh auto;
+    font-size: 1.3rem;
+    line-height: 4vh;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     .siteTitle{
       font-size: 1.8rem;
       &:first-of-type{
-        margin-bottom: 1rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
       }
     }
   }
@@ -219,46 +267,93 @@ a {
   z-index: 100;
   width: 100%;
   height: 100%;
+  z-index: 500;
 }
 
 .cover-text-1a{
-  position: absolute;
-  top: 30%;
-  left: 30vw;
-  font-size: 3rem;
-  text-shadow: 1px 1px #444;
-  color: white;
+  top: 30vh;
+  left: 20vw;
+  @media screen and (max-width:1080px){
+    top: 16vh;
+    line-height: 16vw;
+    font-size: 2.1em;
+    -webkit-animation: slideFromLeftMobile 0.5s backwards;
+    animation: slideFromLeftMobile 0.5s backwards;
+  }
+  font-size: 3em;
   -webkit-animation: slideFromLeft 0.5s backwards;
-  -webkit-animation-delay: 2s;
   animation: slideFromLeft 0.5s backwards;
-  animation-delay: 2s;
 }
 .cover-text-1b{
-  position: absolute;
-  top: 42%;
-  right: 20vw;
+  top: 42vh;
+  left: 30vw;
+  @media screen and (max-width:1080px){
+    top: 28vh;
+    line-height: 26vw;
+    font-size: 6em;
+    -webkit-animation: slideFromRightMobile 0.5s backwards;
+    animation: slideFromRightMobile 0.5s backwards;
+  }
   font-weight: bold;
-  font-size: 5.5rem;
-  text-shadow: 1px 1px #444;
-  color: white;
+  font-size: 5em;
   -webkit-animation: slideFromRight 0.5s backwards;
-  -webkit-animation-delay: 2s;
   animation: slideFromRight 0.5s backwards;
-  animation-delay: 2s;
 }
 
+.cover-text-1a,
+.cover-text-1b{
+  position: absolute;
+  text-shadow: 1px 1px #444;
+  color: white;
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
+  @media screen and (max-width:1080px){
+    padding: 1rem;
+  }
+}
+
+.cover-text-1a,
+.cover-text-1b{
+  @media screen and (max-width:1080px){
+    left: 0;
+  }
+}
+
+.hero-cta-div,
+.heroChevron{
+  @media screen and (max-width:1080px){
+    transform: translateX(-50%);
+  }
+}
+
+/* Desktop Animations */
 @-webkit-keyframes slideFromLeft {
-    0% { left: -50vw; }
+  0% { left: -50vw; }
 }
 @keyframes slideFromLeft {
-    0% { left: -50vw; }
+  0% { left: -50vw; }
 }
 
 @-webkit-keyframes slideFromRight {
-  0% { right: -50vw;}
+  0% { left: 120vw;}
 }
 @keyframes slideFromRight {
-  0% { right: -50vw;}
+  0% { left: 120vw;}
+}
+
+/* Mobile Animations */
+@-webkit-keyframes slideFromLeftMobile {
+  0% { left: -100vw; }
+}
+@keyframes slideFromLeftMobile {
+  0% { left: -100vw; }
+}
+
+@-webkit-keyframes slideFromRightMobile {
+  0% { left: 100vw;}
+}
+@keyframes slideFromRightMobile {
+  0% { left: 100vw;}
 }
 
 
@@ -273,31 +368,30 @@ a {
     outline:none;
 
     &:hover{
-      color: $alkemy_dark_blue;
-      background-color: transparent;
+      color: white;
+      background-color: $alkemy_blue;
     }
 }
 
-.btn-primary:before,.btn-primary:after{
-  content:'';
-  position:absolute;
-  top:0;
-  right:0;
-  height:2px;
-  width:0;
-  background: $alkemy_dark_blue;
-  transition:400ms ease all;
+.callNow{
+  background: $alkemy_blue;
+  right: 0;
+  width: 16vw;
+  padding: 1rem;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 20rem 0 0 20rem;
+  border: 1px solid white;
+  z-index:800;
+  .callNowButton{
+    border-radius: 1rem;
+    background: white;
+    margin: 0 auto;
+    color: black;
+  }
 }
-.btn-primary:after{
-  right:inherit;
-  top:inherit;
-  left:0;
-  bottom:0;
-}
-.btn-primary:hover:before,.btn-primary:hover:after{
-  width:100%;
-  transition:800ms ease all;
-}
+
 
 .header {
   button:hover {
@@ -374,9 +468,13 @@ a {
 }
 
 .hero-cta-div{
-  bottom: 30vh;
+  bottom: 25vh;
   left: 50vw;
   z-index: 100;
+  @media screen and (max-width:1080px){
+    bottom: 13vh;
+    left: 50%;
+  }
 }
 
 .heroChevron{

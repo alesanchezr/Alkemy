@@ -15,12 +15,12 @@ const BlogWidget = (props) => {
     .slice(0, size) // select only 3 posts (query should organize by DESC)
     .map(edge => {
       return(
-        <Card key={edge.node.id} className="mx-3 h-100">
+        <Card key={edge.node.id} className="mx-lg-3 mb-5 h-100">
           <CardImg top src={edge.node.frontmatter.cover} alt={edge.node.frontmatter.title} className="mb-1"/>
           <CardBody>
             <CardTitle className="my-0">{edge.node.frontmatter.title}</CardTitle>
             <CardText>{edge.node.frontmatter.excerpt?edge.node.frontmatter.excerpt:(<Loading />)}</CardText>
-            <Button href={edge.node.frontmatter.path} className="mt-0 w-100" size="md" color="secondary">Read More...</Button>
+            <Button href={edge.node.frontmatter.path} className="mt-0 w-100" size="md" color="primary">Read More...</Button>
           </CardBody>
         </Card>
       )

@@ -61,12 +61,12 @@ const Footer = (props) => (
           {renderLinkAreas(_menuArray)}
         </Row>
 
-        <Row>
-          <div className="copyText text-center position-absolute my-0">
+        <Row className="my-5 my-lg-0">
+          <div className="copyText text-center position-absolute my-5 my-lg-0 px-5">
             Copyright &copy; 2018, Alkemy, Inc.&nbsp;&mdash;&nbsp;
             {renderSubLinks(_subLinks)}
-            <SocialLinks className="position-absolute"/>
           </div>
+          <SocialLinks className="position-absolute mb-3"/>
         </Row>
     </footer>
   )
@@ -76,7 +76,7 @@ const renderLinkAreas = (menu) => {
     return(
       <Col xs={12} md={6} lg={3} key={item.id}>
         <h4>{item.name}</h4>
-        <ul className="list-unstyled ml-0">
+        <ul className="list-unstyled ml-0 mb-5">
           {(item.links.map(link=>{return(<li key={link.id}><Link to={link.url}>{link.name}</Link></li>)}))}
           {(item.phone)
             &&(item.phone.map(phone=>{

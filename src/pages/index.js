@@ -89,8 +89,8 @@ const HomePage = ({data}) => {
         		</div>
 
             {/* Cover CTA */}
-            <div className="hero-cta-div d-none d-sm-block position-absolute">
-              <Button to="/about-alkemy" className="btn btn-primary btn-lg pulse">Learn More</Button>
+            <div className="hero-cta-div d-block position-absolute">
+              <Button href="/about-alkemy" className="btn btn-primary btn-lg">Learn More</Button>
             </div>
 
             {/* Caret */}
@@ -107,14 +107,15 @@ const HomePage = ({data}) => {
           <p className="mb-4">{data.homepageJson.sections[0].blocks[1].content}</p>
         </div>
       </section>
-      <section className="servicesHome my-auto">
-        <CardDeck className="d-flex flex-row align-items-stretch">
-            <Card className="border-0 p-3 wow bounceInUp cardOne">
+      <section className="servicesHome mt-auto mb-5">
+        <Row>
+          <Col className="col-lg-3 col-sm-6 col-12 h-100">
+            <Card className="border-0 p-3 wow bounceInUp cardOne h-100">
               <CardImg top className="image-services mx-auto" src={webDesign} alt="Responsive Web Design Service" />
               <CardBody>
                 <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[0].heading}</CardTitle>
               </CardBody>
-              <CardImgOverlay>
+              <CardImgOverlay className="h-100">
                 <CardBody>
                   <CardText>{data.homepageJson.sections[1].blocks[0].content}</CardText>
                 </CardBody>
@@ -123,14 +124,14 @@ const HomePage = ({data}) => {
                 </CardFooter>
               </CardImgOverlay>
             </Card>
-
-
-            <Card className="border-0 p-3 wow bounceInUp cardTwo">
+          </Col>
+          <Col className="col-lg-3 col-sm-6 col-12 h-100">
+            <Card className="border-0 p-3 wow bounceInUp cardTwo h-100">
               <CardImg top className="image-services mx-auto" src={webDevelopment} alt="Quality Web Development Service" />
               <CardBody>
                 <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[1].heading}</CardTitle>
               </CardBody>
-              <CardImgOverlay>
+              <CardImgOverlay className="h-100">
                 <CardBody>
                   <CardText>{data.homepageJson.sections[1].blocks[1].content}</CardText>
                 </CardBody>
@@ -139,71 +140,72 @@ const HomePage = ({data}) => {
                 </CardFooter>
               </CardImgOverlay>
             </Card>
-
-
-            <Card className="border-0 p-3 wow bounceInUp cardThree">
+          </Col>
+          <Col className="col-lg-3 col-sm-6 col-12 h-100">
+            <Card className="border-0 p-3 wow bounceInUp cardThree h-100">
               <CardImg top className="image-services mx-auto" src={eCommerce} alt="Ecommerce Design Services" />
               <CardBody>
                 <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[2].heading}</CardTitle>
               </CardBody>
-              <CardImgOverlay>
+              <CardImgOverlay className="h-100">
                 <CardBody>
                   <CardText>{data.homepageJson.sections[1].blocks[2].content}</CardText>
                 </CardBody>
                 <CardFooter>
-                  <Button href="/responsive-web-design" color="primary" block>Learn More</Button>
+                  <Button href="/ecommerce-web-design" color="primary" block>Learn More</Button>
                 </CardFooter>
               </CardImgOverlay>
             </Card>
-
+          </Col>
+          <Col className="col-lg-3 col-sm-6 col-12">
             <Card className="border-0 p-3 wow bounceInUp cardFour">
               <CardImg top className="image-services mx-auto" src={digitalMarketing} alt="Digital Marketing Services" />
               <CardBody>
                 <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[3].heading}</CardTitle>
               </CardBody>
-              <CardImgOverlay>
+              <CardImgOverlay className="h-100">
                 <CardBody>
                   <CardText>{data.homepageJson.sections[1].blocks[3].content}</CardText>
                 </CardBody>
                 <CardFooter>
-                  <Button href="/responsive-web-design" color="primary" block>Learn More</Button>
+                  <Button href="/digital-marketing" color="primary" block>Learn More</Button>
                 </CardFooter>
               </CardImgOverlay>
             </Card>
-
-          </CardDeck>
+          </Col>
+        </Row>
       </section>
       <section className="statsCounter mb-4 text-center py-4">
         <h1>{data.homepageJson.sections[3].heading}</h1>
-            <Row className="px-5 pt-4">
-              <Col xs={12} sm={6} lg={3}>
-                <ReactCounter theNumber={firstNumber}/>
-                <p className="text-muted">{data.homepageJson.sections[3].stats[0].title}</p>
-              </Col>
+        <Row className="px-5 pt-4">
+          <Col xs={12} sm={6} lg={3}>
+            <ReactCounter theNumber={firstNumber}/>
+            <p className="text-muted">{data.homepageJson.sections[3].stats[0].title}</p>
+          </Col>
 
-              <Col xs={12} sm={6} lg={3}>
-                <ReactCounter theNumber={secondNumber}/>
-                <p className="text-muted">{data.homepageJson.sections[3].stats[1].title}</p>
-              </Col>
+          <Col xs={12} sm={6} lg={3}>
+            <ReactCounter theNumber={secondNumber}/>
+            <p className="text-muted">{data.homepageJson.sections[3].stats[1].title}</p>
+          </Col>
 
-              <Col xs={12} sm={6} lg={3}>
-                <ReactCounter theNumber={thirdNumber}/>
-                <p className="text-muted">{data.homepageJson.sections[3].stats[2].title}</p>
-              </Col>
+          <Col xs={12} sm={6} lg={3}>
+            <ReactCounter theNumber={thirdNumber}/>
+            <p className="text-muted">{data.homepageJson.sections[3].stats[2].title}</p>
+          </Col>
 
-              <Col xs={12} sm={6} lg={3}>
-                <ReactCounter theNumber={fourthNumber}/>
-                <p className="text-muted">{data.homepageJson.sections[3].stats[3].title}</p>
-              </Col>
-            </Row>
+          <Col xs={12} sm={6} lg={3}>
+            <ReactCounter theNumber={fourthNumber}/>
+            <p className="text-muted">{data.homepageJson.sections[3].stats[3].title}</p>
+          </Col>
+        </Row>
       </section>
       <section className="ourPassion">
-        <div className="container-fluid px-5">
+        <div className="container-fluid px-0 px-lg-5">
           <Row className="align-items-center">
-            <Col xs={12} md={5} className="align-items-center px-5">
+            <Col xs={12} md={5} className="align-items-center px-0 px-lg-5">
               <img src={ourPassion} className="ourPassionImg wow slideInLeft" alt="About Alkemy, Inc."/>
             </Col>
-            <Col xs={12} md={7} className="align-items-center px-5">
+            <Col xs={12} md={7} className="align-items-center px-0 px-lg-5">
               <h2>{data.homepageJson.sections[2].blocks[0].heading}</h2>
               <p>{data.homepageJson.sections[2].blocks[0].content}</p>
               <Button href="/about-alkemy/" className="btn btn-primary">Discover Our Passion</Button>
@@ -214,24 +216,27 @@ const HomePage = ({data}) => {
       <section className="recentBlogPosts mb-5">
         <BlogWidget posts={data.allMarkdownRemark.edges}/>
       </section>
-      <section className="contactForm py-5">
+      <section className="contactForm py-5 px-3">
         <h1 className="text-center">LET'S GET STARTED</h1>
         <div className="container">
           <p>Are you interested in a Completely FREE Analysis of your Website and it's SEO ? Please provide us with your name, email address, and website’s URL and we’ll handle the rest!</p>
-          <Form onSubmit={(e)=>e.preventDefault()}>
-            <Row form className="my-4 py-0">
-              <Col xs={12} md={6}>
+          <Form
+            onSubmit={(e)=>e.preventDefault()}
+            className="py-3 mb-0"
+            >
+            <Row form className="my-2 py-0">
+              <Col xs={12} md={6} className="my-2 py-0">
                 <FormGroup>
                   <Input type="text" name="fullName" id="fullName" placeholder="Please tell us your Full Name" />
                 </FormGroup>
               </Col>
-              <Col xs={12} md={6}>
+              <Col xs={12} md={6} className="my-2 py-0">
                 <FormGroup>
                   <Input type="email" name="email" id="email" placeholder="Enter your Email Address" />
                 </FormGroup>
               </Col>
             </Row>
-            <FormGroup className="my-4">
+            <FormGroup className="my-2">
               <Input type="url" name="webAddress" id="webAddress" placeholder="What is your Website Address? (ex. www.yourwebsite.com)"/>
             </FormGroup>
             <FormGroup check className="my-4 text-center">
@@ -241,7 +246,7 @@ const HomePage = ({data}) => {
               </Label>
             </FormGroup>
             <FormGroup className="text-center">
-              <Button className="btn btn-primary" type="submit" value="submit">Send me my FREE Website and SEO Analysis</Button>
+              <Button className="btn btn-primary" type="submit" value="submit">Send me my FREE Website Analysis</Button>
             </FormGroup>
           </Form>
         </div>
@@ -257,15 +262,15 @@ var introSection = React.createRef();
 
 const handleCaretClick = () => {
   window.scrollTo({
-    top: introSection.current.offsetTop-130,
+    top: introSection.current.offsetTop-100,
     behavior: "smooth"
   })
 }
 
 const handleScroll = () => {
   // header opacity
-  var top = window.innerHeight-130;
-  if(window.pageYOffset>=top){
+  var topBoundary = window.innerHeight-100;
+  if(window.pageYOffset>=topBoundary){
     document.body.classList.add('solid');
   }else{
     document.body.classList.remove('solid');

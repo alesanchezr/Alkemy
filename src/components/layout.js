@@ -3,11 +3,12 @@ import PropTypes from 'prop-types'
 
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { TypographyStyle, GoogleFont } from 'react-typography'
 import typography from '../utils/typography'
 import Header from './header'
 import Footer from './footer'
+import { Button } from 'reactstrap'
 
 import '../assets/css/layout.css'
 import '../assets/css/bootstrap.min.css'
@@ -20,7 +21,7 @@ import favicon32 from '../assets/images/favicon-32x32.png'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faChevronDown,faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown,faSpinner,faMobileAlt } from '@fortawesome/free-solid-svg-icons'
 import { faCalendarAlt,faCalendarPlus } from '@fortawesome/free-regular-svg-icons'
 
 library.add(
@@ -28,7 +29,8 @@ library.add(
   faChevronDown,
   faCalendarAlt,
   faCalendarPlus,
-  faSpinner
+  faSpinner,
+  faMobileAlt
 )
 
 const Layout = ({ children, pageTitle, headerTitle, headerType, bodyClasses }) => (
@@ -144,7 +146,9 @@ const Layout = ({ children, pageTitle, headerTitle, headerType, bodyClasses }) =
         >
           {children}
         </div>
-
+        <div className="callNow d-lg-none">
+          <a href="tel:8774255369" title="Call Now!"><FontAwesomeIcon icon="mobile-alt" size="3x" color="white" className="callNowButton"/></a>
+        </div>
         <Footer />
 
       </div>

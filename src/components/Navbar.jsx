@@ -149,8 +149,8 @@ export default class ReactNavbar extends React.Component {
     return (
       <>
         <Navbar fixed='top' expand="lg" dark>
-          <NavbarBrand href="/" className="mr-lg-auto mx-auto">
-            <img src={alkemyLogo} alt="Alkemy, Inc." style={{maxHeight:'100px'}} />
+          <NavbarBrand href="/" className="mr-lg-auto">
+            <img className="my-auto" src={alkemyLogo} alt="Alkemy, Inc." />
           </NavbarBrand>
           <NavbarToggler
             onClickCapture={this.toggleMobileMenu}
@@ -161,8 +161,7 @@ export default class ReactNavbar extends React.Component {
             </span>
           </NavbarToggler>
           <Collapse className="d-none d-lg-block" navbar>
-            <p className="callUs">Call Us Today! 877-4ALKEMY (425-5369)</p>
-            <Nav className="ml-auto" navbar style={{marginTop:'2rem'}}>
+            <Nav className="ml-auto" navbar>
               {this.renderMenuLinks()}
               <Button outline color="light" onMouseOver={this.handleButtonHover} onMouseOut={this.handleButtonHover} className="ml-4 align-middle">
                 <FontAwesomeIcon icon={this.state.icon} color="white" size="lg" className="mr-2"/>
@@ -172,14 +171,13 @@ export default class ReactNavbar extends React.Component {
           </Collapse>
         </Navbar>
         <div className={this.state.mobileMenuClasses} >
-          <hr/>
+
           <Nav className="mx-auto" navbar>
             {this.renderMobileLinks()}
-            <Button outline color="light" className="mx-auto align-middle">
-              <FontAwesomeIcon icon={this.state.icon} color="white" size="lg"/>
+            <Button outline color="light" className="mx-auto align-middle my-4">
+              <FontAwesomeIcon icon={this.state.icon} color="white" size="lg" className="mr-2"/>
               Reserve Appointment
             </Button>
-            <p className="mx-auto">Call Us Today! 877-4ALKEMY (425-5369)</p>
           </Nav>
         </div>
       </>
