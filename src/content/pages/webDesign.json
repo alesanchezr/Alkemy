@@ -1,0 +1,61 @@
+[
+  {
+    "sections":[
+      {
+        "id": "1",
+        "blocks": [
+          {
+            "heading": "First Class Responsive Web Design",
+            "content": "Responsive websites and applications are a cornerstone of the modern world. In addition, every business or professional needs a modern and responsive website to sell more effectively. With our responsive web design services, we can help your business with it’s unique needs!"
+          },
+          {
+            "heading": "Let Us Help You Look Your Best",
+            "content": "Web design is more than just how your business looks, it’s a form of art. We want to make you and your business look good."
+          },
+          {
+            "content": "Here at Alkemy, we have all of the tricks and tools to develop a rich and engaging web experience. Whether we design a static website for you with one of our web design plans, or we create a fully custom package for your unique needs - Let us take your ideas and sculpt them into a masterpiece!"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "blocks": [
+          {
+            "heading": "Deliver Your Message With Beauty and Style",
+            "content": "Some text about how site will be custom designed with their business in mind and how this distinguishes them from competition. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lectus eros, suscipit nec ligula quis, maximus placerat libero. Donec sodales faucibus erat, in egestas turpis tincidunt nec. Nullam metus nisl, cursus eu imperdiet eget, rhoncus id dolor. Maecenas sed ligula molestie ante fermentum semper. Aliquam iaculis sem ut dui viverra tincidunt. Phasellus efficitur, mi vel pellentesque sodales, nisl lacus vehicula lacus, at lacinia mauris erat ac arcu. Aenean quis mattis lacus. Nullam lorem lacus, auctor luctus ante non, venenatis vestibulum elit. Mauris venenatis nunc ut nunc fermentum, id feugiat libero sagittis. Nunc et tellus vel lorem tincidunt vehicula sit amet vel magna. In faucibus mauris sit amet suscipit vestibulum. Donec non lobortis nibh, sed sollicitudin ex. In hac habitasse platea dictumst. Duis non dapibus elit. Nam arcu lectus, dignissim ut suscipit eu, viverra a est."
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "blocks": [
+          {
+            "heading": "Our Passion",
+            "content": "What drives us? The desire to create Awesome Software that answers the needs of our world. We meet complex problems with creative and innovative solutions every day. At our center is the idea that each member of our team brings something unique to the table and we strive to show it every chance we get."
+          }
+        ]
+      },
+      {
+        "heading": "Our Roadmap to Success…",
+        "stats": [
+          {
+            "title": "Products Sold",
+            "value": 137124
+          },
+          {
+            "title": "Campaign Impressions",
+            "value": 24315
+          },
+          {
+            "title": "Lines of Code",
+            "value": 539854
+          },
+          {
+            "title": "Coffees Consumed",
+            "value": 1534
+          }
+        ]
+      }
+    ]
+  }
+]

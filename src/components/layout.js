@@ -33,7 +33,7 @@ library.add(
   faMobileAlt
 )
 
-const Layout = ({ children, pageTitle, headerTitle, headerType, bodyClasses }) => (
+const Layout = ({ children, pageTitle, renderHeaderSolid, headerTitle, headerType, bodyClasses }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -135,7 +135,11 @@ const Layout = ({ children, pageTitle, headerTitle, headerType, bodyClasses }) =
         </noscript>
       	{/* End Google Tag Manager (noscript) */}
 
-        <Header hideHeader={headerTitle[0]} siteTitle={headerTitle[1]} />
+        <Header
+          hideHeader={headerTitle[0]}
+          siteTitle={headerTitle[1]}
+          renderHeaderSolid={renderHeaderSolid}
+          />
 
         <div
           style={{

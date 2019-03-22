@@ -18,9 +18,9 @@ var _menuArray = [
     drop: true,
     title: true,
     submenu: [
-      {name: 'Web Design', id: '1a', url: '/web-design'},
-      {name: 'Web Development', id: '1b', url: '/web-development'},
-      {name: 'E-Commerce Design', id: '1c', url: '/ecommerce-design'},
+      {name: 'Responsive Web Design', id: '1a', url: '/responsive-web-design'},
+      {name: 'Software Development', id: '1b', url: '/Software-development'},
+      {name: 'eCommerce Design', id: '1c', url: '/ecommerce-design'},
       {name: 'Digital Marketing', id: '1d', url: '/digital-marketing'},
     ]
   },
@@ -29,22 +29,21 @@ var _menuArray = [
   {name: 'Contact Alkemy', title: true, id: '4', drop:false, url: '/contact-alkemy'},
 ];
 
-const Header = ({ siteTitle, hideHeader }) =>(
-    <header className="header wow fadeInDown">
+const Header = ({ siteTitle, hideHeader, renderHeaderSolid }) =>(
+    <header
+      className={
+        (renderHeaderSolid)
+          ?("header solid wow fadeInDown")
+          :("header wow fadeInDown")
+      }
+    >
       <>
         <ReactNavbar menuArray={_menuArray} />
       </>
       {
         (hideHeader===true)
         ?(
-          <div
-            id='subHeader'
-            style={{
-              marginTop: '100px',
-              width: '100%',
-              padding: '1.45rem 1.0875rem',
-            }}
-          >
+          <div id='subHeader'>
             <h1 style={{ margin: 0 }}>
               <Link
                 to="/"

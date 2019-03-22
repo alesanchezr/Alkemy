@@ -69,158 +69,158 @@ const HomePage = ({data}) => {
   const thirdNumber = data.homepageJson.sections[3].stats[2].value
   const fourthNumber = data.homepageJson.sections[3].stats[3].value
   return(
-  <ScrollWrapper onWindowScroll={handleScroll}>
-    <Layout
-      pageTitle="Alkemy, Inc. | Web Design, Development, eCommerce, and Marketing"
-      headerTitle={[false,""]}
-      bodyClasses="home"
-      >
+    <ScrollWrapper onWindowScroll={handleScroll}>
+      <Layout
+        pageTitle="Alkemy, Inc. | Web Design, Development, eCommerce, and Marketing"
+        headerTitle={[false,""]}
+        bodyClasses="home"
+        >
 
-      {/* Section 1 - Hero */}
-      <section className="homeHero">
-      	<div className="container-fluid px-0 position-relative" style={{position: 'relative'}}>
+        {/* Section 1 - Hero */}
+        <section className="homeHero">
+        	<div className="container-fluid px-0 position-relative" style={{position: 'relative'}}>
 
-          {/* Cover Video Slider */}
-          <VideoCarousel slides={slideArray} showIndicators={false} >
+            {/* Cover Video Slider */}
+            <VideoCarousel slides={slideArray} showIndicators={false} >
 
-            {/* Cover Text */}
-        		<div id="cover-text">
-        			<div className="cover-text-1a">Your Brand Deserves</div>
-        			<div className="cover-text-1b">Only The Best</div>
-        		</div>
+              {/* Cover Text */}
+          		<div id="cover-text">
+          			<div className="cover-text-1a">Your Brand Deserves</div>
+          			<div className="cover-text-1b">Only The Best</div>
+          		</div>
 
-            {/* Cover CTA */}
-            <div className="hero-cta-div d-block position-absolute">
-              <Button href="/about-alkemy" className="btn btn-primary btn-lg">Learn More</Button>
-            </div>
+              {/* Cover CTA */}
+              <div className="hero-cta-div d-block position-absolute">
+                <Button href="/about-alkemy" className="btn btn-primary btn-lg">Learn More</Button>
+              </div>
 
-            {/* Caret */}
-            <FontAwesomeIcon onClick={handleCaretClick} icon="chevron-down" size="3x" color="white" className="heroChevron"/>
-          </VideoCarousel>
-        </div>
-      </section>
-      <section ref={introSection} className="introHome my-4">
-        <div className="container-fluid px-5 py-4">
-          <h1 className="mb-4">{data.homepageJson.sections[0].blocks[0].heading}</h1>
-          <p className="mb-5">{data.homepageJson.sections[0].blocks[0].content}</p>
+              {/* Caret */}
+              <FontAwesomeIcon onClick={handleCaretClick} icon="chevron-down" size="3x" color="white" className="heroChevron"/>
+            </VideoCarousel>
+          </div>
+        </section>
+        <section ref={introSection} className="introHome my-4">
+          <div className="container-fluid px-5 py-4">
+            <h1 className="mb-4">{data.homepageJson.sections[0].blocks[0].heading}</h1>
+            <p className="mb-5">{data.homepageJson.sections[0].blocks[0].content}</p>
 
-          <h1 className="mb-4">{data.homepageJson.sections[0].blocks[1].heading}</h1>
-          <p className="mb-4">{data.homepageJson.sections[0].blocks[1].content}</p>
-        </div>
-      </section>
-      <section className="servicesHome mt-auto mb-5">
-        <Row>
-          <Col className="col-lg-3 col-sm-6 col-12 h-100">
-            <Card className="border-0 p-3 wow bounceInUp cardOne h-100">
-              <CardImg top className="image-services mx-auto" src={webDesign} alt="Responsive Web Design Service" />
-              <CardBody>
-                <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[0].heading}</CardTitle>
-              </CardBody>
-              <CardImgOverlay className="h-100">
+            <h1 className="mb-4">{data.homepageJson.sections[0].blocks[1].heading}</h1>
+            <p className="mb-4">{data.homepageJson.sections[0].blocks[1].content}</p>
+          </div>
+        </section>
+        <section className="servicesHome mt-auto mb-5">
+          <Row>
+            <Col className="col-lg-3 col-sm-6 col-12 h-100">
+              <Card className="border-0 p-3 wow bounceInUp cardOne h-100">
+                <CardImg top className="image-services mx-auto" src={webDesign} alt="Responsive Web Design Service" />
                 <CardBody>
-                  <CardText>{data.homepageJson.sections[1].blocks[0].content}</CardText>
+                  <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[0].heading}</CardTitle>
                 </CardBody>
-                <CardFooter>
-                  <Button href="/responsive-web-design" color="primary" block>Learn More</Button>
-                </CardFooter>
-              </CardImgOverlay>
-            </Card>
-          </Col>
-          <Col className="col-lg-3 col-sm-6 col-12 h-100">
-            <Card className="border-0 p-3 wow bounceInUp cardTwo h-100">
-              <CardImg top className="image-services mx-auto" src={webDevelopment} alt="Quality Web Development Service" />
-              <CardBody>
-                <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[1].heading}</CardTitle>
-              </CardBody>
-              <CardImgOverlay className="h-100">
-                <CardBody>
-                  <CardText>{data.homepageJson.sections[1].blocks[1].content}</CardText>
-                </CardBody>
-                <CardFooter>
-                  <Button href="/quality-web-development" color="primary" block>Learn More</Button>
-                </CardFooter>
-              </CardImgOverlay>
-            </Card>
-          </Col>
-          <Col className="col-lg-3 col-sm-6 col-12 h-100">
-            <Card className="border-0 p-3 wow bounceInUp cardThree h-100">
-              <CardImg top className="image-services mx-auto" src={eCommerce} alt="Ecommerce Design Services" />
-              <CardBody>
-                <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[2].heading}</CardTitle>
-              </CardBody>
-              <CardImgOverlay className="h-100">
-                <CardBody>
-                  <CardText>{data.homepageJson.sections[1].blocks[2].content}</CardText>
-                </CardBody>
-                <CardFooter>
-                  <Button href="/ecommerce-web-design" color="primary" block>Learn More</Button>
-                </CardFooter>
-              </CardImgOverlay>
-            </Card>
-          </Col>
-          <Col className="col-lg-3 col-sm-6 col-12">
-            <Card className="border-0 p-3 wow bounceInUp cardFour">
-              <CardImg top className="image-services mx-auto" src={digitalMarketing} alt="Digital Marketing Services" />
-              <CardBody>
-                <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[3].heading}</CardTitle>
-              </CardBody>
-              <CardImgOverlay className="h-100">
-                <CardBody>
-                  <CardText>{data.homepageJson.sections[1].blocks[3].content}</CardText>
-                </CardBody>
-                <CardFooter>
-                  <Button href="/digital-marketing" color="primary" block>Learn More</Button>
-                </CardFooter>
-              </CardImgOverlay>
-            </Card>
-          </Col>
-        </Row>
-      </section>
-      <section className="statsCounter mb-4 text-center py-4">
-        <h1>{data.homepageJson.sections[3].heading}</h1>
-        <Row className="px-5 pt-4">
-          <Col xs={12} sm={6} lg={3}>
-            <ReactCounter theNumber={firstNumber}/>
-            <p className="text-muted">{data.homepageJson.sections[3].stats[0].title}</p>
-          </Col>
-
-          <Col xs={12} sm={6} lg={3}>
-            <ReactCounter theNumber={secondNumber}/>
-            <p className="text-muted">{data.homepageJson.sections[3].stats[1].title}</p>
-          </Col>
-
-          <Col xs={12} sm={6} lg={3}>
-            <ReactCounter theNumber={thirdNumber}/>
-            <p className="text-muted">{data.homepageJson.sections[3].stats[2].title}</p>
-          </Col>
-
-          <Col xs={12} sm={6} lg={3}>
-            <ReactCounter theNumber={fourthNumber}/>
-            <p className="text-muted">{data.homepageJson.sections[3].stats[3].title}</p>
-          </Col>
-        </Row>
-      </section>
-      <section className="ourPassion">
-        <div className="container-fluid px-0 px-lg-5">
-          <Row className="align-items-center">
-            <Col xs={12} md={5} className="align-items-center px-0 px-lg-5">
-              <img src={ourPassion} className="ourPassionImg wow slideInLeft" alt="About Alkemy, Inc."/>
+                <CardImgOverlay className="h-100">
+                  <CardBody>
+                    <CardText>{data.homepageJson.sections[1].blocks[0].content}</CardText>
+                  </CardBody>
+                  <CardFooter>
+                    <Button href="/responsive-web-design" color="primary" block>Learn More</Button>
+                  </CardFooter>
+                </CardImgOverlay>
+              </Card>
             </Col>
-            <Col xs={12} md={7} className="align-items-center px-0 px-lg-5">
-              <h2>{data.homepageJson.sections[2].blocks[0].heading}</h2>
-              <p>{data.homepageJson.sections[2].blocks[0].content}</p>
-              <Button href="/about-alkemy/" className="btn btn-primary">Discover Our Passion</Button>
+            <Col className="col-lg-3 col-sm-6 col-12 h-100">
+              <Card className="border-0 p-3 wow bounceInUp cardTwo h-100">
+                <CardImg top className="image-services mx-auto" src={webDevelopment} alt="Quality Web Development Service" />
+                <CardBody>
+                  <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[1].heading}</CardTitle>
+                </CardBody>
+                <CardImgOverlay className="h-100">
+                  <CardBody>
+                    <CardText>{data.homepageJson.sections[1].blocks[1].content}</CardText>
+                  </CardBody>
+                  <CardFooter>
+                    <Button href="/quality-web-development" color="primary" block>Learn More</Button>
+                  </CardFooter>
+                </CardImgOverlay>
+              </Card>
+            </Col>
+            <Col className="col-lg-3 col-sm-6 col-12 h-100">
+              <Card className="border-0 p-3 wow bounceInUp cardThree h-100">
+                <CardImg top className="image-services mx-auto" src={eCommerce} alt="Ecommerce Design Services" />
+                <CardBody>
+                  <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[2].heading}</CardTitle>
+                </CardBody>
+                <CardImgOverlay className="h-100">
+                  <CardBody>
+                    <CardText>{data.homepageJson.sections[1].blocks[2].content}</CardText>
+                  </CardBody>
+                  <CardFooter>
+                    <Button href="/ecommerce-web-design" color="primary" block>Learn More</Button>
+                  </CardFooter>
+                </CardImgOverlay>
+              </Card>
+            </Col>
+            <Col className="col-lg-3 col-sm-6 col-12">
+              <Card className="border-0 p-3 wow bounceInUp cardFour">
+                <CardImg top className="image-services mx-auto" src={digitalMarketing} alt="Digital Marketing Services" />
+                <CardBody>
+                  <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[3].heading}</CardTitle>
+                </CardBody>
+                <CardImgOverlay className="h-100">
+                  <CardBody>
+                    <CardText>{data.homepageJson.sections[1].blocks[3].content}</CardText>
+                  </CardBody>
+                  <CardFooter>
+                    <Button href="/digital-marketing" color="primary" block>Learn More</Button>
+                  </CardFooter>
+                </CardImgOverlay>
+              </Card>
             </Col>
           </Row>
-        </div>
-      </section>
-      <section className="recentBlogPosts mb-5">
-        <BlogWidget posts={data.allMarkdownRemark.edges}/>
-      </section>
-      <ContactForm / >
-    </Layout>
-  </ScrollWrapper>
-)
+        </section>
+        <section className="statsCounter mb-4 text-center py-4">
+          <h1>{data.homepageJson.sections[3].heading}</h1>
+          <Row className="px-5 pt-4">
+            <Col xs={12} sm={6} lg={3}>
+              <ReactCounter theNumber={firstNumber}/>
+              <p className="text-muted">{data.homepageJson.sections[3].stats[0].title}</p>
+            </Col>
+
+            <Col xs={12} sm={6} lg={3}>
+              <ReactCounter theNumber={secondNumber}/>
+              <p className="text-muted">{data.homepageJson.sections[3].stats[1].title}</p>
+            </Col>
+
+            <Col xs={12} sm={6} lg={3}>
+              <ReactCounter theNumber={thirdNumber}/>
+              <p className="text-muted">{data.homepageJson.sections[3].stats[2].title}</p>
+            </Col>
+
+            <Col xs={12} sm={6} lg={3}>
+              <ReactCounter theNumber={fourthNumber}/>
+              <p className="text-muted">{data.homepageJson.sections[3].stats[3].title}</p>
+            </Col>
+          </Row>
+        </section>
+        <section className="ourPassion">
+          <div className="container-fluid px-0 px-lg-5">
+            <Row className="align-items-center">
+              <Col xs={12} md={5} className="align-items-center px-0 px-lg-5">
+                <img src={ourPassion} className="ourPassionImg wow slideInLeft" alt="About Alkemy, Inc."/>
+              </Col>
+              <Col xs={12} md={7} className="align-items-center px-0 px-lg-5">
+                <h2>{data.homepageJson.sections[2].blocks[0].heading}</h2>
+                <p>{data.homepageJson.sections[2].blocks[0].content}</p>
+                <Button href="/about-alkemy/" className="btn btn-primary">Discover Our Passion</Button>
+              </Col>
+            </Row>
+          </div>
+        </section>
+        <section className="recentBlogPosts mb-5">
+          <BlogWidget posts={data.allMarkdownRemark.edges}/>
+        </section>
+        <ContactForm / >
+      </Layout>
+    </ScrollWrapper>
+  )
 }
 
 
