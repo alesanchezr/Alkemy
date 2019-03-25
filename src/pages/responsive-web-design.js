@@ -12,7 +12,8 @@ import ContactForm from '../components/contactForm.jsx'
 // Images
 import webDesignBanner from '../assets/images/web-design-banner.png'
 import screenDesign from '../assets/images/screen-design.png'
-import siteDesign from '../assets/images/screen-design.png'
+import screenClean from '../assets/images/website-clean.jpg'
+import wordpressLogo from '../assets/images/WordPress-logo.png'
 
 /*
 Layout props:
@@ -56,13 +57,13 @@ const WebDesign = ({data}) => {
               <Row>
                 <Col
                   xs={12}
-                  md={4}
+                  md={6}
                 >
-                  <Button href="/" className="btn btn-primary">View our Plans</Button>
+                  <Button href="/" className="btn btn-primary">View our Web Design Plans</Button>
                 </Col>
                 <Col
                   xs={12}
-                  md={8}
+                  md={6}
                 >
                   <Button href="/" className="btn btn-primary">Get a Custom Quote</Button>
                 </Col>
@@ -75,16 +76,62 @@ const WebDesign = ({data}) => {
         </section>
 
         {/* Section 2 */}
-        <section className="deliverYourMessage mb-4 text-center py-4">
+        <section className="deliverYourMessage mb-4 py-4">
           <h1>{data.webDesignJson.sections[1].heading}</h1>
           <Row className="px-5 pt-4">
             <Col xs={12} md={6}>
-              <img src={siteDesign} />
+              <img src={screenClean} />
             </Col>
 
             <Col xs={12} md={6}>
-              <h1 className="mb-4">{data.webDesignJson.sections[1].blocks[0].heading}</h1>
+              <h2 className="mb-4">{data.webDesignJson.sections[1].blocks[0].heading}</h2>
               <p className="text-white">{data.webDesignJson.sections[1].blocks[0].content}</p>
+              <Button href="/" className="btn btn-primary">View our Web Design Plans</Button>
+            </Col>
+          </Row>
+        </section>
+
+        {/* Section 3 */}
+        <section className="wordpressDesign mb-4 py-4">
+          <h1>{data.webDesignJson.sections[1].heading}</h1>
+          <Row className="px-5 pt-4">
+            <Col xs={12} md={7}>
+              <h2 className="mb-4">{data.webDesignJson.sections[2].blocks[0].heading}</h2>
+              <p className="">{data.webDesignJson.sections[2].blocks[0].content}</p>
+            </Col>
+
+            <Col xs={12} md={5}>
+              <img src={wordpressLogo} />
+            </Col>
+          </Row>
+        </section>
+
+        {/* Section 4 */}
+        <section className="webDesignPlans mb-4 py-4">
+          <Row className="px-5">
+            <Col>
+              <h2 className="text-center mb-4">{data.webDesignJson.sections[3].blocks[0].heading}</h2>
+              <p>{data.webDesignJson.sections[3].blocks[0].content}</p>
+            </Col>
+          </Row>
+          <Row className="my-5 px-5" noGutters>
+            <Col>
+              <Card className="my-4 p-5">
+                <h2 className="text-center mb-4">{data.webDesignJson.sections[4].plans[0].name}</h2>
+                <p className="text-center mb-4">{data.webDesignJson.sections[4].plans[0].priceFrom}</p>
+              </Card>
+            </Col>
+            <Col>
+              <Card className="my-4 p-5">
+                <h2 className="text-center mb-4">{data.webDesignJson.sections[4].plans[1].name}</h2>
+                <p className="text-center mb-4">{data.webDesignJson.sections[4].plans[1].priceFrom}</p>
+              </Card>
+            </Col>
+            <Col>
+              <Card className="my-4 p-5">
+                <h2 className="text-center mb-4">{data.webDesignJson.sections[4].plans[2].name}</h2>
+                <p className="text-center mb-4">{data.webDesignJson.sections[4].plans[2].priceFrom}</p>
+              </Card>
             </Col>
           </Row>
         </section>
@@ -107,13 +154,12 @@ export const query = graphql`
       id
       blocks {
         heading
-        image
         content
       }
-      heading
-      stats{
-        title
-        value
+      plans {
+        name
+        priceFrom
+        features
       }
     }
   }

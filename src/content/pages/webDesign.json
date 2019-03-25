@@ -22,7 +22,7 @@
         "blocks": [
           {
             "heading": "Deliver Your Message With Beauty and Style",
-            "content": "Some text about how site will be custom designed with their business in mind and how this distinguishes them from competition. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lectus eros, suscipit nec ligula quis, maximus placerat libero. Donec sodales faucibus erat, in egestas turpis tincidunt nec. Nullam metus nisl, cursus eu imperdiet eget, rhoncus id dolor. Maecenas sed ligula molestie ante fermentum semper. Aliquam iaculis sem ut dui viverra tincidunt. Phasellus efficitur, mi vel pellentesque sodales, nisl lacus vehicula lacus, at lacinia mauris erat ac arcu. Aenean quis mattis lacus. Nullam lorem lacus, auctor luctus ante non, venenatis vestibulum elit. Mauris venenatis nunc ut nunc fermentum, id feugiat libero sagittis. Nunc et tellus vel lorem tincidunt vehicula sit amet vel magna. In faucibus mauris sit amet suscipit vestibulum. Donec non lobortis nibh, sed sollicitudin ex. In hac habitasse platea dictumst. Duis non dapibus elit. Nam arcu lectus, dignissim ut suscipit eu, viverra a est."
+            "content": "Some text about how site will be custom designed with their business in mind and how this distinguishes them from competition. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lectus eros, suscipit nec ligula quis, maximus placerat libero. Donec sodales faucibus erat, in egestas turpis tincidunt nec. Nullam metus nisl, cursus eu imperdiet eget, rhoncus id dolor. Maecenas sed ligula molestie ante fermentum semper. Aliquam iaculis sem ut dui viverra tincidunt. Phasellus efficitur..."
           }
         ]
       },
@@ -30,29 +30,55 @@
         "id": "3",
         "blocks": [
           {
-            "heading": "Our Passion",
-            "content": "What drives us? The desire to create Awesome Software that answers the needs of our world. We meet complex problems with creative and innovative solutions every day. At our center is the idea that each member of our team brings something unique to the table and we strive to show it every chance we get."
+            "heading": "Beautiful Designs, Built On the Most Powerful CMS in the World",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lectus eros, suscipit nec ligula quis, maximus placerat libero. Donec sodales faucibus erat, in egestas turpis tincidunt nec. Nullam metus nisl, cursus eu imperdiet eget, rhoncus id dolor. Maecenas sed ligula molestie ante fermentum semper. Aliquam iaculis sem ut dui viverra tincidunt. Phasellus efficitur, mi vel pellentesque sodales, nisl lacus vehicula lacus, at lacinia mauris erat ac arcu."
           }
         ]
       },
       {
-        "heading": "Our Roadmap to Success…",
-        "stats": [
+        "id": "4",
+        "blocks": [
           {
-            "title": "Products Sold",
-            "value": 137124
+            "heading": "First Class Responsive Web Design",
+            "content": "Responsive websites and applications are a cornerstone of the modern world. In addition, every business or professional needs a modern and responsive website to sell more effectively. With our responsive web design services, we can help your business with it’s unique needs!"
+          }
+        ]
+      },
+      {
+        "plans": [
+          {
+            "name": "Essentials Plan",
+            "priceFrom": "From $4,999",
+            "features": [
+              "Up to 5 pages designed & coded",
+              "Static Content",
+              "1 Hero Image",
+              "Category Banners",
+              "Technical SEO"
+            ]
           },
           {
-            "title": "Campaign Impressions",
-            "value": 24315
+            "name": "Growth Plan",
+            "priceFrom": "From $9,999",
+            "features": [
+              "Up to 10 pages Designed & Coded",
+              "Dynamic Content (Can be edited**)",
+              "1 Hero Image or 3 Slide Carousel",
+              "Category Banners",
+              "Technical SEO",
+              "Custom Blog Design, Coding, Setup and Training."
+            ]
           },
           {
-            "title": "Lines of Code",
-            "value": 539854
-          },
-          {
-            "title": "Coffees Consumed",
-            "value": 1534
+            "name": "Startup Plan",
+            "priceFrom": "From $6,999",
+            "features": [
+              "Up to 7 pages Designed & Coded",
+              "Static Content",
+              "1 Hero Image",
+              "Category Banners",
+              "Technical SEO"
+            ]
           }
         ]
       }
