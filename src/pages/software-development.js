@@ -81,15 +81,15 @@ const WebDesign = ({data}) => {
         <section className="px-5 mt-4 mb-5">
           <Row>
             <Col>
-              <h1 className="mb-4">{data.webDesignJson.sections[0].blocks[0].heading}</h1>
-              <p className="mb-5">{data.webDesignJson.sections[0].blocks[0].content}</p>
+              <h1 className="mb-4">{data.softwareDevelopmentJson.sections[0].blocks[0].heading}</h1>
+              <p className="mb-5">{data.softwareDevelopmentJson.sections[0].blocks[0].content}</p>
             </Col>
           </Row>
           <Row className="flex-column-reverse flex-md-row">
             <Col xs={12} sm={6}>
-              <h2 className="mb-4">{data.webDesignJson.sections[0].blocks[1].heading}</h2>
-              <p className="mb-4">{data.webDesignJson.sections[0].blocks[1].content}</p>
-              <p className="mb-4">{data.webDesignJson.sections[0].blocks[2].content}</p>
+              <h2 className="mb-4">{data.softwareDevelopmentJson.sections[0].blocks[1].heading}</h2>
+              <p className="mb-4">{data.softwareDevelopmentJson.sections[0].blocks[1].content}</p>
+              <p className="mb-4">{data.softwareDevelopmentJson.sections[0].blocks[2].content}</p>
               <Row>
                 <Col xs={12} sm={6}>
                   <Button href="/" className="btn btn-primary">View our Web Design Plans</Button>
@@ -107,15 +107,15 @@ const WebDesign = ({data}) => {
 
         {/* Section 2 */}
         <section className="deliverYourMessage mb-4 py-4">
-          <h1>{data.webDesignJson.sections[1].heading}</h1>
+          <h1>{data.softwareDevelopmentJson.sections[1].heading}</h1>
           <Row className="px-5 pt-4">
             <Col xs={12} md={6}>
               <img src={screenClean} />
             </Col>
 
             <Col xs={12} md={6}>
-              <h2 className="mb-4">{data.webDesignJson.sections[1].blocks[0].heading}</h2>
-              <p className="text-white">{data.webDesignJson.sections[1].blocks[0].content}</p>
+              <h2 className="mb-4">{data.softwareDevelopmentJson.sections[1].blocks[0].heading}</h2>
+              <p className="text-white">{data.softwareDevelopmentJson.sections[1].blocks[0].content}</p>
               <Button href="/" className="btn btn-primary">View our Web Design Plans</Button>
             </Col>
           </Row>
@@ -123,11 +123,11 @@ const WebDesign = ({data}) => {
 
         {/* Section 3 */}
         <section className="wordpressDesign mb-4 py-4">
-          <h1>{data.webDesignJson.sections[1].heading}</h1>
+          <h1>{data.softwareDevelopmentJson.sections[1].heading}</h1>
           <Row className="px-5 pt-4">
             <Col xs={12} md={7}>
-              <h2 className="mb-4">{data.webDesignJson.sections[2].blocks[0].heading}</h2>
-              <p className="">{data.webDesignJson.sections[2].blocks[0].content}</p>
+              <h2 className="mb-4">{data.softwareDevelopmentJson.sections[2].blocks[0].heading}</h2>
+              <p className="">{data.softwareDevelopmentJson.sections[2].blocks[0].content}</p>
             </Col>
 
             <Col xs={12} md={5}>
@@ -140,15 +140,15 @@ const WebDesign = ({data}) => {
         <section className="webDesignPlans mb-4 py-4">
           <Row className="px-5">
             <Col>
-              <h2 className="text-center mb-4">{data.webDesignJson.sections[3].blocks[0].heading}</h2>
-              <p>{data.webDesignJson.sections[3].blocks[0].content}</p>
+              <h2 className="text-center mb-4">{data.softwareDevelopmentJson.sections[3].blocks[0].heading}</h2>
+              <p>{data.softwareDevelopmentJson.sections[3].blocks[0].content}</p>
             </Col>
           </Row>
           <Row className="my-5 px-5" noGutters>
-            {planCards(data.webDesignJson.sections[4].plans)}
+            {planCards(data.softwareDevelopmentJson.sections[4].plans)}
           </Row>
           <Row className="my-5 px-5" noGutters>
-            {disclaimers(data.webDesignJson.sections[3].blocks[0])}
+            {disclaimers(data.softwareDevelopmentJson.sections[3].blocks[0])}
           </Row>
         </section>
 
@@ -165,7 +165,7 @@ const handleScroll = () => {
 
 export const query = graphql`
 {
-  webDesignJson{
+  softwareDevelopmentJson{
     sections{
       id
       blocks {

@@ -190,7 +190,7 @@ input[type="checkbox"]:checked + label:before {
   .navbar{
     font-size: 1.1rem;
   }
-
+  a{transition:800ms ease all;}
   a:hover,
   .dropdown-toggle:hover{
     color: $alkemy_yellow !important;
@@ -373,8 +373,9 @@ a {
     outline:none;
 
     &:hover{
-      color: white;
-      background-color: $alkemy_blue;
+      color: black;
+      background-color: $alkemy_yellow;
+      transform: scale(.9);
     }
 }
 
@@ -425,9 +426,12 @@ a {
 
 
 .header {
-  button:hover {
-    svg path{
-      fill: #212529;
+  button{
+    transition:1000ms ease all;
+    &:hover {
+      svg path{
+        fill: #212529;
+      }
     }
   }
   #subHeader{

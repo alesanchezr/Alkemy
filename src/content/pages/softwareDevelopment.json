@@ -1,0 +1,94 @@
+[
+  {
+    "sections":[
+      {
+        "id": "1",
+        "blocks": [
+          {
+            "heading": "First Class Responsive Web Design",
+            "content": "Responsive websites and applications are a cornerstone of the modern world. In addition, every business or professional needs a modern and responsive website to sell more effectively. With our responsive web design services, we can help your business with it’s unique needs!"
+          },
+          {
+            "heading": "Let Us Help You Look Your Best",
+            "content": "Web design is more than just how your business looks, it’s a form of art. We want to make you and your business look good."
+          },
+          {
+            "content": "Here at Alkemy, we have all of the tricks and tools to develop a rich and engaging web experience. Whether we design a static website for you with one of our web design plans, or we create a fully custom package for your unique needs - Let us take your ideas and sculpt them into a masterpiece!"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "blocks": [
+          {
+            "heading": "Deliver Your Message With Beauty and Style",
+            "content": "Some text about how site will be custom designed with their business in mind and how this distinguishes them from competition. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lectus eros, suscipit nec ligula quis, maximus placerat libero. Donec sodales faucibus erat, in egestas turpis tincidunt nec. Nullam metus nisl, cursus eu imperdiet eget, rhoncus id dolor. Maecenas sed ligula molestie ante fermentum semper. Aliquam iaculis sem ut dui viverra tincidunt. Phasellus efficitur..."
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "blocks": [
+          {
+            "heading": "Beautiful Designs, Built On the Most Powerful CMS in the World",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lectus eros, suscipit nec ligula quis, maximus placerat libero. Donec sodales faucibus erat, in egestas turpis tincidunt nec. Nullam metus nisl, cursus eu imperdiet eget, rhoncus id dolor. Maecenas sed ligula molestie ante fermentum semper. Aliquam iaculis sem ut dui viverra tincidunt. Phasellus efficitur, mi vel pellentesque sodales, nisl lacus vehicula lacus, at lacinia mauris erat ac arcu."
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "blocks": [
+          {
+            "heading": "First Class Responsive Web Design",
+            "content": "Responsive websites and applications are a cornerstone of the modern world. In addition, every business or professional needs a modern and responsive website to sell more effectively. With our responsive web design services, we can help your business with it’s unique needs!",
+            "disclaimers": [
+              "* Additional content can be calculated separately based on the needs of your business. Please notify your project manager of any other content that you need and we will be happy to help.  Please note, these packages are not optimized for E-commerce functionality. Visit our E-Commerce Design section for more information about our E-Commerce Packages.",
+              "** Dynamic content can be edited, but some limitations apply based on your selected website design. Speak to your project manager for details on these limitations and how they can be overcome."
+            ]
+          }
+        ]
+      },
+      {
+        "plans": [
+          {
+            "name": "Essentials Plan",
+            "icon": "chart-pie",
+            "priceFrom": "From $4,999",
+            "features": [
+              "Up to 5 pages designed & coded",
+              "Static Content",
+              "1 Hero Image",
+              "Category Banners",
+              "Technical SEO"
+            ]
+          },
+          {
+            "name": "Growth Plan",
+            "icon": "chart-line",
+            "priceFrom": "From $9,999",
+            "features": [
+              "Up to 10 pages Designed & Coded",
+              "Dynamic Content (Can be edited**)",
+              "1 Hero Image or 3 Slide Carousel",
+              "Category Banners",
+              "Technical SEO",
+              "Custom Blog Design, Coding, Setup and Training."
+            ]
+          },
+          {
+            "name": "Startup Plan",
+            "icon": "rocket",
+            "priceFrom": "From $6,999",
+            "features": [
+              "Up to 7 pages Designed & Coded",
+              "Static Content",
+              "1 Hero Image",
+              "Category Banners",
+              "Technical SEO"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
