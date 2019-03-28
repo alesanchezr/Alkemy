@@ -25,7 +25,10 @@ import {
   faChevronDown,
   faSpinner,
   faMobileAlt,
-  faCheck
+  faCheck,
+  faChartPie,
+  faChartLine,
+  faRocket
 } from '@fortawesome/free-solid-svg-icons'
 import { faCalendarAlt,faCalendarPlus } from '@fortawesome/free-regular-svg-icons'
 
@@ -36,7 +39,10 @@ library.add(
   faCalendarPlus,
   faSpinner,
   faMobileAlt,
-  faCheck
+  faCheck,
+  faChartPie,
+  faChartLine,
+  faRocket
 )
 
 const Layout = ({ children, pageTitle, renderHeaderSolid, headerTitle, headerType, bodyClasses }) => (

@@ -40,7 +40,11 @@
         "blocks": [
           {
             "heading": "First Class Responsive Web Design",
-            "content": "Responsive websites and applications are a cornerstone of the modern world. In addition, every business or professional needs a modern and responsive website to sell more effectively. With our responsive web design services, we can help your business with it’s unique needs!"
+            "content": "Responsive websites and applications are a cornerstone of the modern world. In addition, every business or professional needs a modern and responsive website to sell more effectively. With our responsive web design services, we can help your business with it’s unique needs!",
+            "disclaimers": [
+              "* Additional content can be calculated separately based on the needs of your business. Please notify your project manager of any other content that you need and we will be happy to help.  Please note, these packages are not optimized for E-commerce functionality. Visit our E-Commerce Design section for more information about our E-Commerce Packages.",
+              "** Dynamic content can be edited, but some limitations apply based on your selected website design. Speak to your project manager for details on these limitations and how they can be overcome."
+            ]
           }
         ]
       },
@@ -48,6 +52,7 @@
         "plans": [
           {
             "name": "Essentials Plan",
+            "icon": "chart-pie",
             "priceFrom": "From $4,999",
             "features": [
               "Up to 5 pages designed & coded",
@@ -59,6 +64,7 @@
           },
           {
             "name": "Growth Plan",
+            "icon": "chart-line",
             "priceFrom": "From $9,999",
             "features": [
               "Up to 10 pages Designed & Coded",
@@ -71,6 +77,7 @@
           },
           {
             "name": "Startup Plan",
+            "icon": "rocket",
             "priceFrom": "From $6,999",
             "features": [
               "Up to 7 pages Designed & Coded",

@@ -45,16 +45,24 @@ const WebDesign = ({data}) => {
   const planCards = (plans)=>{
     return plans.map(plan=>{
       return (
-        <Col>
-          <Card className="my-4 p-5">
+        <Col className='my-auto plan'>
+          <Card className="my-4 p-4 planCard">
             <h2 className="text-center mb-4">{plan.name}</h2>
-            <p className="text-center mb-4">{plan.priceFrom}</p>
+            <FontAwesomeIcon icon={plan.icon} size="3x" className="planIcon mx-auto my-auto"/>
+            <p className="text-center my-4">{plan.priceFrom}</p>
             {planFeatures(plan)}
           </Card>
         </Col>
       )
     })
   }
+
+  const disclaimers = (block)=>{
+    return block.disclaimers.map(notice=>{
+      return <p>{notice}</p>
+    })
+  }
+
   return(
     <ScrollWrapper onWindowScroll={handleScroll}>
       <Layout
@@ -145,6 +153,9 @@ const WebDesign = ({data}) => {
           <Row className="my-5 px-5" noGutters>
             {planCards(data.webDesignJson.sections[4].plans)}
           </Row>
+          <Row className="my-5 px-5" noGutters>
+            {disclaimers(data.webDesignJson.sections[4])}
+          </Row>
         </section>
 
         <ContactForm / >
@@ -166,9 +177,11 @@ export const query = graphql`
       blocks {
         heading
         content
+        disclaimers
       }
       plans {
         name
+        icon
         priceFrom
         features
       }
