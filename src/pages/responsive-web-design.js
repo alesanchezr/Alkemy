@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Layout from '../components/layout'
 import ScrollWrapper from '../components/scrollWrapper.jsx'
-import ContactForm from '../components/contactForm.jsx'
+import BuildYourDream from '../components/BuildYourDream.jsx'
 
 // Images
 import webDesignBanner from '../assets/images/web-design-banner.png'
@@ -152,7 +152,7 @@ const WebDesign = ({data}) => {
           </Row>
         </section>
 
-        <ContactForm / >
+        <BuildYourDream / >
       </Layout>
     </ScrollWrapper>
   )

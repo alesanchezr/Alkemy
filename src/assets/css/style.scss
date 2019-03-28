@@ -541,7 +541,7 @@ a {
 
 input{
 	font-size: 1.6rem;
-    padding: .5rem 1.5rem;
+  padding: .5rem 1.5rem;
 }
 
 /* Blockquotes */
@@ -868,26 +868,38 @@ section.recentBlogPosts{
   }
 }
 
-section.contactForm{
-  background: rgba($alkemy_blue,.25);
-  form{
-    input{
-      &[type=text],
-      &[type=email],
-      &[type=url] {
-        box-shadow: 2px 4px 6px;
-        padding: 1.4rem;
-        border-radius: 2px;
+section{
+  &.contactForm,
+  &.dreamForm{
+    background: rgba($alkemy_blue,.25);
+    form{
+      input{
+        &[type=text],
+        &[type=email],
+        &[type=url],
+        &[type=tel] {
+          box-shadow: 2px 4px 6px;
+          padding: 1.4rem;
+          border-radius: 2px;
+        }
       }
-    }
-    button{
-      &:hover{
-        max-width: 50%;
+      button{
+        &:hover{
+          max-width: 50%;
+        }
       }
     }
   }
 }
-
+.hp{
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+}
 /* Responsive Web Design Page */
 
 section.deliverYourMessage{

@@ -224,7 +224,7 @@ const HomePage = ({data}) => {
 }
 
 
-var introSection = React.createRef();
+const introSection = React.createRef();
 
 
 const handleCaretClick = () => {
@@ -236,7 +236,7 @@ const handleCaretClick = () => {
 
 const handleScroll = () => {
   // header opacity
-  var topBoundary = window.innerHeight-100;
+  const topBoundary = window.innerHeight-100;
   if(window.pageYOffset>=topBoundary){
     document.body.classList.add('solid');
   }else{
