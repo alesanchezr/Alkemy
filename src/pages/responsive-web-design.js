@@ -34,7 +34,7 @@ const WebDesign = ({data}) => {
         {
           (
             plan.features.map(feature=>{
-              return <li><span class="fa-li"><FontAwesomeIcon icon="check" className="planFeatureIcon"/></span>{feature}</li>
+              return <li><span className="fa-li"><FontAwesomeIcon icon="check" className="planFeatureIcon"/></span>{feature}</li>
             })
           )
         }
@@ -58,8 +58,8 @@ const WebDesign = ({data}) => {
   }
 
   const disclaimers = (block)=>{
-    return block.disclaimers.map(notice=>{
-      return <p>{notice}</p>
+    return block.disclaimers.map(note=>{
+      return <p><small>{note}</small></p>
     })
   }
 
@@ -85,8 +85,11 @@ const WebDesign = ({data}) => {
               <p className="mb-5">{data.webDesignJson.sections[0].blocks[0].content}</p>
             </Col>
           </Row>
-          <Row>
-            <Col>
+          <Row className="flex-column-reverse flex-md-row">
+            <Col
+              xs={12}
+              sm={6}
+            >
               <h2 className="mb-4">{data.webDesignJson.sections[0].blocks[1].heading}</h2>
               <p className="mb-4">{data.webDesignJson.sections[0].blocks[1].content}</p>
               <p className="mb-4">{data.webDesignJson.sections[0].blocks[2].content}</p>
@@ -105,8 +108,11 @@ const WebDesign = ({data}) => {
                 </Col>
               </Row>
             </Col>
-            <Col>
-              <img src={screenDesign} className='img-fluid'/>
+            <Col
+              xs={12}
+              sm={6}
+            >
+              <img src={screenDesign} className='my-5 md-my-auto img-fluid'/>
             </Col>
           </Row>
         </section>
@@ -154,7 +160,7 @@ const WebDesign = ({data}) => {
             {planCards(data.webDesignJson.sections[4].plans)}
           </Row>
           <Row className="my-5 px-5" noGutters>
-            {disclaimers(data.webDesignJson.sections[4])}
+            {disclaimers(data.webDesignJson.sections[3].blocks[0])}
           </Row>
         </section>
 
