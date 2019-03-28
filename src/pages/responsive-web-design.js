@@ -41,6 +41,20 @@ const WebDesign = ({data}) => {
       </ul>
     )
   }
+
+  const planCards = (plans)=>{
+    return plans.map(plan=>{
+      return (
+        <Col>
+          <Card className="my-4 p-5">
+            <h2 className="text-center mb-4">{plan.name}</h2>
+            <p className="text-center mb-4">{plan.priceFrom}</p>
+            {planFeatures(plan)}
+          </Card>
+        </Col>
+      )
+    })
+  }
   return(
     <ScrollWrapper onWindowScroll={handleScroll}>
       <Layout
@@ -129,27 +143,7 @@ const WebDesign = ({data}) => {
             </Col>
           </Row>
           <Row className="my-5 px-5" noGutters>
-            <Col>
-              <Card className="my-4 p-5">
-                <h2 className="text-center mb-4">{data.webDesignJson.sections[4].plans[0].name}</h2>
-                <p className="text-center mb-4">{data.webDesignJson.sections[4].plans[0].priceFrom}</p>
-                {planFeatures(data.webDesignJson.sections[4].plans[0])}
-              </Card>
-            </Col>
-            <Col>
-              <Card className="my-4 p-5">
-                <h2 className="text-center mb-4">{data.webDesignJson.sections[4].plans[1].name}</h2>
-                <p className="text-center mb-4">{data.webDesignJson.sections[4].plans[1].priceFrom}</p>
-                {planFeatures(data.webDesignJson.sections[4].plans[1])}
-              </Card>
-            </Col>
-            <Col>
-              <Card className="my-4 p-5">
-                <h2 className="text-center mb-4">{data.webDesignJson.sections[4].plans[2].name}</h2>
-                <p className="text-center mb-4">{data.webDesignJson.sections[4].plans[2].priceFrom}</p>
-                {planFeatures(data.webDesignJson.sections[4].plans[2])}
-              </Card>
-            </Col>
+            {planCards(data.webDesignJson.sections[4].plans)}
           </Row>
         </section>
 
