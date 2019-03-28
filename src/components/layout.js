@@ -21,7 +21,12 @@ import favicon32 from '../assets/images/favicon-32x32.png'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faChevronDown,faSpinner,faMobileAlt } from '@fortawesome/free-solid-svg-icons'
+import {
+  faChevronDown,
+  faSpinner,
+  faMobileAlt,
+  faCheck
+} from '@fortawesome/free-solid-svg-icons'
 import { faCalendarAlt,faCalendarPlus } from '@fortawesome/free-regular-svg-icons'
 
 library.add(
@@ -30,7 +35,8 @@ library.add(
   faCalendarAlt,
   faCalendarPlus,
   faSpinner,
-  faMobileAlt
+  faMobileAlt,
+  faCheck
 )
 
 const Layout = ({ children, pageTitle, renderHeaderSolid, headerTitle, headerType, bodyClasses }) => (

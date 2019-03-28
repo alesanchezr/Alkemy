@@ -407,7 +407,7 @@ a {
   @media screen and (min-width:900px){
     width: 7.5vw;
   }
-  
+
   padding: 1rem;
   background: $alkemy_blue;
   transform: translateY(-50%);
@@ -887,4 +887,12 @@ section.contactForm{
 section.deliverYourMessage{
     background: $alkemy_dark_blue;
     color: white;
+}
+
+
+ul{
+  .planFeatureIcon{
+    color: $alkemy_blue;
+    margin-right: 2em;
+  }
 }

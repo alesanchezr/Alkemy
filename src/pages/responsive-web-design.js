@@ -27,6 +27,20 @@ Layout props:
 
 
 const WebDesign = ({data}) => {
+  // function for creating a list of Plan features
+  const planFeatures = (plan)=>{
+    return(
+      <ul className='fa-ul'>
+        {
+          (
+            plan.features.map(feature=>{
+              return <li><span class="fa-li"><FontAwesomeIcon icon="check" className="planFeatureIcon"/></span>{feature}</li>
+            })
+          )
+        }
+      </ul>
+    )
+  }
   return(
     <ScrollWrapper onWindowScroll={handleScroll}>
       <Layout
@@ -119,18 +133,21 @@ const WebDesign = ({data}) => {
               <Card className="my-4 p-5">
                 <h2 className="text-center mb-4">{data.webDesignJson.sections[4].plans[0].name}</h2>
                 <p className="text-center mb-4">{data.webDesignJson.sections[4].plans[0].priceFrom}</p>
+                {planFeatures(data.webDesignJson.sections[4].plans[0])}
               </Card>
             </Col>
             <Col>
               <Card className="my-4 p-5">
                 <h2 className="text-center mb-4">{data.webDesignJson.sections[4].plans[1].name}</h2>
                 <p className="text-center mb-4">{data.webDesignJson.sections[4].plans[1].priceFrom}</p>
+                {planFeatures(data.webDesignJson.sections[4].plans[1])}
               </Card>
             </Col>
             <Col>
               <Card className="my-4 p-5">
                 <h2 className="text-center mb-4">{data.webDesignJson.sections[4].plans[2].name}</h2>
                 <p className="text-center mb-4">{data.webDesignJson.sections[4].plans[2].priceFrom}</p>
+                {planFeatures(data.webDesignJson.sections[4].plans[2])}
               </Card>
             </Col>
           </Row>
