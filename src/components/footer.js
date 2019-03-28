@@ -16,9 +16,9 @@ const _menuArray = [
     name: 'Our Solutions',
     id: '1',
     links: [
-      {name: 'Web Design', id: '1a', url: '/web-design'},
-      {name: 'Web Development', id: '1b', url: '/web-development'},
-      {name: 'E-Commerce Design', id: '1c', url: '/ecommerce-design'},
+      {name: 'Responsive Web Design', id: '1a', url: '/responsive-web-design'},
+      {name: 'Software Development', id: '1b', url: '/software-development'},
+      {name: 'eCommerce Design', id: '1c', url: '/ecommerce-design'},
       {name: 'Digital Marketing', id: '1d', url: '/digital-marketing'},
     ]
   },

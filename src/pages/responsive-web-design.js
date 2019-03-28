@@ -33,8 +33,8 @@ const WebDesign = ({data}) => {
       <ul className='fa-ul'>
         {
           (
-            plan.features.map(feature=>{
-              return <li><span className="fa-li"><FontAwesomeIcon icon="check" className="planFeatureIcon"/></span>{feature}</li>
+            plan.features.map((feature,index)=>{
+              return <li key={index}><span className="fa-li"><FontAwesomeIcon icon="check" className="planFeatureIcon"/></span>{feature}</li>
             })
           )
         }
@@ -43,9 +43,9 @@ const WebDesign = ({data}) => {
   }
 
   const planCards = (plans)=>{
-    return plans.map(plan=>{
+    return plans.map((plan,index)=>{
       return (
-        <Col className='my-auto plan'>
+        <Col key={index} className='my-auto plan'>
           <Card className="my-4 p-4 planCard">
             <h2 className="text-center mb-4">{plan.name}</h2>
             <FontAwesomeIcon icon={plan.icon} size="3x" className="planIcon mx-auto my-auto"/>
@@ -58,8 +58,8 @@ const WebDesign = ({data}) => {
   }
 
   const disclaimers = (block)=>{
-    return block.disclaimers.map(note=>{
-      return <p><small>{note}</small></p>
+    return block.disclaimers.map((note,index)=>{
+      return <p key={index}><small>{note}</small></p>
     })
   }
 

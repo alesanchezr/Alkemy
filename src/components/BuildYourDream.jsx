@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Col, Row, Form,
   FormGroup, Label, Input } from 'reactstrap'
-
+import Stepper from 'react-stepper-horizontal';
 
 const BuildYourDream = () => {
   return(
@@ -13,36 +13,43 @@ const BuildYourDream = () => {
           onSubmit={(e)=>handleClick(e)}
           className="py-3 mb-0"
           >
-
-          {renderForm()}
+          <Stepper steps={stepperSteps} activeStep={ formStep } />
+          {renderForm}
           <FormGroup className="text-center">
-            <Button className="btn btn-primary" type="submit" value="next">{formStep!=='last'?'Next Step':'Submit My Request'}</Button>
+            <Button className="btn btn-primary" type="submit" value="submit">{formStep<stepperSteps.length?'Next Step':'Submit My Request'}</Button>
           </FormGroup>
-          <Input className='hp' autocomplete="off" type="text" name="name" id="name" placeholder="Please tell us your Name" />
+          <Input className='hp' autoComplete="off" type="text" name="name" id="name" placeholder="Please tell us your Name" />
         </Form>
       </div>
     </section>
   )
 }
 
-let lastStep = 2;
+const dreamForm = React.createRef();
+
 let formStep = 1;
+const stepperSteps = [
+  {title: 'Step One'},
+  {title: 'Step Two'},
+  {title: 'Step Three'},
+  {title: 'Step Four'}
+]
+
 const handleClick = (e)=>{
   e.preventDefault()
-  if(formStep!==lastStep){
+
+  if(formStep!==stepperSteps.length){
     formStep++
     console.log('step: ',formStep)
   }else{
     alert("we're done")
     //send form
   }
-  renderForm(formStep)
+  renderForm()
 }
 
-const renderForm = (step)=>{
-    formStep===1?step=1:step=formStep
-    switch(step){
-      case 1:
+const renderForm = ()=>{
+    if(formStep===1){
         return(
           <Row form className="my-2 py-0">
             <Col xs={12} md={4} className="my-2 py-0">
@@ -62,28 +69,8 @@ const renderForm = (step)=>{
             </Col>
           </Row>
         )
-        break
-      case 2:
-        return(
-          <Row form className="my-2 py-0">
-            <Col xs={12} md={4} className="my-2 py-0">
-              <FormGroup>
-                test
-              </FormGroup>
-            </Col>
-            <Col xs={12} md={4} className="my-2 py-0">
-              <FormGroup>
-                <Input type="email" name="email" id="email" placeholder="Enter your Email Address" />
-              </FormGroup>
-            </Col>
-            <Col xs={12} md={4} className="my-2 py-0">
-              <FormGroup>
-                <Input type="telephone" name="phone" id="phone" placeholder="Enter your Telephone Number" />
-              </FormGroup>
-            </Col>
-          </Row>
-        )
-        break
+    }else if(formStep===2){
+      return 'hello'
     }
 }
 
