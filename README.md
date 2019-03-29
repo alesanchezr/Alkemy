@@ -1,5 +1,5 @@
 <img src="https://www.alkemyinc.com/assets/alkemy_logo_vertical.png" width="250" alt="Alkemy, Inc. Logo" title="Alkemy, Inc. Logo">
-**Alkemy, Inc.**<br>
+<h3>Alkemy, Inc.</h3>
 https://www.alkemyinc.com<br>
 Coral Springs, FL 33067
 
