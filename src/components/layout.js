@@ -8,7 +8,6 @@ import { TypographyStyle, GoogleFont } from 'react-typography'
 import typography from '../utils/typography'
 import Header from './header'
 import Footer from './footer'
-import { Button } from 'reactstrap'
 
 import '../assets/css/layout.css'
 import '../assets/css/bootstrap.min.css'

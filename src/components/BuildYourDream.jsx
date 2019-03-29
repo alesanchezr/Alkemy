@@ -8,7 +8,8 @@ export default class BuildYourDream extends React.Component {
     super();
 
     this.state={
-      formStep: 1,
+      formStep: 0,
+      selectedOption: 'no',
       stepperSteps: [
         {
           title: 'Step One',
@@ -28,15 +29,28 @@ export default class BuildYourDream extends React.Component {
         }
       ]
     }
-    const formArea = React.createRef();
+    const formArea = React.createRef()
   }
 
-
+  handleOptionChange = (changeEvent)=> {
+    this.setState({
+      selectedOption: changeEvent.target.value
+    })
+  }
 
   handleNextClick = ()=>{
     if(this.state.formStep!==this.state.stepperSteps.length){
       this.setState({
         formstep: this.state.formStep++
+      })
+      console.log(this.state.formStep)
+    }
+  }
+
+  handleBackClick = ()=>{
+    if(this.state.formStep>0){
+      this.setState({
+        formstep: this.state.formStep--
       })
       console.log(this.state.formStep)
     }
@@ -48,59 +62,93 @@ export default class BuildYourDream extends React.Component {
 
   renderForm = ()=>{
     switch(this.state.formStep){
+      case 0:
+        return (
+          <Row form className="my-5 py-0">
+            <Col xs={12} md={4} className="my-2 py-0">
+              <FormGroup>
+                <Input type="text" name="fullName" id="fullName" placeholder="Please tell us your Full Name" />
+              </FormGroup>
+            </Col>
+            <Col xs={12} md={4} className="my-2 py-0">
+              <FormGroup>
+                <Input type="email" name="email" id="email" placeholder="Enter your Email Address" />
+              </FormGroup>
+            </Col>
+            <Col xs={12} md={4} className="my-2 py-0">
+              <FormGroup>
+                <Input type="tel" name="phone" id="phone" placeholder="Enter your Telephone Number" />
+              </FormGroup>
+            </Col>
+          </Row>
+        )
       case 1:
         return (
-          <Row form className="my-2 py-0">
-          <Col xs={12} md={4} className="my-2 py-0">
-          <FormGroup>
-          <Input type="text" name="fullName" id="fullName" placeholder="Please tell us your Full Name" />
-          </FormGroup>
-          </Col>
-          <Col xs={12} md={4} className="my-2 py-0">
-          <FormGroup>
-          <Input type="email" name="email" id="email" placeholder="Enter your Email Address" />
-          </FormGroup>
-          </Col>
-          <Col xs={12} md={4} className="my-2 py-0">
-          <FormGroup>
-          <Input type="tel" name="phone" id="phone" placeholder="Enter your Telephone Number" />
-          </FormGroup>
-          </Col>
+          <Row form className="my-5 py-0">
+            <Col xs={12} className="my-2 py-0 text-center">
+              <FormGroup>
+                <p className="text-center">Do you presently have a website?</p>
+                <Label check className="mr-5">
+                  <Input
+                    type="radio"
+                    name="hasWebsite"
+                    value="no"
+                    defaultChecked={this.state.selectedOption === 'no'}
+                    onChange={this.handleOptionChange}
+                  />{' '}No
+                </Label>
+                <Label check>
+                  <Input
+                    type="radio"
+                    name="hasWebsite"
+                    value="yes"
+                    defaultChecked={this.state.selectedOption === 'yes'}
+                    onChange={this.handleOptionChange}
+                    />{' '}Yes
+                </Label>
+              </FormGroup>
+            </Col>
+            {
+              this.state.selectedOption === 'yes'
+              ? (
+                  <Col xs={12} className="my-2 py-0">
+                    <FormGroup>
+                      <Input
+                        type="url"
+                        name="websiteAddress"
+                        id="websiteAddress"
+
+                        placeholder="What is the address for your site? (www.yoursite.com)"
+                        />
+                    </FormGroup>
+                  </Col>
+                )
+              : ''
+            }
           </Row>
         )
       case 2:
         return (
           <Row form className="my-2 py-0">
-          <Col xs={12} className="my-2 py-0">
-          <FormGroup>
-          <p>Do you presently have a website?</p>
-          <Input type="radio" name="hasWebsite" value="no" checked />
-          <Input type="radio" name="hasWebsite" value="yes" />
-          <Input type="url" name="websiteAddress" id="websiteAddress" placeholder="What is the address for your site? (www.yoursite.com)" />
-          </FormGroup>
-          </Col>
+            <Col xs={12} md={4} className="my-2 py-0">
+              <FormGroup>
+                <Input type="text" name="fullName" id="fullName" placeholder="Please tell us your Full Name" />
+              </FormGroup>
+            </Col>
+            <Col xs={12} md={4} className="my-2 py-0">
+              <FormGroup>
+                <Input type="email" name="email" id="email" placeholder="Enter your Email Address" />
+              </FormGroup>
+            </Col>
+            <Col xs={12} md={4} className="my-2 py-0">
+              <FormGroup>
+                <Input type="tel" name="phone" id="phone" placeholder="Enter your Telephone Number" />
+              </FormGroup>
+            </Col>
           </Row>
         )
-      case 3:
-        return (
-          <Row form className="my-2 py-0">
-          <Col xs={12} md={4} className="my-2 py-0">
-          <FormGroup>
-          <Input type="text" name="fullName" id="fullName" placeholder="Please tell us your Full Name" />
-          </FormGroup>
-          </Col>
-          <Col xs={12} md={4} className="my-2 py-0">
-          <FormGroup>
-          <Input type="email" name="email" id="email" placeholder="Enter your Email Address" />
-          </FormGroup>
-          </Col>
-          <Col xs={12} md={4} className="my-2 py-0">
-          <FormGroup>
-          <Input type="tel" name="phone" id="phone" placeholder="Enter your Telephone Number" />
-          </FormGroup>
-          </Col>
-          </Row>
-        )
+        default:
+          return null
       }
   }
 
@@ -115,11 +163,28 @@ export default class BuildYourDream extends React.Component {
           onSubmit={(e)=>this.handleSubmit(e)}
           className="py-3 mb-0"
           >
-            <Stepper steps={this.state.stepperSteps} activeStep={ this.state.formStep } />
+            <Stepper
+              activeColor='#2bb3e5'
+              activeTitleColor='#2bb3e5'
+              completeColor='#206a98'
+              completeTitleColor='#206a98'
+              steps={this.state.stepperSteps}
+              activeStep={ this.state.formStep }
+              />
 
             <div ref='formArea'>{this.renderForm(this.state.formStep)}</div>
 
             <FormGroup className="text-center">
+              <Button
+                className={
+                  this.state.formStep===0
+                    ? "d-none"
+                    : ""
+                }
+                onClick={this.handleBackClick}
+                >
+                Back
+                </Button>
               <Button className="btn btn-primary" type={this.state.formStep<this.state.stepperSteps.length?'button':'submit'} onClick={this.handleNextClick}>{this.state.formStep<this.state.stepperSteps.length?'Next Step':'Submit My Request'}</Button>
             </FormGroup>
             <Input className='hp' autoComplete="off" type="text" name="name" id="name" placeholder="Please tell us your Name" />
