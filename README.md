@@ -1,4 +1,4 @@
-![Alkemy, Inc.](https://www.alkemyinc.com/wp-content/themes/alkemy/assets/images/Alkemy_logo_vertical.png)<br>
+![Alkemy, Inc.](https://www.alkemyinc.com/assets/alkemy_logo_vertical.png)<br>
 **Alkemy, Inc.**<br>
 https://www.alkemyinc.com<br>
 Coral Springs, FL 33067
