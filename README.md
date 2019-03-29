@@ -1,5 +1,5 @@
-![Alkemy, Inc.](https://www.alkemyinc.com/assets/alkemy_logo.png)<br>
-**Alkemy, Inc.**<br>
+<img src="https://www.alkemyinc.com/assets/alkemy_logo_vertical.png" width="250" alt="Alkemy, Inc. Logo" title="Alkemy, Inc. Logo">
+<h3>Alkemy, Inc.</h3>
 https://www.alkemyinc.com<br>
 Coral Springs, FL 33067
 
@@ -15,7 +15,7 @@ This readme breaks down the project specs in detail.
  - GatsbyJS/GraphQL
  - TypographyJS
  - Bootstrap4/ReactStrap
- - NPM
+ - NPM, webpack
 
 **Data Layer**
 - JSON files with gatsby-transformer-json
