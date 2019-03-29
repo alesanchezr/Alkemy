@@ -52,7 +52,7 @@ export default class BuildYourDream extends React.Component {
   }
 
   // handles button click (next or back)
-  handleButtonClick = (e,action)=>{
+  handleButtonClick = (action)=>{
     if(action==='next' &&
       this.state.formStep!==this.state.stepperSteps.length)
       this.setState({
@@ -86,6 +86,9 @@ export default class BuildYourDream extends React.Component {
                   type="text"
                   name="fullName"
                   id="fullName"
+                  required
+                  valid={this.state.formValues.fullName.length>0}
+                  invalid={this.state.formValues.fullName.length===0}
                   onChange={e=>this.handleFieldChange(e,'fullName')}
                   placeholder="Please tell us your Full Name"
                   />
@@ -97,6 +100,9 @@ export default class BuildYourDream extends React.Component {
                   type="email"
                   name="email"
                   id="email"
+                  required
+                  valid={this.state.formValues.email.length>0}
+                  invalid={this.state.formValues.email.length===0}
                   onChange={e=>this.handleFieldChange(e,'email')}
                   placeholder="Enter your Email Address"
                   />
@@ -108,6 +114,9 @@ export default class BuildYourDream extends React.Component {
                   type="tel"
                   name="phone"
                   id="phone"
+                  required
+                  valid={this.state.formValues.phone.length>0}
+                  invalid={this.state.formValues.phone.length===0}
                   onChange={e=>this.handleFieldChange(e,'phone')}
                   placeholder="Enter your Telephone Number"
                   />
@@ -150,6 +159,9 @@ export default class BuildYourDream extends React.Component {
                         type="url"
                         name="websiteAddress"
                         id="websiteAddress"
+                        required
+                        valid={this.state.formValues.websiteURL.length>5}
+                        invalid={this.state.formValues.websiteURL.length<6}
                         onChange={e=>this.handleFieldChange(e,'websiteURL')}
                         placeholder="What is the address for your site? (www.yoursite.com)"
                         />
@@ -169,6 +181,9 @@ export default class BuildYourDream extends React.Component {
                   type="text"
                   name="companyName"
                   id="companyName"
+                  required
+                  valid={this.state.formValues.companyName.length>0}
+                  invalid={this.state.formValues.companyName.length===0}
                   onChange={e=>this.handleFieldChange(e,'companyName')}
                   placeholder="What is your Company Name?"
                   />
@@ -178,6 +193,9 @@ export default class BuildYourDream extends React.Component {
                   type="text"
                   name="industry"
                   id="industry"
+                  required
+                  valid={this.state.formValues.industry.length>0}
+                  invalid={this.state.formValues.industry.length===0}
                   onChange={e=>this.handleFieldChange(e,'industry')}
                   placeholder="What industry is your business in?"
                   />
@@ -224,6 +242,7 @@ export default class BuildYourDream extends React.Component {
                   id="budget"
                   onChange={e=>this.handleFieldChange(e,'budget')}
                   >
+                  <option value="">Select</option>
                   <option>$5k-$7k</option>
                   <option>$7k-$1k</option>
                   <option>$10k-$15k</option>
@@ -264,23 +283,25 @@ isEnabled = ()=>{
     this.state.formValues.phone.length > 0
   ){
     return true
-  } else if(
+  }
+  if(
     this.state.formStep===1 &&
     this.state.formValues.hasWebsite.length > 0
   ){
-    if(
+    if(this.state.formValues.hasWebsite==='no'){
+      return true
+    }else if(
       this.state.formValues.hasWebsite==='yes' &&
       this.state.formValues.websiteURL.length > 5
     ){
       return true
-    }else if(this.state.formValues.hasWebsite==='no'){
-      return true
     }
-  }else if(
+  }
+  if(
     this.state.formStep===2 &&
-    this.state.formValues.fullName.length > 0 &&
-    this.state.formValues.email.length > 0 &&
-    this.state.formValues.phone.length > 0
+    this.state.formValues.companyName.length > 0 &&
+    this.state.formValues.industry.length > 0 &&
+    this.state.formValues.designExamples.length > 0
   ) return true
   else return false
 }
@@ -320,19 +341,27 @@ isEnabled = ()=>{
                 Back
                 </Button>
               <Button
+                className={
+                  this.state.formStep<this.state.stepperSteps.length
+                    ? ""
+                    : "d-none"
+                }
                 color="primary"
                 disabled={!this.isEnabled()}
-                type={
-                  this.state.formStep<this.state.stepperSteps.length
-                  ? 'button'
-                  : 'submit'
-                }
+                type='button'
                 onClick={e=>this.handleButtonClick('next')}>
-                {
+                Next Step
+                </Button>
+              <Button
+                className={
                   this.state.formStep<this.state.stepperSteps.length
-                  ? 'Next Step'
-                  : 'Submit My Request'
+                    ? "d-none"
+                    : ""
                 }
+                color="primary"
+                type='submit'
+                onClick={e=>this.handleSubmit(e)}>
+                Submit My Request
                 </Button>
             </FormGroup>
             <Input className='hp' autoComplete="off" type="text" name="name" id="name" placeholder="Please tell us your Name" />
