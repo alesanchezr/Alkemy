@@ -871,7 +871,7 @@ section.recentBlogPosts{
 section{
   &.contactForm,
   &.dreamForm{
-    background: rgba($alkemy_blue,.25);
+    background: $alkemy_light_blue;
     form{
       input{
         &[type=text],

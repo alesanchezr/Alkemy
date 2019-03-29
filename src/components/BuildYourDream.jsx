@@ -9,7 +9,14 @@ export default class BuildYourDream extends React.Component {
 
     this.state={
       formStep: 0,
-      selectedOption: 'no',
+      formValues: {
+        fullName: '',
+        email: '',
+        phone: '',
+        hasWebsite: 'no',
+        websiteURL: '',
+
+      },
       stepperSteps: [
         {
           title: 'Step One',
@@ -32,34 +39,42 @@ export default class BuildYourDream extends React.Component {
     const formArea = React.createRef()
   }
 
-  handleOptionChange = (changeEvent)=> {
+  // handles selection of radio button for hasWebsite
+  handleOptionChange = (e)=> {
     this.setState({
-      selectedOption: changeEvent.target.value
+      formValues: {
+        hasWebsite: e.target.value
+      }
     })
   }
 
+  // handles click of the next button
   handleNextClick = ()=>{
     if(this.state.formStep!==this.state.stepperSteps.length){
       this.setState({
         formstep: this.state.formStep++
       })
-      console.log(this.state.formStep)
     }
   }
 
+  // handles click of the back button
   handleBackClick = ()=>{
     if(this.state.formStep>0){
       this.setState({
         formstep: this.state.formStep--
       })
-      console.log(this.state.formStep)
     }
   }
 
+  // handles form submit action
   handleSubmit = (e)=>{
     e.preventDefault()
+
+    // send object bundle via email
+
   }
 
+  // handles the cases for rendering each step of the form
   renderForm = ()=>{
     switch(this.state.formStep){
       case 0:
@@ -93,7 +108,7 @@ export default class BuildYourDream extends React.Component {
                     type="radio"
                     name="hasWebsite"
                     value="no"
-                    defaultChecked={this.state.selectedOption === 'no'}
+                    defaultChecked={this.state.formValues.hasWebsite === 'no'}
                     onChange={this.handleOptionChange}
                   />{' '}No
                 </Label>
@@ -102,14 +117,14 @@ export default class BuildYourDream extends React.Component {
                     type="radio"
                     name="hasWebsite"
                     value="yes"
-                    defaultChecked={this.state.selectedOption === 'yes'}
+                    defaultChecked={this.state.formValues.hasWebsite === 'yes'}
                     onChange={this.handleOptionChange}
                     />{' '}Yes
                 </Label>
               </FormGroup>
             </Col>
             {
-              this.state.selectedOption === 'yes'
+              this.state.formValues.hasWebsite === 'yes'
               ? (
                   <Col xs={12} className="my-2 py-0">
                     <FormGroup>
@@ -117,7 +132,6 @@ export default class BuildYourDream extends React.Component {
                         type="url"
                         name="websiteAddress"
                         id="websiteAddress"
-
                         placeholder="What is the address for your site? (www.yoursite.com)"
                         />
                     </FormGroup>
