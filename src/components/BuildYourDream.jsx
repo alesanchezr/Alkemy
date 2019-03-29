@@ -321,7 +321,7 @@ isEnabled = ()=>{
                 </Button>
               <Button
                 color="primary"
-                disabled={this.isEnabled}
+                disabled={!this.isEnabled()}
                 type={
                   this.state.formStep<this.state.stepperSteps.length
                   ? 'button'
