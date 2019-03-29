@@ -15,7 +15,7 @@ This readme breaks down the project specs in detail.
  - GatsbyJS/GraphQL
  - TypographyJS
  - Bootstrap4/ReactStrap
- - NPM
+ - NPM, webpack
 
 **Data Layer**
 - JSON files with gatsby-transformer-json
