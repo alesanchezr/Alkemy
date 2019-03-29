@@ -52,26 +52,29 @@ export default class BuildYourDream extends React.Component {
   }
 
   // handles button click (next or back)
-  handleButtonClick = (action)=>{
+  handleButtonClick = (e,action)=>{
+
+    // handle regular form next click
     if(action==='next' &&
-      this.state.formStep!==this.state.stepperSteps.length)
+      this.state.formStep<this.state.stepperSteps.length-1)
       this.setState({
         formstep: this.state.formStep++
       })
 
+    // handle form submit here
+    if(action==='next' &&
+      this.state.formStep===this.state.stepperSteps.length-1){
+      // send object bundle via email
+
+
+      }
+
+    // handle regular form back click
     if(action==='back' &&
       this.state.formStep>0)
       this.setState({
         formstep: this.state.formStep--
       })
-  }
-
-  // handles form submit action
-  handleSubmit = (e)=>{
-    e.preventDefault()
-
-    // send object bundle via email
-
   }
 
   // handles the cases for rendering each step of the form
@@ -86,6 +89,7 @@ export default class BuildYourDream extends React.Component {
                   type="text"
                   name="fullName"
                   id="fullName"
+                  value={this.state.formValues.fullName}
                   required
                   valid={this.state.formValues.fullName.length>0}
                   invalid={this.state.formValues.fullName.length===0}
@@ -100,6 +104,7 @@ export default class BuildYourDream extends React.Component {
                   type="email"
                   name="email"
                   id="email"
+                  value={this.state.formValues.email}
                   required
                   valid={this.state.formValues.email.length>0}
                   invalid={this.state.formValues.email.length===0}
@@ -114,6 +119,7 @@ export default class BuildYourDream extends React.Component {
                   type="tel"
                   name="phone"
                   id="phone"
+                  value={this.state.formValues.phone}
                   required
                   valid={this.state.formValues.phone.length>0}
                   invalid={this.state.formValues.phone.length===0}
@@ -159,6 +165,7 @@ export default class BuildYourDream extends React.Component {
                         type="url"
                         name="websiteAddress"
                         id="websiteAddress"
+                        value={this.state.formValues.websiteURL}
                         required
                         valid={this.state.formValues.websiteURL.length>5}
                         invalid={this.state.formValues.websiteURL.length<6}
@@ -181,6 +188,7 @@ export default class BuildYourDream extends React.Component {
                   type="text"
                   name="companyName"
                   id="companyName"
+                  value={this.state.formValues.companyName}
                   required
                   valid={this.state.formValues.companyName.length>0}
                   invalid={this.state.formValues.companyName.length===0}
@@ -193,6 +201,7 @@ export default class BuildYourDream extends React.Component {
                   type="text"
                   name="industry"
                   id="industry"
+                  value={this.state.formValues.industry}
                   required
                   valid={this.state.formValues.industry.length>0}
                   invalid={this.state.formValues.industry.length===0}
@@ -223,6 +232,9 @@ export default class BuildYourDream extends React.Component {
                   type="textarea"
                   name="designExamples"
                   id="designExamples"
+                  value={this.state.formValues.designExamples}
+                  valid={this.state.formValues.designExamples.length>0}
+                  invalid={this.state.formValues.designExamples.length===0}
                   onChange={e=>this.handleFieldChange(e,'designExamples')}
                   placeholder="Please provide any websites that should serve as design examples. (Comma separate if more than one.) "
                   />
@@ -240,9 +252,10 @@ export default class BuildYourDream extends React.Component {
                   type="select"
                   name="budget"
                   id="budget"
+                  value={this.state.formValues.budget}
                   onChange={e=>this.handleFieldChange(e,'budget')}
                   >
-                  <option value="">Select</option>
+                  <option value="">Select Budget</option>
                   <option>$5k-$7k</option>
                   <option>$7k-$1k</option>
                   <option>$10k-$15k</option>
@@ -258,8 +271,10 @@ export default class BuildYourDream extends React.Component {
                   type="select"
                   name="timeframe"
                   id="timeframe"
+                  value={this.state.formValues.timeframe}
                   onChange={e=>this.handleFieldChange(e,'timeframe')}
                   >
+                  <option value="">Select Time Constraints</option>
                   <option>No, there are no time constraints.</option>
                   <option>1 month or less.</option>
                   <option>1-2 months</option>
@@ -303,6 +318,13 @@ isEnabled = ()=>{
     this.state.formValues.industry.length > 0 &&
     this.state.formValues.designExamples.length > 0
   ) return true
+
+  if(
+    this.state.formStep===3 &&
+    this.state.formValues.budget.length > 0 &&
+    this.state.formValues.timeframe.length > 0
+  ) return true
+
   else return false
 }
 
@@ -314,7 +336,10 @@ isEnabled = ()=>{
           <p>Didn’t find what you need in our above plans? No problem! We can prepare a custom estimate based on your specific needs. Just fill out the fields below so that we can get a better picture of what kind of site you will need and we’ll do the rest. As soon as we have had a chance to review your information, you’ll get a follow-up call from one of our team members to discuss your project further and iron out all of the details.</p>
 
           <Form
-          onSubmit={(e)=>this.handleSubmit(e)}
+          onSubmit={e=>{
+            e.preventDefault()
+            this.handleButtonClick(e)
+          }}
           className="py-3 mb-0"
           >
             <Stepper
@@ -336,32 +361,20 @@ isEnabled = ()=>{
                     ? "d-none"
                     : "mr-5"
                 }
-                onClick={e=>this.handleButtonClick('back')}
+                onClick={e=>this.handleButtonClick(e,'back')}
                 >
                 Back
                 </Button>
               <Button
-                className={
-                  this.state.formStep<this.state.stepperSteps.length
-                    ? ""
-                    : "d-none"
-                }
                 color="primary"
                 disabled={!this.isEnabled()}
-                type='button'
-                onClick={e=>this.handleButtonClick('next')}>
-                Next Step
-                </Button>
-              <Button
-                className={
-                  this.state.formStep<this.state.stepperSteps.length
-                    ? "d-none"
-                    : ""
-                }
-                color="primary"
                 type='submit'
-                onClick={e=>this.handleSubmit(e)}>
-                Submit My Request
+                onClick={e=>this.handleButtonClick(e,'next')}>
+                {
+                  this.state.formStep < this.state.stepperSteps.length-1
+                  ? 'Next Step'
+                  : 'Submit My Request'
+                }
                 </Button>
             </FormGroup>
             <Input className='hp' autoComplete="off" type="text" name="name" id="name" placeholder="Please tell us your Name" />
