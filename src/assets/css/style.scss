@@ -372,6 +372,14 @@ a {
     transition:800ms ease all;
     outline:none;
 
+    &.disabled,
+    &:disabled,
+    &.disabled:hover{
+      color: white;
+      background-color: $alkemy_dark_gray;
+      border-color: $alkemy_dark_gray;
+    }
+
     &:hover{
       color: black;
       background-color: $alkemy_yellow;

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Col, Row, Form,
-  FormGroup, Label, Input,FormText } from 'reactstrap'
+  FormGroup, Label, Input,FormText,Alert } from 'reactstrap'
 import Stepper from 'react-stepper-horizontal';
 
 export default class BuildYourDream extends React.Component {
@@ -52,12 +52,13 @@ export default class BuildYourDream extends React.Component {
   }
 
   // handles button click (next or back)
-  handleButtonClick = (action)=>{
+  handleButtonClick = (e,action)=>{
     if(action==='next' &&
       this.state.formStep!==this.state.stepperSteps.length)
       this.setState({
         formstep: this.state.formStep++
       })
+
     if(action==='back' &&
       this.state.formStep>0)
       this.setState({
@@ -255,6 +256,35 @@ export default class BuildYourDream extends React.Component {
     }
 }
 
+isEnabled = ()=>{
+  if(
+    this.state.formStep===0 &&
+    this.state.formValues.fullName.length > 0 &&
+    this.state.formValues.email.length > 0 &&
+    this.state.formValues.phone.length > 0
+  ){
+    return true
+  } else if(
+    this.state.formStep===1 &&
+    this.state.formValues.hasWebsite.length > 0
+  ){
+    if(
+      this.state.formValues.hasWebsite==='yes' &&
+      this.state.formValues.websiteURL.length > 5
+    ){
+      return true
+    }else if(this.state.formValues.hasWebsite==='no'){
+      return true
+    }
+  }else if(
+    this.state.formStep===2 &&
+    this.state.formValues.fullName.length > 0 &&
+    this.state.formValues.email.length > 0 &&
+    this.state.formValues.phone.length > 0
+  ) return true
+  else return false
+}
+
   render(){
     return(
       <section className="dreamForm py-5 px-3">
@@ -279,6 +309,7 @@ export default class BuildYourDream extends React.Component {
 
             <FormGroup className="text-center">
               <Button
+                color="secondary"
                 className={
                   this.state.formStep===0
                     ? "d-none"
@@ -289,7 +320,8 @@ export default class BuildYourDream extends React.Component {
                 Back
                 </Button>
               <Button
-                className="btn btn-primary"
+                color="primary"
+                disabled={this.isEnabled}
                 type={
                   this.state.formStep<this.state.stepperSteps.length
                   ? 'button'
