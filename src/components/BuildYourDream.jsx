@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Col, Row, Form,
+import { Button, Col, Row, Form, CustomInput,
   FormGroup, Label, Input,FormText,Alert } from 'reactstrap'
 import Stepper from 'react-stepper-horizontal';
 
@@ -41,7 +41,8 @@ export default class BuildYourDream extends React.Component {
         }
       ]
     }
-    const formArea = React.createRef()
+    this.formArea = React.createRef
+    this.logoFileInput = React.createRef();
   }
 
   // handles field changes
@@ -53,7 +54,6 @@ export default class BuildYourDream extends React.Component {
 
   // handles button click (next or back)
   handleButtonClick = (e,action)=>{
-
     // handle regular form next click
     if(action==='next' &&
       this.state.formStep<this.state.stepperSteps.length-1)
@@ -65,7 +65,7 @@ export default class BuildYourDream extends React.Component {
     if(action==='next' &&
       this.state.formStep===this.state.stepperSteps.length-1){
       // send object bundle via email
-
+      
 
       }
 
@@ -182,69 +182,6 @@ export default class BuildYourDream extends React.Component {
       case 2:
         return (
           <Row form className="my-4 py-0">
-            <Col xs={12} md={6} className="my-2 py-0 pr-3">
-              <FormGroup>
-                <Input
-                  type="text"
-                  name="companyName"
-                  id="companyName"
-                  value={this.state.formValues.companyName}
-                  required
-                  valid={this.state.formValues.companyName.length>0}
-                  invalid={this.state.formValues.companyName.length===0}
-                  onChange={e=>this.handleFieldChange(e,'companyName')}
-                  placeholder="What is your Company Name?"
-                  />
-              </FormGroup>
-              <FormGroup>
-                <Input
-                  type="text"
-                  name="industry"
-                  id="industry"
-                  value={this.state.formValues.industry}
-                  required
-                  valid={this.state.formValues.industry.length>0}
-                  invalid={this.state.formValues.industry.length===0}
-                  onChange={e=>this.handleFieldChange(e,'industry')}
-                  placeholder="What industry is your business in?"
-                  />
-              </FormGroup>
-            </Col>
-            <Col xs={12} md={6} className="my-2 py-0 pl-3">
-              <FormGroup>
-                <Label for="logo">Company Logo</Label>
-                <Input
-                  type="file"
-                  name="logo"
-                  id="logo"
-                  bsSize="sm"
-                  className="pl-0"
-                  onChange={e=>this.handleFieldChange(e,'logo')}
-                  />
-                <FormText color="muted">
-                  Please upload a logo for your company. This will help provide a general idea of your style and color scheme.
-                </FormText>
-              </FormGroup>
-            </Col>
-            <Col xs={12} className="my-2 py-0">
-              <FormGroup>
-                <Input
-                  type="textarea"
-                  name="designExamples"
-                  id="designExamples"
-                  value={this.state.formValues.designExamples}
-                  valid={this.state.formValues.designExamples.length>0}
-                  invalid={this.state.formValues.designExamples.length===0}
-                  onChange={e=>this.handleFieldChange(e,'designExamples')}
-                  placeholder="Please provide any websites that should serve as design examples. (Comma separate if more than one.) "
-                  />
-              </FormGroup>
-            </Col>
-          </Row>
-        )
-      case 3:
-        return (
-          <Row form className="my-4 py-0">
             <Col xs={12} md={6} className="my-2 py-0 pr-md-3">
               <FormGroup>
                 <Label for="budget">What is your budget for this project?</Label>
@@ -256,9 +193,9 @@ export default class BuildYourDream extends React.Component {
                   onChange={e=>this.handleFieldChange(e,'budget')}
                   >
                   <option value="">Select Budget</option>
-                  <option>$5k-$7k</option>
-                  <option>$7k-$1k</option>
-                  <option>$10k-$15k</option>
+                  <option>$5k-$6999k</option>
+                  <option>$7k-$9999k</option>
+                  <option>$10k-$14999k</option>
                   <option>$15k-$25k</option>
                   <option>Greater than $25k</option>
                 </Input>
@@ -281,6 +218,70 @@ export default class BuildYourDream extends React.Component {
                   <option>3-5 months</option>
                   <option>Greater than 5 months.</option>
                 </Input>
+              </FormGroup>
+            </Col>
+            <Col xs={12} className="my-2 py-0">
+              <FormGroup>
+                <Input
+                  type="textarea"
+                  name="designExamples"
+                  id="designExamples"
+                  value={this.state.formValues.designExamples}
+                  onChange={e=>this.handleFieldChange(e,'designExamples')}
+                  placeholder="Please provide any websites that should serve as design examples. (Comma separate if more than one.) "
+                  />
+              </FormGroup>
+            </Col>
+          </Row>
+        )
+      case 3:
+        return (
+          <Row form className="my-4 py-0">
+            <Col xs={12} className="my-2 p-0">
+              <FormGroup>
+                <Label for="logo">Company Logo</Label>
+                <CustomInput
+                  type="file"
+                  name="logo"
+                  id="logo"
+                  bsSize="sm"
+                  className="pl-0"
+                  ref={this.logoFileInput}
+                  onChange={e=>this.handleFieldChange(e,'logo')}
+                  />
+                <FormText color="muted">
+                  Please upload a logo for your company. This will help provide a general idea of your style and color scheme.
+                </FormText>
+              </FormGroup>
+            </Col>
+            <Col xs={12} sm={6} className="my-2 py-0 pr-3">
+              <FormGroup>
+                <Input
+                  type="text"
+                  name="companyName"
+                  id="companyName"
+                  value={this.state.formValues.companyName}
+                  required
+                  valid={this.state.formValues.companyName.length>0}
+                  invalid={this.state.formValues.companyName.length===0}
+                  onChange={e=>this.handleFieldChange(e,'companyName')}
+                  placeholder="What is your Company Name?"
+                  />
+              </FormGroup>
+            </Col>
+            <Col xs={12} sm={6} className="my-2 py-0 pr-3">
+              <FormGroup>
+                <Input
+                  type="text"
+                  name="industry"
+                  id="industry"
+                  value={this.state.formValues.industry}
+                  required
+                  valid={this.state.formValues.industry.length>0}
+                  invalid={this.state.formValues.industry.length===0}
+                  onChange={e=>this.handleFieldChange(e,'industry')}
+                  placeholder="What industry is your business in?"
+                  />
               </FormGroup>
             </Col>
           </Row>
@@ -315,8 +316,7 @@ isEnabled = ()=>{
   if(
     this.state.formStep===2 &&
     this.state.formValues.companyName.length > 0 &&
-    this.state.formValues.industry.length > 0 &&
-    this.state.formValues.designExamples.length > 0
+    this.state.formValues.industry.length > 0
   ) return true
 
   if(
@@ -351,7 +351,7 @@ isEnabled = ()=>{
               activeStep={ this.state.formStep }
               />
 
-            <div ref='formArea' className="my-3">{this.renderForm(this.state.formStep)}</div>
+            <div ref={this.formArea} className="my-3">{this.renderForm(this.state.formStep)}</div>
 
             <FormGroup className="text-center">
               <Button
