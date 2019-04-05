@@ -65,7 +65,7 @@ export default class BuildYourDream extends React.Component {
     if(action==='next' &&
       this.state.formStep===this.state.stepperSteps.length-1){
       // send object bundle via email
-      
+
 
       }
 
@@ -336,6 +336,9 @@ isEnabled = ()=>{
           <p>Didn’t find what you need in our above plans? No problem! We can prepare a custom estimate based on your specific needs. Just fill out the fields below so that we can get a better picture of what kind of site you will need and we’ll do the rest. As soon as we have had a chance to review your information, you’ll get a follow-up call from one of our team members to discuss your project further and iron out all of the details.</p>
 
           <Form
+          method="post"
+          data-netlify="true"
+          data-netlify-honeypot="honeypot"
           onSubmit={e=>{
             e.preventDefault()
             this.handleButtonClick(e)
@@ -377,7 +380,10 @@ isEnabled = ()=>{
                 }
                 </Button>
             </FormGroup>
-            <Input className='hp' autoComplete="off" type="text" name="name" id="name" placeholder="Please tell us your Name" />
+            <Input
+              autoComplete="off"
+              type="hidden"
+              name="honeypot"/>
           </Form>
         </div>
       </section>
