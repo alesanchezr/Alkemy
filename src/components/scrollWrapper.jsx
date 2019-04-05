@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-if(typeof window !== 'undefined') import { WOW } from '../utils/wow.js'
+import { WOW } from '../utils/wow.js'
 
 class ScrollWrapper extends React.Component {
   constructor(props) {
