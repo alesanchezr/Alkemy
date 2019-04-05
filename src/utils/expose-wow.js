@@ -1,3 +1,3 @@
 import { WOW } from 'wowjs'
 
-window.WOW = WOW
+if(typeof window !== 'undefined') window.WOW = WOW

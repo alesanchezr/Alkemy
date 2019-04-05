@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import '../utils/expose-wow.js'
+import { WOW } from 'wowjs'
 
 class ScrollWrapper extends React.Component {
   constructor(props) {
@@ -9,12 +9,11 @@ class ScrollWrapper extends React.Component {
   }
 
   componentDidMount(){
-    if(typeof(window) !== 'undefined') {
+    if(typeof window !== 'undefined') {
       window.addEventListener('scroll',this.handleScroll)
-      const wow = new WOW({
+      new WOW({
         live: false,
-      })
-      wow.init()
+      }).init()
     }
   }
 
