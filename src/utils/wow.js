@@ -187,7 +187,7 @@
 
     WOW.prototype.init = function() {
       var ref;
-      this.element = window.document.documentElement;
+      this.element = if(typeof window !=='undefined') window.document.documentElement;
       if ((ref = document.readyState) === "interactive" || ref === "complete") {
         this.start();
       } else {
