@@ -4,7 +4,7 @@ import { Card, CardImg, CardText, CardImgOverlay,
   CardTitle,CardBody, CardFooter, CardDeck, Button,
   Col, Row, Form, FormGroup, Label, Input } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import '../utils/expose-wow.js'
 
 import Layout from '../components/layout'
 import ScrollWrapper from '../components/scrollWrapper.jsx'

@@ -2,6 +2,7 @@ import React from 'react'
 import { Button, Col, Row, Form, CustomInput,
   FormGroup, Label, Input,FormText,Alert } from 'reactstrap'
 import Stepper from 'react-stepper-horizontal';
+import '../utils/expose-wow.js'
 
 export default class BuildYourDream extends React.Component {
   constructor(){
