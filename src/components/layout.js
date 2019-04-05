@@ -147,8 +147,8 @@ const Layout = ({ children, pageTitle, renderHeaderSolid, headerTitle, headerTyp
       	{/* End Google Tag Manager (noscript) */}
 
         <Header
-          hideHeader={headerTitle[0]}
-          siteTitle={headerTitle[1]}
+          hideHeader={headerTitle?headerTitle[0]:null}
+          siteTitle={headerTitle?headerTitle[1]:null}
           renderHeaderSolid={renderHeaderSolid}
           />
 
