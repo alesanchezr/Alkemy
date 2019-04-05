@@ -23,14 +23,14 @@ import ourPassion from '../assets/images/pexels-photo-450271.jpeg'
 import VideoCarousel from '../components/videoCarousel'
 
 // Import video assets
-import video_1_jpg from '../assets/video/Home_Work/Home_work.jpg'
-import video_1_mp4 from '../assets/video/Home_Work/Home_work.mp4'
+import video_1_jpg from '../assets/video/home-work/home-work.jpg'
+import video_1_mp4 from '../assets/video/home-work/home-work.mp4'
 
-import video_2_jpg from '../assets/video/Aloha-Mundo/Aloha-Mundo.jpg'
-import video_2_mp4 from '../assets/video/Aloha-Mundo/Aloha-Mundo.mp4'
+import video_2_jpg from '../assets/video/aloha-mundo/aloha-mundo.jpg'
+import video_2_mp4 from '../assets/video/aloha-mundo/aloha-mundo.mp4'
 
-import video_3_jpg from '../assets/video/Office-Day/Office-Day.jpg'
-import video_3_mp4 from '../assets/video/Office-Day/Office-Day.mp4'
+import video_3_jpg from '../assets/video/office-day/office-day.jpg'
+import video_3_mp4 from '../assets/video/office-day/office-day.mp4'
 
 /* Define Slide Array
 Each object(slide) in array should have 2 keys:
