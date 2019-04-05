@@ -136,7 +136,7 @@ input[type=checkbox] + label:before {
   display: block;
   width: 20px;
   height: 20px;
-  border: 1px solid #206a98;
+  border: 1px solid #0B3C5D;
   position: absolute;
   left: 0;
   top: 0;
@@ -171,8 +171,14 @@ input[type=checkbox]:checked + label:before {
   transition: 0.5s linear;
   /* dropdown menu restyle */
 }
+.header.solid {
+  background: #010305;
+}
 .header .navbar {
   font-size: 1.1rem;
+}
+.header a {
+  transition: 800ms ease all;
 }
 .header a:hover,
 .header .dropdown-toggle:hover {
@@ -187,7 +193,7 @@ input[type=checkbox]:checked + label:before {
 
 /* Global Links */
 a {
-  color: #206a98;
+  color: #0B3C5D;
   text-decoration: none;
   background-color: transparent;
 }
@@ -367,32 +373,82 @@ a {
   transition: 800ms ease all;
   outline: none;
 }
-.btn-primary:hover {
+.btn-primary.disabled, .btn-primary:disabled, .btn-primary.disabled:hover {
   color: white;
-  background-color: #2bb3e5;
+  background-color: #707070;
+  border-color: #707070;
+}
+.btn-primary:hover {
+  color: black;
+  background-color: #F0C611;
+  transform: scale(0.9);
 }
 
 .callNow {
-  background: #2bb3e5;
-  right: 0;
-  width: 16vw;
-  padding: 1rem;
   position: fixed;
   top: 50%;
+  right: 0;
+  z-index: 800;
+  width: 16vw;
+  /* iPhone 6/7/8 */
+  /* iPhone 6/7/8 plus */
+  /* iPhone X */
+  /* Nexus 10 and iPad */
+  /* iPad Pro */
+  padding: 1rem;
+  background: #2bb3e5;
   transform: translateY(-50%);
   border-radius: 20rem 0 0 20rem;
   border: 1px solid white;
-  z-index: 800;
+}
+@media screen and (min-width: 375px) and (min-height: 667px) {
+  .callNow {
+    width: 19vw;
+  }
+}
+@media screen and (min-width: 414px) and (min-height: 736px) {
+  .callNow {
+    width: 17vw;
+  }
+}
+@media screen and (min-width: 375px) and (min-height: 812px) {
+  .callNow {
+    width: 16vw;
+  }
+}
+@media screen and (min-width: 700px) {
+  .callNow {
+    width: 9vw;
+  }
+}
+@media screen and (min-width: 900px) {
+  .callNow {
+    width: 7.5vw;
+  }
 }
 .callNow .callNowButton {
-  border-radius: 1rem;
   background: white;
-  margin: 0 auto;
   color: black;
+  margin: 0 auto;
+  border-radius: 1rem;
 }
 
+.header button {
+  transition: 1000ms ease all;
+}
 .header button:hover svg path {
   fill: #212529;
+}
+.header #subHeader {
+  background: #0B3C5D;
+  color: #F0C611;
+  margin-top: 80px;
+  width: 100%;
+  padding: 1.45rem 1.0875rem;
+}
+
+.pageHero {
+  margin-top: 80px;
 }
 
 .footer {
@@ -761,7 +817,7 @@ button:focus {
 }
 
 section.statsCounter {
-  background: #206a98;
+  background: #0B3C5D;
   color: white;
 }
 section.statsCounter h1:first-child {
@@ -793,16 +849,74 @@ section.recentBlogPosts .container .card-deck .card {
   max-width: 33%;
 }
 
-section.contactForm {
-  background: rgba(43, 179, 229, 0.25);
+section.contactForm, section.dreamForm {
+  background: #EAF3F8;
 }
-section.contactForm form input[type=text], section.contactForm form input[type=email], section.contactForm form input[type=url] {
+section.contactForm form textarea,
+section.contactForm form select,
+section.contactForm form input,
+section.contactForm form button, section.dreamForm form textarea,
+section.dreamForm form select,
+section.dreamForm form input,
+section.dreamForm form button {
   box-shadow: 2px 4px 6px;
-  padding: 1.4rem;
   border-radius: 2px;
 }
-section.contactForm form button:hover {
+section.contactForm form textarea,
+section.contactForm form select,
+section.contactForm form input, section.dreamForm form textarea,
+section.dreamForm form select,
+section.dreamForm form input {
+  padding: 1.4rem;
+}
+section.contactForm form input[type=file], section.dreamForm form input[type=file] {
+  padding: unset;
+  box-shadow: unset;
+  border-radius: unset;
+}
+section.contactForm form button, section.dreamForm form button {
+  padding: 0.25rem 2.5rem;
+}
+section.contactForm form button:hover, section.dreamForm form button:hover {
   max-width: 50%;
+}
+
+.hp {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+}
+
+/* Responsive Web Design Page */
+section.deliverYourMessage {
+  background: #0B3C5D;
+  color: white;
+}
+
+.plan .planCard {
+  border: none;
+}
+.plan .planCard .planIcon {
+  color: #2bb3e5;
+}
+.plan .planCard h2, .plan .planCard p {
+  color: #0B3C5D;
+}
+.plan:nth-of-type(2) .planCard {
+  border: 1px solid #84BAD9;
+}
+.plan:nth-of-type(odd) .planCard {
+  border: 1px solid #d2e6f1;
+  background: #EAF3F8;
+}
+
+ul .planFeatureIcon {
+  color: #2bb3e5;
+  margin-right: 2em;
 }
 
 /*# sourceMappingURL=style.css.map */

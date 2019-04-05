@@ -11,7 +11,7 @@ import Footer from './footer'
 
 import '../assets/css/layout.css'
 import '../assets/css/bootstrap.min.css'
-import '../assets/css/style.scss'
+import '../assets/css/style.css'
 import '../assets/css/animate.css'
 
 import favicon from '../assets/images/favicon.ico'
