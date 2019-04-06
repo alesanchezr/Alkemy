@@ -6,7 +6,7 @@
 
 // You can delete this file if you're not using it
 
-import '../assets/css/layout.css'
-import '../assets/css/bootstrap.min.css'
-import '../assets/css/style.css'
-import '../assets/css/animate.css'
+import './src/assets/css/layout.css'
+import './src/assets/css/bootstrap.min.css'
+import './src/assets/css/style.css'
+import './src/assets/css/animate.css'
