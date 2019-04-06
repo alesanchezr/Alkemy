@@ -14,16 +14,16 @@
 /* Transition Mixin */
 /* Fonts */
 html {
-  font-size: 16px;
+  font-size: 16px !important;
 }
 @media screen and (min-width: 320px) {
   html {
-    font-size: calc(16px + 8 * ((100vw - 320px) / 1660));
+    font-size: calc(16px + 8 * ((100vw - 320px) / 1660)) !important;
   }
 }
 @media screen and (min-width: 1980px) {
   html {
-    font-size: 24px;
+    font-size: 24px !important;
   }
 }
 
@@ -31,16 +31,16 @@ h1 {
   font-size: 2.0736rem;
 }
 h1 {
-  font-size: 27.648px;
+  font-size: 27.648px !important;
 }
 @media screen and (min-width: 320px) {
   h1 {
-    font-size: calc(27.648px + 26.352 * ((100vw - 320px) / 1660));
+    font-size: calc(27.648px + 26.352 * ((100vw - 320px) / 1660)) !important;
   }
 }
 @media screen and (min-width: 1980px) {
   h1 {
-    font-size: 54px;
+    font-size: 54px !important;
   }
 }
 
@@ -48,16 +48,16 @@ h2 {
   font-size: 1.728rem;
 }
 h2 {
-  font-size: 27.648px;
+  font-size: 27.648px !important;
 }
 @media screen and (min-width: 320px) {
   h2 {
-    font-size: calc(27.648px + 26.352 * ((100vw - 320px) / 1660));
+    font-size: calc(27.648px + 26.352 * ((100vw - 320px) / 1660)) !important;
   }
 }
 @media screen and (min-width: 1980px) {
   h2 {
-    font-size: 54px;
+    font-size: 54px !important;
   }
 }
 
@@ -65,16 +65,16 @@ h3 {
   font-size: 1.44rem;
 }
 h3 {
-  font-size: 23.04px;
+  font-size: 23.04px !important;
 }
 @media screen and (min-width: 320px) {
   h3 {
-    font-size: calc(23.04px + 12.96 * ((100vw - 320px) / 1660));
+    font-size: calc(23.04px + 12.96 * ((100vw - 320px) / 1660)) !important;
   }
 }
 @media screen and (min-width: 1980px) {
   h3 {
-    font-size: 36px;
+    font-size: 36px !important;
   }
 }
 
