@@ -100,7 +100,7 @@ export default class BuildYourDream extends React.Component {
         fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': "application/x-www-form-urlencoded" },
-          body: JSON.stringify({
+          body: encode({
             "form-name": "Build Your Dream",
             ...this.state.formValues })
           },this.file)
