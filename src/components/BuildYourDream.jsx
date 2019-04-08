@@ -103,16 +103,17 @@ export default class BuildYourDream extends React.Component {
               .join("&");
         }
         let stateData = encode({
-          "form-name": "dreamForm",
           ...this.state.formValues })
 
         let data = new FormData()
-        data.append(stateData)
+        data.append("form-name", "dreamForm")
+        data.append('data',stateData)
         data.append('file',this.file)
+
         fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': "multipart/form-data" },
-          body: stateData
+          body: data
           })
           .then(() => {
             this.setState({
@@ -567,7 +568,7 @@ validate = ()=>{
                 }
                 </Button>
             </FormGroup>
-            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="form-name" value="dreamForm" />
           </Form>
         </div>
       </section>
