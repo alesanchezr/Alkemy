@@ -97,6 +97,11 @@ export default class BuildYourDream extends React.Component {
 
     // handle form submit here
     if(this.state.formStep===this.state.stepperSteps.length){
+        const encode = (data) => {
+          return Object.keys(data)
+              .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+              .join("&");
+        }
         fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': "application/x-www-form-urlencoded" },
