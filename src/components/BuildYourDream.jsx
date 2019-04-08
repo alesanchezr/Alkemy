@@ -52,7 +52,7 @@ export default class BuildYourDream extends React.Component {
         }
       ]
     }
-    this.file = React.createRef
+
     this.dreamForm = React.createRef
   }
 
@@ -96,24 +96,23 @@ export default class BuildYourDream extends React.Component {
     }
 
     // handle form submit here
-    if(this.state.formStep===this.state.stepperSteps.length){
-        const encode = (data) => {
-          return Object.keys(data)
-              .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-              .join("&");
-        }
-        let stateData = encode({
-          ...this.state.formValues })
+    if(this.state.formStep===this.state.stepperSteps.length-1){
 
-        let data = new FormData()
-        data.append("form-name", "dreamForm")
-        data.append('data',stateData)
-        data.append('file',this.file)
+        let stateData = JSON.stringify({
+          ...this.state.formValues })
+        let fileField = document.querySelector('#fileField')
+        let formData = new FormData()
+        formData.append('form-name', 'dreamForm')
+        formData.append('data',stateData)
+
+        if(fileField!==null){
+          formData.append('file',fileField.files[0])
+        }
 
         fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': "multipart/form-data" },
-          body: data
+          body: formData
           })
           .then(() => {
             this.setState({
@@ -324,15 +323,12 @@ export default class BuildYourDream extends React.Component {
             <Col xs={12} className="my-2 p-0">
               <FormGroup>
                 <Label for="logo">Company Logo</Label>
-                <CustomInput
-                  id="file"
+                <input
+                  id="fileField"
                   type="file"
                   accept="image/*"
                   name="logo"
-                  bsSize="sm"
                   className="pl-0"
-                  ref={this.file}
-                  value={this.state.formValues.logo}
                   label={this.state.formValues.logo.split()}
                   onChange={e=>this.handleFieldChange(e,'logo')}
                   />
