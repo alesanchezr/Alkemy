@@ -110,10 +110,20 @@ export default class BuildYourDream extends React.Component {
     let fileField = document.querySelector('#fileField')
     let formData = new FormData()
     formData.append('form-name', 'dreamForm')
-    formData.append('data',this.state.formValues)
+    formData.append('fullName', this.state.formValues.fullName)
+    formData.append('email', this.state.formValues.email)
+    formData.append('phone', this.state.formValues.phone)
+    formData.append('hasWebsite', this.state.formValues.hasWebsite)
+    formData.append('websiteURL', this.state.formValues.websiteURL)
+    formData.append('companyName', this.state.formValues.companyName)
+    formData.append('budget', this.state.formValues.budget)
+    formData.append('timeframe', this.state.formValues.timeframe)
+    formData.append('designExamples', this.state.formValues.designExamples)
+    formData.append('industry', this.state.formValues.industry)
+    formData.append('otherIndustry', this.state.formValues.otherIndustry)
 
     if(fileField!==null){
-      formData.append('file',fileField.files[0])
+      formData.append('logo',fileField.files[0])
     }
     fetch('/', {
       method: 'POST',
