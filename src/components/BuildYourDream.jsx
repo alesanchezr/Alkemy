@@ -106,7 +106,7 @@ export default class BuildYourDream extends React.Component {
           method: 'POST',
           headers: { 'Content-Type': "application/x-www-form-urlencoded" },
           body: encode({
-            "form-name": "Build Your Dream",
+            "form-name": "dreamForm",
             ...this.state.formValues })
           },this.file)
           .then(() => {
