@@ -535,9 +535,28 @@ a {
   box-shadow: 0 0 0.5rem 0.2rem #2bb3e5;
 }
 
-input {
+input:not(.intl-tel-input input, .intl-tel-input input[type=tel], .intl-tel-input input[type=text]) {
   font-size: 1.6rem;
   padding: 0.5rem 1.5rem;
+  border-radius: 0;
+}
+
+div.intl-tel-input.allow-dropdown {
+  width: 100%;
+}
+div.intl-tel-input.allow-dropdown input,
+div.intl-tel-input.allow-dropdown input[type=tel],
+div.intl-tel-input.allow-dropdown input[type=text] {
+  width: 100%;
+  border: 1px solid #ced4da;
+  box-shadow: 2px 4px 6px;
+  border-radius: 2px;
+  color: #495057;
+}
+div.intl-tel-input input,
+div.intl-tel-input input[type=tel],
+div.intl-tel-input input[type=text] {
+  padding: 0.65rem;
 }
 
 /* Blockquotes */
@@ -863,9 +882,7 @@ section.dreamForm form button {
   border-radius: 2px;
 }
 section.contactForm form textarea,
-section.contactForm form select,
 section.contactForm form input, section.dreamForm form textarea,
-section.dreamForm form select,
 section.dreamForm form input {
   padding: 1.4rem;
 }

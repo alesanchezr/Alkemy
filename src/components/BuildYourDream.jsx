@@ -1,7 +1,10 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import { Button, Col, Row, Form, CustomInput,
-  FormGroup, Label, Input,FormText,Alert } from 'reactstrap'
+  FormFeedback,FormGroup, Label, Input,FormText } from 'reactstrap'
 import Stepper from 'react-stepper-horizontal';
+import IntlTelInput from 'react-intl-tel-input';
+import 'react-intl-tel-input/dist/main.css';
 
 export default class BuildYourDream extends React.Component {
   constructor(){
@@ -16,11 +19,19 @@ export default class BuildYourDream extends React.Component {
         hasWebsite: 'no',
         websiteURL: '',
         companyName: '',
-        industry: '',
-        logo: '',
-        designExamples: '',
         budget: '',
-        timeframe: ''
+        timeframe: '',
+        designExamples: '',
+        logo: '',
+        industry: '',
+        otherIndustry: ''
+      },
+      errors: {
+        fullNameLength: '',
+        emailFormat: '',
+        websiteURLFormat: '',
+        companyNameLength: '',
+        otherIndustryLength: ''
       },
       stepperSteps: [
         {
@@ -42,31 +53,51 @@ export default class BuildYourDream extends React.Component {
       ]
     }
     this.formArea = React.createRef
-    this.logoFileInput = React.createRef();
+    this.dreamForm = React.createRef
+    this.logoFileInput = React.createRef()
   }
 
   // handles field changes
   handleFieldChange = (e,fieldName)=> {
     let formValues = {...this.state.formValues}
-    formValues[fieldName] = e.target.value
+
+    if(fieldName!=='phone'){
+      formValues[fieldName] = e.target.value
+    }else{
+      if(e[0]===true){
+        formValues[fieldName] = e[1]
+      }
+    }
     this.setState({formValues})
+    this.setState({
+      errors: {
+        fullNameLength: '',
+        emailFormat: '',
+        websiteURLFormat: '',
+        companyNameLength: '',
+        otherIndustryLength: ''
+      }
+    })
   }
 
   // handles button click (next or back)
   handleButtonClick = (e,action)=>{
     // handle regular form next click
     if(action==='next' &&
-      this.state.formStep<this.state.stepperSteps.length-1)
-      this.setState({
-        formstep: this.state.formStep++
-      })
+      this.state.formStep<this.state.stepperSteps.length-1){
+      let valid = this.validate()
+      console.log('current step valid: ',valid)
+      if(valid){
+        this.setState({
+          formstep: this.state.formStep++
+        })
+      }
+    }
 
     // handle form submit here
     if(action==='next' &&
-      this.state.formStep===this.state.stepperSteps.length-1){
-      // send object bundle via email
-
-
+      this.state.formStep===this.state.stepperSteps.length){
+        ReactDOM.findDOMNode(this.dreamForm).dispatchEvent(new Event("submit"))
       }
 
     // handle regular form back click
@@ -88,44 +119,42 @@ export default class BuildYourDream extends React.Component {
                 <Input
                   type="text"
                   name="fullName"
-                  id="fullName"
                   value={this.state.formValues.fullName}
-                  required
-                  valid={this.state.formValues.fullName.length>0}
-                  invalid={this.state.formValues.fullName.length===0}
+                  invalid={this.state.errors.fullNameLength && this.state.errors.fullNameLength.length>0}
                   onChange={e=>this.handleFieldChange(e,'fullName')}
                   placeholder="Please tell us your Full Name"
                   />
+                  <FormFeedback
+                    className="my-3"
+                    >
+                  {this.state.errors.fullNameLength}
+                  </FormFeedback>
               </FormGroup>
             </Col>
             <Col xs={12} md={4} className="my-2 py-0">
               <FormGroup>
                 <Input
-                  type="email"
+                  type="text"
                   name="email"
-                  id="email"
                   value={this.state.formValues.email}
-                  required
-                  valid={this.state.formValues.email.length>0}
-                  invalid={this.state.formValues.email.length===0}
+                  invalid={this.state.errors.emailFormat && this.state.errors.emailFormat.length>0}
                   onChange={e=>this.handleFieldChange(e,'email')}
                   placeholder="Enter your Email Address"
                   />
+                  <FormFeedback>Invalid Format. Try: name@hostname.com</FormFeedback>
               </FormGroup>
             </Col>
             <Col xs={12} md={4} className="my-2 py-0">
               <FormGroup>
-                <Input
-                  type="tel"
-                  name="phone"
-                  id="phone"
-                  value={this.state.formValues.phone}
-                  required
-                  valid={this.state.formValues.phone.length>0}
-                  invalid={this.state.formValues.phone.length===0}
-                  onChange={e=>this.handleFieldChange(e,'phone')}
-                  placeholder="Enter your Telephone Number"
+                <IntlTelInput
+                  fieldName="phone"
+                  format
+                  containerClassName="intl-tel-input"
+                  className='form-control'
+                  onPhoneNumberChange={(valid,value)=>this.handleFieldChange([valid,value],'phone')}
+                  defaultValue={this.state.formValues.phone}
                   />
+                  <FormFeedback>Not a valid Telephone Number.</FormFeedback>
               </FormGroup>
             </Col>
           </Row>
@@ -164,11 +193,8 @@ export default class BuildYourDream extends React.Component {
                       <Input
                         type="url"
                         name="websiteAddress"
-                        id="websiteAddress"
                         value={this.state.formValues.websiteURL}
-                        required
-                        valid={this.state.formValues.websiteURL.length>5}
-                        invalid={this.state.formValues.websiteURL.length<6}
+                        invalid={this.state.errors.websiteURL.length>0}
                         onChange={e=>this.handleFieldChange(e,'websiteURL')}
                         placeholder="What is the address for your site? (www.yoursite.com)"
                         />
@@ -188,7 +214,6 @@ export default class BuildYourDream extends React.Component {
                 <Input
                   type="select"
                   name="budget"
-                  id="budget"
                   value={this.state.formValues.budget}
                   onChange={e=>this.handleFieldChange(e,'budget')}
                   >
@@ -207,7 +232,6 @@ export default class BuildYourDream extends React.Component {
                 <Input
                   type="select"
                   name="timeframe"
-                  id="timeframe"
                   value={this.state.formValues.timeframe}
                   onChange={e=>this.handleFieldChange(e,'timeframe')}
                   >
@@ -222,13 +246,13 @@ export default class BuildYourDream extends React.Component {
             </Col>
             <Col xs={12} className="my-2 py-0">
               <FormGroup>
+                <Label for="designExamples">Design Examples:</Label>
                 <Input
                   type="textarea"
                   name="designExamples"
-                  id="designExamples"
                   value={this.state.formValues.designExamples}
                   onChange={e=>this.handleFieldChange(e,'designExamples')}
-                  placeholder="Please provide any websites that should serve as design examples. (Comma separate if more than one.) "
+                  placeholder="If you have any websites that should serve as design examples, please provide them here. (Comma separate if more than one.) "
                   />
               </FormGroup>
             </Col>
@@ -236,17 +260,20 @@ export default class BuildYourDream extends React.Component {
         )
       case 3:
         return (
-          <Row form className="my-4 py-0">
+          <Row form className="my-4 pt-0 pb-4">
             <Col xs={12} className="my-2 p-0">
               <FormGroup>
                 <Label for="logo">Company Logo</Label>
                 <CustomInput
+                  id="file"
                   type="file"
+                  accept="image/*"
                   name="logo"
-                  id="logo"
                   bsSize="sm"
                   className="pl-0"
                   ref={this.logoFileInput}
+                  value={this.state.formValues.logo}
+                  label={this.state.formValues.logo.split()}
                   onChange={e=>this.handleFieldChange(e,'logo')}
                   />
                 <FormText color="muted">
@@ -259,11 +286,8 @@ export default class BuildYourDream extends React.Component {
                 <Input
                   type="text"
                   name="companyName"
-                  id="companyName"
                   value={this.state.formValues.companyName}
-                  required
-                  valid={this.state.formValues.companyName.length>0}
-                  invalid={this.state.formValues.companyName.length===0}
+                  invalid={this.state.errors.companyName && this.state.errors.companyName.length>0}
                   onChange={e=>this.handleFieldChange(e,'companyName')}
                   placeholder="What is your Company Name?"
                   />
@@ -272,16 +296,41 @@ export default class BuildYourDream extends React.Component {
             <Col xs={12} sm={6} className="my-2 py-0 pr-3">
               <FormGroup>
                 <Input
-                  type="text"
+                  type="select"
                   name="industry"
-                  id="industry"
+                  invalid={this.state.errors.industry && this.state.errors.industry.length>0}
                   value={this.state.formValues.industry}
-                  required
-                  valid={this.state.formValues.industry.length>0}
-                  invalid={this.state.formValues.industry.length===0}
                   onChange={e=>this.handleFieldChange(e,'industry')}
-                  placeholder="What industry is your business in?"
-                  />
+                  >
+                  <option value="" disabled selected>Select your Industry</option>
+                  <option>Food & Beverage</option>
+                  <option>Government</option>
+                  <option>HR/Payroll Services</option>
+                  <option>Insurance/Healthcare</option>
+                  <option>Internet/Software/Development</option>
+                  <option>Legal Services</option>
+                  <option>Non-Profit</option>
+                  <option>Other/Not Listed</option>
+                  <option>Real Estate</option>
+                  <option>Restaurant/Hospitality</option>
+                  <option>Retail</option>
+                  <option>Sales/Marketing/Digital Marketing</option>
+                </Input>
+                {
+                  this.state.formValues.industry==="Other/Not Listed"
+                  ? (
+                      <Input
+                      type="text"
+                      className="my-2"
+                      name="otherIndustry"
+                      value={this.state.formValues.otherIndustry}
+                      invalid={this.state.errors.otherIndustry && this.state.errors.otherIndustry.length>0}
+                      onChange={e=>this.handleFieldChange(e,'otherIndustry')}
+                      placeholder="Please tell us your Industry."
+                      />
+                    )
+                  : null
+                }
               </FormGroup>
             </Col>
           </Row>
@@ -292,6 +341,7 @@ export default class BuildYourDream extends React.Component {
 }
 
 isEnabled = ()=>{
+  // Step 1 of Form
   if(
     this.state.formStep===0 &&
     this.state.formValues.fullName.length > 0 &&
@@ -300,6 +350,7 @@ isEnabled = ()=>{
   ){
     return true
   }
+  // Step 2 of Form
   if(
     this.state.formStep===1 &&
     this.state.formValues.hasWebsite.length > 0
@@ -313,19 +364,71 @@ isEnabled = ()=>{
       return true
     }
   }
+  // Step 3 of Form
   if(
     this.state.formStep===2 &&
+    this.state.formValues.budget.length > 0 &&
+    this.state.formValues.timeframe.length > 0
+  ) return true
+  // Step 4 of Form
+  if(
+    this.state.formStep===3 &&
     this.state.formValues.companyName.length > 0 &&
     this.state.formValues.industry.length > 0
   ) return true
 
-  if(
-    this.state.formStep===3 &&
-    this.state.formValues.budget.length > 0 &&
-    this.state.formValues.timeframe.length > 0
-  ) return true
-
   else return false
+}
+
+validate = ()=>{
+  let isError = false
+  let errors = {}
+
+  // Full Name Field Validation
+  if (this.state.formValues.fullName.length>0){
+    let nameArray=this.state.formValues.fullName.split(' ')
+    // check name is at least 2 words
+    if(nameArray.length<2){
+      isError=true
+      errors.fullNameLength='Only first name was entered.'
+    }else if(nameArray.length>=2){
+      for(let val in nameArray){
+        if(nameArray[val].length < 2){
+             isError=true
+             errors.fullNameLength='Length of each name must be 2 or more characters.'
+           }
+      }
+    }
+  }
+
+  // Email Validation
+  let emailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  let emailValid = emailReg.test(String(this.state.formValues.email.toLowerCase()))
+  console.log('email valid: ',emailValid)
+  if(!emailValid){
+    isError=true
+    errors.emailFormat='Invalid format. Must be name@domain.com'
+  }
+
+  // Phone Validation
+  let phoneReg = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/
+  let phone = this.state.formValues.phone
+  let phoneValidate = phoneReg.test(String(phone))
+
+  if(phoneValidate === false){
+    isError=true
+    errors.phone='Not a valid phone number.'
+  }
+  console.log('is error? ',isError)
+  if(isError){
+    this.setState({
+      ...this.state,
+      errors: {...errors}
+    })
+    return false
+  }
+  if(!isError) return true
+
 }
 
   render(){
@@ -343,6 +446,7 @@ isEnabled = ()=>{
             e.preventDefault()
             this.handleButtonClick(e)
           }}
+          ref={this.dreamForm}
           className="py-3 mb-0"
           >
             <Stepper

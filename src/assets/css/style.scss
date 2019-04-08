@@ -100,6 +100,7 @@ html{
   height: 100%;
 }
 
+
 body{
   &.solid{
     header.header{
@@ -547,10 +548,34 @@ a {
     box-shadow: 0 0 0.5rem 0.2rem $alkemy_blue;
 }
 
-input{
+input:not(.intl-tel-input input, .intl-tel-input input[type=tel], .intl-tel-input input[type=text]){
 	font-size: 1.6rem;
   padding: .5rem 1.5rem;
+  border-radius: 0;
 }
+
+
+div.intl-tel-input{
+  &.allow-dropdown{
+    width: 100%;
+    input,
+    input[type=tel],
+    input[type=text]{
+      width: 100%;
+      border:1px solid #ced4da;
+      box-shadow: 2px 4px 6px;
+      border-radius: 2px;
+      color: #495057;
+    }
+  }
+
+  input,
+  input[type=tel],
+  input[type=text]{
+    padding: .65rem;
+  }
+}
+
 
 /* Blockquotes */
 
@@ -890,10 +915,12 @@ section{
         border-radius: 2px;
       }
       textarea,
-      select,
       input,
       {
         padding: 1.4rem;
+      }
+      select{
+        
       }
 
       input[type=file]{
