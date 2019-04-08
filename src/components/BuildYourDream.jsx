@@ -83,6 +83,7 @@ export default class BuildYourDream extends React.Component {
 
   // handles button click (next or back)
   handleButtonClick = (e,action)=>{
+    e.preventDefault()
     // handle regular form next click
     if(action==='next' &&
       this.state.formStep<this.state.stepperSteps.length-1){
@@ -96,8 +97,7 @@ export default class BuildYourDream extends React.Component {
     }
 
     // handle form submit here
-    if(this.state.formStep===this.state.stepperSteps.length){
-
+    if(this.state.formStep===this.state.stepperSteps.length-1){
         let stateData = JSON.stringify({
           ...this.state.formValues })
         let fileField = document.querySelector('#fileField')
@@ -113,39 +113,10 @@ export default class BuildYourDream extends React.Component {
           method: 'POST',
           headers: { 'Content-Type': "multipart/form-data" },
           body: formData
-          })
-          .then(() => {
-            this.setState({
-              ...this.state,
-              formStep: 0,
-              formValues: {
-                fullName: '',
-                email: '',
-                phone: '',
-                hasWebsite: 'no',
-                websiteURL: '',
-                companyName: '',
-                budget: '',
-                timeframe: '',
-                designExamples: '',
-                logo: '',
-                industry: '',
-                otherIndustry: ''
-              },
-              errors: {
-                companyNameLength: '',
-                emailFormat: '',
-                fullNameLength: '',
-                otherIndustryLength: '',
-                phone: '',
-                websiteURLFormat: ''
-              }
-            })
-            console.log('successful form submit')
+          }).then((res) => {
+            console.log('success',res)
           })
           .catch(error => alert(error))
-
-        e.preventDefault()
       }
 
     // handle regular form back click
