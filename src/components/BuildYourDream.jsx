@@ -111,9 +111,10 @@ export default class BuildYourDream extends React.Component {
         data.append('file',this.file)
         fetch('/', {
           method: 'POST',
-          headers: { 'Content-Type': "application/x-www-form-urlencoded" },
+          headers: { 'Content-Type': "multipart/form-data" },
           body: data
-          }).then(() => {
+          })
+          .then(() => {
             this.setState({
               ...this.state,
               formStep: 0,
