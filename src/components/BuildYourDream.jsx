@@ -1,10 +1,9 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import { Button, Col, Row, Form, CustomInput,
   FormFeedback,FormGroup, Label, Input,FormText } from 'reactstrap'
-import Stepper from 'react-stepper-horizontal';
-import IntlTelInput from 'react-intl-tel-input';
-import 'react-intl-tel-input/dist/main.css';
+import Stepper from 'react-stepper-horizontal'
+import IntlTelInput from 'react-intl-tel-input'
+import 'react-intl-tel-input/dist/main.css'
 
 export default class BuildYourDream extends React.Component {
   constructor(){
@@ -27,11 +26,12 @@ export default class BuildYourDream extends React.Component {
         otherIndustry: ''
       },
       errors: {
-        fullNameLength: '',
-        emailFormat: '',
-        websiteURLFormat: '',
         companyNameLength: '',
-        otherIndustryLength: ''
+        emailFormat: '',
+        fullNameLength: '',
+        otherIndustryLength: '',
+        phone: '',
+        websiteURLFormat: ''
       },
       stepperSteps: [
         {
@@ -52,9 +52,8 @@ export default class BuildYourDream extends React.Component {
         }
       ]
     }
-    this.formArea = React.createRef
+    this.file = React.createRef
     this.dreamForm = React.createRef
-    this.logoFileInput = React.createRef()
   }
 
   // handles field changes
@@ -71,14 +70,16 @@ export default class BuildYourDream extends React.Component {
     this.setState({formValues})
     this.setState({
       errors: {
-        fullNameLength: '',
-        emailFormat: '',
-        websiteURLFormat: '',
         companyNameLength: '',
-        otherIndustryLength: ''
+        emailFormat: '',
+        fullNameLength: '',
+        otherIndustryLength: '',
+        phone: '',
+        websiteURLFormat: ''
       }
     })
   }
+
 
   // handles button click (next or back)
   handleButtonClick = (e,action)=>{
@@ -95,9 +96,46 @@ export default class BuildYourDream extends React.Component {
     }
 
     // handle form submit here
-    if(action==='next' &&
-      this.state.formStep===this.state.stepperSteps.length){
-        ReactDOM.findDOMNode(this.dreamForm).dispatchEvent(new Event("submit"))
+    if(this.state.formStep===this.state.stepperSteps.length){
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': "application/x-www-form-urlencoded" },
+          body: JSON.stringify({
+            "form-name": "Build Your Dream",
+            ...this.state.formValues })
+          },this.file)
+          .then(() => {
+            this.setState({
+              ...this.state,
+              formStep: 0,
+              formValues: {
+                fullName: '',
+                email: '',
+                phone: '',
+                hasWebsite: 'no',
+                websiteURL: '',
+                companyName: '',
+                budget: '',
+                timeframe: '',
+                designExamples: '',
+                logo: '',
+                industry: '',
+                otherIndustry: ''
+              },
+              errors: {
+                companyNameLength: '',
+                emailFormat: '',
+                fullNameLength: '',
+                otherIndustryLength: '',
+                phone: '',
+                websiteURLFormat: ''
+              }
+            });
+            console.log('successful form submit')
+          })
+          .catch(error => alert(error))
+
+        e.preventDefault()
       }
 
     // handle regular form back click
@@ -120,7 +158,10 @@ export default class BuildYourDream extends React.Component {
                   type="text"
                   name="fullName"
                   value={this.state.formValues.fullName}
-                  invalid={this.state.errors.fullNameLength && this.state.errors.fullNameLength.length>0}
+                  invalid={
+                    typeof this.state.errors.fullNameLength !== 'undefined' &&
+                    this.state.errors.fullNameLength.length>0
+                  }
                   onChange={e=>this.handleFieldChange(e,'fullName')}
                   placeholder="Please tell us your Full Name"
                   />
@@ -137,16 +178,20 @@ export default class BuildYourDream extends React.Component {
                   type="text"
                   name="email"
                   value={this.state.formValues.email}
-                  invalid={this.state.errors.emailFormat && this.state.errors.emailFormat.length>0}
+                  invalid={
+                    typeof this.state.errors.emailFormat !== 'undefined' &&
+                    this.state.errors.emailFormat.length>0
+                  }
                   onChange={e=>this.handleFieldChange(e,'email')}
                   placeholder="Enter your Email Address"
                   />
-                  <FormFeedback>Invalid Format. Try: name@hostname.com</FormFeedback>
+                  <FormFeedback>{this.state.errors.emailFormat}</FormFeedback>
               </FormGroup>
             </Col>
             <Col xs={12} md={4} className="my-2 py-0">
               <FormGroup>
                 <IntlTelInput
+                  type='tel'
                   fieldName="phone"
                   format
                   containerClassName="intl-tel-input"
@@ -154,7 +199,7 @@ export default class BuildYourDream extends React.Component {
                   onPhoneNumberChange={(valid,value)=>this.handleFieldChange([valid,value],'phone')}
                   defaultValue={this.state.formValues.phone}
                   />
-                  <FormFeedback>Not a valid Telephone Number.</FormFeedback>
+                  <FormFeedback>{this.state.errors.phone}</FormFeedback>
               </FormGroup>
             </Col>
           </Row>
@@ -194,14 +239,18 @@ export default class BuildYourDream extends React.Component {
                         type="url"
                         name="websiteAddress"
                         value={this.state.formValues.websiteURL}
-                        invalid={this.state.errors.websiteURL.length>0}
+                        invalid={
+                          typeof this.state.errors.websiteURLFormat !== 'undefined' &&
+                          this.state.errors.websiteURLFormat.length>0
+                        }
                         onChange={e=>this.handleFieldChange(e,'websiteURL')}
                         placeholder="What is the address for your site? (www.yoursite.com)"
                         />
+                        <FormFeedback>{this.state.errors.websiteURLFormat}</FormFeedback>
                     </FormGroup>
                   </Col>
                 )
-              : ''
+              : null
             }
           </Row>
         )
@@ -271,7 +320,7 @@ export default class BuildYourDream extends React.Component {
                   name="logo"
                   bsSize="sm"
                   className="pl-0"
-                  ref={this.logoFileInput}
+                  ref={this.file}
                   value={this.state.formValues.logo}
                   label={this.state.formValues.logo.split()}
                   onChange={e=>this.handleFieldChange(e,'logo')}
@@ -287,7 +336,10 @@ export default class BuildYourDream extends React.Component {
                   type="text"
                   name="companyName"
                   value={this.state.formValues.companyName}
-                  invalid={this.state.errors.companyName && this.state.errors.companyName.length>0}
+                  invalid={
+                    typeof this.state.errors.companyName !== 'undefined' &&
+                    this.state.errors.companyName.length>0
+                  }
                   onChange={e=>this.handleFieldChange(e,'companyName')}
                   placeholder="What is your Company Name?"
                   />
@@ -298,11 +350,14 @@ export default class BuildYourDream extends React.Component {
                 <Input
                   type="select"
                   name="industry"
-                  invalid={this.state.errors.industry && this.state.errors.industry.length>0}
+                  invalid={
+                    typeof this.state.errors.industry !== 'undefined' &&
+                    this.state.errors.industry.length>0
+                  }
                   value={this.state.formValues.industry}
                   onChange={e=>this.handleFieldChange(e,'industry')}
                   >
-                  <option value="" disabled selected>Select your Industry</option>
+                  <option value="" disabled>Select your Industry</option>
                   <option>Food & Beverage</option>
                   <option>Government</option>
                   <option>HR/Payroll Services</option>
@@ -324,7 +379,10 @@ export default class BuildYourDream extends React.Component {
                       className="my-2"
                       name="otherIndustry"
                       value={this.state.formValues.otherIndustry}
-                      invalid={this.state.errors.otherIndustry && this.state.errors.otherIndustry.length>0}
+                      invalid={
+                        typeof this.state.errors.otherIndustry !== 'undefined' &&
+                        this.state.errors.otherIndustry.length>0
+                      }
                       onChange={e=>this.handleFieldChange(e,'otherIndustry')}
                       placeholder="Please tell us your Industry."
                       />
@@ -419,7 +477,21 @@ validate = ()=>{
     isError=true
     errors.phone='Not a valid phone number.'
   }
-  console.log('is error? ',isError)
+
+
+  // websiteURLFormat Validation
+  let urlReg = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/
+  let url = this.state.formValues.websiteURL
+  let urlValidate = urlReg.test(String(url))
+
+  if(
+    this.state.formValues.hasWebsite==='yes' &&
+    urlValidate === false
+  ){
+    isError=true
+    errors.websiteURLFormat='Website format is invalid. Must be of type www.yoursite.com'
+  }
+
   if(isError){
     this.setState({
       ...this.state,
@@ -439,6 +511,7 @@ validate = ()=>{
           <p>Didn’t find what you need in our above plans? No problem! We can prepare a custom estimate based on your specific needs. Just fill out the fields below so that we can get a better picture of what kind of site you will need and we’ll do the rest. As soon as we have had a chance to review your information, you’ll get a follow-up call from one of our team members to discuss your project further and iron out all of the details.</p>
 
           <Form
+          name="dreamForm"
           method="post"
           data-netlify="true"
           data-netlify-honeypot="honeypot"
@@ -458,7 +531,7 @@ validate = ()=>{
               activeStep={ this.state.formStep }
               />
 
-            <div ref={this.formArea} className="my-3">{this.renderForm(this.state.formStep)}</div>
+            <div className="my-3">{this.renderForm(this.state.formStep)}</div>
 
             <FormGroup className="text-center">
               <Button
