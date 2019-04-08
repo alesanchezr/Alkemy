@@ -102,14 +102,18 @@ export default class BuildYourDream extends React.Component {
               .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
               .join("&");
         }
+        let stateData = encode({
+          "form-name": "dreamForm",
+          ...this.state.formValues })
+
+        let data = new FormData()
+        data.append(stateData)
+        data.append('file',this.file)
         fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': "application/x-www-form-urlencoded" },
-          body: encode({
-            "form-name": "dreamForm",
-            ...this.state.formValues })
-          },this.file)
-          .then(() => {
+          body: data
+          }).then(() => {
             this.setState({
               ...this.state,
               formStep: 0,
@@ -135,7 +139,7 @@ export default class BuildYourDream extends React.Component {
                 phone: '',
                 websiteURLFormat: ''
               }
-            });
+            })
             console.log('successful form submit')
           })
           .catch(error => alert(error))
