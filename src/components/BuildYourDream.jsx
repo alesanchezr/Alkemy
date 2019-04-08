@@ -111,7 +111,10 @@ export default class BuildYourDream extends React.Component {
 
         fetch('/', {
           method: 'POST',
-          headers: { 'Content-Type': "multipart/form-data" },
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': "multipart/form-data"
+          },
           body: formData
           }).then((res) => {
             console.log('success',res)
