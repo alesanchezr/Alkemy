@@ -107,12 +107,10 @@ export default class BuildYourDream extends React.Component {
   handleSubmit = e=>{
 
     // handle form submit here
-    let stateData = JSON.stringify({
-      ...this.state.formValues })
     let fileField = document.querySelector('#fileField')
     let formData = new FormData()
     formData.append('form-name', 'dreamForm')
-    formData.append('data',stateData)
+    formData.append('data',this.state.formValues)
 
     if(fileField!==null){
       formData.append('file',fileField.files[0])
