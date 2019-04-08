@@ -96,7 +96,7 @@ export default class BuildYourDream extends React.Component {
     }
 
     // handle form submit here
-    if(this.state.formStep===this.state.stepperSteps.length-1){
+    if(this.state.formStep===this.state.stepperSteps.length){
 
         let stateData = JSON.stringify({
           ...this.state.formValues })
