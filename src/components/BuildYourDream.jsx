@@ -105,8 +105,7 @@ export default class BuildYourDream extends React.Component {
   }
 
   handleSubmit = (e)=>{
-    e.preventDefault
-
+    console.log(e)
     // handle form submit here
     let stateData = JSON.stringify({
       ...this.state.formValues })
@@ -118,13 +117,10 @@ export default class BuildYourDream extends React.Component {
     if(fileField!==null){
       formData.append('file',fileField.files[0])
     }
-    if()
     fetch('/', {
       method: 'POST',
       mode: 'no-cors',
-      headers: {
-        'Content-Type': "multipart/form-data"
-      },
+      headers: {'Content-Type': "multipart/form-data"},
       body: formData
       }).then((res) => {
         console.log('success',res)
@@ -499,6 +495,7 @@ validate = ()=>{
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={e=>{
+            e.preventDefault()
             this.handleSubmit(e)
           }}
           ref={this.dreamForm}
