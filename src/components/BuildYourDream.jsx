@@ -96,38 +96,40 @@ export default class BuildYourDream extends React.Component {
       }
     }
 
-    // handle form submit here
-    if(this.state.formStep===this.state.stepperSteps.length-1){
-        let stateData = JSON.stringify({
-          ...this.state.formValues })
-        let fileField = document.querySelector('#fileField')
-        let formData = new FormData()
-        formData.append('form-name', 'dreamForm')
-        formData.append('data',stateData)
-
-        if(fileField!==null){
-          formData.append('file',fileField.files[0])
-        }
-
-        fetch('/', {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': "multipart/form-data"
-          },
-          body: formData
-          }).then((res) => {
-            console.log('success',res)
-          })
-          .catch(error => alert(error))
-      }
-
     // handle regular form back click
     if(action==='back' &&
       this.state.formStep>0)
       this.setState({
         formstep: this.state.formStep--
       })
+  }
+
+  handleSubmit = (e)=>{
+    e.preventDefault
+
+    // handle form submit here
+    let stateData = JSON.stringify({
+      ...this.state.formValues })
+    let fileField = document.querySelector('#fileField')
+    let formData = new FormData()
+    formData.append('form-name', 'dreamForm')
+    formData.append('data',stateData)
+
+    if(fileField!==null){
+      formData.append('file',fileField.files[0])
+    }
+    if()
+    fetch('/', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': "multipart/form-data"
+      },
+      body: formData
+      }).then((res) => {
+        console.log('success',res)
+      })
+      .catch(error => alert(error))
   }
 
   // handles the cases for rendering each step of the form
@@ -497,8 +499,7 @@ validate = ()=>{
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={e=>{
-            e.preventDefault()
-            this.handleButtonClick(e)
+            this.handleSubmit(e)
           }}
           ref={this.dreamForm}
           className="py-3 mb-0"
@@ -529,7 +530,11 @@ validate = ()=>{
               <Button
                 color="primary"
                 disabled={!this.isEnabled()}
-                type='submit'
+                type={
+                  this.state.formStep<this.state.stepperSteps.length-1
+                  ? 'button'
+                  : 'submit'
+                }
                 onClick={e=>this.handleButtonClick(e,'next')}>
                 {
                   this.state.formStep < this.state.stepperSteps.length-1
