@@ -112,7 +112,7 @@ export default class BuildYourDream extends React.Component {
         fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': "multipart/form-data" },
-          body: data
+          body: stateData
           })
           .then(() => {
             this.setState({
@@ -524,7 +524,7 @@ validate = ()=>{
           name="dreamForm"
           method="post"
           data-netlify="true"
-          data-netlify-honeypot="honeypot"
+          data-netlify-honeypot="bot-field"
           onSubmit={e=>{
             e.preventDefault()
             this.handleButtonClick(e)
@@ -567,10 +567,7 @@ validate = ()=>{
                 }
                 </Button>
             </FormGroup>
-            <Input
-              autoComplete="off"
-              type="hidden"
-              name="honeypot"/>
+            <input type="hidden" name="form-name" value="contact" />
           </Form>
         </div>
       </section>
