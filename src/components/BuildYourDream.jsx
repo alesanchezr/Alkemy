@@ -104,8 +104,8 @@ export default class BuildYourDream extends React.Component {
       })
   }
 
-  handleSubmit = (e)=>{
-    console.log(e)
+  handleSubmit = e=>{
+
     // handle form submit here
     let stateData = JSON.stringify({
       ...this.state.formValues })
@@ -126,6 +126,7 @@ export default class BuildYourDream extends React.Component {
         console.log('success',res)
       })
       .catch(error => alert(error))
+    e.preventDefault()
   }
 
   // handles the cases for rendering each step of the form
@@ -491,13 +492,9 @@ validate = ()=>{
 
           <Form
           name="dreamForm"
-          method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-          onSubmit={e=>{
-            e.preventDefault()
-            this.handleSubmit(e)
-          }}
+          onSubmit={e=>this.handleSubmit(e)}
           ref={this.dreamForm}
           className="py-3 mb-0"
           >
@@ -532,7 +529,12 @@ validate = ()=>{
                   ? 'button'
                   : 'submit'
                 }
-                onClick={e=>this.handleButtonClick(e,'next')}>
+                onClick={e=>{
+                  this.state.formStep<this.state.stepperSteps.length-1
+                  ? this.handleButtonClick(e,'next')
+                  : this.handleSubmit(e)
+                }
+                }>
                 {
                   this.state.formStep < this.state.stepperSteps.length-1
                   ? 'Next Step'
