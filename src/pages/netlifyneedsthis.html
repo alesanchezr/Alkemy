@@ -1,0 +1,116 @@
+<Form
+name="dreamForm"
+data-netlify="true"
+data-netlify-honeypot="bot-field"
+>
+
+      <input
+        type="text"
+        name="fullName"
+        />
+
+
+      <input
+        type="text"
+        name="email"
+        />
+
+      <input
+        type='tel'
+        name="phone"
+        />
+
+      <p className="text-center">Do you presently have a website?</p>
+
+        <input
+          type="radio"
+          name="hasWebsite"
+          value="no"
+        />
+
+        <input
+          type="radio"
+          name="hasWebsite"
+          value="yes"
+          />
+
+
+            <input
+              type="url"
+              name="websiteAddress"
+              />
+
+
+      <select
+        type="select"
+        name="budget"
+        >
+        <option value="">Select Budget</option>
+        <option>$5k-$6999k</option>
+        <option>$7k-$9999k</option>
+        <option>$10k-$14999k</option>
+        <option>$15k-$25k</option>
+        <option>Greater than $25k</option>
+      </select>
+
+      <select
+        type="select"
+        name="timeframe"
+        >
+        <option value="">Select Time Constraints</option>
+        <option>No, there are no time constraints.</option>
+        <option>1 month or less.</option>
+        <option>1-2 months</option>
+        <option>3-5 months</option>
+        <option>Greater than 5 months.</option>
+      </select>
+
+      <input
+        type="textarea"
+        name="designExamples"
+        />
+
+      <input
+        id="fileField"
+        type="file"
+        accept="image/*"
+        name="logo"
+        className="pl-0"
+        />
+
+
+      <input
+        type="text"
+        name="companyName"
+        />
+
+      <select
+        type="select"
+        name="industry"
+        >
+        <option value="" disabled>Select your Industry</option>
+        <option>Food & Beverage</option>
+        <option>Government</option>
+        <option>HR/Payroll Services</option>
+        <option>Insurance/Healthcare</option>
+        <option>Internet/Software/Development</option>
+        <option>Legal Services</option>
+        <option>Non-Profit</option>
+        <option>Other/Not Listed</option>
+        <option>Real Estate</option>
+        <option>Restaurant/Hospitality</option>
+        <option>Retail</option>
+        <option>Sales/Marketing/Digital Marketing</option>
+      </select>
+
+            <input
+            type="text"
+            className="my-2"
+            name="otherIndustry"
+            />
+
+
+
+  <input type="hidden" name="form-name" value="dreamForm" />
+  <input type="text" name="bot-field" className="hp"/>
+</Form>
