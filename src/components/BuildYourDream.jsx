@@ -106,32 +106,37 @@ export default class BuildYourDream extends React.Component {
 
   handleSubmit = e=>{
 
+    const encode = (data) => {
+      return Object.keys(data)
+          .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+          .join("&");
+    }
+
     // handle form submit here
     let fileField = document.querySelector('#fileField')
-    let formData = new FormData()
-    formData.append('form-name', 'dreamForm')
-    formData.append('fullName', this.state.formValues.fullName)
-    formData.append('email', this.state.formValues.email)
-    formData.append('phone', this.state.formValues.phone)
-    formData.append('hasWebsite', this.state.formValues.hasWebsite)
-    formData.append('websiteURL', this.state.formValues.websiteURL)
-    formData.append('companyName', this.state.formValues.companyName)
-    formData.append('budget', this.state.formValues.budget)
-    formData.append('timeframe', this.state.formValues.timeframe)
-    formData.append('designExamples', this.state.formValues.designExamples)
-    formData.append('industry', this.state.formValues.industry)
-    formData.append('otherIndustry', this.state.formValues.otherIndustry)
-
     if(fileField!==null){
-      formData.append('logo',fileField.files[0])
+      let state = this.state
+      state.formValues.logo = fileField.files[0]
+      this.setState({
+        state
+      })
     }
+
+    let urlFormEncoded = encode({
+      "form-name": "dreamForm",
+      ...this.state
+    })
+
     fetch('/', {
       method: 'POST',
-      body: formData
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: urlFormEncoded
       }).then((res) => {
-        console.log('success',res)
+        console.log('Success!',res)
       })
-      .catch(error => alert(error))
+      .catch(error => console.log(error))
     e.preventDefault()
   }
 
@@ -308,7 +313,6 @@ export default class BuildYourDream extends React.Component {
                   accept="image/*"
                   name="logo"
                   className="pl-0"
-                  label={this.state.formValues.logo.split()}
                   onChange={e=>this.handleFieldChange(e,'logo')}
                   />
                 <FormText color="muted">
