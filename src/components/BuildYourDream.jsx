@@ -114,7 +114,7 @@ export default class BuildYourDream extends React.Component {
           .join("&");
     }
 
-
+    
     fetch('/', {
       method: 'POST',
       headers: {
@@ -122,7 +122,7 @@ export default class BuildYourDream extends React.Component {
       },
       body: encode({
         "form-name": "dreamForm",
-        ...this.state
+        ...this.state.formValues
       })
       }).then((res) => {
         console.log('Success!',res)
