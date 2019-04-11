@@ -112,7 +112,7 @@ export default class BuildYourDream extends React.Component {
       const formData = new FormData()
       Object.keys(data)
           .map(
-            if (key === 'files') {
+            if (key === 'logo') {
               for (const file of data[key]) {
                 formData.append(key, file, file.name)
               }
