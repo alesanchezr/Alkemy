@@ -107,15 +107,15 @@ export default class BuildYourDream extends React.Component {
   handleSubmit = e=>{
 
     // handle form submit here
-
+    const fileInput = document.querySelector("#fileField")
+    const file = fileInput.files[0]
+    console.log('filename: ',file.name)
     const encode = (data) => {
       const formData = new FormData()
       Object.keys(data)
           .map(key=>{
             if (key === 'logo') {
-              for (const file of data[key]) {
-                formData.append(key, file, file.name)
-              }
+              formData.append(key, file, file.name)
             } else {
               formData.append(key, data[key])
             }
@@ -126,9 +126,6 @@ export default class BuildYourDream extends React.Component {
 
     fetch('/', {
       method: 'POST',
-      // headers: {
-      //   "Content-Type": "application/x-www-form-urlencoded"
-      // },
       body: encode({
         "form-name": "dreamForm",
         ...this.state.formValues
