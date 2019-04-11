@@ -111,7 +111,7 @@ export default class BuildYourDream extends React.Component {
     const encode = (data) => {
       const formData = new FormData()
       Object.keys(data)
-          .map(
+          .map(key=>{
             if (key === 'logo') {
               for (const file of data[key]) {
                 formData.append(key, file, file.name)
@@ -119,7 +119,7 @@ export default class BuildYourDream extends React.Component {
             } else {
               formData.append(key, data[key])
             }
-          )
+          })
     }
 
 
