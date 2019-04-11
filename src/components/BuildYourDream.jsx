@@ -120,6 +120,7 @@ export default class BuildYourDream extends React.Component {
               formData.append(key, data[key])
             }
           })
+      return formData
     }
 
 
