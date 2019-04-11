@@ -109,17 +109,25 @@ export default class BuildYourDream extends React.Component {
     // handle form submit here
 
     const encode = (data) => {
-      return Object.keys(data)
-          .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-          .join("&");
+      const formData = new FormData()
+      Object.keys(data)
+          .map(
+            if (key === 'files') {
+              for (const file of data[key]) {
+                formData.append(key, file, file.name)
+              }
+            } else {
+              formData.append(key, data[key])
+            }
+          )
     }
 
-    
+
     fetch('/', {
       method: 'POST',
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
+      // headers: {
+      //   "Content-Type": "application/x-www-form-urlencoded"
+      // },
       body: encode({
         "form-name": "dreamForm",
         ...this.state.formValues
