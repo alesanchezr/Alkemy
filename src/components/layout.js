@@ -25,6 +25,7 @@ import {
   faSpinner,
   faMobileAlt,
   faCheck,
+  faCheckCircle,
   faChartPie,
   faChartLine,
   faRocket
@@ -39,6 +40,7 @@ library.add(
   faSpinner,
   faMobileAlt,
   faCheck,
+  faCheckCircle,
   faChartPie,
   faChartLine,
   faRocket

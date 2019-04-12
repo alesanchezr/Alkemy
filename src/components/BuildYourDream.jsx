@@ -4,6 +4,7 @@ import { Button, Col, Row, Form, CustomInput,
 import Stepper from 'react-stepper-horizontal'
 import IntlTelInput from 'react-intl-tel-input'
 import 'react-intl-tel-input/dist/main.css'
+import ThankYou from './thankYou.jsx'
 
 export default class BuildYourDream extends React.Component {
   constructor(){
@@ -109,7 +110,7 @@ export default class BuildYourDream extends React.Component {
     // handle form submit here
     const fileInput = document.querySelector("#fileField")
     const file = fileInput.files[0]
-    console.log('filename: ',file.name)
+
     const encode = (data) => {
       const formData = new FormData()
       Object.keys(data)
