@@ -11,6 +11,7 @@ export default class BuildYourDream extends React.Component {
     super();
 
     this.state={
+      success: false,
       formStep: 0,
       formValues: {
         fullName: '',
@@ -132,7 +133,9 @@ export default class BuildYourDream extends React.Component {
         ...this.state.formValues
       })
       }).then((res) => {
-        console.log('Success!',res)
+        this.setState({
+          success: true
+        })
       })
       .catch(error => console.log(error))
     e.preventDefault()
@@ -492,7 +495,9 @@ validate = ()=>{
 }
 
   render(){
-    return(
+    this.state.success
+    ? (<ThankYou />)
+    : (
       <section className="dreamForm py-5 px-3">
         <h1 className="text-center">Let Us Build Your Dream</h1>
         <div className="container">
