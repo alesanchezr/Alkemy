@@ -903,7 +903,8 @@ section.recentBlogPosts{
 
 section{
   &.contactForm,
-  &.dreamForm{
+  &.dreamForm,
+  &.thankYou{
     background: $alkemy_light_blue;
     form{
       textarea,
@@ -920,7 +921,7 @@ section{
         padding: 1.4rem;
       }
       select{
-        
+
       }
 
       input[type=file]{
