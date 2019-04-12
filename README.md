@@ -1,8 +1,11 @@
 <img src="https://www.alkemyinc.com/assets/alkemy_logo_vertical.png" width="250" alt="Alkemy, Inc. Logo" title="Alkemy, Inc. Logo">
-<h3>Alkemy, Inc.</h3>
-https://www.alkemyinc.com<br>
-Coral Springs, FL 33067
 
+<h3>Alkemy, Inc.</h3>
+https://www.alkemyinc.com
+Coral Springs, FL 33067<br><br>
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/85cc0fc2-4ee3-4404-bc9a-498a8e1fecf8/deploy-status)](https://app.netlify.com/sites/alkemy/deploys)
+<br>
 # Main Website Codebase
 
 This readme breaks down the project specs in detail.
