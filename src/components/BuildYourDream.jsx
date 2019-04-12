@@ -107,6 +107,7 @@ export default class BuildYourDream extends React.Component {
   }
 
   handleSubmit = e=>{
+    e.preventDefault()
 
     // handle form submit here
     const fileInput = document.querySelector("#fileField")
@@ -116,7 +117,10 @@ export default class BuildYourDream extends React.Component {
       const formData = new FormData()
       Object.keys(data)
           .map(key=>{
-            if (key === 'logo') {
+            if (
+              key === 'logo' &&
+              typeof file !== 'undefined'
+            ) {
               formData.append(key, file, file.name)
             } else {
               formData.append(key, data[key])
@@ -138,7 +142,6 @@ export default class BuildYourDream extends React.Component {
         })
       })
       .catch(error => console.log(error))
-    e.preventDefault()
   }
 
   // handles the cases for rendering each step of the form
