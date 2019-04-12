@@ -495,71 +495,77 @@ validate = ()=>{
 }
 
   render(){
-    this.state.success
-    ? (<ThankYou />)
-    : (
-      <section className="dreamForm py-5 px-3">
-        <h1 className="text-center">Let Us Build Your Dream</h1>
-        <div className="container">
-          <p>Didn’t find what you need in our above plans? No problem! We can prepare a custom estimate based on your specific needs. Just fill out the fields below so that we can get a better picture of what kind of site you will need and we’ll do the rest. As soon as we have had a chance to review your information, you’ll get a follow-up call from one of our team members to discuss your project further and iron out all of the details.</p>
+    return(
+      <>
+      {
+        this.state.success
+        ? (<ThankYou />)
+        : (
+          <section className="dreamForm py-5 px-3">
+            <h1 className="text-center">Let Us Build Your Dream</h1>
+            <div className="container">
+              <p>Didn’t find what you need in our above plans? No problem! We can prepare a custom estimate based on your specific needs. Just fill out the fields below so that we can get a better picture of what kind of site you will need and we’ll do the rest. As soon as we have had a chance to review your information, you’ll get a follow-up call from one of our team members to discuss your project further and iron out all of the details.</p>
 
-          <Form
-          name="dreamForm"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          onSubmit={e=>this.handleSubmit(e)}
-          ref={this.dreamForm}
-          className="py-3 mb-0"
-          >
-            <Stepper
-              activeColor='#2bb3e5'
-              activeTitleColor='#2bb3e5'
-              completeColor='#206a98'
-              completeTitleColor='#206a98'
-              steps={this.state.stepperSteps}
-              activeStep={ this.state.formStep }
-              />
+              <Form
+              name="dreamForm"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              onSubmit={e=>this.handleSubmit(e)}
+              ref={this.dreamForm}
+              className="py-3 mb-0"
+              >
+                <Stepper
+                  activeColor='#2bb3e5'
+                  activeTitleColor='#2bb3e5'
+                  completeColor='#206a98'
+                  completeTitleColor='#206a98'
+                  steps={this.state.stepperSteps}
+                  activeStep={ this.state.formStep }
+                  />
 
-            <div className="my-3">{this.renderForm(this.state.formStep)}</div>
+                <div className="my-3">{this.renderForm(this.state.formStep)}</div>
 
-            <FormGroup className="text-center">
-              <Button
-                color="secondary"
-                className={
-                  this.state.formStep===0
-                    ? "d-none"
-                    : "mr-5"
-                }
-                onClick={e=>this.handleButtonClick(e,'back')}
-                >
-                Back
-                </Button>
-              <Button
-                color="primary"
-                disabled={!this.isEnabled()}
-                type={
-                  this.state.formStep<this.state.stepperSteps.length-1
-                  ? 'button'
-                  : 'submit'
-                }
-                onClick={e=>{
-                  this.state.formStep<this.state.stepperSteps.length-1
-                  ? this.handleButtonClick(e,'next')
-                  : this.handleSubmit(e)
-                }
-                }>
-                {
-                  this.state.formStep < this.state.stepperSteps.length-1
-                  ? 'Next Step'
-                  : 'Submit My Request'
-                }
-                </Button>
-            </FormGroup>
-            <input type="hidden" name="form-name" value="dreamForm" />
-            <input type="text" name="bot-field" className="hp"/>
-          </Form>
-        </div>
-      </section>
+                <FormGroup className="text-center">
+                  <Button
+                    color="secondary"
+                    className={
+                      this.state.formStep===0
+                        ? "d-none"
+                        : "mr-5"
+                    }
+                    onClick={e=>this.handleButtonClick(e,'back')}
+                    >
+                    Back
+                    </Button>
+                  <Button
+                    color="primary"
+                    disabled={!this.isEnabled()}
+                    type={
+                      this.state.formStep<this.state.stepperSteps.length-1
+                      ? 'button'
+                      : 'submit'
+                    }
+                    onClick={e=>{
+                      this.state.formStep<this.state.stepperSteps.length-1
+                      ? this.handleButtonClick(e,'next')
+                      : this.handleSubmit(e)
+                    }
+                    }>
+                    {
+                      this.state.formStep < this.state.stepperSteps.length-1
+                      ? 'Next Step'
+                      : 'Submit My Request'
+                    }
+                    </Button>
+                </FormGroup>
+                <input type="hidden" name="form-name" value="dreamForm" />
+                <input type="text" name="bot-field" className="hp"/>
+              </Form>
+            </div>
+          </section>
+        )
+      }
+      </>
     )
   }
 }
