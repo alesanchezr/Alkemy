@@ -868,7 +868,7 @@ section.recentBlogPosts .container .card-deck .card {
   max-width: 33%;
 }
 
-section.contactForm, section.dreamForm {
+section.contactForm, section.dreamForm, section.thankYou {
   background: #EAF3F8;
 }
 section.contactForm form textarea,
@@ -877,24 +877,28 @@ section.contactForm form input,
 section.contactForm form button, section.dreamForm form textarea,
 section.dreamForm form select,
 section.dreamForm form input,
-section.dreamForm form button {
+section.dreamForm form button, section.thankYou form textarea,
+section.thankYou form select,
+section.thankYou form input,
+section.thankYou form button {
   box-shadow: 2px 4px 6px;
   border-radius: 2px;
 }
 section.contactForm form textarea,
 section.contactForm form input, section.dreamForm form textarea,
-section.dreamForm form input {
+section.dreamForm form input, section.thankYou form textarea,
+section.thankYou form input {
   padding: 1.4rem;
 }
-section.contactForm form input[type=file], section.dreamForm form input[type=file] {
+section.contactForm form input[type=file], section.dreamForm form input[type=file], section.thankYou form input[type=file] {
   padding: unset;
   box-shadow: unset;
   border-radius: unset;
 }
-section.contactForm form button, section.dreamForm form button {
+section.contactForm form button, section.dreamForm form button, section.thankYou form button {
   padding: 0.25rem 2.5rem;
 }
-section.contactForm form button:hover, section.dreamForm form button:hover {
+section.contactForm form button:hover, section.dreamForm form button:hover, section.thankYou form button:hover {
   max-width: 50%;
 }
 

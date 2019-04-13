@@ -25,12 +25,11 @@ import {
   faSpinner,
   faMobileAlt,
   faCheck,
-  faCheckCircle,
   faChartPie,
   faChartLine,
   faRocket
 } from '@fortawesome/free-solid-svg-icons'
-import { faCalendarAlt,faCalendarPlus } from '@fortawesome/free-regular-svg-icons'
+import { faCalendarAlt,faCalendarPlus,faCheckCircle } from '@fortawesome/free-regular-svg-icons'
 
 library.add(
   fab,

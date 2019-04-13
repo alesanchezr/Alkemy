@@ -9,7 +9,7 @@ import Layout from '../components/layout'
 import ScrollWrapper from '../components/scrollWrapper.jsx'
 import BlogWidget from '../components/BlogWidget.jsx'
 import ReactCounter from '../components/counter.jsx'
-import ContactForm from '../components/contactForm.jsx'
+import FreeWebsiteAnalysis from '../components/freeWebsiteAnalysis.jsx'
 
 // Images
 import webDesign from '../assets/images/responsive.png'
@@ -216,7 +216,7 @@ const HomePage = ({data}) => {
         <section className="recentBlogPosts mb-5">
           <BlogWidget posts={data.allMarkdownRemark.edges}/>
         </section>
-        <ContactForm / >
+        <FreeWebsiteAnalysis / >
       </Layout>
     </ScrollWrapper>
   )
