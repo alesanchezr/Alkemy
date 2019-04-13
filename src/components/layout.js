@@ -166,9 +166,6 @@ const Layout = ({ children, pageTitle, renderHeaderSolid, headerTitle, headerTyp
           <a href="tel:8774255369" title="Call Now!"><FontAwesomeIcon icon="mobile-alt" size="3x" color="white" className="callNowButton"/></a>
         </div>
         <Footer />
-        <div class="scrollbar" id="style-1">
-            <div class="force-overflow"></div>
-        </div> 
       </div>
     )}
   />
