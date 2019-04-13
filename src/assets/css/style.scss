@@ -92,19 +92,27 @@ $alkemy_card_border: #84BAD9;
 
 
 /* Scrollbars */
-.scrollbar {
-    background-color: $alkemy_dark_blue;
-    float: left;
-    height: 300px;
-    margin-bottom: 25px;
-    margin-left: 22px;
-    margin-top: 40px;
-    width: 65px;
-    overflow-y: scroll;
+/* width */
+::-webkit-scrollbar{
+  width: 10px;
 }
 
-.force-overflow {
-    min-height: 450px;
+/* Track */
+::-webkit-scrollbar-track{
+  background: black !important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb{
+  background: $alkemy_blue;
+  border-radius:100rem;
+  box-shadow: inset 0 0 5px $alkemy_dark_blue;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover{
+  background: $alkemy_dark_blue;
+  box-shadow: inset 0 0 5px $alkemy_blue;
 }
 
 
@@ -118,8 +126,14 @@ html{
   height: 100%;
 }
 
+.no-overflow{
+  overflow: hidden;
+}
 
 body{
+  /* &.modal-open{
+    padding: 0 !important;
+  } */
   &.solid{
     header.header{
       background: $alkemy_darkest_blue;

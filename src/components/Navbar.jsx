@@ -72,7 +72,17 @@ export default class ReactNavbar extends React.Component {
   toggleAppointmentModal() {
     this.setState(prevState => ({
       modal: !prevState.modal
-    }));
+    }))
+
+    setTimeout(()=>{
+      if(this.state.modal){
+        document.documentElement.classList.add('no-overflow')
+        document.body.style.removeProperty('padding-right')
+      }else{
+        document.documentElement.classList.remove('no-overflow')
+      }
+    },300)
+
   }
 
   // Navbar Toggler Function
