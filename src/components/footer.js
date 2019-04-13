@@ -61,9 +61,9 @@ const Footer = (props) => (
           {renderLinkAreas(_menuArray)}
         </Row>
 
-        <Row className="my-5 my-lg-0">
+        <Row className="my-5 my-md-2">
           <div className="copyText text-center position-absolute my-5 my-lg-0 px-5">
-            Copyright &copy; 2018, Alkemy, Inc.&nbsp;&mdash;&nbsp;
+            Copyright &copy; 2018, Alkemy, Inc.<br/>
             {renderSubLinks(_subLinks)}
           </div>
           <SocialLinks className="position-absolute mb-3"/>
