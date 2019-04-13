@@ -18,7 +18,8 @@ class ScrollWrapper extends React.Component {
   }
 
   handleScroll = (event)=> {
-    if (this.props.onWindowScroll) this.props.onWindowScroll(event);
+    if (this.props.onWindowScroll)
+      this.props.onWindowScroll(event);
   }
 
 	render() {

@@ -90,6 +90,24 @@ $facebook: #4267b2;
 $twitter: #1da1f2;
 $alkemy_card_border: #84BAD9;
 
+
+/* Scrollbars */
+.scrollbar {
+    background-color: $alkemy_dark_blue;
+    float: left;
+    height: 300px;
+    margin-bottom: 25px;
+    margin-left: 22px;
+    margin-top: 40px;
+    width: 65px;
+    overflow-y: scroll;
+}
+
+.force-overflow {
+    min-height: 450px;
+}
+
+
 .wow{
   visibility: hidden;
 }
@@ -982,4 +1000,22 @@ ul{
     color: $alkemy_blue;
     margin-right: 2em;
   }
+}
+
+.bookingModal{
+  .modal-header{
+    background: $alkemy_dark_blue;
+    .modal-title{
+      color: $alkemy_blue;
+    }
+  }
+  .close{
+    color: $alkemy_blue;
+    text-shadow: none;
+  }
+}
+iframe.bookingFrame{
+  height: 80vh;
+  width: 99.8%;
+  border: none;
 }

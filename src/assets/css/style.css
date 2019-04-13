@@ -79,6 +79,22 @@ h3 {
 }
 
 /* Colors */
+/* Scrollbars */
+.scrollbar {
+  background-color: #0B3C5D;
+  float: left;
+  height: 300px;
+  margin-bottom: 25px;
+  margin-left: 22px;
+  margin-top: 40px;
+  width: 65px;
+  overflow-y: scroll;
+}
+
+.force-overflow {
+  min-height: 450px;
+}
+
 .wow {
   visibility: hidden;
 }
@@ -938,6 +954,23 @@ section.deliverYourMessage {
 ul .planFeatureIcon {
   color: #2bb3e5;
   margin-right: 2em;
+}
+
+.bookingModal .modal-header {
+  background: #0B3C5D;
+}
+.bookingModal .modal-header .modal-title {
+  color: #2bb3e5;
+}
+.bookingModal .close {
+  color: #2bb3e5;
+  text-shadow: none;
+}
+
+iframe.bookingFrame {
+  height: 80vh;
+  width: 99.8%;
+  border: none;
 }
 
 /*# sourceMappingURL=style.css.map */
