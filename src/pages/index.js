@@ -102,14 +102,15 @@ const HomePage = ({data}) => {
         </section>
         <section className="servicesHome mt-auto mb-5">
           <Row>
-            <Col className="col-lg-3 col-sm-6 col-12 h-100">
+            <Col className="col-lg-3 col-sm-6 col-12">
               <Card className="border-0 p-3 wow bounceInUp cardOne h-100">
-              {data.webDesign
+              {data.webDesign.childImageSharp
                 && (
                 <Img
+                  imgStyle={{maxHeight:'150px',maxWidth:'auto',objectFit:'contain'}}
                   fluid={data.webDesign.childImageSharp.fluid}
-                  className="image-services mx-auto"
-                  alt="Responsive Web Design Service"
+                  className="card-img-top image-services mx-auto my-auto"
+                  alt="Responsive Web Design Services"
                   />
                 )
               }
@@ -117,7 +118,7 @@ const HomePage = ({data}) => {
                   <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[0].heading}</CardTitle>
                 </CardBody>
                 <CardImgOverlay className="h-100">
-                  <CardBody>
+                  <CardBody className="d-flex align-items-end justify-content-center">
                     <CardText>{data.homepageJson.sections[1].blocks[0].content}</CardText>
                   </CardBody>
                   <CardFooter>
@@ -126,17 +127,18 @@ const HomePage = ({data}) => {
                 </CardImgOverlay>
               </Card>
             </Col>
-            <Col className="col-lg-3 col-sm-6 col-12 h-100">
+            <Col className="col-lg-3 col-sm-6 col-12">
               <Card className="border-0 p-3 wow bounceInUp cardTwo h-100">
-              {data.webDevelopment
+              {data.webDevelopment.childImageSharp
                 && (
                 <Img
-                  className="image-services mx-auto"
+                  imgStyle={{maxHeight:'150px',maxWidth:'auto',objectFit:'contain'}}
+                  className="card-img-top image-services mx-auto my-auto"
                   fluid={data.webDevelopment.childImageSharp.fluid}
-                  alt="Quality Web Development Service" />
+                  alt="Quality Web Development Services" />
                 )
               }
-                <CardBody>
+                <CardBody className="d-flex align-items-end justify-content-center">
                   <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[1].heading}</CardTitle>
                 </CardBody>
                 <CardImgOverlay className="h-100">
@@ -149,10 +151,18 @@ const HomePage = ({data}) => {
                 </CardImgOverlay>
               </Card>
             </Col>
-            <Col className="col-lg-3 col-sm-6 col-12 h-100">
+            <Col className="col-lg-3 col-sm-6 col-12">
               <Card className="border-0 p-3 wow bounceInUp cardThree h-100">
-                <CardImg top className="image-services mx-auto" src={data.eCommerce} alt="Ecommerce Design Services" />
-                <CardBody>
+                {data.eCommerce.childImageSharp
+                  && (
+                  <Img
+                    imgStyle={{maxHeight:'150px',maxWidth:'auto',objectFit:'contain'}}
+                    className="card-img-top image-services mx-auto my-auto"
+                    fluid={data.eCommerce.childImageSharp.fluid}
+                    alt="Ecommerce Design Services" />
+                  )
+                }
+                <CardBody className="d-flex align-items-end justify-content-center">
                   <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[2].heading}</CardTitle>
                 </CardBody>
                 <CardImgOverlay className="h-100">
@@ -167,8 +177,16 @@ const HomePage = ({data}) => {
             </Col>
             <Col className="col-lg-3 col-sm-6 col-12">
               <Card className="border-0 p-3 wow bounceInUp cardFour">
-                <CardImg top className="image-services mx-auto" src={data.digitalMarketing} alt="Digital Marketing Services" />
-                <CardBody>
+                {data.digitalMarketing.childImageSharp
+                  && (
+                  <Img
+                    imgStyle={{maxHeight:'150px',maxWidth:'auto',objectFit:'contain'}}
+                    className="card-img-top image-services mx-auto my-auto"
+                    fluid={data.digitalMarketing.childImageSharp.fluid}
+                    alt="Digital Marketing Services" />
+                  )
+                }
+                <CardBody className="d-flex align-items-end justify-content-center">
                   <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[3].heading}</CardTitle>
                 </CardBody>
                 <CardImgOverlay className="h-100">
@@ -283,10 +301,10 @@ export const query = graphql`
       }
     }
   }
-  webDesign: file(relativePath: {regex: "/responsive/"}) {
+  webDesign: file(relativePath: {regex: "/responsive.png/"}) {
     ...fluidImage
   }
-  webDevelopment: file(relativePath: {regex: "/development/"}) {
+  webDevelopment: file(relativePath: {regex: "/development.png/"}) {
     ...fluidImage
   }
   eCommerce: file(relativePath: {regex: "/ecommerce.png/"}) {
@@ -295,7 +313,7 @@ export const query = graphql`
   digitalMarketing: file(relativePath: {regex: "/marketing.png/"}) {
     ...fluidImage
   }
-  ourPassion: file(relativePath: {regex: "/our-passion/"}) {
+  ourPassion: file(relativePath: {regex: "/our-passion.jpeg/"}) {
     ...fluidImage
   }
 }
@@ -304,8 +322,8 @@ export const query = graphql`
 export const fluidImage = graphql`
 fragment fluidImage on File {
   childImageSharp {
-    fluid(maxWidth: 800) {
-      ...GatsbyImageSharpFluid
+    fluid(maxWidth: 500) {
+      ...GatsbyImageSharpFluid_tracedSVG
     }
   }
 }

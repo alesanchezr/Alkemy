@@ -865,13 +865,24 @@ button:focus {
   }
 }
 
-.card{
+.servicesHome .card{
   height: 100%;
+  min-height:35vh;
+
+
   .image-services.card-img-top{
-    max-height: 100px;
-    max-width: 25vw;
+    max-width: auto !important;
+    max-height: 25vh;
     object-fit: contain;
     margin-bottom: 2rem;
+  }
+
+  .image-services.card-body,
+  .image-services.card-footer{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
 

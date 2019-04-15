@@ -839,30 +839,38 @@ button:focus {
   animation-delay: 0.75s;
 }
 
-.card {
+.servicesHome .card {
   height: 100%;
+  min-height: 35vh;
 }
-.card .image-services.card-img-top {
-  max-height: 100px;
-  max-width: 25vw;
+.servicesHome .card .image-services.card-img-top {
+  max-width: auto !important;
+  max-height: 25vh;
   object-fit: contain;
   margin-bottom: 2rem;
 }
-.card .card-img-overlay {
+.servicesHome .card .image-services.card-body,
+.servicesHome .card .image-services.card-footer {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.servicesHome .card .card-img-overlay {
   position: relative;
   transition: 0.3s linear;
   /* height: 100%; */
   padding: 0;
 }
 @media only screen and (min-width: 1280px) {
-  .card .card-img-overlay {
+  .servicesHome .card .card-img-overlay {
     min-height: fit-content;
     position: absolute;
     opacity: 0;
   }
 }
 @media only screen and (min-width: 1280px) {
-  .card:hover .card-img-overlay {
+  .servicesHome .card:hover .card-img-overlay {
     opacity: 1;
     color: white;
     background: rgba(0, 0, 0, 0.9);
