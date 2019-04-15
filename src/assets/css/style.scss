@@ -13,7 +13,7 @@
 /**********************/
 
 /* Mobile Menu */
-$header-height: 80px; // Set height of header
+$header-height: 75px; // Set height of header
 $animation-time: 400ms; // Set the animation speed
 $animation-function: ease; // Set the animation type
 
@@ -52,9 +52,9 @@ $animation-function: ease; // Set the animation type
 }
 
 $min_width: 320px;
-$max_width: 1980px;
+$max_width: 2880px;
 $min_font: 16px;
-$max_font: 24px;
+$max_font: 20px;
 
 html {
   @include fluid-type($min_width, $max_width, $min_font, $max_font);
@@ -131,9 +131,6 @@ html{
 }
 
 body{
-  /* &.modal-open{
-    padding: 0 !important;
-  } */
   &.solid{
     header.header{
       background: $alkemy_darkest_blue;
@@ -220,9 +217,7 @@ input[type="checkbox"]:checked + label:before {
   animation-duration: 2s;
   transition: .5s linear;
 
-  .navbar{
-    font-size: 1.1rem;
-  }
+
   a{transition:800ms ease all;}
   a:hover,
   .dropdown-toggle:hover{
@@ -261,6 +256,14 @@ a {
   }
 }
 
+.navbar-nav{
+  font-size: 1.2em;
+  line-height: 1em;
+  .dropdown-menu{
+    font-size: inherit;
+    line-height: 1.4em;
+  }
+}
 .mobileMenu{
   background: $alkemy_darkest_blue;
   z-index: 1001;
@@ -1032,4 +1035,7 @@ iframe.bookingFrame{
   height: 80vh;
   width: 99.8%;
   border: none;
+}
+.booking{
+  height: 100%;
 }

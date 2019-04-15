@@ -45,17 +45,6 @@ export default class ReactNavbar extends React.Component {
 
   }
 
-
-  // script(){
-  //   const modalBody = document.querySelector('modalBody')
-  //   const script = document.createElement('script')
-  //   script.src = `https://square.site/appointments/buyer/widget/0dddc8a7-089f-45bc-870f-8a603a6dd412/GYDNKWG11FCR7.js`
-  //   script.type = `text/javascript`
-  //
-  //   modalBody.appendChild(script)
-  // }
-
-
   handleButtonHover = (e) => {
     if(e.type==="mouseover"){
       this.setState({
@@ -89,19 +78,19 @@ export default class ReactNavbar extends React.Component {
   toggleMobileMenu(prevState) {
     this.setState(prevState => ({
       isOpen: !prevState.isOpen,
-    }));
+    }))
 
     if(this.state.isOpen){
       this.setState({
         mobileMenuClasses: "d-block d-lg-none mobileMenu open",
         togglerClasses: "mr-2 d-lg-none hamburger hamburger--slider is-active"
-      });
-      document.body.classList.add('open');
+      })
+      document.body.classList.add('open')
     }else{
       this.setState({
         mobileMenuClasses: "d-block d-lg-none mobileMenu",
         togglerClasses: "mr-2 d-lg-none hamburger hamburger--slider"
-      });
+      })
     }
   }
 
@@ -113,11 +102,11 @@ export default class ReactNavbar extends React.Component {
   }
 
   onMouseEnter = () => {
-    this.setState({dropdownOpen: true});
+    this.setState({dropdownOpen: true})
   }
 
   onMouseLeave = () => {
-    this.setState({dropdownOpen: false});
+    this.setState({dropdownOpen: false})
   }
 
   renderMenuLinks = () => {
@@ -130,9 +119,14 @@ export default class ReactNavbar extends React.Component {
         );
       }else{
         return(
-          <Dropdown className="ml-4 my-auto" onMouseOver={this.onMouseEnter} onMouseLeave={this.onMouseLeave} isOpen={this.state.dropdownOpen} toggle={this.toggle} key={item.id}>
+          <Dropdown
+            className="ml-4 my-auto"
+            onMouseOver={this.onMouseEnter}
+            onMouseLeave={this.onMouseLeave}
+            isOpen={this.state.dropdownOpen}
+            toggle={this.toggle} key={item.id}>
             <DropdownToggle tag="p" className="text-white my-auto" caret>{item.name}</DropdownToggle>
-            <DropdownMenu tag="ul" style={{background: 'rgba(8,11,13,.70)'}}>
+            <DropdownMenu tag="ul" className='dropMenu' style={{background: 'rgba(8,11,13,.70)'}}>
             {
               item.submenu.map(subitem=>{
                 return(

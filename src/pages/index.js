@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import { Card, CardImg, CardText, CardImgOverlay,
-  CardTitle,CardBody, CardFooter, CardDeck, Button,
-  Col, Row, Form, FormGroup, Label, Input } from 'reactstrap'
+  CardTitle,CardBody, CardFooter, Button, Col, Row } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Layout from '../components/layout'
@@ -10,13 +10,6 @@ import ScrollWrapper from '../components/scrollWrapper.jsx'
 import BlogWidget from '../components/BlogWidget.jsx'
 import ReactCounter from '../components/counter.jsx'
 import FreeWebsiteAnalysis from '../components/freeWebsiteAnalysis.jsx'
-
-// Images
-import webDesign from '../assets/images/responsive.png'
-import webDevelopment from '../assets/images/development.png'
-import eCommerce from '../assets/images/ecommerce.png'
-import digitalMarketing from '../assets/images/marketing.png'
-import ourPassion from '../assets/images/pexels-photo-450271.jpeg'
 
 // Carousel
 import VideoCarousel from '../components/videoCarousel'
@@ -94,7 +87,7 @@ const HomePage = ({data}) => {
               </div>
 
               {/* Caret */}
-              <FontAwesomeIcon onClick={handleCaretClick} icon="chevron-down" size="3x" color="white" className="heroChevron"/>
+              <FontAwesomeIcon onClick={handleCaretClick} icon="chevron-down" size="2x" color="white" className="heroChevron"/>
             </VideoCarousel>
           </div>
         </section>
@@ -111,7 +104,15 @@ const HomePage = ({data}) => {
           <Row>
             <Col className="col-lg-3 col-sm-6 col-12 h-100">
               <Card className="border-0 p-3 wow bounceInUp cardOne h-100">
-                <CardImg top className="image-services mx-auto" src={webDesign} alt="Responsive Web Design Service" />
+              {data.webDesign
+                && (
+                <Img
+                  fluid={data.webDesign.childImageSharp.fluid}
+                  className="image-services mx-auto"
+                  alt="Responsive Web Design Service"
+                  />
+                )
+              }
                 <CardBody>
                   <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[0].heading}</CardTitle>
                 </CardBody>
@@ -127,7 +128,14 @@ const HomePage = ({data}) => {
             </Col>
             <Col className="col-lg-3 col-sm-6 col-12 h-100">
               <Card className="border-0 p-3 wow bounceInUp cardTwo h-100">
-                <CardImg top className="image-services mx-auto" src={webDevelopment} alt="Quality Web Development Service" />
+              {data.webDevelopment
+                && (
+                <Img
+                  className="image-services mx-auto"
+                  fluid={data.webDevelopment.childImageSharp.fluid}
+                  alt="Quality Web Development Service" />
+                )
+              }
                 <CardBody>
                   <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[1].heading}</CardTitle>
                 </CardBody>
@@ -143,7 +151,7 @@ const HomePage = ({data}) => {
             </Col>
             <Col className="col-lg-3 col-sm-6 col-12 h-100">
               <Card className="border-0 p-3 wow bounceInUp cardThree h-100">
-                <CardImg top className="image-services mx-auto" src={eCommerce} alt="Ecommerce Design Services" />
+                <CardImg top className="image-services mx-auto" src={data.eCommerce} alt="Ecommerce Design Services" />
                 <CardBody>
                   <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[2].heading}</CardTitle>
                 </CardBody>
@@ -159,7 +167,7 @@ const HomePage = ({data}) => {
             </Col>
             <Col className="col-lg-3 col-sm-6 col-12">
               <Card className="border-0 p-3 wow bounceInUp cardFour">
-                <CardImg top className="image-services mx-auto" src={digitalMarketing} alt="Digital Marketing Services" />
+                <CardImg top className="image-services mx-auto" src={data.digitalMarketing} alt="Digital Marketing Services" />
                 <CardBody>
                   <CardTitle tag="h4" className="text-center">{data.homepageJson.sections[1].blocks[3].heading}</CardTitle>
                 </CardBody>
@@ -203,7 +211,7 @@ const HomePage = ({data}) => {
           <div className="container-fluid px-0 px-lg-5">
             <Row className="align-items-center">
               <Col xs={12} md={5} className="align-items-center px-0 px-lg-5">
-                <img src={ourPassion} className="ourPassionImg wow slideInLeft" alt="About Alkemy, Inc."/>
+                <img src={data.ourPassion} className="ourPassionImg wow slideInLeft" alt="About Alkemy, Inc."/>
               </Col>
               <Col xs={12} md={7} className="align-items-center px-0 px-lg-5">
                 <h2>{data.homepageJson.sections[2].blocks[0].heading}</h2>
@@ -273,6 +281,31 @@ export const query = graphql`
           cover
         }
       }
+    }
+  }
+  webDesign: file(relativePath: {regex: "/responsive/"}) {
+    ...fluidImage
+  }
+  webDevelopment: file(relativePath: {regex: "/development/"}) {
+    ...fluidImage
+  }
+  eCommerce: file(relativePath: {regex: "/ecommerce.png/"}) {
+    ...fluidImage
+  }
+  digitalMarketing: file(relativePath: {regex: "/marketing.png/"}) {
+    ...fluidImage
+  }
+  ourPassion: file(relativePath: {regex: "/our-passion/"}) {
+    ...fluidImage
+  }
+}
+`;
+
+export const fluidImage = graphql`
+fragment fluidImage on File {
+  childImageSharp {
+    fluid(maxWidth: 800) {
+      ...GatsbyImageSharpFluid
     }
   }
 }

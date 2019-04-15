@@ -92,15 +92,15 @@ const WebDesign = ({data}) => {
               <p className="mb-4">{data.webDesignJson.sections[0].blocks[2].content}</p>
               <Row>
                 <Col xs={12} sm={6}>
-                  <Button href="/" className="btn btn-primary">View our Web Design Plans</Button>
+                  <Button onClick={handleViewPlansClick} className="btn btn-primary">View our Web Design Plans</Button>
                 </Col>
                 <Col xs={12} sm={6}>
-                  <Button href="/" className="btn btn-primary">Get a Custom Quote</Button>
+                  <Button onClick={handleQuoteClick} className="btn btn-primary">Get a Custom Quote</Button>
                 </Col>
               </Row>
             </Col>
-            <Col xs={12} sm={6}>
-              <img src={screenDesign} className='my-5 md-my-auto img-fluid'/>
+            <Col xs={12} sm={6} className='text-center'>
+              <img src={screenDesign} className='my-5 md-my-auto'/>
             </Col>
           </Row>
         </section>
@@ -137,7 +137,10 @@ const WebDesign = ({data}) => {
         </section>
 
         {/* Section 4 */}
-        <section className="webDesignPlans mb-4 py-4">
+        <section
+          ref={plansSection}
+          className="webDesignPlans mb-4 py-4"
+          >
           <Row className="px-5">
             <Col>
               <h2 className="text-center mb-4">{data.webDesignJson.sections[3].blocks[0].heading}</h2>
@@ -152,12 +155,27 @@ const WebDesign = ({data}) => {
           </Row>
         </section>
 
-        <BuildYourDream / >
+        <section ref={dreamForm}><BuildYourDream /></section>
       </Layout>
     </ScrollWrapper>
   )
 }
 
+const dreamForm = React.createRef();
+const plansSection = React.createRef();
+
+const handleViewPlansClick = () => {
+  window.scrollTo({
+    top: plansSection.current.offsetTop-80,
+    behavior: "smooth"
+  })
+}
+const handleQuoteClick = () => {
+  window.scrollTo({
+    top: dreamForm.current.offsetTop-80,
+    behavior: "smooth"
+  })
+}
 
 const handleScroll = () => {
 

@@ -17,7 +17,7 @@ const _menuArray = [
     id: '1',
     links: [
       {name: 'Responsive Web Design', id: '1a', url: '/responsive-web-design'},
-      {name: 'Software Development', id: '1b', url: '/software-development'},
+      {name: 'Web Development', id: '1b', url: '/web-development'},
       {name: 'eCommerce Design', id: '1c', url: '/ecommerce-design'},
       {name: 'Digital Marketing', id: '1d', url: '/digital-marketing'},
     ]
@@ -62,7 +62,7 @@ const Footer = (props) => (
         </Row>
 
         <Row className="my-5 my-md-2">
-          <div className="copyText text-center position-absolute my-5 my-lg-0 px-5">
+          <div className="copyText text-center position-absolute my-5 my-md-2 px-5">
             Copyright &copy; 2018, Alkemy, Inc.<br/>
             {renderSubLinks(_subLinks)}
           </div>
