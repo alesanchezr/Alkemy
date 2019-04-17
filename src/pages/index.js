@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import fluidImage from '../utils/utils.js'
 import { Card, CardImg, CardText, CardImgOverlay,
   CardTitle,CardBody, CardFooter, Button, Col, Row } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -322,16 +323,6 @@ export const query = graphql`
   }
   ourPassion: file(relativePath: {regex: "/our-passion.jpeg/"}) {
     ...fluidImage
-  }
-}
-`;
-
-export const fluidImage = graphql`
-fragment fluidImage on File {
-  childImageSharp {
-    fluid(maxWidth: 500) {
-      ...GatsbyImageSharpFluid_tracedSVG
-    }
   }
 }
 `;

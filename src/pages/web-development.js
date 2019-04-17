@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import fluidImage from '../utils/utils.js'
 import { Card, CardImg, CardText, CardImgOverlay,
   CardTitle,CardBody, CardFooter, CardDeck, Button,
   Col, Row, Form, FormGroup, Label, Input } from 'reactstrap'
@@ -162,16 +163,6 @@ export const query = graphql`
   }
   codeScreen: file(relativePath: {regex: "/code-screen.png/"}) {
     ...fluidImage
-  }
-}
-`;
-
-export const fluidImage = graphql`
-fragment fluidImage on File {
-  childImageSharp {
-    fluid(maxWidth: 500) {
-      ...GatsbyImageSharpFluid_tracedSVG
-    }
   }
 }
 `;
