@@ -229,7 +229,14 @@ const HomePage = ({data}) => {
           <div className="container-fluid px-0 px-lg-5">
             <Row className="align-items-center">
               <Col xs={12} md={5} className="align-items-center px-0 px-lg-5">
-                <img src={data.ourPassion} className="ourPassionImg wow slideInLeft" alt="About Alkemy, Inc."/>
+              {data.ourPassion.childImageSharp
+                && (
+                <Img
+                  className="ourPassionImg wow slideInLeft"
+                  fluid={data.ourPassion.childImageSharp.fluid}
+                  alt="Discover our passion." />
+                )
+              }
               </Col>
               <Col xs={12} md={7} className="align-items-center px-0 px-lg-5">
                 <h2>{data.homepageJson.sections[2].blocks[0].heading}</h2>
