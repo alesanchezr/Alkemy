@@ -38,7 +38,7 @@ const WebDevelopment = ({data}) => {
         {data.webDevBanner.childImageSharp
           && (
           <Img
-            className="img-fluid mx-0 px-0"
+            className="mx-0 px-0"
             fluid={data.webDevBanner.childImageSharp.fluid}
             alt="Professional Web Development Services to craft your dream app." />
           )
@@ -69,7 +69,7 @@ const WebDevelopment = ({data}) => {
             {data.webDevFlasks.childImageSharp
               && (
               <Img
-                className="my-5 md-my-auto"
+                imgStyle={{maxHeight:'auto',maxWidth:'500px',objectFit:'contain',margin:'0 auto'}}
                 fluid={data.webDevFlasks.childImageSharp.fluid}
                 alt="Alkemy knows the right languages and framworks to get the job done correctly." />
               )
@@ -86,6 +86,7 @@ const WebDevelopment = ({data}) => {
             {data.webDevGraphic.childImageSharp
               && (
               <Img
+                imgStyle={{maxHeight:'auto',maxWidth:'550px',objectFit:'contain'}}
                 className="my-auto"
                 fluid={data.webDevGraphic.childImageSharp.fluid}
                 alt="Alkemy builds and crafts your application to specification." />
@@ -161,7 +162,7 @@ export const query = graphql`
   webDevGraphic: file(relativePath: {regex: "/developmentbtn.png/"}) {
     ...fluidImage
   }
-  codeScreen: file(relativePath: {regex: "/code-screen.png/"}) {
+  codeScreen: file(relativePath: {regex: "/code-screen.jpg/"}) {
     ...fluidImage
   }
 }
