@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import { Card, CardImg, CardText, CardImgOverlay,
   CardTitle,CardBody, CardFooter, CardDeck, Button,
   Col, Row, Form, FormGroup, Label, Input } from 'reactstrap'
@@ -8,12 +9,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Layout from '../components/layout'
 import ScrollWrapper from '../components/scrollWrapper.jsx'
 import BuildYourDream from '../components/BuildYourDream.jsx'
-
-// Images
-import webDevBanner from '../assets/images/web-development-banner.png'
-import webDevFlasks from '../assets/images/web-dev.png'
-import webDevGraphic from '../assets/images/developmentbtn.png'
-import codeScreen from '../assets/images/code-screen.jpg'
 
 /*
 Layout props:
@@ -39,7 +34,14 @@ const WebDevelopment = ({data}) => {
 
         {/* Page Hero */}
         <section className='pageHero'>
-          <img src={webDevBanner} className='img-fluid mx-0 px-0'/>
+        {data.webDevBanner.childImageSharp
+          && (
+          <Img
+            className="img-fluid mx-0 px-0"
+            fluid={data.webDevBanner.childImageSharp.fluid}
+            alt="Professional Web Development Services to craft your dream app." />
+          )
+        }
         </section>
 
         {/* Section 1 */}
@@ -63,7 +65,14 @@ const WebDevelopment = ({data}) => {
               </Row>
             </Col>
             <Col xs={12} sm={6} className='text-center'>
-              <img src={webDevFlasks} className='my-5 md-my-auto'/>
+            {data.webDevFlasks.childImageSharp
+              && (
+              <Img
+                className="my-5 md-my-auto"
+                fluid={data.webDevFlasks.childImageSharp.fluid}
+                alt="Alkemy knows the right languages and framworks to get the job done correctly." />
+              )
+            }
             </Col>
           </Row>
         </section>
@@ -73,7 +82,14 @@ const WebDevelopment = ({data}) => {
           <h1>{data.webDevelopmentJson.sections[1].heading}</h1>
           <Row className="px-5 pt-4">
             <Col xs={12} md={6}>
-              <img src={webDevGraphic} />
+            {data.webDevGraphic.childImageSharp
+              && (
+              <Img
+                className="my-auto"
+                fluid={data.webDevGraphic.childImageSharp.fluid}
+                alt="Alkemy builds and crafts your application to specification." />
+              )
+            }
             </Col>
 
             <Col xs={12} md={6}>
@@ -93,7 +109,14 @@ const WebDevelopment = ({data}) => {
             </Col>
 
             <Col xs={12} md={5}>
-              <img src={codeScreen} />
+            {data.codeScreen.childImageSharp
+              && (
+              <Img
+                className="my-auto"
+                fluid={data.codeScreen.childImageSharp.fluid}
+                alt="Let us handle the coding, so that your project is built skillfully." />
+              )
+            }
             </Col>
           </Row>
         </section>
@@ -126,6 +149,28 @@ export const query = graphql`
         heading
         content
       }
+    }
+  }
+  webDevBanner: file(relativePath: {regex: "/web-development-banner.png/"}) {
+    ...fluidImage
+  }
+  webDevFlasks: file(relativePath: {regex: "/web-dev.png/"}) {
+    ...fluidImage
+  }
+  webDevGraphic: file(relativePath: {regex: "/developmentbtn.png/"}) {
+    ...fluidImage
+  }
+  codeScreen: file(relativePath: {regex: "/code-screen.png/"}) {
+    ...fluidImage
+  }
+}
+`;
+
+export const fluidImage = graphql`
+fragment fluidImage on File {
+  childImageSharp {
+    fluid(maxWidth: 500) {
+      ...GatsbyImageSharpFluid_tracedSVG
     }
   }
 }

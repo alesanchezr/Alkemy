@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import { Card, CardImg, CardText, CardImgOverlay,
   CardTitle,CardBody, CardFooter, CardDeck, Button,
   Col, Row, Form, FormGroup, Label, Input } from 'reactstrap'
@@ -8,12 +9,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Layout from '../components/layout'
 import ScrollWrapper from '../components/scrollWrapper.jsx'
 import BuildYourDream from '../components/BuildYourDream.jsx'
-
-// Images
-import webDesignBanner from '../assets/images/web-design-banner.png'
-import screenDesign from '../assets/images/screen-design.png'
-import screenClean from '../assets/images/website-clean.jpg'
-import wordpressLogo from '../assets/images/WordPress-logo.png'
 
 /*
 Layout props:
@@ -74,7 +69,14 @@ const WebDesign = ({data}) => {
 
         {/* Page Hero */}
         <section className='pageHero'>
-          <img src={webDesignBanner} className='img-fluid mx-0 px-0'/>
+        {data.webDesignBanner.childImageSharp
+          && (
+          <Img
+            className="img-fluid mx-0 px-0"
+            fluid={data.webDesignBanner.childImageSharp.fluid}
+            alt="Alkemy Responsive Web Design Service - Build your dream website today" />
+          )
+        }
         </section>
 
         {/* Section 1 */}
@@ -100,7 +102,14 @@ const WebDesign = ({data}) => {
               </Row>
             </Col>
             <Col xs={12} sm={6} className='text-center'>
-              <img src={screenDesign} className='my-5 md-my-auto'/>
+            {data.screenDesign.childImageSharp
+              && (
+              <Img
+                className="my-5 md-my-auto"
+                fluid={data.screenDesign.childImageSharp.fluid}
+                alt="Crafting beautiful responsive websites, one page at a time." />
+              )
+            }
             </Col>
           </Row>
         </section>
@@ -110,7 +119,14 @@ const WebDesign = ({data}) => {
           <h1>{data.webDesignJson.sections[1].heading}</h1>
           <Row className="px-5 pt-4">
             <Col xs={12} md={6}>
-              <img src={screenClean} />
+            {data.screenClean.childImageSharp
+              && (
+              <Img
+                className="my-auto"
+                fluid={data.screenClean.childImageSharp.fluid}
+                alt="Clean, Professional, Handcrafted websites that are designed to convert." />
+              )
+            }
             </Col>
 
             <Col xs={12} md={6}>
@@ -131,7 +147,14 @@ const WebDesign = ({data}) => {
             </Col>
 
             <Col xs={12} md={5}>
-              <img src={wordpressLogo} />
+            {data.wordpressLogo.childImageSharp
+              && (
+              <Img
+                className="my-auto"
+                fluid={data.wordpressLogo.childImageSharp.fluid}
+                alt="Wordpress Websites, built from the ground up on the best CMS in the world." />
+              )
+            }
             </Col>
           </Row>
         </section>
@@ -199,8 +222,30 @@ export const query = graphql`
       }
     }
   }
+  webDesignBanner: file(relativePath: {regex: "/web-design-banner.png/"}) {
+    ...fluidImage
+  }
+  screenDesign: file(relativePath: {regex: "/screen-design.png/"}) {
+    ...fluidImage
+  }
+  screenClean: file(relativePath: {regex: "/website-clean.jpg/"}) {
+    ...fluidImage
+  }
+  wordpressLogo: file(relativePath: {regex: "/WordPress-logo.png/"}) {
+    ...fluidImage
+  }
 }
 `;
 
+
+export const fluidImage = graphql`
+fragment fluidImage on File {
+  childImageSharp {
+    fluid(maxWidth: 500) {
+      ...GatsbyImageSharpFluid_tracedSVG
+    }
+  }
+}
+`;
 
 export default WebDesign
