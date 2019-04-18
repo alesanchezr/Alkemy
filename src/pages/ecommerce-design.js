@@ -1,5 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
+import fluidImage from '../utils/utils.js'
 import { Card, CardImg, CardText, CardImgOverlay,
   CardTitle,CardBody, CardFooter, CardDeck, Button,
   Col, Row, Form, FormGroup, Label, Input } from 'reactstrap'
@@ -8,12 +10,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Layout from '../components/layout'
 import ScrollWrapper from '../components/scrollWrapper.jsx'
 import FreeWebsiteAnalysis from '../components/freeWebsiteAnalysis.jsx'
-
-// Images
-import webDesignBanner from '../assets/images/web-design-banner.png'
-import screenDesign from '../assets/images/screen-design.png'
-import screenClean from '../assets/images/website-clean.jpg'
-import wordpressLogo from '../assets/images/WordPress-logo.png'
 
 /*
 Layout props:
@@ -165,7 +161,7 @@ const handleScroll = () => {
 
 export const query = graphql`
 {
-  webDesignJson{
+  ecommerceDesignJson{
     sections{
       id
       blocks {
@@ -181,8 +177,19 @@ export const query = graphql`
       }
     }
   }
+  webDevBanner: file(relativePath: {regex: "/web-development-banner.png/"}) {
+    ...fluidImage
+  }
+  webDevFlasks: file(relativePath: {regex: "/web-dev.png/"}) {
+    ...fluidImage
+  }
+  webDevGraphic: file(relativePath: {regex: "/developmentbtn.png/"}) {
+    ...fluidImage
+  }
+  codeScreen: file(relativePath: {regex: "/code-screen.jpg/"}) {
+    ...fluidImage
+  }
 }
 `;
-
 
 export default WebDesign
