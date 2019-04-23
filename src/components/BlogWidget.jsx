@@ -1,7 +1,8 @@
 import React from 'react'
+import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
-import { Card, CardImg, CardText,
-  CardTitle, CardDeck, CardBody, Button } from "reactstrap"
+import { Card, CardImg, CardText, CardImgOverlay,
+  CardTitle, Row, Col, CardBody, CardFooter, Button } from "reactstrap"
 import Loading from './loading.jsx'
 
 // Blog post widget to display 3 blog posts from graphQL data.
@@ -15,24 +16,36 @@ const BlogWidget = (props) => {
     .slice(0, size) // select only 3 posts (query should organize by DESC)
     .map(edge => {
       return(
-        <Card key={edge.node.id} className="mx-lg-3 mb-5 h-100">
-          <CardImg top src={edge.node.frontmatter.cover} alt={edge.node.frontmatter.title} className="mb-1"/>
-          <CardBody>
-            <CardTitle className="my-0">{edge.node.frontmatter.title}</CardTitle>
-            <CardText>{edge.node.frontmatter.excerpt?edge.node.frontmatter.excerpt:(<Loading />)}</CardText>
-            <Button href={edge.node.frontmatter.path} className="mt-0 w-100" size="md" color="primary">Read More...</Button>
-          </CardBody>
-        </Card>
+        <Col
+          key={edge.node.id}
+          sm={12}
+          md={4}
+        >
+          <Card className="blogCard h-100">
+            <CardImg top src={edge.node.frontmatter.cover} alt={edge.node.frontmatter.title} className="blogCard mb-0"/>
+            <CardBody className="w-100 p-3 blogCard-body">
+              <CardTitle tag="h4">{edge.node.frontmatter.title}</CardTitle>
+            </CardBody>
+            <CardImgOverlay>
+              <CardBody className="overlayBody w-100 p-3">
+                <CardText>{edge.node.frontmatter.excerpt?edge.node.frontmatter.excerpt:(<Loading />)}</CardText>
+              </CardBody>
+              <CardFooter className="overlayFooter w-100 p-3">
+                <Button href={edge.node.frontmatter.path} className="mt-0" block size="md" color="primary">Read More...</Button>
+              </CardFooter>
+            </CardImgOverlay>
+          </Card>
+        </Col>
       )
     })
   return (
     <>
 
-      <div className="container-fluid px-5">
-        <h2>Latest Blogs</h2>
-        <CardDeck className='h-100'>
+      <div className="container-fluid p-5">
+        <h2 className="pb-3">Check Out Our Recent Posts</h2>
+        <Row className="cardRow">
           {Posts}
-        </CardDeck>
+        </Row>
       </div>
     </>
   )

@@ -903,11 +903,54 @@ section.ourPassion .ourPassionImg {
   object-fit: cover;
 }
 
-section.recentBlogPosts .container {
-  padding-top: 3rem;
+section.recentBlogPosts {
+  background: #0B3C5D;
+  color: white;
 }
-section.recentBlogPosts .container .card-deck .card {
-  max-width: 33%;
+section.recentBlogPosts .cardRow {
+  min-height: 40vh;
+}
+section.recentBlogPosts .cardRow .blogCard {
+  border-radius: 0;
+  border: none;
+}
+section.recentBlogPosts .cardRow .blogCard .blogCard-body {
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+}
+section.recentBlogPosts .cardRow .blogCard .blogCard-body .card-title {
+  color: white;
+}
+section.recentBlogPosts .cardRow .blogCard .card-img-top {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+section.recentBlogPosts .cardRow .blogCard .card-img-overlay {
+  position: relative;
+  transition: 0.3s linear;
+  padding: 0;
+}
+@media only screen and (min-width: 1280px) {
+  section.recentBlogPosts .cardRow .blogCard .card-img-overlay {
+    min-height: fit-content;
+    position: absolute;
+    opacity: 0;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  section.recentBlogPosts .cardRow .blogCard:hover .card-img-overlay {
+    opacity: 1;
+    color: white;
+    background: rgba(0, 0, 0, 0.9);
+  }
+}
+section.recentBlogPosts .cardRow .blogCard .card-body:not(.overlayBody),
+section.recentBlogPosts .cardRow .blogCard .card-footer,
+section.recentBlogPosts .cardRow .blogCard .overlayFooter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 section.contactForm, section.dreamForm, section.thankYou {
@@ -1001,6 +1044,19 @@ iframe.bookingFrame {
 
 .booking {
   height: 100%;
+}
+
+/* loading elipsis animation */
+svg.spin path {
+  color: #2bb3e5;
+}
+
+div.spinContainer {
+  display: block !important;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /*# sourceMappingURL=style.css.map */

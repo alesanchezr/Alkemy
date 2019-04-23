@@ -10,7 +10,7 @@ import Header from './header'
 import Footer from './footer'
 
 import '../assets/css/layout.css'
-import '../assets/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import '../assets/css/style.css'
 import '../assets/css/animate.css'
 

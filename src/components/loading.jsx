@@ -2,8 +2,16 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
-const Loading = () => (
-  <FontAwesomeIcon icon="spinner" size="lg" spin pulse />
+const Loading = (props) => (
+    <div className="spinContainer">
+      <FontAwesomeIcon
+        className="spin"
+        icon="spinner"
+        size={props.size}
+        spin
+        pulse
+        />
+    </div>
 )
 
-export default Loading
+export default Loading;

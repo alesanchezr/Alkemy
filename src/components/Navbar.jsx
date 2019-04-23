@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
+import Loading from './loading.jsx'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   Collapse,
   NavbarToggler,
@@ -18,7 +21,7 @@ import {
   ModalBody,
   ModalFooter
 } from "reactstrap"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import alkemyLogo from '../assets/images/alkemy_logo.png'
 
 
@@ -26,23 +29,25 @@ export default class ReactNavbar extends React.Component {
   constructor(props) {
     super(props);
 
-    this.toggleMobileMenu = this.toggleMobileMenu.bind(this);
-    this.toggleAppointmentModal = this.toggleAppointmentModal.bind(this);
-    this.toggle = this.toggle.bind(this);
-    this.onMouseEnter = this.onMouseEnter.bind(this);
-    this.onMouseLeave = this.onMouseLeave.bind(this);
-
-    this.handleButtonHover = this.handleButtonHover.bind(this);
-
     this.state = {
       modal: false,
       isOpen: false,
       dropdownOpen: false,
+      loading: true,
       mobileMenuClasses: "d-block d-lg-none mobileMenu",
       togglerClasses: "mr-2 d-lg-none hamburger hamburger--slider",
       icon: ['far','calendar-alt']
     };
 
+    this.toggleMobileMenu = this.toggleMobileMenu.bind(this);
+    this.toggleAppointmentModal = this.toggleAppointmentModal.bind(this);
+    this.toggle = this.toggle.bind(this);
+
+    this.onMouseEnter = this.onMouseEnter.bind(this);
+    this.onMouseLeave = this.onMouseLeave.bind(this);
+    this.handleButtonHover = this.handleButtonHover.bind(this);
+
+    this.iframe = React.createRef();
   }
 
   handleButtonHover = (e) => {
@@ -60,7 +65,8 @@ export default class ReactNavbar extends React.Component {
   // Appointment Modal Window Toggler
   toggleAppointmentModal() {
     this.setState(prevState => ({
-      modal: !prevState.modal
+      modal: !prevState.modal,
+      loading: prevState.modal?true:prevState.loading
     }))
 
     setTimeout(()=>{
@@ -226,8 +232,16 @@ export default class ReactNavbar extends React.Component {
           isOpen={this.state.modal}
           toggle={this.toggleAppointmentModal}>
           <ModalHeader toggle={this.toggleAppointmentModal}>Reserve an Appointment</ModalHeader>
-          <ModalBody className="p-0">
+          <ModalBody className="p-0 m-0">
+            {
+              this.state.loading
+              ? (<Loading size='4x'/>)
+              : null
+            }
             <iframe
+              title='booking'
+              ref={this.iframe}
+              onLoad={e=>this.setState({loading: false})}
               seamless
               className="mb-0 bookingFrame"
               src="https://squareup.com/appointments/buyer/widget/0dddc8a7-089f-45bc-870f-8a603a6dd412/GYDNKWG11FCR7"
