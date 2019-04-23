@@ -22,55 +22,26 @@ Layout props:
 */
 
 
-const WebDesign = ({data}) => {
-  // function for creating a list of Plan features
-  const planFeatures = (plan)=>{
-    return(
-      <ul className='fa-ul'>
-        {
-          (
-            plan.features.map(feature=>{
-              return <li><span className="fa-li"><FontAwesomeIcon icon="check" className="planFeatureIcon"/></span>{feature}</li>
-            })
-          )
-        }
-      </ul>
-    )
-  }
-
-  const planCards = (plans)=>{
-    return plans.map(plan=>{
-      return (
-        <Col className='my-auto plan'>
-          <Card className="my-4 p-4 planCard">
-            <h2 className="text-center mb-4">{plan.name}</h2>
-            <FontAwesomeIcon icon={plan.icon} size="3x" className="planIcon mx-auto my-auto"/>
-            <p className="text-center my-4">{plan.priceFrom}</p>
-            {planFeatures(plan)}
-          </Card>
-        </Col>
-      )
-    })
-  }
-
-  const disclaimers = (block)=>{
-    return block.disclaimers.map(note=>{
-      return <p><small>{note}</small></p>
-    })
-  }
-
+const eCommerceDesign = ({data}) => {
   return(
     <ScrollWrapper onWindowScroll={handleScroll}>
       <Layout
-        pageTitle="Responsive Web Design | Alkemy, Inc."
+        pageTitle="eCommerce Website Design | Alkemy, Inc."
         renderHeaderSolid={true}
         headerTitle={[false,""]}
-        bodyClasses="webDesign"
+        bodyClasses="eCommerce"
         >
 
         {/* Page Hero */}
         <section className='pageHero'>
-          <img src={webDesignBanner} className='img-fluid mx-0 px-0'/>
+        {data.webDevBanner.childImageSharp
+          && (
+          <Img
+            className="mx-0 px-0"
+            fluid={data.webDevBanner.childImageSharp.fluid}
+            alt="Professional Web Development Services to craft your dream app." />
+          )
+        }
         </section>
 
         {/* Section 1 */}
@@ -96,7 +67,14 @@ const WebDesign = ({data}) => {
               </Row>
             </Col>
             <Col xs={12} sm={6}>
-              <img src={screenDesign} className='my-5 md-my-auto img-fluid'/>
+            {data.webDevFlasks.childImageSharp
+              && (
+              <Img
+                imgStyle={{maxHeight:'auto',maxWidth:'500px',objectFit:'contain',margin:'0 auto'}}
+                fluid={data.webDevFlasks.childImageSharp.fluid}
+                alt="Alkemy knows the right languages and framworks to get the job done correctly." />
+              )
+            }
             </Col>
           </Row>
         </section>
@@ -106,7 +84,14 @@ const WebDesign = ({data}) => {
           <h1>{data.webDesignJson.sections[1].heading}</h1>
           <Row className="px-5 pt-4">
             <Col xs={12} md={6}>
-              <img src={screenClean} />
+            {data.webDevFlasks.childImageSharp
+              && (
+              <Img
+                imgStyle={{maxHeight:'auto',maxWidth:'500px',objectFit:'contain',margin:'0 auto'}}
+                fluid={data.webDevFlasks.childImageSharp.fluid}
+                alt="Alkemy knows the right languages and framworks to get the job done correctly." />
+              )
+            }
             </Col>
 
             <Col xs={12} md={6}>
@@ -127,24 +112,15 @@ const WebDesign = ({data}) => {
             </Col>
 
             <Col xs={12} md={5}>
-              <img src={wordpressLogo} />
+            {data.webDevFlasks.childImageSharp
+              && (
+              <Img
+                imgStyle={{maxHeight:'auto',maxWidth:'500px',objectFit:'contain',margin:'0 auto'}}
+                fluid={data.webDevFlasks.childImageSharp.fluid}
+                alt="Alkemy knows the right languages and framworks to get the job done correctly." />
+              )
+            }
             </Col>
-          </Row>
-        </section>
-
-        {/* Section 4 */}
-        <section className="webDesignPlans mb-4 py-4">
-          <Row className="px-5">
-            <Col>
-              <h2 className="text-center mb-4">{data.webDesignJson.sections[3].blocks[0].heading}</h2>
-              <p>{data.webDesignJson.sections[3].blocks[0].content}</p>
-            </Col>
-          </Row>
-          <Row className="my-5 px-5" noGutters>
-            {planCards(data.webDesignJson.sections[4].plans)}
-          </Row>
-          <Row className="my-5 px-5" noGutters>
-            {disclaimers(data.webDesignJson.sections[3].blocks[0])}
           </Row>
         </section>
 
@@ -167,13 +143,6 @@ export const query = graphql`
       blocks {
         heading
         content
-        disclaimers
-      }
-      plans {
-        name
-        icon
-        priceFrom
-        features
       }
     }
   }
@@ -192,4 +161,4 @@ export const query = graphql`
 }
 `;
 
-export default WebDesign
+export default eCommerceDesign

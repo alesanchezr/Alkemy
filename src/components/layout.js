@@ -59,7 +59,7 @@ const Layout = ({ children, location, pageTitle, renderHeaderSolid, headerTitle,
     render={data => (
       <div
         key={`body`}
-        id="___gatsby"
+        id="bodyWrap"
       >
         <Helmet
           bodyAttributes={(headerType==="blog")?{class: bodyClasses+' blog'}:{class: bodyClasses+' page'}}
