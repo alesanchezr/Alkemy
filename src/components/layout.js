@@ -154,6 +154,7 @@ const Layout = ({ children, pageTitle, renderHeaderSolid, headerTitle, headerTyp
           />
 
         <div
+          id='main'
           style={{
             margin: '0 auto',
             maxWidth: 1920,
