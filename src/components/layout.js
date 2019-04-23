@@ -45,7 +45,7 @@ library.add(
   faRocket
 )
 
-const Layout = ({ children, pageTitle, renderHeaderSolid, headerTitle, headerType, bodyClasses }) => (
+const Layout = ({ children, location, pageTitle, renderHeaderSolid, headerTitle, headerType, bodyClasses }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
