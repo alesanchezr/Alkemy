@@ -1059,4 +1059,10 @@ div.spinContainer {
   transform: translate(-50%, -50%);
 }
 
+/* Recaptcha */
+.recaptcha {
+  width: fit-content;
+  margin: 2em auto;
+}
+
 /*# sourceMappingURL=style.css.map */

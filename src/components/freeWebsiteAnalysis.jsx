@@ -2,6 +2,13 @@ import React from 'react'
 import { Button, Col, Row, Form, FormFeedback,
   FormGroup, Label, Input } from 'reactstrap'
 import ThankYou from './thankYou.jsx'
+import Recaptcha from "react-google-recaptcha";
+
+const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY;
+window.recaptchaOptions = {
+  useRecaptchaNet: true,
+  removeOnUnmount: false,
+};
 
 export default class FreeWebsiteAnalysis extends React.Component {
   constructor(){
@@ -10,6 +17,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
     this.state={
       success: false,
       formValues: {
+        'g-recaptcha-response': '',
         fullName: '',
         email: '',
         webAddress: '',
@@ -23,6 +31,10 @@ export default class FreeWebsiteAnalysis extends React.Component {
       }
     }
   }
+
+  handleRecaptcha = value => {
+    this.setState({ "g-recaptcha-response": value });
+  };
 
   handleSubmit = e=>{
     e.preventDefault()
@@ -151,6 +163,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                   name="freeWebsiteAnalysis"
                   data-netlify="true"
                   data-netlify-honeypot="bot-field"
+                  data-netlify-recaptcha="true"
                   onSubmit={(e)=>this.handleSubmit(e)}
                   className="py-3 mb-0"
                   >
@@ -230,6 +243,14 @@ export default class FreeWebsiteAnalysis extends React.Component {
                       >
                     {this.state.errors.authCheck}
                     </FormFeedback>
+                  </FormGroup>
+                  <FormGroup>
+                    <Recaptcha
+                      className="recaptcha"
+                      ref="recaptcha"
+                      sitekey={RECAPTCHA_KEY}
+                      onChange={this.handleRecaptcha}
+                    />
                   </FormGroup>
                   <FormGroup className="text-center">
                     <Button
