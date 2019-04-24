@@ -5,6 +5,13 @@ import Stepper from 'react-stepper-horizontal'
 import IntlTelInput from 'react-intl-tel-input'
 import 'react-intl-tel-input/dist/main.css'
 import ThankYou from './thankYou.jsx'
+import Recaptcha from "react-google-recaptcha";
+
+const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY;
+window.recaptchaOptions = {
+  useRecaptchaNet: true,
+  removeOnUnmount: false,
+};
 
 export default class BuildYourDream extends React.Component {
   constructor(){
@@ -60,7 +67,9 @@ export default class BuildYourDream extends React.Component {
   }
 
   handleRecaptcha = value => {
-    this.setState({ formValues["g-recaptcha-response"]: value });
+    let formValues = {...this.state.formValues}
+    formValues["g-recaptcha-response"] = value
+    this.setState({ formValues });
   };
 
   // handles field changes
