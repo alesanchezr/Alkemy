@@ -108,7 +108,7 @@ const HomePage = ({data}) => {
               {data.webDesign.childImageSharp
                 && (
                 <Img
-                  imgStyle={{maxHeight:'150px',maxWidth:'auto',objectFit:'contain'}}
+                  imgStyle={{maxHeight:'200px',maxWidth:'auto',objectFit:'contain'}}
                   fluid={data.webDesign.childImageSharp.fluid}
                   className="card-img-top image-services mx-auto my-auto"
                   alt="Responsive Web Design Services"
@@ -133,7 +133,7 @@ const HomePage = ({data}) => {
               {data.webDevelopment.childImageSharp
                 && (
                 <Img
-                  imgStyle={{maxHeight:'150px',maxWidth:'auto',objectFit:'contain'}}
+                  imgStyle={{maxHeight:'200px',maxWidth:'auto',objectFit:'contain'}}
                   className="card-img-top image-services mx-auto my-auto"
                   fluid={data.webDevelopment.childImageSharp.fluid}
                   alt="Quality Web Development Services" />
@@ -157,7 +157,7 @@ const HomePage = ({data}) => {
                 {data.eCommerce.childImageSharp
                   && (
                   <Img
-                    imgStyle={{maxHeight:'150px',maxWidth:'auto',objectFit:'contain'}}
+                    imgStyle={{maxHeight:'200px',maxWidth:'auto',objectFit:'contain'}}
                     className="card-img-top image-services mx-auto my-auto"
                     fluid={data.eCommerce.childImageSharp.fluid}
                     alt="Ecommerce Design Services" />
@@ -181,7 +181,7 @@ const HomePage = ({data}) => {
                 {data.digitalMarketing.childImageSharp
                   && (
                   <Img
-                    imgStyle={{maxHeight:'150px',maxWidth:'auto',objectFit:'contain'}}
+                    imgStyle={{maxHeight:'200px',maxWidth:'auto',objectFit:'contain'}}
                     className="card-img-top image-services mx-auto my-auto"
                     fluid={data.digitalMarketing.childImageSharp.fluid}
                     alt="Digital Marketing Services" />
