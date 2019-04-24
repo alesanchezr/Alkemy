@@ -247,10 +247,10 @@ const HomePage = ({data}) => {
             </Row>
           </div>
         </section>
-        <FreeWebsiteAnalysis / >
         <section className="recentBlogPosts">
           <BlogWidget posts={data.allMarkdownRemark.edges}/>
         </section>
+        <FreeWebsiteAnalysis / >
       </Layout>
     </ScrollWrapper>
   )

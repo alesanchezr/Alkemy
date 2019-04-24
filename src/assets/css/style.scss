@@ -497,7 +497,7 @@ a {
 
   &:before{
     content: '';
-    opacity: .5;
+    opacity: .2;
     position: absolute;
     top:0;
     right:0;
@@ -508,7 +508,6 @@ a {
   &:after{
     content: '';
     background: url("../images/connectwork.png");
-    filter: contrast(120%) brightness(80%);
     position: absolute;
     top:0;
     right:0;
@@ -856,7 +855,7 @@ button:focus {
 
 .servicesHome{
   min-height: 100% !important;
-  
+
   .card{
     background: transparent;
     &.cardOne{animation-delay: 0;}
