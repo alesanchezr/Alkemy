@@ -856,59 +856,66 @@ button:focus {
 
 .servicesHome{
   min-height: 100% !important;
+  
   .card{
     background: transparent;
     &.cardOne{animation-delay: 0;}
     &.cardTwo{animation-delay: .25s;}
     &.cardThree{animation-delay: .5s;}
     &.cardFour{animation-delay: .75s;}
-  }
-}
 
-.servicesHome .card{
-  height: 100%;
-  min-height:35vh;
+    height: 100%;
+    min-height:35vh;
 
 
-  .image-services.card-img-top{
-    max-width: auto !important;
-    max-height: 25vh;
-    object-fit: contain;
-    margin-bottom: 2rem;
-  }
-
-  .image-services.card-body,
-  .image-services.card-footer{
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-
-  .card-img-overlay{
-    position: relative;
-    transition: .3s linear;
-    /* height: 100%; */
-    padding: 0;
-
-    @media only screen and (min-width: 1280px){
-      min-height: fit-content;
-      position: absolute;
-      opacity: 0;
+    .image-services.card-img-top{
+      max-width: auto !important;
+      max-height: 25vh;
+      object-fit: contain;
+      margin-bottom: 2rem;
     }
-  }
 
-  &:hover{
-    @media only screen and (min-width: 1280px){
-      .card-img-overlay {
-        opacity: 1;
-        color: white;
-        background: rgba(0,0,0,.90);
+    .image-services.card-body,
+    .image-services.card-footer{
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+
+    .card-img-overlay{
+      position: relative;
+      transition: .3s linear;
+      /* height: 100%; */
+      padding: 0;
+
+      @media only screen and (min-width: 1280px){
+        min-height: fit-content;
+        position: absolute;
+        opacity: 0;
+      }
+
+      .card-footer {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 1em;
+      }
+    }
+
+    &:hover{
+      @media only screen and (min-width: 1280px){
+        .card-img-overlay {
+          opacity: 1;
+          color: white;
+          background: rgba(0,0,0,.90);
+        }
       }
     }
   }
 }
+
 
 section.statsCounter{
   background: $alkemy_dark_blue;

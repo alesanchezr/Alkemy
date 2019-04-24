@@ -825,6 +825,8 @@ button:focus {
 }
 .servicesHome .card {
   background: transparent;
+  height: 100%;
+  min-height: 35vh;
 }
 .servicesHome .card.cardOne {
   animation-delay: 0;
@@ -837,11 +839,6 @@ button:focus {
 }
 .servicesHome .card.cardFour {
   animation-delay: 0.75s;
-}
-
-.servicesHome .card {
-  height: 100%;
-  min-height: 35vh;
 }
 .servicesHome .card .image-services.card-img-top {
   max-width: auto !important;
@@ -868,6 +865,12 @@ button:focus {
     position: absolute;
     opacity: 0;
   }
+}
+.servicesHome .card .card-img-overlay .card-footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1em;
 }
 @media only screen and (min-width: 1280px) {
   .servicesHome .card:hover .card-img-overlay {
@@ -1062,7 +1065,7 @@ div.spinContainer {
 /* Recaptcha */
 .recaptcha {
   width: fit-content;
-  margin: 2em auto;
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=style.css.map */
