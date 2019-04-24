@@ -389,6 +389,14 @@ export default class BuildYourDream extends React.Component {
                   : null
                 }
               </FormGroup>
+              <FormGroup>
+                <Recaptcha
+                  className="recaptcha"
+                  ref="recaptcha"
+                  sitekey={RECAPTCHA_KEY}
+                  onChange={this.handleRecaptcha}
+                />
+              </FormGroup>
             </Col>
           </Row>
         )
@@ -533,14 +541,6 @@ validate = ()=>{
                   />
 
                 <div className="my-3">{this.renderForm(this.state.formStep)}</div>
-                <FormGroup>
-                  <Recaptcha
-                    className="recaptcha"
-                    ref="recaptcha"
-                    sitekey={RECAPTCHA_KEY}
-                    onChange={this.handleRecaptcha}
-                  />
-                </FormGroup>
                 <FormGroup className="text-center">
                   <Button
                     color="secondary"
