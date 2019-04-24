@@ -321,7 +321,7 @@ export default class BuildYourDream extends React.Component {
         )
       case 3:
         return (
-          <Row form className="my-4 pt-0 pb-4">
+          <Row form className="my-4 pt-0 pb-2">
             <Col xs={12} className="my-2 p-0">
               <FormGroup>
                 <Label for="logo">Company Logo</Label>
@@ -398,6 +398,8 @@ export default class BuildYourDream extends React.Component {
                   : null
                 }
               </FormGroup>
+            </Col>
+            <Col xs={12} className="my-2 py-0">
               <FormGroup>
                 <Recaptcha
                   className="recaptcha"
