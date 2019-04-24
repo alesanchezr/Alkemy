@@ -33,7 +33,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
   }
 
   handleRecaptcha = value => {
-    this.setState({ "g-recaptcha-response": value });
+    this.setState({ formValues["g-recaptcha-response"]: value });
   };
 
   handleSubmit = e=>{

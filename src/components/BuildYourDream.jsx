@@ -14,6 +14,7 @@ export default class BuildYourDream extends React.Component {
       success: false,
       formStep: 0,
       formValues: {
+        'g-recaptcha-response': '',
         fullName: '',
         email: '',
         phone: '',
@@ -57,6 +58,10 @@ export default class BuildYourDream extends React.Component {
 
     this.dreamForm = React.createRef
   }
+
+  handleRecaptcha = value => {
+    this.setState({ formValues["g-recaptcha-response"]: value });
+  };
 
   // handles field changes
   handleFieldChange = (e,fieldName)=> {
@@ -513,6 +518,7 @@ validate = ()=>{
               name="dreamForm"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
+              data-netlify-recaptcha="true"
               onSubmit={e=>this.handleSubmit(e)}
               ref={this.dreamForm}
               className="py-3 mb-0"
@@ -527,7 +533,14 @@ validate = ()=>{
                   />
 
                 <div className="my-3">{this.renderForm(this.state.formStep)}</div>
-
+                <FormGroup>
+                  <Recaptcha
+                    className="recaptcha"
+                    ref="recaptcha"
+                    sitekey={RECAPTCHA_KEY}
+                    onChange={this.handleRecaptcha}
+                  />
+                </FormGroup>
                 <FormGroup className="text-center">
                   <Button
                     color="secondary"
