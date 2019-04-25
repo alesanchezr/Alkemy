@@ -1,11 +1,11 @@
 import React from 'react'
-import { Button, Col, Row, Form, CustomInput,
+import { Button, Col, Row, Form,
   FormFeedback,FormGroup, Label, Input,FormText } from 'reactstrap'
 import Stepper from 'react-stepper-horizontal'
 import IntlTelInput from 'react-intl-tel-input'
 import 'react-intl-tel-input/dist/main.css'
 import ThankYou from './thankYou.jsx'
-import Recaptcha from "react-google-recaptcha";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY;
 window.recaptchaOptions = {
@@ -41,7 +41,8 @@ export default class BuildYourDream extends React.Component {
         fullNameLength: '',
         otherIndustryLength: '',
         phone: '',
-        websiteURLFormat: ''
+        websiteURLFormat: '',
+        ReCAPTCHA: ''
       },
       stepperSteps: [
         {
@@ -62,14 +63,17 @@ export default class BuildYourDream extends React.Component {
         }
       ]
     }
-
+    this.recaptchaRef = React.createRef();
     this.dreamForm = React.createRef
   }
 
   handleRecaptcha = value => {
+    let errors={...this.state.errors}
     let formValues = {...this.state.formValues}
+    errors.ReCAPTCHA = ""
     formValues["g-recaptcha-response"] = value
-    this.setState({ formValues });
+
+    this.setState({ formValues,errors });
   };
 
   // handles field changes
@@ -91,7 +95,8 @@ export default class BuildYourDream extends React.Component {
         fullNameLength: '',
         otherIndustryLength: '',
         phone: '',
-        websiteURLFormat: ''
+        websiteURLFormat: '',
+        ReCAPTCHA: ''
       }
     })
   }
@@ -104,10 +109,12 @@ export default class BuildYourDream extends React.Component {
     if(action==='next' &&
       this.state.formStep<this.state.stepperSteps.length-1){
       let valid = this.validate()
-      console.log('current step valid: ',valid)
+
       if(valid){
-        this.setState({
-          formstep: this.state.formStep++
+        this.setState((prevState,props)=>{
+          return{
+            formstep: prevState.formStep++
+          }
         })
       }
     }
@@ -115,8 +122,10 @@ export default class BuildYourDream extends React.Component {
     // handle regular form back click
     if(action==='back' &&
       this.state.formStep>0)
-      this.setState({
-        formstep: this.state.formStep--
+      this.setState((prevState,props)=>{
+        return{
+          formstep: prevState.formStep--
+        }
       })
   }
 
@@ -139,23 +148,33 @@ export default class BuildYourDream extends React.Component {
             } else {
               formData.append(key, data[key])
             }
+            return formData
           })
-      return formData
     }
 
+    const recaptchaValue = this.state.formValues['g-recaptcha-response'];
 
-    fetch('/', {
-      method: 'POST',
-      body: encode({
-        "form-name": "dreamForm",
-        ...this.state.formValues
-      })
-      }).then((res) => {
-        this.setState({
-          success: true
+    if(recaptchaValue !== ''){
+      fetch('/', {
+        method: 'POST',
+        body: encode({
+          "form-name": "dreamForm",
+          ...this.state.formValues
         })
+        }).then((res) => {
+          this.setState({
+            success: true
+          })
+        })
+        .catch(error => console.log(error))
+    }else{
+      let errors = {...this.state.errors}
+      errors.ReCAPTCHA = 'ReCAPTCHA Verification Needed to Submit Form.'
+      this.setState({
+        errors
       })
-      .catch(error => console.log(error))
+    }
+
   }
 
   // handles the cases for rendering each step of the form
@@ -401,12 +420,14 @@ export default class BuildYourDream extends React.Component {
             </Col>
             <Col xs={12} className="my-2 py-0">
               <FormGroup>
-                <Recaptcha
+                <ReCAPTCHA
                   className="recaptcha"
-                  ref="recaptcha"
                   sitekey={RECAPTCHA_KEY}
                   onChange={this.handleRecaptcha}
                 />
+                <FormText color="danger" className="text-center">
+                  {this.state.errors.ReCAPTCHA}
+                </FormText>
               </FormGroup>
             </Col>
           </Row>
@@ -478,7 +499,7 @@ validate = ()=>{
   }
 
   // Email Validation
-  let emailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  let emailReg = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   let emailValid = emailReg.test(String(this.state.formValues.email.toLowerCase()))
   console.log('email valid: ',emailValid)
   if(!emailValid){
@@ -487,7 +508,7 @@ validate = ()=>{
   }
 
   // Phone Validation
-  let phoneReg = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/
+  let phoneReg = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s/0-9]*$/
   let phone = this.state.formValues.phone
   let phoneValidate = phoneReg.test(String(phone))
 
@@ -498,7 +519,7 @@ validate = ()=>{
 
 
   // websiteURLFormat Validation
-  let urlReg = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/
+  let urlReg = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([-.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/
   let url = this.state.formValues.websiteURL
   let urlValidate = urlReg.test(String(url))
 
