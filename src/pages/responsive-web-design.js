@@ -1,7 +1,7 @@
 import React, {Suspense} from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import fluidImage from '../utils/utils.js'
+import '../utils/utils.js'
 import { Card,Button,Col, Row } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Loading from '../components/loading.jsx'

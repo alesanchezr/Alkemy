@@ -2,8 +2,8 @@ import React, {Suspense} from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import '../utils/utils.js'
-import { Card, CardText, CardImgOverlay,
-  CardTitle,CardBody, CardFooter, Button, Col, Row } from 'reactstrap'
+import { Card, CardText, CardImgOverlay,CardTitle,
+  CardBody, CardFooter, Button, Col, Row } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Layout from '../components/layout.js'
 import Loading from '../components/loading.jsx'
