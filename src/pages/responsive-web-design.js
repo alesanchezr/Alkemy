@@ -9,7 +9,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Layout from '../components/layout'
 import ScrollWrapper from '../components/scrollWrapper.jsx'
-import BuildYourDream from '../components/BuildYourDream.jsx'
+
+const BuildYourDream = React.lazy(() => import('../components/BuildYourDream.jsx'));
 
 /*
 Layout props:
@@ -61,126 +62,128 @@ const WebDesign = ({data}) => {
 
   return(
     <ScrollWrapper onWindowScroll={handleScroll}>
-      <Layout
-        pageTitle="Responsive Web Design | Alkemy, Inc."
-        renderHeaderSolid={true}
-        headerTitle={[false,""]}
-        bodyClasses="webDesign"
-        >
-
-        {/* Page Hero */}
-        <section className='pageHero'>
-        {data.webDesignBanner.childImageSharp
-          && (
-          <Img
-            className="img-fluid mx-0 px-0"
-            fluid={data.webDesignBanner.childImageSharp.fluid}
-            alt="Alkemy Responsive Web Design Service - Build your dream website today" />
-          )
-        }
-        </section>
-
-        {/* Section 1 */}
-        <section className="px-5 mt-4 mb-5">
-          <Row>
-            <Col>
-              <h1 className="mb-4">{data.webDesignJson.sections[0].blocks[0].heading}</h1>
-              <p className="mb-5">{data.webDesignJson.sections[0].blocks[0].content}</p>
-            </Col>
-          </Row>
-          <Row className="flex-column-reverse flex-md-row">
-            <Col xs={12} sm={6}>
-              <h2 className="mb-4">{data.webDesignJson.sections[0].blocks[1].heading}</h2>
-              <p className="mb-4">{data.webDesignJson.sections[0].blocks[1].content}</p>
-              <p className="mb-4">{data.webDesignJson.sections[0].blocks[2].content}</p>
-              <Row>
-                <Col xs={12} sm={6}>
-                  <Button onClick={handleViewPlansClick} className="btn btn-primary">View our Web Design Plans</Button>
-                </Col>
-                <Col xs={12} sm={6}>
-                  <Button onClick={handleQuoteClick} className="btn btn-primary">Get a Custom Quote</Button>
-                </Col>
-              </Row>
-            </Col>
-            <Col xs={12} sm={6} className='text-center'>
-            {data.screenDesign.childImageSharp
-              && (
-              <Img
-                className="my-5 md-my-auto"
-                fluid={data.screenDesign.childImageSharp.fluid}
-                alt="Crafting beautiful responsive websites, one page at a time." />
-              )
-            }
-            </Col>
-          </Row>
-        </section>
-
-        {/* Section 2 */}
-        <section className="deliverYourMessage mb-4 py-4">
-          <h1>{data.webDesignJson.sections[1].heading}</h1>
-          <Row className="px-5 pt-4">
-            <Col xs={12} md={6}>
-            {data.screenClean.childImageSharp
-              && (
-              <Img
-                className="my-auto"
-                fluid={data.screenClean.childImageSharp.fluid}
-                alt="Clean, Professional, Handcrafted websites that are designed to convert." />
-              )
-            }
-            </Col>
-
-            <Col xs={12} md={6}>
-              <h2 className="mb-4">{data.webDesignJson.sections[1].blocks[0].heading}</h2>
-              <p className="text-white">{data.webDesignJson.sections[1].blocks[0].content}</p>
-              <Button href="/" className="btn btn-primary">View our Web Design Plans</Button>
-            </Col>
-          </Row>
-        </section>
-
-        {/* Section 3 */}
-        <section className="wordpressDesign mb-4 py-4">
-          <h1>{data.webDesignJson.sections[1].heading}</h1>
-          <Row className="px-5 pt-4">
-            <Col xs={12} md={7}>
-              <h2 className="mb-4">{data.webDesignJson.sections[2].blocks[0].heading}</h2>
-              <p className="">{data.webDesignJson.sections[2].blocks[0].content}</p>
-            </Col>
-
-            <Col xs={12} md={5}>
-            {data.wordpressLogo.childImageSharp
-              && (
-              <Img
-                className="my-auto"
-                fluid={data.wordpressLogo.childImageSharp.fluid}
-                alt="Wordpress Websites, built from the ground up on the best CMS in the world." />
-              )
-            }
-            </Col>
-          </Row>
-        </section>
-
-        {/* Section 4 */}
-        <section
-          ref={plansSection}
-          className="webDesignPlans mb-4 py-4"
+      <Suspense fallback={<Loading size='2x'/>}>
+        <Layout
+          pageTitle="Responsive Web Design | Alkemy, Inc."
+          renderHeaderSolid={true}
+          headerTitle={[false,""]}
+          bodyClasses="webDesign"
           >
-          <Row className="px-5">
-            <Col>
-              <h2 className="text-center mb-4">{data.webDesignJson.sections[3].blocks[0].heading}</h2>
-              <p>{data.webDesignJson.sections[3].blocks[0].content}</p>
-            </Col>
-          </Row>
-          <Row className="my-5 px-5" noGutters>
-            {planCards(data.webDesignJson.sections[4].plans)}
-          </Row>
-          <Row className="my-5 px-5" noGutters>
-            {disclaimers(data.webDesignJson.sections[3].blocks[0])}
-          </Row>
-        </section>
 
-        <section ref={dreamForm}><BuildYourDream /></section>
-      </Layout>
+          {/* Page Hero */}
+          <section className='pageHero'>
+          {data.webDesignBanner.childImageSharp
+            && (
+            <Img
+              className="img-fluid mx-0 px-0"
+              fluid={data.webDesignBanner.childImageSharp.fluid}
+              alt="Alkemy Responsive Web Design Service - Build your dream website today" />
+            )
+          }
+          </section>
+
+          {/* Section 1 */}
+          <section className="px-5 mt-4 mb-5">
+            <Row>
+              <Col>
+                <h1 className="mb-4">{data.webDesignJson.sections[0].blocks[0].heading}</h1>
+                <p className="mb-5">{data.webDesignJson.sections[0].blocks[0].content}</p>
+              </Col>
+            </Row>
+            <Row className="flex-column-reverse flex-md-row">
+              <Col xs={12} sm={6}>
+                <h2 className="mb-4">{data.webDesignJson.sections[0].blocks[1].heading}</h2>
+                <p className="mb-4">{data.webDesignJson.sections[0].blocks[1].content}</p>
+                <p className="mb-4">{data.webDesignJson.sections[0].blocks[2].content}</p>
+                <Row>
+                  <Col xs={12} sm={6}>
+                    <Button onClick={handleViewPlansClick} className="btn btn-primary">View our Web Design Plans</Button>
+                  </Col>
+                  <Col xs={12} sm={6}>
+                    <Button onClick={handleQuoteClick} className="btn btn-primary">Get a Custom Quote</Button>
+                  </Col>
+                </Row>
+              </Col>
+              <Col xs={12} sm={6} className='text-center'>
+              {data.screenDesign.childImageSharp
+                && (
+                <Img
+                  className="my-5 md-my-auto"
+                  fluid={data.screenDesign.childImageSharp.fluid}
+                  alt="Crafting beautiful responsive websites, one page at a time." />
+                )
+              }
+              </Col>
+            </Row>
+          </section>
+
+          {/* Section 2 */}
+          <section className="deliverYourMessage mb-4 py-4">
+            <h1>{data.webDesignJson.sections[1].heading}</h1>
+            <Row className="px-5 pt-4">
+              <Col xs={12} md={6}>
+              {data.screenClean.childImageSharp
+                && (
+                <Img
+                  className="my-auto"
+                  fluid={data.screenClean.childImageSharp.fluid}
+                  alt="Clean, Professional, Handcrafted websites that are designed to convert." />
+                )
+              }
+              </Col>
+
+              <Col xs={12} md={6}>
+                <h2 className="mb-4">{data.webDesignJson.sections[1].blocks[0].heading}</h2>
+                <p className="text-white">{data.webDesignJson.sections[1].blocks[0].content}</p>
+                <Button href="/" className="btn btn-primary">View our Web Design Plans</Button>
+              </Col>
+            </Row>
+          </section>
+
+          {/* Section 3 */}
+          <section className="wordpressDesign mb-4 py-4">
+            <h1>{data.webDesignJson.sections[1].heading}</h1>
+            <Row className="px-5 pt-4">
+              <Col xs={12} md={7}>
+                <h2 className="mb-4">{data.webDesignJson.sections[2].blocks[0].heading}</h2>
+                <p className="">{data.webDesignJson.sections[2].blocks[0].content}</p>
+              </Col>
+
+              <Col xs={12} md={5}>
+              {data.wordpressLogo.childImageSharp
+                && (
+                <Img
+                  className="my-auto"
+                  fluid={data.wordpressLogo.childImageSharp.fluid}
+                  alt="Wordpress Websites, built from the ground up on the best CMS in the world." />
+                )
+              }
+              </Col>
+            </Row>
+          </section>
+
+          {/* Section 4 */}
+          <section
+            ref={plansSection}
+            className="webDesignPlans mb-4 py-4"
+            >
+            <Row className="px-5">
+              <Col>
+                <h2 className="text-center mb-4">{data.webDesignJson.sections[3].blocks[0].heading}</h2>
+                <p>{data.webDesignJson.sections[3].blocks[0].content}</p>
+              </Col>
+            </Row>
+            <Row className="my-5 px-5" noGutters>
+              {planCards(data.webDesignJson.sections[4].plans)}
+            </Row>
+            <Row className="my-5 px-5" noGutters>
+              {disclaimers(data.webDesignJson.sections[3].blocks[0])}
+            </Row>
+          </section>
+
+          <section ref={dreamForm}><BuildYourDream /></section>
+        </Layout>
+      </Suspense>
     </ScrollWrapper>
   )
 }
