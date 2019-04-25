@@ -63,7 +63,6 @@ export default class BuildYourDream extends React.Component {
         }
       ]
     }
-    this.recaptchaRef = React.createRef();
     this.dreamForm = React.createRef
   }
 

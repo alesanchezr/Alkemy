@@ -1,8 +1,8 @@
 import React from 'react'
 import { Button, Col, Row, Form, FormFeedback,
-  FormGroup, Label, Input } from 'reactstrap'
+  FormGroup, Label, Input,FormText } from 'reactstrap'
 import ThankYou from './thankYou.jsx'
-import Recaptcha from "react-google-recaptcha";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY;
 window.recaptchaOptions = {
@@ -27,15 +27,20 @@ export default class FreeWebsiteAnalysis extends React.Component {
         fullNameLength: '',
         emailFormat: '',
         websiteURLFormat: '',
-        authCheck: ''
+        authCheck: '',
+        ReCAPTCHA: ''
       }
     }
+    this.recaptchaRef = React.createRef();
   }
 
   handleRecaptcha = value => {
+    let errors={...this.state.errors}
     let formValues = {...this.state.formValues}
+    errors.ReCAPTCHA = ""
     formValues["g-recaptcha-response"] = value
-    this.setState({ formValues });
+
+    this.setState({ formValues,errors });
   };
 
   handleSubmit = e=>{
@@ -49,7 +54,9 @@ export default class FreeWebsiteAnalysis extends React.Component {
         .join("&");
     }
 
-    if(valid){
+    const recaptchaValue = this.state.formValues['g-recaptcha-response'];
+
+    if(valid && recaptchaValue!==''){
       fetch('/', {
         method: 'POST',
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -63,7 +70,13 @@ export default class FreeWebsiteAnalysis extends React.Component {
           })
         })
         .catch(error => console.log(error))
-      }
+    }else{
+      let errors = {...this.state.errors}
+      errors.ReCAPTCHA = 'ReCAPTCHA Verification Needed to Submit Form.'
+      this.setState({
+        errors
+      })
+    }
   }
 
   handleFieldChange = e => {
@@ -247,12 +260,14 @@ export default class FreeWebsiteAnalysis extends React.Component {
                     </FormFeedback>
                   </FormGroup>
                   <FormGroup>
-                    <Recaptcha
+                    <ReCAPTCHA
                       className="recaptcha"
-                      ref="recaptcha"
                       sitekey={RECAPTCHA_KEY}
                       onChange={this.handleRecaptcha}
                     />
+                    <FormText color="danger" className="text-center">
+                      {this.state.errors.ReCAPTCHA}
+                    </FormText>
                   </FormGroup>
                   <FormGroup className="text-center">
                     <Button
