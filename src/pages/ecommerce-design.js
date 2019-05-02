@@ -2,7 +2,7 @@ import React, {Suspense} from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import '../utils/utils.js'
-import { Button, Col, Row } from 'reactstrap'
+import { Card, Button, Col, Row } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Loading from '../components/loading.jsx'
 import Layout from '../components/layout'
@@ -21,7 +21,42 @@ Layout props:
 */
 
 
-const eCommerceDesign = ({data}) => {
+const ECommerceDesign = ({data}) => {
+  // function for creating a list of Plan features
+  const planFeatures = (plan)=>{
+    return(
+      <ul className='fa-ul'>
+        {
+          (
+            plan.features.map((feature,index)=>{
+              return <li key={index}><span className="fa-li"><FontAwesomeIcon icon="check" className="planFeatureIcon"/></span>{feature}</li>
+            })
+          )
+        }
+      </ul>
+    )
+  }
+
+  const planCards = (plans)=>{
+    return plans.map((plan,index)=>{
+      return (
+        <Col key={index} className='my-auto plan'>
+          <Card className="my-4 p-4 planCard">
+            <h2 className="text-center mb-4">{plan.name}</h2>
+            <FontAwesomeIcon icon={plan.icon} size="3x" className="planIcon mx-auto my-auto"/>
+            <p className="text-center my-4">{plan.priceFrom}</p>
+            {planFeatures(plan)}
+          </Card>
+        </Col>
+      )
+    })
+  }
+
+  const disclaimers = (block)=>{
+    return block.disclaimers.map((note,index)=>{
+      return <p key={index}><small>{note}</small></p>
+    })
+  }
   return(
     <ScrollWrapper onWindowScroll={handleScroll}>
       <Suspense fallback={<Loading size='2x'/>}>
@@ -124,6 +159,25 @@ const eCommerceDesign = ({data}) => {
             </Row>
           </section>
 
+          {/* Section 4 */}
+          <section
+            ref={plansSection}
+            className="eCommercePlans mb-4 py-4"
+            >
+            <Row className="px-5">
+              <Col>
+                <h2 className="text-center mb-4">{data.ecommerceDesignJson.sections[3].blocks[0].heading}</h2>
+                <p>{data.ecommerceDesignJson.sections[3].blocks[0].content}</p>
+              </Col>
+            </Row>
+            <Row className="my-5 px-5" noGutters>
+              {planCards(data.ecommerceDesignJson.sections[4].plans)}
+            </Row>
+            <Row className="my-5 px-5" noGutters>
+              {disclaimers(data.ecommerceDesignJson.sections[3].blocks[0])}
+            </Row>
+          </section>
+
           <BuildYourDream / >
         </Layout>
       </Suspense>
@@ -131,6 +185,7 @@ const eCommerceDesign = ({data}) => {
   )
 }
 
+const plansSection = React.createRef();
 
 const handleScroll = () => {
 
@@ -144,6 +199,13 @@ export const query = graphql`
       blocks {
         heading
         content
+        disclaimers
+      }
+      plans {
+        name
+        icon
+        priceFrom
+        features
       }
     }
   }
@@ -162,4 +224,4 @@ export const query = graphql`
 }
 `;
 
-export default eCommerceDesign
+export default EcommerceDesign

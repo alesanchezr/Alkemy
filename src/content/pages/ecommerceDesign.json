@@ -5,15 +5,11 @@
         "id": "1",
         "blocks": [
           {
-            "heading": "First Class Responsive Web Design",
-            "content": "Responsive websites and applications are a cornerstone of the modern world. In addition, every business or professional needs a modern and responsive website to sell more effectively. With our responsive web design services, we can help your business with it’s unique needs!"
+            "heading": "E-Commerce Web Design - Built to Sell and Sell Hard",
+            "content": "The secret sauce to E-Commerce always starts with a solid product, but you can’t successfully sell that product without the right website. Our E-Commerce Web Design service integrates our years of experience in the E-Commerce field to create solid stores that are built to convert your visitors into paying customers."
           },
           {
-            "heading": "Let Us Help You Look Your Best",
-            "content": "Web design is more than just how your business looks, it’s a form of art. We want to make you and your business look good."
-          },
-          {
-            "content": "Here at Alkemy, we have all of the tricks and tools to develop a rich and engaging web experience. Whether we design a static website for you with one of our web design plans, or we create a fully custom package for your unique needs - Let us take your ideas and sculpt them into a masterpiece!"
+            "content": "With our E-Commerce Web Design, the difference lies in how website packages have to be bundled. We will tailor the design process for your site to the specific needs of your business and build it on the backbone of tried and true E-Commerce strategies."
           }
         ]
       },
@@ -21,8 +17,7 @@
         "id": "2",
         "blocks": [
           {
-            "heading": "Deliver Your Message With Beauty and Style",
-            "content": "Some text about how site will be custom designed with their business in mind and how this distinguishes them from competition. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lectus eros, suscipit nec ligula quis, maximus placerat libero. Donec sodales faucibus erat, in egestas turpis tincidunt nec. Nullam metus nisl, cursus eu imperdiet eget, rhoncus id dolor. Maecenas sed ligula molestie ante fermentum semper. Aliquam iaculis sem ut dui viverra tincidunt. Phasellus efficitur..."
+            "heading": "Powered by Some of the World’s Leading E-Commerce Platforms",
           }
         ]
       },
@@ -30,8 +25,7 @@
         "id": "3",
         "blocks": [
           {
-            "heading": "Beautiful Designs, Built On the Most Powerful CMS in the World",
-            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lectus eros, suscipit nec ligula quis, maximus placerat libero. Donec sodales faucibus erat, in egestas turpis tincidunt nec. Nullam metus nisl, cursus eu imperdiet eget, rhoncus id dolor. Maecenas sed ligula molestie ante fermentum semper. Aliquam iaculis sem ut dui viverra tincidunt. Phasellus efficitur, mi vel pellentesque sodales, nisl lacus vehicula lacus, at lacinia mauris erat ac arcu."
+            "heading": "Our Roadmap to Launching Your Powerhouse E-Commerce Site"
           }
         ]
       },
@@ -45,6 +39,30 @@
               "* Additional content can be calculated separately based on the needs of your business. Please notify your project manager of any other content that you need and we will be happy to help.  Please note, these packages are not optimized for E-commerce functionality. Visit our E-Commerce Design section for more information about our E-Commerce Packages.",
               "** Dynamic content can be edited, but some limitations apply based on your selected website design. Speak to your project manager for details on these limitations and how they can be overcome."
             ]
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "heading": "Discovery",
+            "content": "At the start of your project we will meet with you to discuss all relevant details and get an idea of what will be needed.",
+          },
+          {
+            "heading": "Design",
+            "content": "After discovery, we will strategize about your project further and create design mock-ups to understand the visual flow and user journey.",
+          },
+          {
+            "heading": "Coding",
+            "content": "Then once we have approved designs and plans for your site, we will initialize the coding phase of the project. This is where we actually create a functional website.",
+          },
+          {
+            "heading": "Quality Assurance",
+            "content": "Next, when coding has completed and your site is built, the new website will undergo rigorous testing to make sure that everything is fully operational and bug free.",
+          },
+          {
+            "heading": "Launch",
+            "content": "Our final step is to make sure the launch of your website goes off without a hitch. At the end of this step, your site will be operational and visible to all major search engines.",
           }
         ]
       },

@@ -103,7 +103,6 @@ module.exports = {
       }
     },
     'gatsby-plugin-offline',
-    'gatsby-mdx',
     {
       resolve: `gatsby-plugin-netlify`,
       options: {
