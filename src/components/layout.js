@@ -9,11 +9,6 @@ import typography from '../utils/typography'
 import Header from './header'
 import Footer from './footer'
 
-import '../assets/css/layout.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import '../assets/css/style.css'
-import '../assets/css/animate.css'
-
 import favicon from '../assets/images/favicon.ico'
 import favicon16 from '../assets/images/favicon-16x16.png'
 import favicon32 from '../assets/images/favicon-32x32.png'

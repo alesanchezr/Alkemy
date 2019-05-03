@@ -111,29 +111,17 @@ const EcommerceDesign = ({data}) => {
               }
               </Col>
             </Row>
+
+            {/* eCommerce platforms */}
+            <div className="container-fluid">
+                <h2 className="mb-4 text-center">{data.ecommDesignJson.sections[1].blocks[0].heading}</h2>
+
+            </div>
           </section>
 
           {/* Section 2 */}
           <section className="deliverYourMessage mb-4 py-4">
-            <h1>{data.ecommDesignJson.sections[1].heading}</h1>
-            <Row className="px-5 pt-4">
-              <Col xs={12} md={6}>
-              {data.webDevFlasks.childImageSharp
-                && (
-                <Img
-                  imgStyle={{maxHeight:'auto',maxWidth:'500px',objectFit:'contain',margin:'0 auto'}}
-                  fluid={data.webDevFlasks.childImageSharp.fluid}
-                  alt="Alkemy knows the right languages and framworks to get the job done correctly." />
-                )
-              }
-              </Col>
 
-              <Col xs={12} md={6}>
-                <h2 className="mb-4">{data.ecommDesignJson.sections[1].blocks[0].heading}</h2>
-                <p className="text-white">{data.ecommDesignJson.sections[1].blocks[0].content}</p>
-                <Button href="/" className="btn btn-primary">View our Web Design Plans</Button>
-              </Col>
-            </Row>
           </section>
 
           {/* Section 3 */}
@@ -165,15 +153,15 @@ const EcommerceDesign = ({data}) => {
             >
             <Row className="px-5">
               <Col>
-                <h2 className="text-center mb-4">{data.ecommDesignJson.sections[3].blocks[0].heading}</h2>
-                <p>{data.ecommDesignJson.sections[3].blocks[0].content}</p>
+                <h2 className="text-center mb-4">{data.ecommDesignJson && data.ecommDesignJson.sections[4].blocks[0].heading}</h2>
+                <p>{data.ecommDesignJson && data.ecommDesignJson.sections[4].blocks[0].content}</p>
               </Col>
             </Row>
             <Row className="my-5 px-5" noGutters>
-              {planCards(data.ecommDesignJson.sections[4].plans)}
+              {data.ecommDesignJson && planCards(data.ecommDesignJson.sections[5].plans)}
             </Row>
             <Row className="my-5 px-5" noGutters>
-              {disclaimers(data.ecommDesignJson.sections[3].blocks[0])}
+              {data.ecommDesignJson && disclaimers(data.ecommDesignJson.sections[4].blocks[0])}
             </Row>
           </section>
 
