@@ -27,7 +27,29 @@
         "blocks": [
           {
             "heading": "Our Roadmap to Launching Your Powerhouse E-Commerce Site",
-            "content": ""
+            "content": "",
+            "steps": [
+              {
+                "heading": "Discovery",
+                "content": "At the start of your project we will meet with you to discuss all relevant details and get an idea of what will be needed."
+              },
+              {
+                "heading": "Design",
+                "content": "After discovery, we will strategize about your project further and create design mock-ups to understand the visual flow and user journey."
+              },
+              {
+                "heading": "Coding",
+                "content": "Then once we have approved designs and plans for your site, we will initialize the coding phase of the project. This is where we actually create a functional website."
+              },
+              {
+                "heading": "Quality Assurance",
+                "content": "Next, when coding has completed and your site is built, the new website will undergo rigorous testing to make sure that everything is fully operational and bug free."
+              },
+              {
+                "heading": "Launch",
+                "content": "Our final step is to make sure the launch of your website goes off without a hitch. At the end of this step, your site will be operational and visible to all major search engines."
+              }
+            ]
           }
         ]
       },
@@ -45,26 +67,15 @@
         ]
       },
       {
-        "steps": [
+        "id": "5",
+        "blocks": [
           {
-            "heading": "Discovery",
-            "content": "At the start of your project we will meet with you to discuss all relevant details and get an idea of what will be needed.",
-          },
-          {
-            "heading": "Design",
-            "content": "After discovery, we will strategize about your project further and create design mock-ups to understand the visual flow and user journey.",
-          },
-          {
-            "heading": "Coding",
-            "content": "Then once we have approved designs and plans for your site, we will initialize the coding phase of the project. This is where we actually create a functional website.",
-          },
-          {
-            "heading": "Quality Assurance",
-            "content": "Next, when coding has completed and your site is built, the new website will undergo rigorous testing to make sure that everything is fully operational and bug free.",
-          },
-          {
-            "heading": "Launch",
-            "content": "Our final step is to make sure the launch of your website goes off without a hitch. At the end of this step, your site will be operational and visible to all major search engines.",
+            "heading": "First Class Responsive Web Design",
+            "content": "Responsive websites and applications are a cornerstone of the modern world. In addition, every business or professional needs a modern and responsive website to sell more effectively. With our responsive web design services, we can help your business with it’s unique needs!",
+            "disclaimers": [
+              "* Additional content can be calculated separately based on the needs of your business. Please notify your project manager of any other content that you need and we will be happy to help.  Please note, these packages are not optimized for E-commerce functionality. Visit our E-Commerce Design section for more information about our E-Commerce Packages.",
+              "** Dynamic content can be edited, but some limitations apply based on your selected website design. Speak to your project manager for details on these limitations and how they can be overcome."
+            ]
           }
         ]
       },

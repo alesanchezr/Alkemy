@@ -18,8 +18,7 @@ import {
   DropdownItem,
   Modal,
   ModalHeader,
-  ModalBody,
-  ModalFooter
+  ModalBody
 } from "reactstrap"
 
 import alkemyLogo from '../assets/images/alkemy_logo.png'

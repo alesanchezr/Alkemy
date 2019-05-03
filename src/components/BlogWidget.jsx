@@ -1,5 +1,4 @@
 import React from 'react'
-import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 import { Card, CardImg, CardText, CardImgOverlay,
   CardTitle, Row, Col, CardBody, CardFooter, Button } from "reactstrap"

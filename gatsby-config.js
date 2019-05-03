@@ -25,10 +25,7 @@ module.exports = {
         publicPath: `${__dirname}/images/`
       },
     },
-    {
-      resolve: `gatsby-transformer-json`,
-      typeName: `json`
-    },
+    `gatsby-transformer-json`,
     {
       resolve: `gatsby-plugin-sass`,
       options: {
