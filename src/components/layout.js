@@ -9,9 +9,25 @@ import typography from '../utils/typography'
 import Header from './header'
 import Footer from './footer'
 
-import favicon from '../assets/images/favicon.ico'
-import favicon16 from '../assets/images/favicon-16x16.png'
-import favicon32 from '../assets/images/favicon-32x32.png'
+import msTileImg from '../assets/images/favicons/ms-icon-144x144.png'
+import msBrowserConfig from '../assets/images/favicons/browserconfig.xml'
+import manifest from '../assets/images/favicons/manifest.json'
+
+import appleIcon57 from '../assets/images/favicons/apple-icon-57x57.png'
+import appleIcon60 from '../assets/images/favicons/apple-icon-60x60.png'
+import appleIcon72 from '../assets/images/favicons/apple-icon-72x72.png'
+import appleIcon76 from '../assets/images/favicons/apple-icon-76x76.png'
+import appleIcon114 from '../assets/images/favicons/apple-icon-114x114.png'
+import appleIcon120 from '../assets/images/favicons/apple-icon-120x120.png'
+import appleIcon144 from '../assets/images/favicons/apple-icon-144x144.png'
+import appleIcon152 from '../assets/images/favicons/apple-icon-152x152.png'
+import appleIcon180 from '../assets/images/favicons/apple-icon-180x180.png'
+
+import androidIcon192 from '../assets/images/favicons/android-icon-192x192.png'
+
+import favicon16 from '../assets/images/favicons/favicon-16x16.png'
+import favicon32 from '../assets/images/favicons/favicon-32x32.png'
+import favicon96 from '../assets/images/favicons/favicon-96x96.png'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -63,14 +79,15 @@ const Layout = ({ children, location, pageTitle, renderHeaderSolid, headerTitle,
             { name: 'charset', content: 'UTF-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' },
             { name: 'description', content: 'Alkemy, Inc. | Best Quality Software Development, Web Design, eCommerce Design, and Marketing.' },
-            { name: 'keywords', content: 'Software Development, Web Design, eCommerce, Marketing, React, PHP, HTML, Python, Django, Gatsby, GraphQL, Wordpress, 3dcart, Shopify, WooCommerce, SEM, SEO, Social Media Marketing, Web Strategy' },
+            { name: 'keywords', content: 'Software Development, Web Design, eCommerce Design, Digital Marketing, React, PHP, HTML, Python, Django, Gatsby, GraphQL, Wordpress Design, 3dcart, Shopify, WooCommerce, SEM, Search Engine Marketing, SEO, Search Engine Optimization, Social Media Marketing, Web Strategy' },
             { name: 'referrer', content: 'origin-when-crossorigin' },
             { httpEquiv: 'X-UA-Compatible', content: 'IE=edge,chrome=1' },
             { property: 'og:type', content: 'page' },
             { name: 'apple-mobile-web-app-title', content: 'Alkemy, Inc.' },
             { name: 'application-name', content: 'Alkemy, Inc.' },
             { name: 'msapplication-TileColor', content: '#ffffff' },
-            { name: 'msapplication-config', content: 'wp-content/themes/alkemy/assets/images/favicon.ico/browserconfig.xml' },
+            { name: 'msapplication-TileImage', content: msTileImg },
+            { name: 'msapplication-config', content: msBrowserConfig },
             { name: 'theme-color', content: '#ffffff' },
             { name: 'author', content: 'Alkemy, Inc.' },
             { property: 'og:image', content: 'wp-content/themes/alkemy/assets/images/thumbnail.png' },
@@ -83,12 +100,22 @@ const Layout = ({ children, location, pageTitle, renderHeaderSolid, headerTitle,
           <link rel="canonical" href="https://www.alkemyinc.com" />
 
           {/* App Icons and Favicon */}
-          <link rel="apple-touch-icon" sizes="180x180" href="<?php echo THEME_DIR; ?>/assets/images/apple-touch-icon.png" />
-        	<link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
-        	<link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
-        	<link rel="manifest" href="<?php echo THEME_DIR; ?>/assets/images/site.webmanifest" />
-        	<link rel="mask-icon" href="<?php echo THEME_DIR; ?>/assets/images/safari-pinned-tab.svg" color="#44baff" />
-        	<link rel="shortcut icon" href={favicon} />
+          <link rel="apple-touch-icon" sizes="57x57" href={appleIcon57}>
+          <link rel="apple-touch-icon" sizes="60x60" href={appleIcon60}>
+          <link rel="apple-touch-icon" sizes="72x72" href={appleIcon72}>
+          <link rel="apple-touch-icon" sizes="76x76" href={appleIcon76}>
+          <link rel="apple-touch-icon" sizes="114x114" href={appleIcon114}>
+          <link rel="apple-touch-icon" sizes="120x120" href={appleIcon120}>
+          <link rel="apple-touch-icon" sizes="144x144" href={appleIcon144}>
+          <link rel="apple-touch-icon" sizes="152x152" href={appleIcon152}>
+          <link rel="apple-touch-icon" sizes="180x180" href={appleIcon180}>
+          <link rel="icon" type="image/png" sizes="192x192"  href={androidIcon192}>
+          <link rel="icon" type="image/png" sizes="16x16" href={favicon16}>
+          <link rel="icon" type="image/png" sizes="32x32" href={favicon32}>
+          <link rel="icon" type="image/png" sizes="96x96" href={favicon96}>
+          <link rel="manifest" href={manifest}>
+
+
 
           <TypographyStyle typography={typography} />
           <GoogleFont typography={typography} />
