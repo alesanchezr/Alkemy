@@ -85,37 +85,56 @@ const EcommerceDesign = ({data}) => {
               <Col>
                 <h1 className="mb-4">{data.ecommDesignJson.sections[0].blocks[0].heading}</h1>
                 <p className="mb-5">{data.ecommDesignJson.sections[0].blocks[0].content}</p>
-              </Col>
-            </Row>
-            <Row className="flex-column-reverse flex-md-row">
-              <Col xs={12} sm={6}>
-                <h2 className="mb-4">{data.ecommDesignJson.sections[0].blocks[1].heading}</h2>
                 <p className="mb-4">{data.ecommDesignJson.sections[0].blocks[1].content}</p>
-                <Row>
-                  <Col xs={12} sm={6}>
-                    <Button href="/" className="btn btn-primary">View our Web Design Plans</Button>
-                  </Col>
-                  <Col xs={12} sm={6}>
-                    <Button href="/" className="btn btn-primary">Get a Custom Quote</Button>
-                  </Col>
-                </Row>
-              </Col>
-              <Col xs={12} sm={6}>
-              {data.webDevFlasks.childImageSharp
-                && (
-                <Img
-                  imgStyle={{maxHeight:'auto',maxWidth:'500px',objectFit:'contain',margin:'0 auto'}}
-                  fluid={data.webDevFlasks.childImageSharp.fluid}
-                  alt="Alkemy knows the right languages and framworks to get the job done correctly." />
-                )
-              }
               </Col>
             </Row>
+
 
             {/* eCommerce platforms */}
             <div className="container-fluid">
                 <h2 className="mb-4 text-center">{data.ecommDesignJson.sections[1].blocks[0].heading}</h2>
-
+                <Row>
+                  <Col xs={12} md={3}>
+                  {data.webDevFlasks.childImageSharp
+                    && (
+                    <Img
+                      imgStyle={{maxHeight:'auto',maxWidth:'500px',objectFit:'contain',margin:'0 auto'}}
+                      fluid={data.webDevFlasks.childImageSharp.fluid}
+                      alt="Alkemy knows the right languages and framworks to get the job done correctly." />
+                    )
+                  }
+                  </Col>
+                  <Col xs={12} md={3}>
+                  {data.webDevFlasks.childImageSharp
+                    && (
+                    <Img
+                      imgStyle={{maxHeight:'auto',maxWidth:'500px',objectFit:'contain',margin:'0 auto'}}
+                      fluid={data.webDevFlasks.childImageSharp.fluid}
+                      alt="Alkemy knows the right languages and framworks to get the job done correctly." />
+                    )
+                  }
+                  </Col>
+                  <Col xs={12} md={3}>
+                  {data.webDevFlasks.childImageSharp
+                    && (
+                    <Img
+                      imgStyle={{maxHeight:'auto',maxWidth:'500px',objectFit:'contain',margin:'0 auto'}}
+                      fluid={data.webDevFlasks.childImageSharp.fluid}
+                      alt="Alkemy knows the right languages and framworks to get the job done correctly." />
+                    )
+                  }
+                  </Col>
+                  <Col xs={12} md={3}>
+                  {data.webDevFlasks.childImageSharp
+                    && (
+                    <Img
+                      imgStyle={{maxHeight:'auto',maxWidth:'500px',objectFit:'contain',margin:'0 auto'}}
+                      fluid={data.webDevFlasks.childImageSharp.fluid}
+                      alt="Alkemy knows the right languages and framworks to get the job done correctly." />
+                    )
+                  }
+                  </Col>
+                </Row>
             </div>
           </section>
 
@@ -200,16 +219,50 @@ export const query = graphql`
       }
     }
   }
-  webDevBanner: file(relativePath: {regex: "/web-development-banner.png/"}) {
+
+  3dcartLogo: file(relativePath: {regex: "/3dcart-logo.png/"}) {
     ...fluidImage
   }
-  webDevFlasks: file(relativePath: {regex: "/web-dev.png/"}) {
+  bigcommerceLogo: file(relativePath: {regex: "/bigcommerce-logo.png/"}) {
     ...fluidImage
   }
-  webDevGraphic: file(relativePath: {regex: "/developmentbtn.png/"}) {
+  shopifyLogo: file(relativePath: {regex: "/shopify-logo.png/"}) {
     ...fluidImage
   }
-  codeScreen: file(relativePath: {regex: "/code-screen.jpg/"}) {
+  wordpressLogo: file(relativePath: {regex: "/wordpress-logo-horiz.png/"}) {
+    ...fluidImage
+  }
+
+  discoveryIcon: file(relativePath: {regex: "/discovery-icon.png/"}) {
+    ...fluidImage
+  }
+  designIcon: file(relativePath: {regex: "/design-icon.png/"}) {
+    ...fluidImage
+  }
+  codeIcon: file(relativePath: {regex: "/code-icon.png/"}) {
+    ...fluidImage
+  }
+  testIcon: file(relativePath: {regex: "/test-icon.png/"}) {
+    ...fluidImage
+  }
+  launchIcon: file(relativePath: {regex: "/launch-icon.png/"}) {
+    ...fluidImage
+  }
+
+  3dcartPartner: file(relativePath: {regex: "/3dcart-certified-partner.png/"}) {
+    ...fluidImage
+  }
+  3dcartExpert: file(relativePath: {regex: "/3dcart-certified-expert.png/"}) {
+    ...fluidImage
+  }
+  shopifyPartner: file(relativePath: {regex: "/shopify-partner.png/"}) {
+    ...fluidImage
+  }
+  bigcommercePartner: file(relativePath: {regex: "/bigcommerce-partner.png/"}) {
+    ...fluidImage
+  }
+
+  ecommWebDesign: file(relativePath: {regex: "/ecommerce-website-design.jpg/"}) {
     ...fluidImage
   }
 }
