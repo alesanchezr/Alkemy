@@ -95,7 +95,6 @@ const Layout = ({ children, location, pageTitle, renderHeaderSolid, headerTitle,
 
           <html lang="en" amp xmlns="http://www.w3.org/1999/xhtml" />
           <link rel="canonical" href="https://www.alkemyinc.com" />
-          <meta name="msapplication-config" content={withPrefix('/favicons/browserconfig.xml')} />
           <meta name="msapplication-TileImage" content={msTileImg} />
 
           {/* App Icons and Favicon */}
@@ -112,7 +111,7 @@ const Layout = ({ children, location, pageTitle, renderHeaderSolid, headerTitle,
           <link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
           <link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
           <link rel="icon" type="image/png" sizes="96x96" href={favicon96} />
-          <link rel="manifest" href={withPrefix('/favicons/manifest.json')} />
+
 
 
 
