@@ -69,12 +69,12 @@ const EcommerceDesign = ({data}) => {
 
           {/* Page Hero */}
           <section className='pageHero'>
-          {data.webDevBanner.childImageSharp
+          {data.ecommBanner.childImageSharp
             && (
             <Img
               className="mx-0 px-0"
-              fluid={data.webDevBanner.childImageSharp.fluid}
-              alt="Professional Web Development Services to craft your dream app." />
+              fluid={data.ecommBanner.childImageSharp.fluid}
+              alt="Professional eCommerce Web Design to build a store that converts." />
             )
           }
           </section>
@@ -95,41 +95,41 @@ const EcommerceDesign = ({data}) => {
                 <h2 className="mb-4 text-center">{data.ecommDesignJson.sections[1].blocks[0].heading}</h2>
                 <Row>
                   <Col xs={12} md={3}>
-                  {data.webDevFlasks.childImageSharp
+                  {data.shopifyLogo.childImageSharp
                     && (
                     <Img
-                      imgStyle={{maxHeight:'auto',maxWidth:'500px',objectFit:'contain',margin:'0 auto'}}
-                      fluid={data.webDevFlasks.childImageSharp.fluid}
+                      imgStyle={{maxHeight:'auto',maxWidth:'200px',objectFit:'contain',margin:'0 auto'}}
+                      fluid={data.shopifyLogo.childImageSharp.fluid}
                       alt="Alkemy knows the right languages and framworks to get the job done correctly." />
                     )
                   }
                   </Col>
                   <Col xs={12} md={3}>
-                  {data.webDevFlasks.childImageSharp
+                  {data.dcartLogo.childImageSharp
                     && (
                     <Img
-                      imgStyle={{maxHeight:'auto',maxWidth:'500px',objectFit:'contain',margin:'0 auto'}}
-                      fluid={data.webDevFlasks.childImageSharp.fluid}
+                      imgStyle={{maxHeight:'auto',maxWidth:'200px',objectFit:'contain',margin:'0 auto'}}
+                      fluid={data.dcartLogo.childImageSharp.fluid}
                       alt="Alkemy knows the right languages and framworks to get the job done correctly." />
                     )
                   }
                   </Col>
                   <Col xs={12} md={3}>
-                  {data.webDevFlasks.childImageSharp
+                  {data.bigcommerceLogo.childImageSharp
                     && (
                     <Img
-                      imgStyle={{maxHeight:'auto',maxWidth:'500px',objectFit:'contain',margin:'0 auto'}}
-                      fluid={data.webDevFlasks.childImageSharp.fluid}
+                      imgStyle={{maxHeight:'auto',maxWidth:'200px',objectFit:'contain',margin:'0 auto'}}
+                      fluid={data.bigcommerceLogo.childImageSharp.fluid}
                       alt="Alkemy knows the right languages and framworks to get the job done correctly." />
                     )
                   }
                   </Col>
                   <Col xs={12} md={3}>
-                  {data.webDevFlasks.childImageSharp
+                  {data.wordpressLogo.childImageSharp
                     && (
                     <Img
-                      imgStyle={{maxHeight:'auto',maxWidth:'500px',objectFit:'contain',margin:'0 auto'}}
-                      fluid={data.webDevFlasks.childImageSharp.fluid}
+                      imgStyle={{maxHeight:'auto',maxWidth:'200px',objectFit:'contain',margin:'0 auto'}}
+                      fluid={data.wordpressLogo.childImageSharp.fluid}
                       alt="Alkemy knows the right languages and framworks to get the job done correctly." />
                     )
                   }
@@ -153,11 +153,11 @@ const EcommerceDesign = ({data}) => {
               </Col>
 
               <Col xs={12} md={5}>
-              {data.webDevFlasks.childImageSharp
+              {data.ecommWebDesign.childImageSharp
                 && (
                 <Img
                   imgStyle={{maxHeight:'auto',maxWidth:'500px',objectFit:'contain',margin:'0 auto'}}
-                  fluid={data.webDevFlasks.childImageSharp.fluid}
+                  fluid={data.ecommWebDesign.childImageSharp.fluid}
                   alt="Alkemy knows the right languages and framworks to get the job done correctly." />
                 )
               }
@@ -219,8 +219,10 @@ export const query = graphql`
       }
     }
   }
-
-  3dcartLogo: file(relativePath: {regex: "/3dcart-logo.png/"}) {
+  ecommBanner: file(relativePath: {regex: "/ecommerce-design-banner.png/"}) {
+    ...fluidImage
+  }
+  dcartLogo: file(relativePath: {regex: "/3dcart-logo.png/"}) {
     ...fluidImage
   }
   bigcommerceLogo: file(relativePath: {regex: "/bigcommerce-logo.png/"}) {
@@ -232,7 +234,6 @@ export const query = graphql`
   wordpressLogo: file(relativePath: {regex: "/wordpress-logo-horiz.png/"}) {
     ...fluidImage
   }
-
   discoveryIcon: file(relativePath: {regex: "/discovery-icon.png/"}) {
     ...fluidImage
   }
@@ -248,11 +249,10 @@ export const query = graphql`
   launchIcon: file(relativePath: {regex: "/launch-icon.png/"}) {
     ...fluidImage
   }
-
-  3dcartPartner: file(relativePath: {regex: "/3dcart-certified-partner.png/"}) {
+  dcartPartner: file(relativePath: {regex: "/3dcart-certified-partner.png/"}) {
     ...fluidImage
   }
-  3dcartExpert: file(relativePath: {regex: "/3dcart-certified-expert.png/"}) {
+  dcartExpert: file(relativePath: {regex: "/3dcart-certified-expert.png/"}) {
     ...fluidImage
   }
   shopifyPartner: file(relativePath: {regex: "/shopify-partner.png/"}) {
@@ -261,7 +261,6 @@ export const query = graphql`
   bigcommercePartner: file(relativePath: {regex: "/bigcommerce-partner.png/"}) {
     ...fluidImage
   }
-
   ecommWebDesign: file(relativePath: {regex: "/ecommerce-website-design.jpg/"}) {
     ...fluidImage
   }

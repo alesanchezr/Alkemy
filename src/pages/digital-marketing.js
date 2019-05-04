@@ -9,12 +9,6 @@ import Layout from '../components/layout'
 import ScrollWrapper from '../components/scrollWrapper.jsx'
 
 
-// Images
-import webDesignBanner from '../assets/images/web-design-banner.png'
-import screenDesign from '../assets/images/screen-design.png'
-import screenClean from '../assets/images/website-clean.jpg'
-import wordpressLogo from '../assets/images/WordPress-logo.png'
-
 const BuildYourDream = React.lazy(() => import('../components/BuildYourDream.jsx'));
 
 /*
@@ -77,7 +71,7 @@ const WebDesign = ({data}) => {
 
           {/* Page Hero */}
           <section className='pageHero'>
-            <img src={webDesignBanner} className='img-fluid mx-0 px-0'/>
+            <img src='' className='img-fluid mx-0 px-0'/>
           </section>
 
           {/* Section 1 */}
@@ -103,7 +97,7 @@ const WebDesign = ({data}) => {
                 </Row>
               </Col>
               <Col xs={12} sm={6}>
-                <img src={screenDesign} className='my-5 md-my-auto img-fluid'/>
+                <img src='' className='my-5 md-my-auto img-fluid'/>
               </Col>
             </Row>
           </section>
@@ -113,7 +107,7 @@ const WebDesign = ({data}) => {
             <h1>{data.webDesignJson.sections[1].heading}</h1>
             <Row className="px-5 pt-4">
               <Col xs={12} md={6}>
-                <img src={screenClean} />
+                <img src='' />
               </Col>
 
               <Col xs={12} md={6}>
@@ -134,7 +128,7 @@ const WebDesign = ({data}) => {
               </Col>
 
               <Col xs={12} md={5}>
-                <img src={wordpressLogo} />
+                <img src='' />
               </Col>
             </Row>
           </section>

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import { withPrefix } from 'gatsby-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { TypographyStyle, GoogleFont } from 'react-typography'
 import typography from '../utils/typography'
@@ -10,8 +11,6 @@ import Header from './header'
 import Footer from './footer'
 
 import msTileImg from '../assets/images/favicons/ms-icon-144x144.png'
-import msBrowserConfig from '../assets/images/favicons/browserconfig.xml'
-import manifest from '../assets/images/favicons/manifest.json'
 
 import appleIcon57 from '../assets/images/favicons/apple-icon-57x57.png'
 import appleIcon60 from '../assets/images/favicons/apple-icon-60x60.png'
@@ -86,11 +85,9 @@ const Layout = ({ children, location, pageTitle, renderHeaderSolid, headerTitle,
             { name: 'apple-mobile-web-app-title', content: 'Alkemy, Inc.' },
             { name: 'application-name', content: 'Alkemy, Inc.' },
             { name: 'msapplication-TileColor', content: '#ffffff' },
-            { name: 'msapplication-TileImage', content: msTileImg },
-            { name: 'msapplication-config', content: msBrowserConfig },
             { name: 'theme-color', content: '#ffffff' },
             { name: 'author', content: 'Alkemy, Inc.' },
-            { property: 'og:image', content: 'wp-content/themes/alkemy/assets/images/thumbnail.png' },
+            { property: 'og:image', content: '' },
             { name: 'twitter:image:alt', content: 'Screenshot of the Alkemy, Inc. Homepage.' },
             { name: 'msvalidate.01', content: '304B53089DF131D38A8031F5232E9FB1' },
           ]}
@@ -98,22 +95,24 @@ const Layout = ({ children, location, pageTitle, renderHeaderSolid, headerTitle,
 
           <html lang="en" amp xmlns="http://www.w3.org/1999/xhtml" />
           <link rel="canonical" href="https://www.alkemyinc.com" />
+          <meta name="msapplication-config" content={withPrefix('/favicons/browserconfig.xml')} />
+          <meta name="msapplication-TileImage" content={msTileImg} />
 
           {/* App Icons and Favicon */}
-          <link rel="apple-touch-icon" sizes="57x57" href={appleIcon57}>
-          <link rel="apple-touch-icon" sizes="60x60" href={appleIcon60}>
-          <link rel="apple-touch-icon" sizes="72x72" href={appleIcon72}>
-          <link rel="apple-touch-icon" sizes="76x76" href={appleIcon76}>
-          <link rel="apple-touch-icon" sizes="114x114" href={appleIcon114}>
-          <link rel="apple-touch-icon" sizes="120x120" href={appleIcon120}>
-          <link rel="apple-touch-icon" sizes="144x144" href={appleIcon144}>
-          <link rel="apple-touch-icon" sizes="152x152" href={appleIcon152}>
-          <link rel="apple-touch-icon" sizes="180x180" href={appleIcon180}>
-          <link rel="icon" type="image/png" sizes="192x192"  href={androidIcon192}>
-          <link rel="icon" type="image/png" sizes="16x16" href={favicon16}>
-          <link rel="icon" type="image/png" sizes="32x32" href={favicon32}>
-          <link rel="icon" type="image/png" sizes="96x96" href={favicon96}>
-          <link rel="manifest" href={manifest}>
+          <link rel="apple-touch-icon" sizes="57x57" href={appleIcon57} />
+          <link rel="apple-touch-icon" sizes="60x60" href={appleIcon60} />
+          <link rel="apple-touch-icon" sizes="72x72" href={appleIcon72} />
+          <link rel="apple-touch-icon" sizes="76x76" href={appleIcon76} />
+          <link rel="apple-touch-icon" sizes="114x114" href={appleIcon114} />
+          <link rel="apple-touch-icon" sizes="120x120" href={appleIcon120} />
+          <link rel="apple-touch-icon" sizes="144x144" href={appleIcon144} />
+          <link rel="apple-touch-icon" sizes="152x152" href={appleIcon152} />
+          <link rel="apple-touch-icon" sizes="180x180" href={appleIcon180} />
+          <link rel="icon" type="image/png" sizes="192x192"  href={androidIcon192} />
+          <link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
+          <link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
+          <link rel="icon" type="image/png" sizes="96x96" href={favicon96} />
+          <link rel="manifest" href={withPrefix('/favicons/manifest.json')} />
 
 
 
