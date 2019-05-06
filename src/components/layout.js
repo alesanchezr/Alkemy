@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import { withPrefix } from 'gatsby-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { TypographyStyle, GoogleFont } from 'react-typography'
 import typography from '../utils/typography'
@@ -37,7 +36,10 @@ import {
   faCheck,
   faChartPie,
   faChartLine,
-  faRocket
+  faRocket,
+  faMoneyBillAlt,
+  faGem,
+  faStar
 } from '@fortawesome/free-solid-svg-icons'
 import { faCalendarAlt,faCalendarPlus,faCheckCircle } from '@fortawesome/free-regular-svg-icons'
 
@@ -52,7 +54,10 @@ library.add(
   faCheckCircle,
   faChartPie,
   faChartLine,
-  faRocket
+  faRocket,
+  faMoneyBillAlt,
+  faGem,
+  faStar
 )
 
 const Layout = ({ children, location, pageTitle, renderHeaderSolid, headerTitle, headerType, bodyClasses }) => (

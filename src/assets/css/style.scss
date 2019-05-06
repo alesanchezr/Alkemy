@@ -1117,3 +1117,37 @@ div.spinContainer{
   width: fit-content;
   margin: 0 auto;
 }
+
+
+/* eCommerce Design */
+.gatsby-image-wrapper {
+    &.platforms{
+      height: 20vh;
+    }
+}
+
+.roadmap{
+  background: $alkemy_light_blue;
+}
+
+.innovativeDesign{
+  background: $alkemy_dark_blue;
+  color: white;
+}
+
+.roadmapCol{
+  &:after {
+    position: absolute;
+    color: rgba($alkemy_darkest_blue,.5);
+    content: "\f111  \f111  \f111";
+    font-family: "Font Awesome 5 Free";
+    font-size: 1.4em;
+    @include fluid-type($min_width, $max_width, $min_font, $mod_2*$mod_2 *$min_font);
+    font-weight: 900;
+    display: inline-flex;
+    right: -3.2em;
+    top: 20%;
+    transform: translateY(-50%);
+    white-space: pre;
+  }
+}

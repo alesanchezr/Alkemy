@@ -1067,4 +1067,45 @@ div.spinContainer {
   margin: 0 auto;
 }
 
+/* eCommerce Design */
+.gatsby-image-wrapper.platforms {
+  height: 20vh;
+}
+
+.roadmap {
+  background: #EAF3F8;
+}
+
+.innovativeDesign {
+  background: #0B3C5D;
+  color: white;
+}
+
+.roadmapCol:after {
+  position: absolute;
+  color: rgba(1, 3, 5, 0.5);
+  content: "  ";
+  font-family: "Font Awesome 5 Free";
+  font-size: 1.4em;
+  font-weight: 900;
+  display: inline-flex;
+  right: -3.2em;
+  top: 20%;
+  transform: translateY(-50%);
+  white-space: pre;
+}
+.roadmapCol:after {
+  font-size: 16px !important;
+}
+@media screen and (min-width: 320px) {
+  .roadmapCol:after {
+    font-size: calc(16px + 20 * ((100vw - 320px) / 2560)) !important;
+  }
+}
+@media screen and (min-width: 2880px) {
+  .roadmapCol:after {
+    font-size: 36px !important;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
