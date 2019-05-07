@@ -22,42 +22,7 @@ Layout props:
 */
 
 
-const WebDesign = ({data}) => {
-  // function for creating a list of Plan features
-  const planFeatures = (plan)=>{
-    return(
-      <ul className='fa-ul'>
-        {
-          (
-            plan.features.map(feature=>{
-              return <li><span className="fa-li"><FontAwesomeIcon icon="check" className="planFeatureIcon"/></span>{feature}</li>
-            })
-          )
-        }
-      </ul>
-    )
-  }
-
-  const planCards = (plans)=>{
-    return plans.map(plan=>{
-      return (
-        <Col className='my-auto plan'>
-          <Card className="my-4 p-4 planCard">
-            <h2 className="text-center mb-4">{plan.name}</h2>
-            <FontAwesomeIcon icon={plan.icon} size="3x" className="planIcon mx-auto my-auto"/>
-            <p className="text-center my-4">{plan.priceFrom}</p>
-            {planFeatures(plan)}
-          </Card>
-        </Col>
-      )
-    })
-  }
-
-  const disclaimers = (block)=>{
-    return block.disclaimers.map(note=>{
-      return <p><small>{note}</small></p>
-    })
-  }
+const DigitalMarketing = ({data}) => {
 
   return(
     <ScrollWrapper onWindowScroll={handleScroll}>
@@ -66,7 +31,7 @@ const WebDesign = ({data}) => {
           pageTitle="Responsive Web Design | Alkemy, Inc."
           renderHeaderSolid={true}
           headerTitle={[false,""]}
-          bodyClasses="webDesign"
+          bodyClasses="digitalMarketing"
           >
 
           {/* Page Hero */}
@@ -78,21 +43,17 @@ const WebDesign = ({data}) => {
           <section className="px-5 mt-4 mb-5">
             <Row>
               <Col>
-                <h1 className="mb-4">{data.webDesignJson.sections[0].blocks[0].heading}</h1>
-                <p className="mb-5">{data.webDesignJson.sections[0].blocks[0].content}</p>
+                <h1 className="mb-4">{data.digitalMarketingJson && data.digitalMarketingJson.sections[0].blocks[0].heading}</h1>
+                <p className="mb-5">{data.digitalMarketingJson && data.digitalMarketingJson.sections[0].blocks[0].content}</p>
               </Col>
             </Row>
             <Row className="flex-column-reverse flex-md-row">
               <Col xs={12} sm={6}>
-                <h2 className="mb-4">{data.webDesignJson.sections[0].blocks[1].heading}</h2>
-                <p className="mb-4">{data.webDesignJson.sections[0].blocks[1].content}</p>
-                <p className="mb-4">{data.webDesignJson.sections[0].blocks[2].content}</p>
+                <h2 className="mb-4">{data.digitalMarketingJson && data.digitalMarketingJson.sections[0].blocks[1].heading}</h2>
+                <p className="mb-4">{data.digitalMarketingJson && data.digitalMarketingJson.sections[0].blocks[1].content}</p>
                 <Row>
                   <Col xs={12} sm={6}>
-                    <Button href="/" className="btn btn-primary">View our Web Design Plans</Button>
-                  </Col>
-                  <Col xs={12} sm={6}>
-                    <Button href="/" className="btn btn-primary">Get a Custom Quote</Button>
+                    <Button href="/" className="btn btn-primary form-control">Let’s Grow My Traffic</Button>
                   </Col>
                 </Row>
               </Col>
@@ -104,27 +65,31 @@ const WebDesign = ({data}) => {
 
           {/* Section 2 */}
           <section className="deliverYourMessage mb-4 py-4">
-            <h1>{data.webDesignJson.sections[1].heading}</h1>
+            <h1>{data.digitalMarketingJson && data.digitalMarketingJson.sections[1].heading}</h1>
             <Row className="px-5 pt-4">
               <Col xs={12} md={6}>
                 <img src='' />
               </Col>
 
               <Col xs={12} md={6}>
-                <h2 className="mb-4">{data.webDesignJson.sections[1].blocks[0].heading}</h2>
-                <p className="text-white">{data.webDesignJson.sections[1].blocks[0].content}</p>
-                <Button href="/" className="btn btn-primary">View our Web Design Plans</Button>
+                <h2 className="mb-4">{data.digitalMarketingJson && data.digitalMarketingJson.sections[1].blocks[0].heading}</h2>
+                <p className="text-white">{data.digitalMarketingJson && data.digitalMarketingJson.sections[1].blocks[0].content}</p>
+                <p className="text-white">{data.digitalMarketingJson && data.digitalMarketingJson.sections[1].blocks[1].content}</p>
+                <p className="text-white">{data.digitalMarketingJson && data.digitalMarketingJson.sections[1].blocks[2].content}</p>
+                <Button href="/" className="btn btn-primary form-control">I’m Ready to Discuss My Project</Button>
               </Col>
             </Row>
           </section>
 
           {/* Section 3 */}
           <section className="wordpressDesign mb-4 py-4">
-            <h1>{data.webDesignJson.sections[1].heading}</h1>
+            <h1>{data.digitalMarketingJson && data.digitalMarketingJson.sections[1].heading}</h1>
             <Row className="px-5 pt-4">
               <Col xs={12} md={7}>
-                <h2 className="mb-4">{data.webDesignJson.sections[2].blocks[0].heading}</h2>
-                <p className="">{data.webDesignJson.sections[2].blocks[0].content}</p>
+                <h2 className="mb-4">{data.digitalMarketingJson && data.digitalMarketingJson.sections[2].blocks[0].heading}</h2>
+                <p className="">{data.digitalMarketingJson && data.digitalMarketingJson.sections[2].blocks[0].content}</p>
+                <p className="">{data.digitalMarketingJson && data.digitalMarketingJson.sections[2].blocks[1].content}</p>
+                <p className="">{data.digitalMarketingJson && data.digitalMarketingJson.sections[2].blocks[2].content}</p>
               </Col>
 
               <Col xs={12} md={5}>
@@ -136,16 +101,16 @@ const WebDesign = ({data}) => {
           {/* Section 4 */}
           <section className="webDesignPlans mb-4 py-4">
             <Row className="px-5">
-              <Col>
-                <h2 className="text-center mb-4">{data.webDesignJson.sections[3].blocks[0].heading}</h2>
-                <p>{data.webDesignJson.sections[3].blocks[0].content}</p>
+              <Col xs={12} md={5}>
+                <img src='' />
               </Col>
-            </Row>
-            <Row className="my-5 px-5" noGutters>
-              {planCards(data.webDesignJson.sections[4].plans)}
-            </Row>
-            <Row className="my-5 px-5" noGutters>
-              {disclaimers(data.webDesignJson.sections[3].blocks[0])}
+              <Col xs={12} md={7}>
+              <h2 className="text-left font-weight-normal">{data.digitalMarketingJson && data.digitalMarketingJson.sections[3].blocks[0].heading}</h2>
+              <h2 className="text-right mb-4">{data.digitalMarketingJson && data.digitalMarketingJson.sections[3].blocks[1].heading}</h2>
+              <p>{data.digitalMarketingJson && data.digitalMarketingJson.sections[3].blocks[2].content}</p>
+              <p>{data.digitalMarketingJson && data.digitalMarketingJson.sections[3].blocks[3].content}</p>
+              <p>{data.digitalMarketingJson && data.digitalMarketingJson.sections[3].blocks[4].content}</p>
+              </Col>
             </Row>
           </section>
 
@@ -163,19 +128,12 @@ const handleScroll = () => {
 
 export const query = graphql`
 {
-  webDesignJson{
+  digitalMarketingJson{
     sections{
       id
       blocks {
         heading
         content
-        disclaimers
-      }
-      plans {
-        name
-        icon
-        priceFrom
-        features
       }
     }
   }
@@ -183,4 +141,4 @@ export const query = graphql`
 `;
 
 
-export default WebDesign
+export default DigitalMarketing
