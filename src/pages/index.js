@@ -290,7 +290,6 @@ export const query = graphql`
       id
       blocks {
         heading
-        image
         content
       }
       heading

@@ -1,21 +1,21 @@
 module.exports = {
   siteMetadata: {
-    title: 'Alkemy, Inc.',
+    title: 'Alkemy, Inc.'
   },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,
-        path: `${__dirname}/src/`,
-      },
+        path: `${__dirname}/src/`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `page`,
-        path: `${__dirname}/src/content/pages/`,
-      },
+        path: `${__dirname}/src/content/pages/`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -23,14 +23,14 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/assets/images/`,
         publicPath: `${__dirname}/images/`
-      },
+      }
     },
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        includePaths: ["src/assets/css"],
-      },
+        includePaths: ["src/assets/css"]
+      }
     },
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
@@ -44,13 +44,13 @@ module.exports = {
         background_color: '#fff',
         theme_color: '#2bb3e5',
         display: 'minimal-ui',
-        icon: 'src/assets/images/favicons/favicon-32x32.png', // This path is relative to the root of the site.
-      },
+        icon: 'src/assets/images/favicons/favicon-32x32.png' // This path is relative to the root of the site.
+      }
     },
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography.js`,
+        pathToConfigModule: `src/utils/typography.js`
       }
     },
     {
@@ -62,7 +62,7 @@ module.exports = {
             options: {
               usePrettierrc: true,
               prettierOptions: {}
-            },
+            }
           },
           {
             resolve: `gatsby-remark-prismjs`,
@@ -86,7 +86,7 @@ module.exports = {
               // setting this to '{ sh: "bash" }' will let you use
               // the language "sh" which will highlight using the
               // bash highlighter.
-              aliases: { sh: "bash" },
+              aliases: { sh: "bash" }
             }
           },
           {
@@ -95,8 +95,8 @@ module.exports = {
               target: "_blank",
               rel: "nofollow"
             }
-          },
-        ],
+          }
+        ]
       }
     },
     'gatsby-plugin-offline',
@@ -109,8 +109,8 @@ module.exports = {
         mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
         mergeCachingHeaders: true, // boolean to turn off the default caching headers
         transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
-        generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
-      },
-    },
-  ],
+        generateMatchPathRewrites: true // boolean to turn off automatic creation of redirect rules for client only paths
+      }
+    }
+  ]
 }
