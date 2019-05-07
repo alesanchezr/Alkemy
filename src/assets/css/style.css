@@ -239,6 +239,12 @@ a {
   animation-duration: 1s;
 }
 
+@media screen and (min-width: 425px) {
+  .navbar-dark .navbar-brand {
+    margin-left: 1.8em;
+  }
+}
+
 .navbar-nav {
   font-size: 1.2em;
   line-height: 1em;
@@ -754,8 +760,8 @@ button:focus {
 
 .hamburger-box {
   z-index: 2002;
-  width: 40px;
-  height: 24px;
+  width: 30px;
+  height: 20px;
   display: inline-block;
   position: relative;
 }
@@ -768,7 +774,7 @@ button:focus {
 }
 
 .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
-  width: 40px;
+  width: 35px;
   height: 4px;
   background-color: #fff;
   border-radius: 4px;

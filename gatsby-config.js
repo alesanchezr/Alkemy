@@ -42,7 +42,7 @@ module.exports = {
         short_name: 'alkemyinc',
         start_url: '/',
         background_color: '#fff',
-        theme_color: '#663399',
+        theme_color: '#2bb3e5',
         display: 'minimal-ui',
         icon: 'src/assets/images/favicons/favicon-32x32.png', // This path is relative to the root of the site.
       },
