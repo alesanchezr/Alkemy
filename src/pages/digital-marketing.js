@@ -1,8 +1,7 @@
 import React, {Suspense} from 'react'
 import { graphql } from 'gatsby'
-import { Card, CardImg, CardText, CardImgOverlay,
-  CardTitle,CardBody, CardFooter, CardDeck, Button,
-  Col, Row, Form, FormGroup, Label, Input } from 'reactstrap'
+import Img from 'gatsby-image'
+import { Button, Col, Row } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Loading from '../components/loading.jsx'
 import Layout from '../components/layout'
@@ -36,21 +35,28 @@ const DigitalMarketing = ({data}) => {
 
           {/* Page Hero */}
           <section className='pageHero'>
-            <img src='' className='img-fluid mx-0 px-0'/>
+          {data.marketingHero.childImageSharp
+            && (
+            <Img
+              className="platforms"
+              fluid={data.marketingHero.childImageSharp.fluid}
+              alt="Alkemy knows the right languages and framworks to get the job done correctly." />
+            )
+          }
           </section>
 
           {/* Section 1 */}
-          <section className="px-5 mt-4 mb-5">
+          <section className="px-5 my-4">
             <Row>
               <Col>
                 <h1 className="mb-4">{data.digitalMarketingJson && data.digitalMarketingJson.sections[0].blocks[0].heading}</h1>
                 <p className="mb-5">{data.digitalMarketingJson && data.digitalMarketingJson.sections[0].blocks[0].content}</p>
               </Col>
             </Row>
-            <Row className="flex-column-reverse flex-md-row">
+            <Row>
               <Col xs={12} sm={6}>
                 <h2 className="mb-4">{data.digitalMarketingJson && data.digitalMarketingJson.sections[0].blocks[1].heading}</h2>
-                <p className="mb-4">{data.digitalMarketingJson && data.digitalMarketingJson.sections[0].blocks[1].content}</p>
+                <p className="mb-5">{data.digitalMarketingJson && data.digitalMarketingJson.sections[0].blocks[1].content}</p>
                 <Row>
                   <Col xs={12} sm={6}>
                     <Button href="/" className="btn btn-primary form-control">Let’s Grow My Traffic</Button>
@@ -58,17 +64,44 @@ const DigitalMarketing = ({data}) => {
                 </Row>
               </Col>
               <Col xs={12} sm={6}>
-                <img src='' className='my-5 md-my-auto img-fluid'/>
+              {data.seoGraphic.childImageSharp
+                && (
+                <Img
+                  imgStyle={{
+                    maxHeight:'350px',
+                    objectFit: 'contain',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    margin: '0'
+                  }}
+                  fluid={data.seoGraphic.childImageSharp.fluid}
+                  alt="Alkemy knows the right languages and framworks to get the job done correctly." />
+                )
+              }
               </Col>
             </Row>
           </section>
 
           {/* Section 2 */}
-          <section className="deliverYourMessage mb-4 py-4">
-            <h1>{data.digitalMarketingJson && data.digitalMarketingJson.sections[1].heading}</h1>
-            <Row className="px-5 pt-4">
+          <section className="deliverYourMessage mb-4">
+            <Row className="px-5 py-4 d-flex justify-content-center align-items-center">
               <Col xs={12} md={6}>
-                <img src='' />
+              {data.marketingImg.childImageSharp
+                && (
+                <Img
+                  imgStyle={{
+                    maxHeight:'auto',
+                    maxWidth: '600px',
+                    objectFit: 'contain',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%,-50%)',
+                    margin: '0'
+                  }}
+                  fluid={data.marketingImg.childImageSharp.fluid}
+                  alt="Alkemy knows the right languages and framworks to get the job done correctly." />
+                )
+              }
               </Col>
 
               <Col xs={12} md={6}>
@@ -93,7 +126,20 @@ const DigitalMarketing = ({data}) => {
               </Col>
 
               <Col xs={12} md={5}>
-                <img src='' />
+              {data.growthCharts.childImageSharp
+                && (
+                <Img
+                  imgStyle={{
+                    maxHeight:'auto',
+                    objectFit: 'contain',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    margin: '0'
+                  }}
+                  fluid={data.growthCharts.childImageSharp.fluid}
+                  alt="Alkemy knows the right languages and framworks to get the job done correctly." />
+                )
+              }
               </Col>
             </Row>
           </section>
@@ -102,7 +148,20 @@ const DigitalMarketing = ({data}) => {
           <section className="webDesignPlans mb-4 py-4">
             <Row className="px-5">
               <Col xs={12} md={5}>
-                <img src='' />
+              {data.socialMedia.childImageSharp
+                && (
+                <Img
+                  imgStyle={{
+                    maxHeight:'auto',
+                    objectFit: 'contain',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    margin: '0'
+                  }}
+                  fluid={data.socialMedia.childImageSharp.fluid}
+                  alt="Alkemy knows the right languages and framworks to get the job done correctly." />
+                )
+              }
               </Col>
               <Col xs={12} md={7}>
               <h2 className="text-left font-weight-normal">{data.digitalMarketingJson && data.digitalMarketingJson.sections[3].blocks[0].heading}</h2>
@@ -136,6 +195,21 @@ export const query = graphql`
         content
       }
     }
+  }
+  marketingHero: file(relativePath: {regex: "/digital-marketing-banner.png/"}) {
+    ...fluidImage
+  }
+  seoGraphic: file(relativePath: {regex: "/seo-marketing.png/"}) {
+    ...fluidImage
+  }
+  marketingImg: file(relativePath: {regex: "/marketingbtn.png/"}) {
+    ...fluidImage
+  }
+  growthCharts: file(relativePath: {regex: "/analytics-growth.jpg/"}) {
+    ...fluidImage
+  }
+  socialMedia: file(relativePath: {regex: "/social-media-marketing.jpg/"}) {
+    ...fluidImage
   }
 }
 `;
