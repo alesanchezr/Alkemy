@@ -33,8 +33,8 @@ const Header = ({ siteTitle, hideHeader, renderHeaderSolid }) =>(
     <header
       className={
         (renderHeaderSolid)
-          ?("header solid wow fadeInDown")
-          :("header wow fadeInDown")
+          ?("header solid fadeInDown")
+          :("header fadeInDown")
       }
     >
       <>

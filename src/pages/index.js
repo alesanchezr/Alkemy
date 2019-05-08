@@ -109,7 +109,7 @@ const HomePage = ({data}) => {
           <section className="servicesHome mt-auto mb-5">
             <Row>
               <Col className="col-lg-3 col-sm-6 col-12">
-                <Card className="border-0 p-3 wow bounceInUp cardOne h-100">
+                <Card className="border-0 p-3 bounceInUp cardOne h-100">
                 {data.webDesign.childImageSharp
                   && (
                   <Img
@@ -134,7 +134,7 @@ const HomePage = ({data}) => {
                 </Card>
               </Col>
               <Col className="col-lg-3 col-sm-6 col-12">
-                <Card className="border-0 p-3 wow bounceInUp cardTwo h-100">
+                <Card className="border-0 p-3 bounceInUp cardTwo h-100">
                 {data.webDevelopment.childImageSharp
                   && (
                   <Img
@@ -158,7 +158,7 @@ const HomePage = ({data}) => {
                 </Card>
               </Col>
               <Col className="col-lg-3 col-sm-6 col-12">
-                <Card className="border-0 p-3 wow bounceInUp cardThree h-100">
+                <Card className="border-0 p-3 bounceInUp cardThree h-100">
                   {data.eCommerce.childImageSharp
                     && (
                     <Img
@@ -182,7 +182,7 @@ const HomePage = ({data}) => {
                 </Card>
               </Col>
               <Col className="col-lg-3 col-sm-6 col-12">
-                <Card className="border-0 p-3 wow bounceInUp cardFour">
+                <Card className="border-0 p-3 bounceInUp cardFour">
                   {data.digitalMarketing.childImageSharp
                     && (
                     <Img
@@ -238,7 +238,7 @@ const HomePage = ({data}) => {
                 {data.ourPassion.childImageSharp
                   && (
                   <Img
-                    className="ourPassionImg wow slideInLeft"
+                    className="ourPassionImg slideInLeft"
                     fluid={data.ourPassion.childImageSharp.fluid}
                     alt="Discover our passion." />
                   )
