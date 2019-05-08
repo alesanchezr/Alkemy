@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { WOW } from '../utils/wow.js'
 
 class ScrollWrapper extends React.Component {
   constructor(props) {
@@ -11,9 +10,6 @@ class ScrollWrapper extends React.Component {
   componentDidMount(){
     if(typeof window !== 'undefined') {
       window.addEventListener('scroll',this.handleScroll)
-      new WOW({
-        live: false,
-      }).init()
     }
   }
 

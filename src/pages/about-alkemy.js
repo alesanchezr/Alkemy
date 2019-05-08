@@ -46,16 +46,14 @@ const AboutAlkemy = ({data}) => {
           <section className="px-5 mt-4 mb-5">
             <Row>
               <Col>
-                <h1 className="mb-4">{data.webDevelopmentJson.sections[0].blocks[0].heading}</h1>
-                <p className="mb-5">{data.webDevelopmentJson.sections[0].blocks[0].content}</p>
-                <p className="mb-5">{data.webDevelopmentJson.sections[0].blocks[1].content}</p>
+                <h1 className="mb-4">{data.aboutJson && data.aboutJson.sections[0].blocks[0].heading}</h1>
+                <p className="mb-5">{data.aboutJson && data.aboutJson.sections[0].blocks[0].content}</p>
               </Col>
             </Row>
             <Row className="flex-column-reverse flex-md-row">
               <Col xs={12} sm={6}>
-                <h2 className="mb-4">{data.webDevelopmentJson.sections[0].blocks[2].heading}</h2>
-                <p className="mb-4">{data.webDevelopmentJson.sections[0].blocks[2].content}</p>
-                <p className="mb-4">{data.webDevelopmentJson.sections[0].blocks[3].content}</p>
+                <h2 className="mb-4">{data.aboutJson && data.aboutJson.sections[0].blocks[1].heading}</h2>
+                <p className="mb-4">{data.aboutJson && data.aboutJson.sections[0].blocks[1].content}</p>
                 <Row>
                   <Col xs={12} sm={6}>
                     <Button onClick={handleDiscussClick} className="btn btn-primary">Let's Discuss My Project</Button>
@@ -77,7 +75,7 @@ const AboutAlkemy = ({data}) => {
 
           {/* Section 2 */}
           <section className="deliverYourMessage mb-4 py-4">
-            <h1>{data.webDevelopmentJson.sections[1].heading}</h1>
+            <h1>{data.aboutJson && data.aboutJson.sections[1].heading}</h1>
             <Row className="px-5 pt-4">
               <Col xs={12} md={6}>
               {data.webDevGraphic.childImageSharp
@@ -92,8 +90,8 @@ const AboutAlkemy = ({data}) => {
               </Col>
 
               <Col xs={12} md={6}>
-                <h2 className="mb-4">{data.webDevelopmentJson.sections[1].blocks[0].heading}</h2>
-                <p className="text-white">{data.webDevelopmentJson.sections[1].blocks[0].content}</p>
+                <h2 className="mb-4">{data.aboutJson && data.aboutJson.sections[1].blocks[0].heading}</h2>
+                <p className="text-white">{data.aboutJson && data.aboutJson.sections[1].blocks[0].content}</p>
                 <Button onClick={handleDiscussClick} className="btn btn-primary">Let's Discuss My Project</Button>
               </Col>
             </Row>
@@ -103,8 +101,8 @@ const AboutAlkemy = ({data}) => {
           <section className="wordpressDesign mb-4 py-4">
             <Row className="px-5 pt-4">
               <Col xs={12} md={7}>
-                <h2 className="mb-4">{data.webDevelopmentJson.sections[2].blocks[0].heading}</h2>
-                <p className="">{data.webDevelopmentJson.sections[2].blocks[0].content}</p>
+                <h2 className="mb-4">{data.aboutJson && data.aboutJson.sections[2].blocks[0].heading}</h2>
+                <p className="">{data.aboutJson && data.aboutJson.sections[2].blocks[0].content}</p>
               </Col>
 
               <Col xs={12} md={5}>

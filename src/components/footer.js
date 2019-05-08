@@ -56,7 +56,7 @@ const _subLinks = [
 ]
 
 const Footer = (props) => (
-    <footer className="footer wow fadeInUp p-5">
+    <footer className="footer fadeInUp p-5">
         <Row>
           {renderLinkAreas(_menuArray)}
         </Row>
