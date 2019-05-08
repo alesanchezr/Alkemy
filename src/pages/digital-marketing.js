@@ -1,4 +1,4 @@
-import React, {Suspense} from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { Button, Col, Row } from 'reactstrap'
@@ -6,9 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Loading from '../components/loading.jsx'
 import Layout from '../components/layout'
 import ScrollWrapper from '../components/scrollWrapper.jsx'
+import loadable from '@loadable/component'
 
-
-const BuildYourDream = React.lazy(() => import('../components/BuildYourDream.jsx'));
+const BuildYourDream = loadable(() => import('../components/BuildYourDream.jsx'));
 
 /*
 Layout props:
@@ -22,10 +22,8 @@ Layout props:
 
 
 const DigitalMarketing = ({data}) => {
-
-  return(
+    return(
     <ScrollWrapper onWindowScroll={handleScroll}>
-      <Suspense fallback={<Loading size='2x'/>}>
         <Layout
           pageTitle="Responsive Web Design | Alkemy, Inc."
           renderHeaderSolid={true}
@@ -173,9 +171,8 @@ const DigitalMarketing = ({data}) => {
             </Row>
           </section>
 
-          <BuildYourDream / >
+          <BuildYourDream fallback={<Loading size='2x'/>}/ >
         </Layout>
-      </Suspense>
     </ScrollWrapper>
   )
 }

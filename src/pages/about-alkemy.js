@@ -8,7 +8,7 @@ import Layout from '../components/layout'
 import ScrollWrapper from '../components/scrollWrapper.jsx'
 import loadable from '@loadable/component'
 
-const BuildYourDream = loadable(() => import('../components/BuildYourDream.jsx'))
+const BuildYourDream = loadable(() => import('../components/BuildYourDream.jsx'));
 /*
 Layout props:
   pageTitle: SEO friendly title for the title bar
@@ -20,8 +20,8 @@ Layout props:
 */
 
 
-const WebDevelopment = ({data}) => {
-  return(
+const AboutAlkemy = ({data}) => {
+    return(
     <ScrollWrapper onWindowScroll={handleScroll}>
         <Layout
           pageTitle="Custom Web Development | Alkemy, Inc."
@@ -121,7 +121,7 @@ const WebDevelopment = ({data}) => {
           </section>
 
           <section ref={dreamForm}>
-            <BuildYourDream fallback={<Loading size='2x'/>} />
+            <BuildYourDream fallback={<Loading size='2x'/>}/>
           </section>
         </Layout>
     </ScrollWrapper>
@@ -143,7 +143,7 @@ const handleScroll = () => {
 
 export const query = graphql`
 {
-  webDevelopmentJson{
+  aboutJson{
     sections{
       id
       blocks {
@@ -168,4 +168,4 @@ export const query = graphql`
 `;
 
 
-export default WebDevelopment
+export default AboutAlkemy
