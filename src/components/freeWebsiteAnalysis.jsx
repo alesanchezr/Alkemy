@@ -5,10 +5,12 @@ import ThankYou from './thankYou.jsx'
 import ReCAPTCHA from "react-google-recaptcha";
 
 const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY;
-window.recaptchaOptions = {
-  useRecaptchaNet: true,
-  removeOnUnmount: false,
-};
+if(typeof window !=='undefined'){
+  window.recaptchaOptions = {
+    useRecaptchaNet: true,
+    removeOnUnmount: false,
+  };
+}
 
 export default class FreeWebsiteAnalysis extends React.Component {
   constructor(){

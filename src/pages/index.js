@@ -8,7 +8,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Layout from '../components/layout.js'
 import Loading from '../components/loading.jsx'
 import ScrollWrapper from '../components/scrollWrapper.jsx'
-import loadable from '@loadable/component'
+import BlogWidget from '../components/BlogWidget.jsx'
+import ReactCounter from '../components/counter.jsx'
+import FreeWebsiteAnalysis from '../components/freeWebsiteAnalysis.jsx'
 
 // Carousel
 import VideoCarousel from '../components/videoCarousel'
@@ -23,10 +25,6 @@ import video_2_mp4 from '../assets/video/aloha-mundo/aloha-mundo.mp4'
 import video_3_jpg from '../assets/video/office-day/office-day.jpg'
 import video_3_mp4 from '../assets/video/office-day/office-day.mp4'
 
-
-const BlogWidget = loadable(() => import('../components/BlogWidget.jsx'));
-const ReactCounter = loadable(() => import('../components/counter.jsx'));
-const FreeWebsiteAnalysis = loadable(() => import('../components/freeWebsiteAnalysis.jsx'));
 
 
 /* Define Slide Array
@@ -211,22 +209,22 @@ const HomePage = ({data}) => {
             <h1>{data.homepageJson.sections[3].heading}</h1>
             <Row className="px-5 pt-4">
               <Col xs={12} sm={6} lg={3}>
-                <ReactCounter theNumber={firstNumber} fallback={<Loading size='2x'/>}/>
+                <ReactCounter theNumber={firstNumber} />
                 <p className="text-muted">{data.homepageJson.sections[3].stats[0].title}</p>
               </Col>
 
               <Col xs={12} sm={6} lg={3}>
-                <ReactCounter theNumber={secondNumber} fallback={<Loading size='2x'/>}/>
+                <ReactCounter theNumber={secondNumber} />
                 <p className="text-muted">{data.homepageJson.sections[3].stats[1].title}</p>
               </Col>
 
               <Col xs={12} sm={6} lg={3}>
-                <ReactCounter theNumber={thirdNumber} fallback={<Loading size='2x'/>}/>
+                <ReactCounter theNumber={thirdNumber} />
                 <p className="text-muted">{data.homepageJson.sections[3].stats[2].title}</p>
               </Col>
 
               <Col xs={12} sm={6} lg={3}>
-                <ReactCounter theNumber={fourthNumber} fallback={<Loading size='2x'/>}/>
+                <ReactCounter theNumber={fourthNumber} />
                 <p className="text-muted">{data.homepageJson.sections[3].stats[3].title}</p>
               </Col>
             </Row>
@@ -253,10 +251,10 @@ const HomePage = ({data}) => {
             </div>
           </section>
           <section className="recentBlogPosts">
-            <BlogWidget posts={data.allMarkdownRemark.edges} fallback={<Loading size='2x'/>}/>
+            <BlogWidget posts={data.allMarkdownRemark.edges} />
           </section>
 
-          <FreeWebsiteAnalysis fallback={<Loading size='2x'/>}/ >
+          <FreeWebsiteAnalysis />
         </Layout>
     </ScrollWrapper>
   )

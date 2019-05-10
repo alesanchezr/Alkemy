@@ -6,9 +6,8 @@ import { Button, Col, Row } from 'reactstrap'
 import Loading from '../components/loading.jsx'
 import Layout from '../components/layout'
 import ScrollWrapper from '../components/scrollWrapper.jsx'
-import loadable from '@loadable/component'
+import BuildYourDream from '../components/BuildYourDream.jsx'
 
-const BuildYourDream = loadable(() => import('../components/BuildYourDream.jsx'))
 /*
 Layout props:
   pageTitle: SEO friendly title for the title bar
@@ -121,7 +120,7 @@ const WebDevelopment = ({data}) => {
           </section>
 
           <section ref={dreamForm}>
-            <BuildYourDream fallback={<Loading size='2x'/>} />
+            <BuildYourDream />
           </section>
         </Layout>
     </ScrollWrapper>

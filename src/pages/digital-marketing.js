@@ -6,9 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Loading from '../components/loading.jsx'
 import Layout from '../components/layout'
 import ScrollWrapper from '../components/scrollWrapper.jsx'
-import loadable from '@loadable/component'
-
-const BuildYourDream = loadable(() => import('../components/BuildYourDream.jsx'));
+import BuildYourDream from '../components/BuildYourDream.jsx'
 
 /*
 Layout props:
@@ -171,7 +169,7 @@ const DigitalMarketing = ({data}) => {
             </Row>
           </section>
 
-          <BuildYourDream fallback={<Loading size='2x'/>}/ >
+          <BuildYourDream / >
         </Layout>
     </ScrollWrapper>
   )
