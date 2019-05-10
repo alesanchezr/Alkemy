@@ -104,9 +104,9 @@ const EcommerceDesign = ({data}) => {
           <section className="px-5 mt-4 mb-5">
             <Row>
               <Col>
-                <h1 className="mb-4">{data.ecommDesignJson.sections[0].blocks[0].heading}</h1>
-                <p className="mb-4">{data.ecommDesignJson.sections[0].blocks[0].content}</p>
-                <p className="mb-5">{data.ecommDesignJson.sections[0].blocks[1].content}</p>
+                <h1 className="mb-4">{data.ecommDesignJson && data.ecommDesignJson.sections[0].blocks[0].heading}</h1>
+                <p className="mb-4">{data.ecommDesignJson && data.ecommDesignJson.sections[0].blocks[0].content}</p>
+                <p className="mb-5">{data.ecommDesignJson && data.ecommDesignJson.sections[0].blocks[1].content}</p>
               </Col>
             </Row>
 
@@ -193,7 +193,7 @@ const EcommerceDesign = ({data}) => {
 
           {/* Section 2 */}
           <section className="roadmap my-4 py-5 px-2">
-            <h2 className="my-4 text-center">{data.ecommDesignJson.sections[2].blocks[0].heading}</h2>
+            <h2 className="my-4 text-center">{data.ecommDesignJson && data.ecommDesignJson.sections[2].blocks[0].heading}</h2>
             <Row className="justify-content-around">
               <Col xs={12} md={2} className="roadmapCol">
                 <>
@@ -213,8 +213,8 @@ const EcommerceDesign = ({data}) => {
                     )
                   }
                   <div>
-                    <h3 className="my-4 text-center font-weight-normal">{data.ecommDesignJson.sections[2].blocks[0].steps[0].heading}</h3>
-                    <p className="mb-5">{data.ecommDesignJson.sections[2].blocks[0].steps[0].content}</p>
+                    <h3 className="my-4 text-center font-weight-normal">{data.ecommDesignJson && data.ecommDesignJson.sections[2].blocks[0].steps[0].heading}</h3>
+                    <p className="mb-5">{data.ecommDesignJson && data.ecommDesignJson.sections[2].blocks[0].steps[0].content}</p>
                   </div>
                 </>
               </Col>
@@ -237,8 +237,8 @@ const EcommerceDesign = ({data}) => {
                     )
                   }
                   <div>
-                    <h3 className="my-4 text-center font-weight-normal">{data.ecommDesignJson.sections[2].blocks[0].steps[1].heading}</h3>
-                    <p className="mb-5">{data.ecommDesignJson.sections[2].blocks[0].steps[1].content}</p>
+                    <h3 className="my-4 text-center font-weight-normal">{data.ecommDesignJson && data.ecommDesignJson.sections[2].blocks[0].steps[1].heading}</h3>
+                    <p className="mb-5">{data.ecommDesignJson && data.ecommDesignJson.sections[2].blocks[0].steps[1].content}</p>
                   </div>
                 </>
               </Col>
@@ -261,8 +261,8 @@ const EcommerceDesign = ({data}) => {
                     )
                   }
                   <div>
-                    <h3 className="my-4 text-center font-weight-normal">{data.ecommDesignJson.sections[2].blocks[0].steps[2].heading}</h3>
-                    <p className="mb-5">{data.ecommDesignJson.sections[2].blocks[0].steps[2].content}</p>
+                    <h3 className="my-4 text-center font-weight-normal">{data.ecommDesignJson && data.ecommDesignJson.sections[2].blocks[0].steps[2].heading}</h3>
+                    <p className="mb-5">{data.ecommDesignJson && data.ecommDesignJson.sections[2].blocks[0].steps[2].content}</p>
                   </div>
                 </>
               </Col>
@@ -285,8 +285,8 @@ const EcommerceDesign = ({data}) => {
                     )
                   }
                   <div>
-                    <h3 className="my-4 text-center font-weight-normal">{data.ecommDesignJson.sections[2].blocks[0].steps[3].heading}</h3>
-                    <p className="mb-5">{data.ecommDesignJson.sections[2].blocks[0].steps[3].content}</p>
+                    <h3 className="my-4 text-center font-weight-normal">{data.ecommDesignJson && data.ecommDesignJson.sections[2].blocks[0].steps[3].heading}</h3>
+                    <p className="mb-5">{data.ecommDesignJson && data.ecommDesignJson.sections[2].blocks[0].steps[3].content}</p>
                   </div>
                 </>
               </Col>
@@ -309,8 +309,8 @@ const EcommerceDesign = ({data}) => {
                     )
                   }
                   <div>
-                    <h3 className="my-4 text-center font-weight-normal">{data.ecommDesignJson.sections[2].blocks[0].steps[4].heading}</h3>
-                    <p className="mb-5">{data.ecommDesignJson.sections[2].blocks[0].steps[4].content}</p>
+                    <h3 className="my-4 text-center font-weight-normal">{data.ecommDesignJson && data.ecommDesignJson.sections[2].blocks[0].steps[4].heading}</h3>
+                    <p className="mb-5">{data.ecommDesignJson && data.ecommDesignJson.sections[2].blocks[0].steps[4].content}</p>
                   </div>
                 </>
               </Col>
@@ -405,8 +405,8 @@ const EcommerceDesign = ({data}) => {
               }
               </Col>
               <Col xs={12} md={7}>
-                <h2 className="mb-4">{data.ecommDesignJson.sections[3].blocks[0].heading}</h2>
-                <p className="">{data.ecommDesignJson.sections[3].blocks[0].content}</p>
+                <h2 className="mb-4">{data.ecommDesignJson &&data.ecommDesignJson.sections[3].blocks[0].heading}</h2>
+                <p className="">{data.ecommDesignJson &&data.ecommDesignJson.sections[3].blocks[0].content}</p>
               </Col>
             </Row>
           </section>
