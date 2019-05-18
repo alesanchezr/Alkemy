@@ -6,7 +6,6 @@ import { Card, CardText, CardImgOverlay,CardTitle,
   CardBody, CardFooter, Button, Col, Row } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Layout from '../components/layout.js'
-import Loading from '../components/loading.jsx'
 import ScrollWrapper from '../components/scrollWrapper.jsx'
 import BlogWidget from '../components/BlogWidget.jsx'
 import ReactCounter from '../components/counter.jsx'

@@ -183,9 +183,11 @@ export default class ReactNavbar extends React.Component {
     return (
       <>
         <Navbar fixed='top' expand="lg" dark>
-          <NavbarBrand href="/" className="mr-lg-auto">
-            <img className="my-auto" src={alkemyLogo} alt="Alkemy, Inc." />
-          </NavbarBrand>
+          <Link to="/">
+            <NavbarBrand className="mr-lg-auto">
+              <img className="my-auto" src={alkemyLogo} alt="Alkemy, Inc." />
+            </NavbarBrand>
+          </Link>
           <NavbarToggler
             onClickCapture={this.toggleMobileMenu}
             className={this.state.togglerClasses}

@@ -24,7 +24,7 @@
    if(!shell.test('-d', 'public/images')){
      shell.mkdir("public/images")
    }else{
-     shell.cp("-r", "src/assets/images/*", "public/images")
+     shell.cp("-r", "src/assets/images", "public/images")
    }
 
    if(shell.test('-f', 'src/pages/netlifyneedsthis.html')) shell.cp("-r", "src/pages/netlifyneedsthis.html", "public")
@@ -59,6 +59,7 @@
    const { createPage } = actions
    const blogPost = path.resolve("./src/templates/blog-post.js")
    const tagTemplate = path.resolve("./src/templates/tags.js")
+   const tagIndexTemplate = path.resolve("./src/templates/tagIndex.js")
 
    return graphql(`
      {
