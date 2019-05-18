@@ -20,7 +20,9 @@ const typography = new Typography({
     "Arial",
     "sans-serif"
   ],
-  scaleRatio: 2,
+  scaleRatio: 5 / 2,
 })
 
 export default typography
+export const rhythm = typography.rhythm
+export const scale = typography.scale

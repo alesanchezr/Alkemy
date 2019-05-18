@@ -7,6 +7,7 @@ import Loading from '../components/loading.jsx'
 import Layout from '../components/layout'
 import ScrollWrapper from '../components/scrollWrapper.jsx'
 import BuildYourDream from '../components/BuildYourDream.jsx'
+import SEO from "../components/seo"
 
 /*
 Layout props:
@@ -23,11 +24,11 @@ const WebDevelopment = ({data}) => {
   return(
     <ScrollWrapper onWindowScroll={handleScroll}>
         <Layout
-          pageTitle="Custom Web Development | Alkemy, Inc."
           renderHeaderSolid={true}
           headerTitle={[false,""]}
           bodyClasses="webDesign"
           >
+          <SEO title="Best Quality Software Development, Web Design, eCommerce Design, and Marketing" />
 
           {/* Page Hero */}
           <section className='pageHero'>
@@ -155,13 +156,13 @@ export const query = graphql`
     ...fluidImage
   }
   webDevFlasks: file(relativePath: {regex: "/web-dev.png/"}) {
-    ...fluidImage
+    ...fluidImageSmall
   }
   webDevGraphic: file(relativePath: {regex: "/developmentbtn.png/"}) {
-    ...fluidImage
+    ...fluidImageSmall
   }
   codeScreen: file(relativePath: {regex: "/code-screen.jpg/"}) {
-    ...fluidImage
+    ...fluidImageSmall
   }
 }
 `;

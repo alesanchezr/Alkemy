@@ -1,15 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: 'Alkemy, Inc.'
+    title: `Alkemy, Inc.`,
+    description: `Make your next Web Design or Software Development project a success with Alkemy!`,
+    author: `@alkemydev`,
   },
   plugins: [
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `src`,
-        path: `${__dirname}/src/`
-      }
-    },
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -20,32 +16,32 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/assets/images/`,
-        publicPath: `${__dirname}/images/`
+        name: `posts`,
+        path: `${__dirname}/src/content/posts/`
       }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/assets/images`,
+        publicPath: `${__dirname}/images/`
+      },
     },
     `gatsby-transformer-json`,
-    {
-      resolve: `gatsby-plugin-sass`,
-      options: {
-        includePaths: ["src/assets/css"]
-      }
-    },
-    'gatsby-plugin-react-helmet',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Alkemy, Inc.',
-        short_name: 'alkemyinc',
-        start_url: '/',
-        background_color: '#fff',
-        theme_color: '#2bb3e5',
-        display: 'minimal-ui',
-        icon: 'src/assets/images/favicons/favicon-32x32.png' // This path is relative to the root of the site.
-      }
+        name: `Alkemy, Inc.`,
+        short_name: `alkemyinc`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#2bb3e5`,
+        display: `minimal-ui`,
+        icon: `src/assets/images/favicons/favicon-32x32.png`, // This path is relative to the root of the site.
+      },
     },
     {
       resolve: `gatsby-plugin-typography`,
@@ -92,8 +88,6 @@ module.exports = {
         ]
       }
     },
-    'gatsby-plugin-offline',
-    'gatsby-plugin-netlify',
-    'gatsby-plugin-netlify-cache'
-  ]
+    `gatsby-plugin-offline`,
+  ],
 }

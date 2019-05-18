@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { fluidImage, fluidImageSmall } from '../utils/utils.js'
 import Img from 'gatsby-image'
 import { Button, Col, Row } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -195,16 +196,16 @@ export const query = graphql`
     ...fluidImage
   }
   seoGraphic: file(relativePath: {regex: "/seo-marketing.png/"}) {
-    ...fluidImage
+    ...fluidImageSmall
   }
   marketingImg: file(relativePath: {regex: "/marketingbtn.png/"}) {
-    ...fluidImage
+    ...fluidImageSmall
   }
   growthCharts: file(relativePath: {regex: "/analytics-growth.jpg/"}) {
-    ...fluidImage
+    ...fluidImageSmall
   }
   socialMedia: file(relativePath: {regex: "/social-media-marketing.jpg/"}) {
-    ...fluidImage
+    ...fluidImageSmall
   }
 }
 `;

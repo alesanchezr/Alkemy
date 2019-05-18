@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import '../utils/utils.js'
+import { fluidImage, fluidImageSmall } from '../utils/utils.js'
 import { Button, Col, Row } from 'reactstrap'
 import Loading from '../components/loading.jsx'
 import Layout from '../components/layout'
@@ -153,13 +153,13 @@ export const query = graphql`
     ...fluidImage
   }
   webDevFlasks: file(relativePath: {regex: "/web-dev.png/"}) {
-    ...fluidImage
+    ...fluidImageSmall
   }
   webDevGraphic: file(relativePath: {regex: "/developmentbtn.png/"}) {
-    ...fluidImage
+    ...fluidImageSmall
   }
   codeScreen: file(relativePath: {regex: "/code-screen.jpg/"}) {
-    ...fluidImage
+    ...fluidImageSmall
   }
 }
 `;

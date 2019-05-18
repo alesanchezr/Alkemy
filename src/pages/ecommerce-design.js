@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import '../utils/utils.js'
+import { fluidImage, fluidImageSmall, fluidImageXS } from '../utils/utils.js'
 import { Card, Button, Col, Row } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Loading from '../components/loading.jsx'
@@ -487,46 +487,46 @@ export const query = graphql`
     ...fluidImage
   }
   dcartLogo: file(relativePath: {regex: "/3dcart-logo.png/"}) {
-    ...fluidImage
+    ...fluidImageXS
   }
   bigcommerceLogo: file(relativePath: {regex: "/bigcommerce-logo.png/"}) {
-    ...fluidImage
+    ...fluidImageXS
   }
   shopifyLogo: file(relativePath: {regex: "/shopify-logo.png/"}) {
-    ...fluidImage
+    ...fluidImageXS
   }
   wordpressLogo: file(relativePath: {regex: "/wordpress-logo-horiz.png/"}) {
-    ...fluidImage
+    ...fluidImageXS
   }
   discoveryIcon: file(relativePath: {regex: "/discovery-icon.png/"}) {
-    ...fluidImage
+    ...fluidImageXS
   }
   designIcon: file(relativePath: {regex: "/design-icon.png/"}) {
-    ...fluidImage
+    ...fluidImageXS
   }
   codeIcon: file(relativePath: {regex: "/code-icon.png/"}) {
-    ...fluidImage
+    ...fluidImageXS
   }
   testIcon: file(relativePath: {regex: "/test-icon.png/"}) {
-    ...fluidImage
+    ...fluidImageXS
   }
   launchIcon: file(relativePath: {regex: "/launch-icon.png/"}) {
-    ...fluidImage
+    ...fluidImageXS
   }
   dcartPartner: file(relativePath: {regex: "/3dcart-certified-partner.png/"}) {
-    ...fluidImage
+    ...fluidImageXS
   }
   dcartExpert: file(relativePath: {regex: "/3dcart-certified-expert.png/"}) {
-    ...fluidImage
+    ...fluidImageXS
   }
   shopifyPartner: file(relativePath: {regex: "/shopify-partner.png/"}) {
-    ...fluidImage
+    ...fluidImageXS
   }
   bigcommercePartner: file(relativePath: {regex: "/bigcommerce-partner.png/"}) {
-    ...fluidImage
+    ...fluidImageXS
   }
   ecommWebDesign: file(relativePath: {regex: "/ecommerce-website-design.jpg/"}) {
-    ...fluidImage
+    ...fluidImageSmall
   }
 }
 `;

@@ -11,6 +11,7 @@ import ScrollWrapper from '../components/scrollWrapper.jsx'
 import BlogWidget from '../components/BlogWidget.jsx'
 import ReactCounter from '../components/counter.jsx'
 import FreeWebsiteAnalysis from '../components/freeWebsiteAnalysis.jsx'
+import SEO from "../components/seo"
 
 // Carousel
 import VideoCarousel from '../components/videoCarousel'
@@ -67,10 +68,10 @@ const HomePage = ({data}) => {
   return(
     <ScrollWrapper onWindowScroll={handleScroll}>
         <Layout
-          pageTitle="Alkemy, Inc. | Web Design, Development, eCommerce, and Marketing"
           headerTitle={[false,""]}
           bodyClasses="home"
           >
+          <SEO title="Best Quality Software Development, Web Design, eCommerce Design, and Marketing" />
 
           {/* Section 1 - Hero */}
           <section className="homeHero">
@@ -313,19 +314,19 @@ export const query = graphql`
     }
   }
   webDesign: file(relativePath: {regex: "/responsive.png/"}) {
-    ...fluidImage
+    ...fluidImageSmall
   }
   webDevelopment: file(relativePath: {regex: "/development.png/"}) {
-    ...fluidImage
+    ...fluidImageSmall
   }
   eCommerce: file(relativePath: {regex: "/ecommerce.png/"}) {
-    ...fluidImage
+    ...fluidImageSmall
   }
   digitalMarketing: file(relativePath: {regex: "/marketing.png/"}) {
-    ...fluidImage
+    ...fluidImageSmall
   }
-  ourPassion: file(relativePath: {regex: "/our-passion.jpeg/"}) {
-    ...fluidImage
+  ourPassion: file(relativePath: {regex: "/our-passion.jpg/"}) {
+    ...fluidImageSmall
   }
 }
 `;

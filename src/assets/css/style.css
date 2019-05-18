@@ -508,7 +508,7 @@ a {
 }
 .footer:after {
   content: "";
-  background: url("../images/connectwork.png");
+  background: url("../images/footerbg.png");
   position: absolute;
   top: 0;
   right: 0;
