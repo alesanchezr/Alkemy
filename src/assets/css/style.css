@@ -14,50 +14,50 @@
 /* Transition Mixin */
 /* Fonts */
 html {
-  font-size: 16px !important;
+  font-size: 16px;
 }
 @media screen and (min-width: 320px) {
   html {
-    font-size: calc(16px + 4 * ((100vw - 320px) / 2560)) !important;
+    font-size: calc(16px + 8 * ((100vw - 320px) / 1960));
   }
 }
-@media screen and (min-width: 2880px) {
+@media screen and (min-width: 2280px) {
   html {
-    font-size: 20px !important;
+    font-size: 24px;
   }
 }
 
-h1 {
+h1, .cover-text-1b {
   font-size: 2.0736rem;
 }
-h1 {
-  font-size: 27.648px !important;
+h1, .cover-text-1b {
+  font-size: 27.648px;
 }
 @media screen and (min-width: 320px) {
-  h1 {
-    font-size: calc(27.648px + 26.352 * ((100vw - 320px) / 2560)) !important;
+  h1, .cover-text-1b {
+    font-size: calc(27.648px + 26.352 * ((100vw - 320px) / 1960));
   }
 }
-@media screen and (min-width: 2880px) {
-  h1 {
-    font-size: 54px !important;
+@media screen and (min-width: 2280px) {
+  h1, .cover-text-1b {
+    font-size: 54px;
   }
 }
 
-h2 {
+h2, .cover-text-1a {
   font-size: 1.728rem;
 }
-h2 {
-  font-size: 27.648px !important;
+h2, .cover-text-1a {
+  font-size: 27.648px;
 }
 @media screen and (min-width: 320px) {
-  h2 {
-    font-size: calc(27.648px + 26.352 * ((100vw - 320px) / 2560)) !important;
+  h2, .cover-text-1a {
+    font-size: calc(27.648px + 26.352 * ((100vw - 320px) / 1960));
   }
 }
-@media screen and (min-width: 2880px) {
-  h2 {
-    font-size: 54px !important;
+@media screen and (min-width: 2280px) {
+  h2, .cover-text-1a {
+    font-size: 54px;
   }
 }
 
@@ -65,16 +65,16 @@ h3 {
   font-size: 1.44rem;
 }
 h3 {
-  font-size: 23.04px !important;
+  font-size: 23.04px;
 }
 @media screen and (min-width: 320px) {
   h3 {
-    font-size: calc(23.04px + 12.96 * ((100vw - 320px) / 2560)) !important;
+    font-size: calc(23.04px + 12.96 * ((100vw - 320px) / 1960));
   }
 }
-@media screen and (min-width: 2880px) {
+@media screen and (min-width: 2280px) {
   h3 {
-    font-size: 36px !important;
+    font-size: 36px;
   }
 }
 
@@ -134,7 +134,7 @@ body.blog section.blog-post-container {
 }
 
 /* Bootstrap Override */
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+.h1, .h2, .h3, .h4, .h5, .h6, h1, .cover-text-1b, h2, .cover-text-1a, h3, h4, h5, h6 {
   font-weight: 600 !important;
 }
 
@@ -299,14 +299,55 @@ a {
   left: 3.5vw;
   transform: translateY(-20%);
 }
+@media screen and (max-width: 680px) {
+  .cover-text {
+    top: 35%;
+    left: 0;
+    padding: 1.5em;
+  }
+}
 
 .cover-text-1a {
-  font-size: 3em;
+  font-size: 27.648px;
+}
+@media screen and (min-width: 320px) {
+  .cover-text-1a {
+    font-size: calc(27.648px + 53.352 * ((100vw - 320px) / 1960));
+  }
+}
+@media screen and (min-width: 2280px) {
+  .cover-text-1a {
+    font-size: 81px;
+  }
+}
+@media screen and (max-width: 680px) {
+  .cover-text-1a {
+    font-size: 1.5em;
+    line-height: 1em;
+  }
 }
 
 .cover-text-1b {
-  font-weight: bold;
-  font-size: 7em;
+  line-height: 2em;
+}
+.cover-text-1b {
+  font-size: 27.648px;
+}
+@media screen and (min-width: 320px) {
+  .cover-text-1b {
+    font-size: calc(27.648px + 134.352 * ((100vw - 320px) / 1960));
+  }
+}
+@media screen and (min-width: 2280px) {
+  .cover-text-1b {
+    font-size: 162px;
+  }
+}
+@media screen and (max-width: 680px) {
+  .cover-text-1b {
+    font-size: 3.5em;
+    line-height: 1.1em;
+  }
 }
 
 .cover-text-1a,
@@ -756,13 +797,13 @@ section.statsCounter {
   background: #0B3C5D;
   color: white;
 }
-section.statsCounter h1:first-child {
+section.statsCounter h1:first-child, section.statsCounter .cover-text-1b:first-child {
   margin-top: 2rem;
 }
 section.statsCounter .row div {
   margin-bottom: 1.5rem;
 }
-section.statsCounter .row div h1 {
+section.statsCounter .row div h1, section.statsCounter .row div .cover-text-1b {
   margin-top: unset;
   color: #F0C611;
 }
@@ -884,7 +925,7 @@ section.deliverYourMessage {
 .plan .planCard .planIcon {
   color: #2bb3e5;
 }
-.plan .planCard h2, .plan .planCard p {
+.plan .planCard h2, .plan .planCard .cover-text-1a, .plan .planCard p {
   color: #0B3C5D;
 }
 .plan:nth-of-type(2) .planCard {
@@ -968,16 +1009,16 @@ div.spinContainer {
   white-space: pre;
 }
 .roadmapCol:after {
-  font-size: 16px !important;
+  font-size: 16px;
 }
 @media screen and (min-width: 320px) {
   .roadmapCol:after {
-    font-size: calc(16px + 20 * ((100vw - 320px) / 2560)) !important;
+    font-size: calc(16px + 20 * ((100vw - 320px) / 1960));
   }
 }
-@media screen and (min-width: 2880px) {
+@media screen and (min-width: 2280px) {
   .roadmapCol:after {
-    font-size: 36px !important;
+    font-size: 36px;
   }
 }
 

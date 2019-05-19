@@ -20,7 +20,7 @@ const typography = new Typography({
     "Arial",
     "sans-serif"
   ],
-  scaleRatio: 5 / 2,
+  scaleRatio: 2,
 })
 
 export default typography

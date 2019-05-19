@@ -80,8 +80,10 @@ const HomePage = ({data}) => {
               <VideoCarousel slides={slideArray} showIndicators={false} >
                 {/* Cover Text */}
                 <div className="cover-text">
-                  <div className="cover-text-1a animated bounceInLeft">Your Brand Deserves</div>
-                  <div className="cover-text-1b animated bounceInRight">Only The Best</div>
+                  <h1 className="mb-5">
+                    <span className="cover-text-1a animated bounceInLeft d-block">Your Brand Deserves</span><br/>
+                    <span className="cover-text-1b animated bounceInRight d-block">Only The Best</span>
+                  </h1>
 
                   {/* Cover CTA */}
                   <Button
@@ -89,7 +91,8 @@ const HomePage = ({data}) => {
                     size="lg"
                     to="/about-alkemy"
                     tag={Link}
-                    className="animated fadeInUp w-50 mt-5"
+                    className="animated fadeInUp"
+                    block
                     >
                     Learn More
                   </Button>

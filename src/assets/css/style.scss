@@ -40,21 +40,21 @@ $animation-function: ease; // Set the animation type
 
   @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
     & {
-      font-size: $min-font-size !important;
+      font-size: $min-font-size;
       @media screen and (min-width: $min-vw) {
-        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})) !important;
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
       }
       @media screen and (min-width: $max-vw) {
-        font-size: $max-font-size !important;
+        font-size: $max-font-size;
       }
     }
   }
 }
 
 $min_width: 320px;
-$max_width: 2880px;
+$max_width: 2280px;
 $min_font: 16px;
-$max_font: 20px;
+$max_font: 24px;
 
 html {
   @include fluid-type($min_width, $max_width, $min_font, $max_font);
@@ -317,14 +317,29 @@ a {
   top: 50%;
   left: 3.5vw;
   transform: translateY(-20%);
+  @media screen and (max-width: 680px){
+    top:35%;
+    left: 0;
+    padding: 1.5em;
+  }
 }
 
 .cover-text-1a{
-  font-size: 3em;
+  @extend h2;
+  @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font*1.5);
+  @media screen and (max-width: 680px){
+    font-size: 1.5em;
+    line-height: 1em;
+  }
 }
 .cover-text-1b{
-  font-weight: bold;
-  font-size: 7em;
+  @extend h1;
+  @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font*3);
+  line-height: 2em;
+  @media screen and (max-width: 680px){
+    font-size: 3.5em;
+    line-height: 1.1em;
+  }
 }
 
 .cover-text-1a,
