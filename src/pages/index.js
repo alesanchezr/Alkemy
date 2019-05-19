@@ -144,7 +144,7 @@ const HomePage = ({data}) => {
                     <CardFooter>
                       <Button
                         color="primary"
-                        size="lg"
+                        size="md"
                         to="/responsive-web-design"
                         tag={Link}
                         block>
@@ -175,7 +175,7 @@ const HomePage = ({data}) => {
                     <CardFooter>
                       <Button
                         color="primary"
-                        size="lg"
+                        size="md"
                         to="/quality-web-development"
                         tag={Link}
                         block>
@@ -206,7 +206,7 @@ const HomePage = ({data}) => {
                     <CardFooter>
                       <Button
                         color="primary"
-                        size="lg"
+                        size="md"
                         tag={Link}
                         to="/ecommerce-web-design"
                         block>
@@ -237,7 +237,7 @@ const HomePage = ({data}) => {
                     <CardFooter>
                       <Button
                         color="primary"
-                        size="lg"
+                        size="md"
                         tag={Link}
                         to="/digital-marketing"
                         block>
