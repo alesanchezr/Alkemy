@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import { Card, CardImg, CardText, CardImgOverlay,
   CardTitle, Row, Col, CardBody, CardFooter, Button } from "reactstrap"
@@ -20,17 +21,36 @@ const BlogWidget = (props) => {
           sm={12}
           md={4}
         >
-          <Card className="blogCard">
-            <CardImg top src={edge.node.frontmatter.cover} alt={edge.node.frontmatter.title} className="blogCard mb-0"/>
+          <Card className="blogCard my-3 my-md-0">
+            <Link
+              to={edge.node.frontmatter.path}
+              >
+              <CardImg
+                top
+                src={edge.node.frontmatter.cover}
+                alt={edge.node.frontmatter.title}
+                className="blogCard mb-0"
+                />
+            </Link>
             <CardBody className="w-100 p-3 blogCard-body">
-              <CardTitle tag="h4">{edge.node.frontmatter.title}</CardTitle>
+              <Link
+                to={edge.node.frontmatter.path}
+                >
+                <CardTitle tag="h4">{edge.node.frontmatter.title}</CardTitle>
+              </Link>
             </CardBody>
-            <CardImgOverlay>
+            <CardImgOverlay className="d-none d-md-block">
               <CardBody className="overlayBody w-100 p-3">
                 <CardText>{edge.node.frontmatter.excerpt?edge.node.frontmatter.excerpt:(<Loading />)}</CardText>
               </CardBody>
               <CardFooter className="overlayFooter w-100 p-3">
-                <Button href={edge.node.frontmatter.path} className="mt-0" block size="md" color="primary">Read More...</Button>
+                <Button
+                  tag={Link}
+                  to={edge.node.frontmatter.path}
+                  className="mt-0"
+                  block
+                  size="md"
+                  color="primary">Read More...</Button>
               </CardFooter>
             </CardImgOverlay>
           </Card>

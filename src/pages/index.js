@@ -280,7 +280,7 @@ const HomePage = ({data}) => {
                 {data.ourPassion.childImageSharp
                   && (
                   <Img
-                    className="ourPassionImg animated slideInLeft"
+                    className="ourPassionImg animated slideInLeft mb-5 mb-md-0"
                     fluid={data.ourPassion.childImageSharp.fluid}
                     alt="Discover our passion." />
                   )

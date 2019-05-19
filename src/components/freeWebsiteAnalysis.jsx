@@ -252,7 +252,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                       checked={this.state.formValues.authCheck}
                       onChange={e=>this.handleFieldChange(e)}
                       />
-                    <Label for="authCheck">
+                    <Label for="authCheck" className="text-left">
                       I authorize Alkemy, Inc. to contact me via email so that I may recieve my free website analysis.
                     </Label>
                     <FormFeedback

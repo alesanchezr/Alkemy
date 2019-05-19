@@ -864,9 +864,16 @@ section.recentBlogPosts{
       border: none;
       height: 40vh;
 
+      .overlayFooter {
+        position: absolute;
+        bottom: 0;
+      }
+
       .blogCard-body{
         background: rgba(black,.8);
         width: 100%;
+        bottom: 0;
+        position: absolute;
         .card-title{
           color: white;
         }
@@ -895,13 +902,6 @@ section.recentBlogPosts{
             background: rgba(0,0,0,.90);
           }
         }
-      }
-      .card-body:not(.overlayBody),
-      .card-footer,
-      .overlayFooter{
-        position: absolute;
-        bottom: 0;
-        left: 0;
       }
     }
   }

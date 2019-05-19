@@ -831,9 +831,15 @@ section.recentBlogPosts .cardRow .blogCard {
   border: none;
   height: 40vh;
 }
+section.recentBlogPosts .cardRow .blogCard .overlayFooter {
+  position: absolute;
+  bottom: 0;
+}
 section.recentBlogPosts .cardRow .blogCard .blogCard-body {
   background: rgba(0, 0, 0, 0.8);
   width: 100%;
+  bottom: 0;
+  position: absolute;
 }
 section.recentBlogPosts .cardRow .blogCard .blogCard-body .card-title {
   color: white;
@@ -860,13 +866,6 @@ section.recentBlogPosts .cardRow .blogCard .card-img-overlay {
     color: white;
     background: rgba(0, 0, 0, 0.9);
   }
-}
-section.recentBlogPosts .cardRow .blogCard .card-body:not(.overlayBody),
-section.recentBlogPosts .cardRow .blogCard .card-footer,
-section.recentBlogPosts .cardRow .blogCard .overlayFooter {
-  position: absolute;
-  bottom: 0;
-  left: 0;
 }
 
 section.contactForm, section.dreamForm, section.thankYou {
