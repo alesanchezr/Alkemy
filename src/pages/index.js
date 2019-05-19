@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import '../utils/utils.js'
 import { Card, CardText, CardImgOverlay,CardTitle,
@@ -79,18 +79,31 @@ const HomePage = ({data}) => {
               {/* Cover Video Slider */}
               <VideoCarousel slides={slideArray} showIndicators={false} >
                 {/* Cover Text */}
-                <div id="cover-text">
-                  <div className="cover-text-1a">Your Brand Deserves</div>
-                  <div className="cover-text-1b">Only The Best</div>
+                <div className="cover-text">
+                  <div className="cover-text-1a animated bounceInLeft">Your Brand Deserves</div>
+                  <div className="cover-text-1b animated bounceInRight">Only The Best</div>
+
+                  {/* Cover CTA */}
+                  <Button
+                    color="primary"
+                    size="lg"
+                    to="/about-alkemy"
+                    tag={Link}
+                    className="animated fadeInUp w-50 mt-5"
+                    >
+                    Learn More
+                  </Button>
                 </div>
 
-                {/* Cover CTA */}
-                <div className="hero-cta-div d-block position-absolute">
-                  <Button href="/about-alkemy" className="btn btn-primary btn-lg">Learn More</Button>
-                </div>
+
 
                 {/* Caret */}
-                <FontAwesomeIcon onClick={handleCaretClick} icon="chevron-down" size="2x" color="white" className="heroChevron"/>
+                <FontAwesomeIcon
+                  onClick={handleCaretClick}
+                  icon="chevron-down"
+                  size="3x"
+                  color="white"
+                  className="heroChevron animated pulse infinite"/>
               </VideoCarousel>
 
             </div>
@@ -126,7 +139,14 @@ const HomePage = ({data}) => {
                       <CardText>{data.homepageJson.sections[1].blocks[0].content}</CardText>
                     </CardBody>
                     <CardFooter>
-                      <Button href="/responsive-web-design" color="primary" block>Learn More</Button>
+                      <Button
+                        color="primary"
+                        size="lg"
+                        to="/responsive-web-design"
+                        tag={Link}
+                        block>
+                        Learn More
+                      </Button>
                     </CardFooter>
                   </CardImgOverlay>
                 </Card>
@@ -150,7 +170,14 @@ const HomePage = ({data}) => {
                       <CardText>{data.homepageJson.sections[1].blocks[1].content}</CardText>
                     </CardBody>
                     <CardFooter>
-                      <Button href="/quality-web-development" color="primary" block>Learn More</Button>
+                      <Button
+                        color="primary"
+                        size="lg"
+                        to="/quality-web-development"
+                        tag={Link}
+                        block>
+                        Learn More
+                      </Button>
                     </CardFooter>
                   </CardImgOverlay>
                 </Card>
@@ -174,7 +201,14 @@ const HomePage = ({data}) => {
                       <CardText>{data.homepageJson.sections[1].blocks[2].content}</CardText>
                     </CardBody>
                     <CardFooter>
-                      <Button href="/ecommerce-web-design" color="primary" block>Learn More</Button>
+                      <Button
+                        color="primary"
+                        size="lg"
+                        tag={Link}
+                        to="/ecommerce-web-design"
+                        block>
+                        Learn More
+                      </Button>
                     </CardFooter>
                   </CardImgOverlay>
                 </Card>
@@ -198,7 +232,14 @@ const HomePage = ({data}) => {
                       <CardText>{data.homepageJson.sections[1].blocks[3].content}</CardText>
                     </CardBody>
                     <CardFooter>
-                      <Button href="/digital-marketing" color="primary" block>Learn More</Button>
+                      <Button
+                        color="primary"
+                        size="lg"
+                        tag={Link}
+                        to="/digital-marketing"
+                        block>
+                        Learn More
+                      </Button>
                     </CardFooter>
                   </CardImgOverlay>
                 </Card>
@@ -245,7 +286,13 @@ const HomePage = ({data}) => {
                 <Col xs={12} md={7} className="align-items-center px-0 px-lg-5">
                   <h2>{data.homepageJson.sections[2].blocks[0].heading}</h2>
                   <p>{data.homepageJson.sections[2].blocks[0].content}</p>
-                  <Button href="/about-alkemy/" className="btn btn-primary">Discover Our Passion</Button>
+                  <Button
+                    color="primary"
+                    size="lg"
+                    tag={Link}
+                    to="/about-alkemy/">
+                    Discover Our Passion
+                  </Button>
                 </Col>
               </Row>
             </div>

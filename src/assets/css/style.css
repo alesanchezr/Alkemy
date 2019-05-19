@@ -292,118 +292,37 @@ a {
 
 /* Video Carousel Text Animations */
 .cover-text {
-  z-index: 100;
-  width: 100%;
+  position: absolute;
   height: 100%;
   z-index: 500;
+  top: 50%;
+  left: 3.5vw;
+  transform: translateY(-20%);
 }
 
 .cover-text-1a {
-  top: 30vh;
-  left: 20vw;
   font-size: 3em;
-  -webkit-animation: slideFromLeft 0.5s backwards;
-  animation: slideFromLeft 0.5s backwards;
-}
-@media screen and (max-width: 1080px) {
-  .cover-text-1a {
-    top: 16vh;
-    line-height: 16vw;
-    font-size: 2.1em;
-    -webkit-animation: slideFromLeftMobile 0.5s backwards;
-    animation: slideFromLeftMobile 0.5s backwards;
-  }
 }
 
 .cover-text-1b {
-  top: 42vh;
-  left: 30vw;
   font-weight: bold;
-  font-size: 5em;
-  -webkit-animation: slideFromRight 0.5s backwards;
-  animation: slideFromRight 0.5s backwards;
-}
-@media screen and (max-width: 1080px) {
-  .cover-text-1b {
-    top: 28vh;
-    line-height: 26vw;
-    font-size: 6em;
-    -webkit-animation: slideFromRightMobile 0.5s backwards;
-    animation: slideFromRightMobile 0.5s backwards;
-  }
+  font-size: 7em;
 }
 
 .cover-text-1a,
 .cover-text-1b {
-  position: absolute;
   text-shadow: 1px 1px #444;
   color: white;
   -webkit-animation-delay: 2s;
   animation-delay: 2s;
 }
-@media screen and (max-width: 1080px) {
-  .cover-text-1a,
-.cover-text-1b {
-    padding: 1rem;
-  }
-}
 
 @media screen and (max-width: 1080px) {
-  .cover-text-1a,
-.cover-text-1b {
-    left: 0;
-  }
-}
-
-@media screen and (max-width: 1080px) {
-  .hero-cta-div,
-.heroChevron {
+  .heroChevron {
     transform: translateX(-50%);
   }
 }
 
-/* Desktop Animations */
-@-webkit-keyframes slideFromLeft {
-  0% {
-    left: -50vw;
-  }
-}
-@keyframes slideFromLeft {
-  0% {
-    left: -50vw;
-  }
-}
-@-webkit-keyframes slideFromRight {
-  0% {
-    left: 120vw;
-  }
-}
-@keyframes slideFromRight {
-  0% {
-    left: 120vw;
-  }
-}
-/* Mobile Animations */
-@-webkit-keyframes slideFromLeftMobile {
-  0% {
-    left: -100vw;
-  }
-}
-@keyframes slideFromLeftMobile {
-  0% {
-    left: -100vw;
-  }
-}
-@-webkit-keyframes slideFromRightMobile {
-  0% {
-    left: 100vw;
-  }
-}
-@keyframes slideFromRightMobile {
-  0% {
-    left: 100vw;
-  }
-}
 /* Button Styles */
 .btn-primary {
   color: black;
@@ -548,18 +467,6 @@ a {
   border-radius: 0.3rem;
 }
 
-.hero-cta-div {
-  bottom: 25vh;
-  left: 50vw;
-  z-index: 100;
-}
-@media screen and (max-width: 1080px) {
-  .hero-cta-div {
-    bottom: 13vh;
-    left: 50%;
-  }
-}
-
 .heroChevron {
   z-index: 900;
   position: absolute;
@@ -690,46 +597,6 @@ blockquote.gray {
 /******************************/
 /*   Additional Animations    */
 /******************************/
-/* Pulsing Object Animation */
-.pulse {
-  display: block;
-  cursor: pointer;
-  box-shadow: 0 0 0 rgba(204, 169, 44, 0.8);
-  animation: pulse 2s infinite;
-  background: #F0C611;
-  border-color: #79640A;
-  color: #333;
-}
-
-.pulse:hover {
-  animation: none;
-}
-
-@-webkit-keyframes pulse {
-  0% {
-    -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.8);
-  }
-  70% {
-    -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
-  }
-  100% {
-    -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
-  }
-}
-@keyframes pulse {
-  0% {
-    -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.8);
-    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.8);
-  }
-  70% {
-    -moz-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
-    box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
-  }
-  100% {
-    -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
-    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
-  }
-}
 /* Hamburger  */
 button:focus {
   outline: none;
@@ -921,6 +788,7 @@ section.recentBlogPosts .cardRow {
 section.recentBlogPosts .cardRow .blogCard {
   border-radius: 0;
   border: none;
+  height: 40vh;
 }
 section.recentBlogPosts .cardRow .blogCard .blogCard-body {
   background: rgba(0, 0, 0, 0.8);
@@ -931,7 +799,6 @@ section.recentBlogPosts .cardRow .blogCard .blogCard-body .card-title {
 }
 section.recentBlogPosts .cardRow .blogCard .card-img-top {
   object-fit: cover;
-  height: 100%;
   width: 100%;
 }
 section.recentBlogPosts .cardRow .blogCard .card-img-overlay {

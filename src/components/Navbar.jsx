@@ -8,7 +8,6 @@ import {
   Collapse,
   NavbarToggler,
   Navbar,
-  NavbarBrand,
   Nav,
   NavItem,
   Button,
@@ -183,10 +182,8 @@ export default class ReactNavbar extends React.Component {
     return (
       <>
         <Navbar fixed='top' expand="lg" dark>
-          <Link to="/">
-            <NavbarBrand className="mr-lg-auto">
+          <Link to="/" className="navbar-brand mr-lg-auto">
               <img className="my-auto" src={alkemyLogo} alt="Alkemy, Inc." />
-            </NavbarBrand>
           </Link>
           <NavbarToggler
             onClickCapture={this.toggleMobileMenu}

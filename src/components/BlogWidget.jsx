@@ -20,7 +20,7 @@ const BlogWidget = (props) => {
           sm={12}
           md={4}
         >
-          <Card className="blogCard h-100">
+          <Card className="blogCard">
             <CardImg top src={edge.node.frontmatter.cover} alt={edge.node.frontmatter.title} className="blogCard mb-0"/>
             <CardBody className="w-100 p-3 blogCard-body">
               <CardTitle tag="h4">{edge.node.frontmatter.title}</CardTitle>
