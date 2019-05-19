@@ -74,7 +74,7 @@ const HomePage = ({data}) => {
 
           {/* Section 1 - Hero */}
           <section className="homeHero">
-          	<div className="container-fluid px-0 position-relative" style={{position: 'relative'}}>
+          	<div className="container-fluid px-0 position-relative">
 
               {/* Cover Video Slider */}
               <VideoCarousel slides={slideArray} showIndicators={false} >
@@ -120,7 +120,7 @@ const HomePage = ({data}) => {
           <section className="servicesHome mt-auto mb-5">
             <Row>
               <Col className="col-lg-3 col-sm-6 col-12">
-                <Card className="border-0 p-3 bounceInUp cardOne h-100">
+                <Card className="border-0 p-3 animated bounceInUp cardOne h-100">
                 {data.webDesign.childImageSharp
                   && (
                   <Img
@@ -152,7 +152,7 @@ const HomePage = ({data}) => {
                 </Card>
               </Col>
               <Col className="col-lg-3 col-sm-6 col-12">
-                <Card className="border-0 p-3 bounceInUp cardTwo h-100">
+                <Card className="border-0 p-3 animated bounceInUp cardTwo h-100">
                 {data.webDevelopment.childImageSharp
                   && (
                   <Img
@@ -183,7 +183,7 @@ const HomePage = ({data}) => {
                 </Card>
               </Col>
               <Col className="col-lg-3 col-sm-6 col-12">
-                <Card className="border-0 p-3 bounceInUp cardThree h-100">
+                <Card className="border-0 p-3 animated bounceInUp cardThree h-100">
                   {data.eCommerce.childImageSharp
                     && (
                     <Img
@@ -214,7 +214,7 @@ const HomePage = ({data}) => {
                 </Card>
               </Col>
               <Col className="col-lg-3 col-sm-6 col-12">
-                <Card className="border-0 p-3 bounceInUp cardFour">
+                <Card className="border-0 p-3 animated bounceInUp cardFour">
                   {data.digitalMarketing.childImageSharp
                     && (
                     <Img
@@ -277,7 +277,7 @@ const HomePage = ({data}) => {
                 {data.ourPassion.childImageSharp
                   && (
                   <Img
-                    className="ourPassionImg slideInLeft"
+                    className="ourPassionImg animated slideInLeft"
                     fluid={data.ourPassion.childImageSharp.fluid}
                     alt="Discover our passion." />
                   )
@@ -290,7 +290,7 @@ const HomePage = ({data}) => {
                     color="primary"
                     size="lg"
                     tag={Link}
-                    to="/about-alkemy/">
+                    to="/about-alkemy">
                     Discover Our Passion
                   </Button>
                 </Col>
