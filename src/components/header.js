@@ -31,7 +31,7 @@ var _menuArray = [
 
 const windowGlobal = typeof window !== 'undefined' && window.location.pathname
 
-const Header = ({ siteTitle, hideHeader, renderHeaderSolid }) =>(
+const Header = ({ pageTitle, hideHeader, renderHeaderSolid }) =>(
     <>
       <header
         className={
@@ -46,13 +46,13 @@ const Header = ({ siteTitle, hideHeader, renderHeaderSolid }) =>(
         (hideHeader===true)
         ?(
           <div className='subHeader'>
-            <h1 style={{ margin: 0 }}>
+            <h1 className="m-0 font-weight-normal">
               <Link
                 tag="h1"
                 to={windowGlobal}
-                className="m-0 text-white text-unstyled"
+                className="m-0 text-white"
               >
-                {siteTitle}
+                {pageTitle}
               </Link>
             </h1>
           </div>

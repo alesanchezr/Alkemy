@@ -72,7 +72,7 @@ const WebDesign = ({data}) => {
           <section className="px-5 my-5">
             <Row>
               <Col>
-                <h1 className="mb-4">{data.webDesignJson.sections[0].blocks[0].heading}</h1>
+                <h2 className="mb-4">{data.webDesignJson.sections[0].blocks[0].heading}</h2>
                 <p className="mb-5">{data.webDesignJson.sections[0].blocks[0].content}</p>
               </Col>
             </Row>

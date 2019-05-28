@@ -79,7 +79,7 @@ h3 {
 
 /* Colors */
 
-$alkemy_darkest_blue: darken(#206a98,35%); //#141B22
+$alkemy_darkest_blue: darken(#2bb3e5,50%); //#141B22
 $alkemy_blue: #2bb3e5;
 $alkemy_light_blue: #EAF3F8;
 $alkemy_dark_blue: #0B3C5D;
@@ -426,7 +426,7 @@ a {
 }
 .subHeader{
   background: $alkemy_dark_blue;
-  color: $alkemy_yellow;
+  color: white;
   margin-top: $header-height;
   width: 100%;
   padding: 1.45rem 1.0875rem;
