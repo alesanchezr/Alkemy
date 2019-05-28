@@ -27,7 +27,7 @@ const DigitalMarketing = ({data}) => {
     <ScrollWrapper onWindowScroll={handleScroll}>
         <Layout
           renderHeaderSolid={true}
-          headerTitle={[true,{pageTitle}]}
+          headerTitle={[true,pageTitle]}
           bodyClasses="digitalMarketing"
           >
           <SEO title={pageTitle} />
