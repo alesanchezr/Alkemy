@@ -20,14 +20,17 @@ Layout props:
 
 
 const DigitalMarketing = ({data}) => {
+
+    const pageTitle = "Digital Marketing Services"
+
     return(
     <ScrollWrapper onWindowScroll={handleScroll}>
         <Layout
           renderHeaderSolid={true}
-          headerTitle={[false,""]}
+          headerTitle={[true,{pageTitle}]}
           bodyClasses="digitalMarketing"
           >
-          <SEO title="Digital Marketing Services" />
+          <SEO title={pageTitle} />
 
           {/* Page Hero */}
           <section className='pageHero'>

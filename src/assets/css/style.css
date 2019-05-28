@@ -419,7 +419,8 @@ a {
 .header button:hover svg path {
   fill: #212529;
 }
-.header .subHeader {
+
+.subHeader {
   background: #0B3C5D;
   color: #F0C611;
   margin-top: 75px;

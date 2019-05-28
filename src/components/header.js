@@ -32,14 +32,16 @@ var _menuArray = [
 const windowGlobal = typeof window !== 'undefined' && window.location.pathname
 
 const Header = ({ siteTitle, hideHeader, renderHeaderSolid }) =>(
-    <header
-      className={
-        (renderHeaderSolid)
-          ?("header solid fadeInDown")
-          :("header fadeInDown")
-      }
-    >
-      <ReactNavbar menuArray={_menuArray} />
+    <>
+      <header
+        className={
+          (renderHeaderSolid)
+            ?("header solid fadeInDown")
+            :("header fadeInDown")
+        }
+      >
+        <ReactNavbar menuArray={_menuArray} />
+      </header>
       {
         (hideHeader===true)
         ?(
@@ -57,6 +59,6 @@ const Header = ({ siteTitle, hideHeader, renderHeaderSolid }) =>(
         )
         :''
       }
-    </header>
+    </>
   )
 export default Header
