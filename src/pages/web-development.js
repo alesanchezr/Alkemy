@@ -62,6 +62,7 @@ const WebDevelopment = ({data}) => {
                 <Img
                   className="mx-auto"
                   imgStyle={{objectFit:'contain'}}
+                  style={{maxWidth: '500px'}}
                   fluid={data.webDevFlasks.childImageSharp.fluid}
                   alt="Alkemy knows the right languages and framworks to get the job done correctly." />
                 )

@@ -424,7 +424,7 @@ a {
   }
 }
 .subHeader{
-  background: $alkemy_dark_blue;
+  background: linear-gradient(left,$alkemy_dark_blue 40%,$alkemy_blue);
   color: white;
   width: 100%;
   padding: 1.45rem 1.0875rem;

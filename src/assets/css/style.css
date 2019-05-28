@@ -420,7 +420,7 @@ a {
 }
 
 .subHeader {
-  background: #0B3C5D;
+  background: linear-gradient(left, #0B3C5D 40%, #2bb3e5);
   color: white;
   width: 100%;
   padding: 1.45rem 1.0875rem;
