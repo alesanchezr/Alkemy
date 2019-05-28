@@ -20,32 +20,23 @@ Layout props:
 
 
 const AboutAlkemy = ({data}) => {
+
+    const pageTitle = "About Us"
+
     return(
     <ScrollWrapper onWindowScroll={handleScroll}>
         <Layout
           renderHeaderSolid={true}
-          headerTitle={[false,""]}
+          headerTitle={[true,pageTitle]}
           bodyClasses="webDesign"
           >
-          <SEO title="About Us" />
-
-          {/* Page Hero */}
-          <section className='pageHero'>
-          {data.webDevBanner.childImageSharp
-            && (
-            <Img
-              className="mx-0 px-0"
-              fluid={data.webDevBanner.childImageSharp.fluid}
-              alt="Professional Web Development Services to craft your dream app." />
-            )
-          }
-          </section>
+          <SEO title={pageTitle} />
 
           {/* Section 1 */}
           <section className="px-5 mt-4 mb-5">
             <Row>
               <Col>
-                <h1 className="mb-4">{data.aboutJson && data.aboutJson.sections[0].blocks[0].heading}</h1>
+                <h2 className="mb-4">{data.aboutJson && data.aboutJson.sections[0].blocks[0].heading}</h2>
                 <p className="mb-5">{data.aboutJson && data.aboutJson.sections[0].blocks[0].content}</p>
               </Col>
             </Row>
@@ -148,9 +139,6 @@ export const query = graphql`
         content
       }
     }
-  }
-  webDevBanner: file(relativePath: {regex: "/web-development-banner.png/"}) {
-    ...fluidImage
   }
   webDevFlasks: file(relativePath: {regex: "/web-dev.png/"}) {
     ...fluidImageSmall

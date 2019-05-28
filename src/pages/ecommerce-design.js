@@ -79,32 +79,22 @@ const EcommerceDesign = ({data}) => {
     })
   }
 
+  const pageTitle = "eCommerce Web Design"
+
   return(
     <ScrollWrapper onWindowScroll={handleScroll}>
         <Layout
           renderHeaderSolid={true}
-          headerTitle={[false,""]}
+          headerTitle={[true,pageTitle]}
           bodyClasses="eCommerce"
           >
-          <SEO title="eCommerce Web Design" />
-
-          {/* Page Hero */}
-          <section className='pageHero'>
-          {data.ecommBanner.childImageSharp
-            && (
-            <Img
-              className="mx-0 px-0"
-              fluid={data.ecommBanner.childImageSharp.fluid}
-              alt="Professional eCommerce Web Design to build a store that converts." />
-            )
-          }
-          </section>
+          <SEO title={pageTitle} />
 
           {/* Section 1 */}
           <section className="px-5 mt-4 mb-5">
             <Row>
               <Col>
-                <h1 className="mb-4">{data.ecommDesignJson && data.ecommDesignJson.sections[0].blocks[0].heading}</h1>
+                <h2 className="mb-4">{data.ecommDesignJson && data.ecommDesignJson.sections[0].blocks[0].heading}</h2>
                 <p className="mb-4">{data.ecommDesignJson && data.ecommDesignJson.sections[0].blocks[0].content}</p>
                 <p className="mb-5">{data.ecommDesignJson && data.ecommDesignJson.sections[0].blocks[1].content}</p>
               </Col>
@@ -482,9 +472,6 @@ export const query = graphql`
         features
       }
     }
-  }
-  ecommBanner: file(relativePath: {regex: "/ecommerce-design-banner.png/"}) {
-    ...fluidImage
   }
   dcartLogo: file(relativePath: {regex: "/3dcart-logo.png/"}) {
     ...fluidImageXS

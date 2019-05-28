@@ -20,44 +20,39 @@ Layout props:
 
 
 const WebDevelopment = ({data}) => {
+
+  const pageTitle = "Web Development Services"
+
   return(
     <ScrollWrapper onWindowScroll={handleScroll}>
         <Layout
           renderHeaderSolid={true}
-          headerTitle={[false,""]}
+          headerTitle={[true,pageTitle]}
           bodyClasses="webDesign"
           >
-          <SEO title="Web Development Services" />
-
-          {/* Page Hero */}
-          <section className='pageHero'>
-          {data.webDevBanner.childImageSharp
-            && (
-            <Img
-              className="mx-0 px-0"
-              fluid={data.webDevBanner.childImageSharp.fluid}
-              alt="Professional Web Development Services to craft your dream app." />
-            )
-          }
-          </section>
+          <SEO title={pageTitle} />
 
           {/* Section 1 */}
           <section className="px-5 mt-4 mb-5">
-            <Row>
+            <Row className="mb-5">
               <Col>
-                <h1 className="mb-4">{data.webDevelopmentJson.sections[0].blocks[0].heading}</h1>
-                <p className="mb-5">{data.webDevelopmentJson.sections[0].blocks[0].content}</p>
-                <p className="mb-5">{data.webDevelopmentJson.sections[0].blocks[1].content}</p>
+                <h2 className="mb-4">{data.webDevelopmentJson.sections[0].blocks[0].heading}</h2>
+                <p>{data.webDevelopmentJson.sections[0].blocks[0].content}</p>
+                <p>{data.webDevelopmentJson.sections[0].blocks[1].content}</p>
               </Col>
             </Row>
             <Row className="flex-column-reverse flex-md-row">
               <Col xs={12} sm={6}>
                 <h2 className="mb-4">{data.webDevelopmentJson.sections[0].blocks[2].heading}</h2>
-                <p className="mb-4">{data.webDevelopmentJson.sections[0].blocks[2].content}</p>
-                <p className="mb-4">{data.webDevelopmentJson.sections[0].blocks[3].content}</p>
+                <p>{data.webDevelopmentJson.sections[0].blocks[2].content}</p>
+                <p>{data.webDevelopmentJson.sections[0].blocks[3].content}</p>
                 <Row>
                   <Col xs={12} sm={6}>
-                    <Button onClick={handleDiscussClick} className="btn btn-primary">Let's Discuss My Project</Button>
+                    <Button
+                      onClick={handleDiscussClick}
+                      color="primary"
+                      block
+                      >Let's Discuss My Project</Button>
                   </Col>
                 </Row>
               </Col>
@@ -65,7 +60,8 @@ const WebDevelopment = ({data}) => {
               {data.webDevFlasks.childImageSharp
                 && (
                 <Img
-                  imgStyle={{maxHeight:'auto',maxWidth:'500px',objectFit:'contain',margin:'0 auto'}}
+                  className="mx-auto"
+                  imgStyle={{objectFit:'contain'}}
                   fluid={data.webDevFlasks.childImageSharp.fluid}
                   alt="Alkemy knows the right languages and framworks to get the job done correctly." />
                 )
@@ -93,7 +89,10 @@ const WebDevelopment = ({data}) => {
               <Col xs={12} md={6}>
                 <h2 className="mb-4">{data.webDevelopmentJson.sections[1].blocks[0].heading}</h2>
                 <p className="text-white">{data.webDevelopmentJson.sections[1].blocks[0].content}</p>
-                <Button onClick={handleDiscussClick} className="btn btn-primary">Let's Discuss My Project</Button>
+                <Button
+                  onClick={handleDiscussClick}
+                  color="primary"
+                  block>Let's Discuss My Project</Button>
               </Col>
             </Row>
           </section>
@@ -110,7 +109,7 @@ const WebDevelopment = ({data}) => {
               {data.codeScreen.childImageSharp
                 && (
                 <Img
-                  className="my-auto"
+                  className="my-auto h-100"
                   fluid={data.codeScreen.childImageSharp.fluid}
                   alt="Let us handle the coding, so that your project is built skillfully." />
                 )
@@ -150,9 +149,6 @@ export const query = graphql`
         content
       }
     }
-  }
-  webDevBanner: file(relativePath: {regex: "/web-development-banner.png/"}) {
-    ...fluidImage
   }
   webDevFlasks: file(relativePath: {regex: "/web-dev.png/"}) {
     ...fluidImageSmall

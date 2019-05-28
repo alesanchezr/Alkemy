@@ -32,23 +32,11 @@ const DigitalMarketing = ({data}) => {
           >
           <SEO title={pageTitle} />
 
-          {/* Page Hero */}
-          <section className='pageHero'>
-          {data.marketingHero.childImageSharp
-            && (
-            <Img
-              className="platforms"
-              fluid={data.marketingHero.childImageSharp.fluid}
-              alt="Alkemy knows the right languages and framworks to get the job done correctly." />
-            )
-          }
-          </section>
-
           {/* Section 1 */}
           <section className="px-5 my-4">
             <Row>
               <Col>
-                <h1 className="mb-4">{data.digitalMarketingJson && data.digitalMarketingJson.sections[0].blocks[0].heading}</h1>
+                <h2 className="mb-4">{data.digitalMarketingJson && data.digitalMarketingJson.sections[0].blocks[0].heading}</h2>
                 <p className="mb-5">{data.digitalMarketingJson && data.digitalMarketingJson.sections[0].blocks[0].content}</p>
               </Col>
             </Row>
@@ -193,9 +181,6 @@ export const query = graphql`
         content
       }
     }
-  }
-  marketingHero: file(relativePath: {regex: "/digital-marketing-banner.png/"}) {
-    ...fluidImage
   }
   seoGraphic: file(relativePath: {regex: "/seo-marketing.png/"}) {
     ...fluidImageSmall
