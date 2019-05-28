@@ -36,8 +36,8 @@ const Header = ({ pageTitle, hideHeader, renderHeaderSolid }) =>(
       <header
         className={
           (renderHeaderSolid)
-            ?("header solid fadeInDown")
-            :("header fadeInDown")
+            ?("header solid fadeInDown position-sticky")
+            :("header fadeInDown position-fixed")
         }
       >
         <ReactNavbar menuArray={_menuArray} />

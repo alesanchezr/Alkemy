@@ -197,7 +197,6 @@ input[type=checkbox]:checked + label:before {
   left: 0;
   right: 0;
   z-index: 1000;
-  position: fixed;
   animation-duration: 2s;
   transition: 0.5s linear;
   /* dropdown menu restyle */
@@ -423,7 +422,6 @@ a {
 .subHeader {
   background: #0B3C5D;
   color: white;
-  margin-top: 75px;
   width: 100%;
   padding: 1.45rem 1.0875rem;
 }

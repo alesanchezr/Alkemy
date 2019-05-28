@@ -214,7 +214,6 @@ input[type="checkbox"]:checked + label:before {
   left: 0;
   right: 0;
   z-index: 1000;
-  position: fixed;
   animation-duration: 2s;
   transition: .5s linear;
 
@@ -427,7 +426,6 @@ a {
 .subHeader{
   background: $alkemy_dark_blue;
   color: white;
-  margin-top: $header-height;
   width: 100%;
   padding: 1.45rem 1.0875rem;
 }
