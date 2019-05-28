@@ -27,7 +27,7 @@ const WebDevelopment = ({data}) => {
           headerTitle={[false,""]}
           bodyClasses="webDesign"
           >
-          <SEO title="Best Quality Software Development, Web Design, eCommerce Design, and Marketing" />
+          <SEO title="Web Development Services" />
 
           {/* Page Hero */}
           <section className='pageHero'>

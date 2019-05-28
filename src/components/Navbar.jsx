@@ -124,17 +124,23 @@ export default class ReactNavbar extends React.Component {
       }else{
         return(
           <Dropdown
+            tag="li"
             className="ml-4 my-auto"
             onMouseOver={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
             isOpen={this.state.dropdownOpen}
             toggle={this.toggle} key={item.id}>
-            <DropdownToggle tag="p" className="text-white my-auto" caret>{item.name}</DropdownToggle>
+            <DropdownToggle
+              tag="a"
+              className="text-white my-auto"
+              caret>
+              {item.name}
+              </DropdownToggle>
             <DropdownMenu tag="ul" className='dropMenu' style={{background: 'rgba(8,11,13,.70)'}}>
             {
               item.submenu.map(subitem=>{
                 return(
-                  <DropdownItem tag="li" toggle={this.state.toggle} key={subitem.id}>
+                  <DropdownItem className="mb-0" tag="li" toggle={this.state.toggle} key={subitem.id}>
                     <Link to={subitem.url} className="text-white">{subitem.name}</Link>
                   </DropdownItem>
                 );

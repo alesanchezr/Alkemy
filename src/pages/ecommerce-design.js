@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Layout from '../components/layout'
 import ScrollWrapper from '../components/scrollWrapper.jsx'
 import BuildYourDream from '../components/BuildYourDream.jsx'
+import SEO from "../components/seo"
 
 /*
 Layout props:
@@ -81,11 +82,11 @@ const EcommerceDesign = ({data}) => {
   return(
     <ScrollWrapper onWindowScroll={handleScroll}>
         <Layout
-          pageTitle="eCommerce Website Design | Alkemy, Inc."
           renderHeaderSolid={true}
           headerTitle={[false,""]}
           bodyClasses="eCommerce"
           >
+          <SEO title="eCommerce Web Design" />
 
           {/* Page Hero */}
           <section className='pageHero'>

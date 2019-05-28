@@ -81,7 +81,7 @@ const HomePage = ({data}) => {
                 {/* Cover Text */}
                 <div className="cover-text">
                   <h1 className="mb-5">
-                    <span className="cover-text-1a animated bounceInLeft d-block">Your Brand Deserves</span><br/>
+                    <span className="cover-text-1a animated bounceInLeft d-block">Your Brand Deserves</span>
                     <span className="cover-text-1b animated bounceInRight d-block">Only The Best</span>
                   </h1>
 
@@ -176,7 +176,7 @@ const HomePage = ({data}) => {
                       <Button
                         color="primary"
                         size="md"
-                        to="/quality-web-development"
+                        to="/web-development"
                         tag={Link}
                         block>
                         Learn More
@@ -208,7 +208,7 @@ const HomePage = ({data}) => {
                         color="primary"
                         size="md"
                         tag={Link}
-                        to="/ecommerce-web-design"
+                        to="/ecommerce-design"
                         block>
                         Learn More
                       </Button>

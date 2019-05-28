@@ -551,9 +551,9 @@ validate = ()=>{
         ? (<ThankYou />)
         : (
           <section className="dreamForm py-5 px-3">
-            <h1 className="text-center mb-5">Let Us Build Your Dream</h1>
+            <h1 className="text-center mb-3">Let Us Build Your Dream</h1>
             <div className="container">
-              <p>Didn’t find what you need in our above plans? No problem! We can prepare a custom estimate based on your specific needs. Just fill out the fields below so that we can get a better picture of what kind of site you will need and we’ll do the rest. As soon as we have had a chance to review your information, you’ll get a follow-up call from one of our team members to discuss your project further and iron out all of the details.</p>
+              <p>We can prepare a custom estimate based on your specific needs. Just fill out the fields below so that we can get a better picture of what kind of site you will need and we’ll do the rest. As soon as we have had a chance to review your information, you’ll get a follow-up call from one of our team members to discuss your project further and iron out all of the details.</p>
 
               <Form
               name="dreamForm"

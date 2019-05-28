@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import '../utils/utils.js'
 import { Card,Button,Col, Row } from 'reactstrap'
@@ -64,7 +64,7 @@ const WebDesign = ({data}) => {
           headerTitle={[false,""]}
           bodyClasses="webDesign"
           >
-          <SEO title="Best Quality Software Development, Web Design, eCommerce Design, and Marketing" />
+          <SEO title="Responsive Web Design" />
 
           {/* Page Hero */}
           <section className='pageHero'>
@@ -79,7 +79,7 @@ const WebDesign = ({data}) => {
           </section>
 
           {/* Section 1 */}
-          <section className="px-5 mt-4 mb-5">
+          <section className="px-5 my-5">
             <Row>
               <Col>
                 <h1 className="mb-4">{data.webDesignJson.sections[0].blocks[0].heading}</h1>
@@ -93,10 +93,18 @@ const WebDesign = ({data}) => {
                 <p className="mb-4">{data.webDesignJson.sections[0].blocks[2].content}</p>
                 <Row>
                   <Col xs={12} sm={6}>
-                    <Button onClick={handleViewPlansClick} className="btn btn-primary">View our Web Design Plans</Button>
+                    <Button
+                      onClick={handleViewPlansClick}
+                      color="primary">
+                      View our Web Design Plans
+                      </Button>
                   </Col>
                   <Col xs={12} sm={6}>
-                    <Button onClick={handleQuoteClick} className="btn btn-primary">Get a Custom Quote</Button>
+                    <Button
+                      onClick={handleQuoteClick}
+                      color="primary">
+                      Get a Custom Quote
+                      </Button>
                   </Col>
                 </Row>
               </Col>
@@ -114,9 +122,8 @@ const WebDesign = ({data}) => {
           </section>
 
           {/* Section 2 */}
-          <section className="deliverYourMessage mb-4 py-4">
-            <h1>{data.webDesignJson.sections[1].heading}</h1>
-            <Row className="px-5 pt-4">
+          <section className="deliverYourMessage mb-4 py-5">
+            <Row className="px-5">
               <Col xs={12} md={6}>
               {data.screenClean.childImageSharp
                 && (
@@ -131,7 +138,11 @@ const WebDesign = ({data}) => {
               <Col xs={12} md={6}>
                 <h2 className="mb-4">{data.webDesignJson.sections[1].blocks[0].heading}</h2>
                 <p className="text-white">{data.webDesignJson.sections[1].blocks[0].content}</p>
-                <Button href="/" className="btn btn-primary">View our Web Design Plans</Button>
+                <Button
+                  onClick={handleViewPlansClick}
+                  color="primary">
+                  View our Web Design Plans
+                  </Button>
               </Col>
             </Row>
           </section>
@@ -169,7 +180,7 @@ const WebDesign = ({data}) => {
                 <p>{data.webDesignJson.sections[3].blocks[0].content}</p>
               </Col>
             </Row>
-            <Row className="my-5 px-5" noGutters>
+            <Row className="my-4 px-5" noGutters>
               {planCards(data.webDesignJson.sections[4].plans)}
             </Row>
             <Row className="my-5 px-5" noGutters>
@@ -227,7 +238,7 @@ export const query = graphql`
     ...fluidImage
   }
   screenDesign: file(relativePath: {regex: "/screen-design.png/"}) {
-    ...fluidImageSmall
+    ...fluidImageXS
   }
   screenClean: file(relativePath: {regex: "/website-clean.jpg/"}) {
     ...fluidImageSmall

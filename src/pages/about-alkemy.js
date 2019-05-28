@@ -6,6 +6,7 @@ import { Button, Col, Row } from 'reactstrap'
 import Layout from '../components/layout'
 import ScrollWrapper from '../components/scrollWrapper.jsx'
 import BuildYourDream from '../components/BuildYourDream.jsx'
+import SEO from "../components/seo"
 
 /*
 Layout props:
@@ -22,11 +23,11 @@ const AboutAlkemy = ({data}) => {
     return(
     <ScrollWrapper onWindowScroll={handleScroll}>
         <Layout
-          pageTitle="Custom Web Development | Alkemy, Inc."
           renderHeaderSolid={true}
           headerTitle={[false,""]}
           bodyClasses="webDesign"
           >
+          <SEO title="About Us" />
 
           {/* Page Hero */}
           <section className='pageHero'>

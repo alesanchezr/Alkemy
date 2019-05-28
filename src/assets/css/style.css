@@ -14,6 +14,9 @@
 /* Transition Mixin */
 /* Fonts */
 html {
+  line-height: 1.5;
+}
+html {
   font-size: 16px;
 }
 @media screen and (min-width: 320px) {
@@ -135,7 +138,7 @@ body.blog section.blog-post-container {
 
 /* Bootstrap Override */
 .h1, .h2, .h3, .h4, .h5, .h6, h1, .cover-text-1b, h2, .cover-text-1a, h3, h4, h5, h6 {
-  font-weight: 600 !important;
+  font-weight: 600;
 }
 
 /* Checkboxes styles */
@@ -239,19 +242,9 @@ a {
   animation-duration: 1s;
 }
 
-@media screen and (min-width: 425px) {
-  .navbar-dark .navbar-brand {
-    margin-left: 1.8em;
-  }
-}
-
-.navbar-nav {
-  font-size: 1.2em;
-  line-height: 1em;
-}
 .navbar-nav .dropdown-menu {
   font-size: inherit;
-  line-height: 1.4em;
+  top: 90%;
 }
 
 .mobileMenu {
@@ -293,18 +286,10 @@ a {
 /* Video Carousel Text Animations */
 .cover-text {
   position: absolute;
-  height: 100%;
   z-index: 500;
   top: 50%;
   left: 3.5vw;
-  transform: translateY(-20%);
-}
-@media screen and (max-width: 680px) {
-  .cover-text {
-    top: 35%;
-    left: 0;
-    padding: 1.5em;
-  }
+  transform: translateY(-50%);
 }
 
 .cover-text-1a {
@@ -323,13 +308,9 @@ a {
 @media screen and (max-width: 680px) {
   .cover-text-1a {
     font-size: 1.5em;
-    line-height: 1em;
   }
 }
 
-.cover-text-1b {
-  line-height: 2em;
-}
 .cover-text-1b {
   font-size: 27.648px;
 }
@@ -346,7 +327,6 @@ a {
 @media screen and (max-width: 680px) {
   .cover-text-1b {
     font-size: 3.5em;
-    line-height: 1.1em;
   }
 }
 
@@ -841,8 +821,10 @@ section.recentBlogPosts .cardRow .blogCard .blogCard-body {
   bottom: 0;
   position: absolute;
 }
-section.recentBlogPosts .cardRow .blogCard .blogCard-body .card-title {
+section.recentBlogPosts .cardRow .blogCard .blogCard-body a h4.card-title {
   color: white;
+  font-size: 1.2em;
+  font-weight: 300 !important;
 }
 section.recentBlogPosts .cardRow .blogCard .card-img-top {
   object-fit: cover;

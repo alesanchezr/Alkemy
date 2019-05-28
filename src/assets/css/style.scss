@@ -58,6 +58,7 @@ $max_font: 24px;
 
 html {
   @include fluid-type($min_width, $max_width, $min_font, $max_font);
+  line-height: 1.5;
 }
 
 $mod_1: 1.2; // mobile
@@ -154,7 +155,7 @@ body{
 
 /* Bootstrap Override */
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
-  font-weight: 600 !important;
+  font-weight: 600;
 }
 
 /* Checkboxes styles */
@@ -256,18 +257,10 @@ a {
   }
 }
 
-.navbar-dark .navbar-brand{
-  @media screen and (min-width: 425px){
-    margin-left: 1.8em;
-  }
-}
-
 .navbar-nav{
-  font-size: 1.2em;
-  line-height: 1em;
   .dropdown-menu{
     font-size: inherit;
-    line-height: 1.4em;
+    top: 90%;
   }
 }
 .mobileMenu{
@@ -312,16 +305,10 @@ a {
 
 .cover-text{
   position: absolute;
-  height: 100%;
   z-index: 500;
   top: 50%;
   left: 3.5vw;
-  transform: translateY(-20%);
-  @media screen and (max-width: 680px){
-    top:35%;
-    left: 0;
-    padding: 1.5em;
-  }
+  transform: translateY(-50%);
 }
 
 .cover-text-1a{
@@ -329,16 +316,13 @@ a {
   @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font*1.5);
   @media screen and (max-width: 680px){
     font-size: 1.5em;
-    line-height: 1em;
   }
 }
 .cover-text-1b{
   @extend h1;
   @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font*3);
-  line-height: 2em;
   @media screen and (max-width: 680px){
     font-size: 3.5em;
-    line-height: 1.1em;
   }
 }
 
@@ -874,8 +858,10 @@ section.recentBlogPosts{
         width: 100%;
         bottom: 0;
         position: absolute;
-        .card-title{
+        a h4.card-title{
           color: white;
+          font-size: 1.2em;
+          font-weight: 300 !important;
         }
       }
       .card-img-top{
