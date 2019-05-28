@@ -72,7 +72,7 @@ const Layout = ({ children, location, renderHeaderSolid, headerTitle, headerType
 
         <Header
           hideHeader={headerTitle?headerTitle[0]:null}
-          siteTitle={data.site.siteMetadata.title}
+          siteTitle={headerTitle?headerTitle[1]:null}
           renderHeaderSolid={renderHeaderSolid}
           />
         <div

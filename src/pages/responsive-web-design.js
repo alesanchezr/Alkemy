@@ -57,26 +57,16 @@ const WebDesign = ({data}) => {
     })
   }
 
+  const pageTitle = "Responsive Web Design"
+
   return(
     <ScrollWrapper onWindowScroll={handleScroll}>
         <Layout
           renderHeaderSolid={true}
-          headerTitle={[false,""]}
+          headerTitle={[true, pageTitle]}
           bodyClasses="webDesign"
           >
-          <SEO title="Responsive Web Design" />
-
-          {/* Page Hero */}
-          <section className='pageHero'>
-          {data.webDesignBanner.childImageSharp
-            && (
-            <Img
-              className="img-fluid mx-0 px-0"
-              fluid={data.webDesignBanner.childImageSharp.fluid}
-              alt="Alkemy Responsive Web Design Service - Build your dream website today" />
-            )
-          }
-          </section>
+          <SEO title={pageTitle} />
 
           {/* Section 1 */}
           <section className="px-5 my-5">
@@ -233,9 +223,6 @@ export const query = graphql`
         features
       }
     }
-  }
-  webDesignBanner: file(relativePath: {regex: "/web-design-banner.png/"}) {
-    ...fluidImage
   }
   screenDesign: file(relativePath: {regex: "/screen-design.png/"}) {
     ...fluidImageXS

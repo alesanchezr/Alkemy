@@ -29,6 +29,8 @@ var _menuArray = [
   {name: 'Contact Alkemy', title: true, id: '4', drop:false, url: '/contact-alkemy'},
 ];
 
+const windowGlobal = typeof window !== 'undefined' && window.location.pathname
+
 const Header = ({ siteTitle, hideHeader, renderHeaderSolid }) =>(
     <header
       className={
@@ -37,20 +39,16 @@ const Header = ({ siteTitle, hideHeader, renderHeaderSolid }) =>(
           :("header fadeInDown")
       }
     >
-      <>
-        <ReactNavbar menuArray={_menuArray} />
-      </>
+      <ReactNavbar menuArray={_menuArray} />
       {
         (hideHeader===true)
         ?(
-          <div id='subHeader'>
+          <div className='subHeader'>
             <h1 style={{ margin: 0 }}>
               <Link
-                to="/"
-                style={{
-                  color: 'white',
-                  textDecoration: 'none',
-                }}
+                tag="h1"
+                to={windowGlobal}
+                className="m-0 text-white text-unstyled"
               >
                 {siteTitle}
               </Link>
