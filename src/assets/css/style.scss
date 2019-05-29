@@ -1074,3 +1074,12 @@ div.spinContainer{
     }
   }
 }
+
+.aboutValues{
+  background: url('../images/about/city-bg.jpg');
+  min-height: 100vh - calcVh($header-height);
+  .coreValues{
+    background: rgba(0,0,0,.7);
+
+  }
+}

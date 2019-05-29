@@ -1018,4 +1018,12 @@ div.spinContainer {
   }
 }
 
+.aboutValues {
+  background: url("../images/about/city-bg.jpg");
+  min-height: 92.5vh;
+}
+.aboutValues .coreValues {
+  background: rgba(0, 0, 0, 0.7);
+}
+
 /*# sourceMappingURL=style.css.map */

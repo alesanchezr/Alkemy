@@ -64,12 +64,14 @@ const AboutAlkemy = ({data}) => {
           </section>
 
           {/* Section 2 */}
-          <section className="deliverYourMessage mb-4 py-4">
+          <section className="aboutValues py-4">
             <Row className="px-5 pt-4">
               <Col xs={12} md={6}>
-                <h2 className="mb-4">{data.aboutJson && data.aboutJson.sections[1].blocks[0].heading}</h2>
-                <p className="text-white">{data.aboutJson && data.aboutJson.sections[1].blocks[0].content}</p>
-                <Button onClick={handleDiscussClick} className="btn btn-primary">Let's Discuss My Project</Button>
+                <div className="coreValues p-5">
+                  <h2 className="text-white mb-4">{data.aboutJson && data.aboutJson.sections[1].blocks[0].heading}</h2>
+                  <p className="text-white">{data.aboutJson && data.aboutJson.sections[1].blocks[0].content}</p>
+                  <Button onClick={handleDiscussClick} className="btn btn-primary">Let's Discuss My Project</Button>
+                </div>
               </Col>
             </Row>
           </section>
