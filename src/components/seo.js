@@ -30,7 +30,7 @@ import favicon16 from '../assets/images/favicons/favicon-16x16.png'
 import favicon32 from '../assets/images/favicons/favicon-32x32.png'
 import favicon96 from '../assets/images/favicons/favicon-96x96.png'
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, keywords }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -54,7 +54,7 @@ function SEO({ description, lang, meta, title }) {
       meta={[
         { name: 'charset', content: 'UTF-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' },
-        { name: 'keywords', content: 'Software Development, Web Design, eCommerce Design, Digital Marketing, React, PHP, HTML, Python, Django, Gatsby, GraphQL, Wordpress Design, 3dcart, Shopify, WooCommerce, SEM, Search Engine Marketing, SEO, Search Engine Optimization, Social Media Marketing, Web Strategy' },
+        { name: 'keywords', content: keywords },
         { name: 'referrer', content: 'origin-when-crossorigin' },
         { httpEquiv: 'X-UA-Compatible', content: 'IE=edge,chrome=1' },
         { name: 'apple-mobile-web-app-title', content: 'Alkemy, Inc.' },
@@ -164,6 +164,7 @@ function SEO({ description, lang, meta, title }) {
 SEO.defaultProps = {
   meta: [],
   description: ``,
+  keywords: `Software Development, Web Design, eCommerce Design, Digital Marketing, React, PHP, HTML, Python, Django, Gatsby, GraphQL, Wordpress Design, 3dcart, Shopify, WooCommerce, SEM, Search Engine Marketing, SEO, Search Engine Optimization, Social Media Marketing, Web Strategy`
 }
 
 SEO.propTypes = {
@@ -171,6 +172,7 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  keywords: PropTypes.string
 }
 
 export default SEO

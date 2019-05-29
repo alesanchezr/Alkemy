@@ -11,6 +11,7 @@
 /* Variables & Mixins */
 /**********************/
 /* Mobile Menu */
+/* VH Conversion Function */
 /* Transition Mixin */
 /* Fonts */
 html {
@@ -420,10 +421,13 @@ a {
 }
 
 .subHeader {
-  background: linear-gradient(left, #0B3C5D 40%, #2bb3e5);
+  background: #2bb3e5 url("../images/banners/banner-bg.png") center right no-repeat;
   color: white;
   width: 100%;
-  padding: 1.45rem 1.0875rem;
+  height: 110px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 .pageHero {
@@ -999,6 +1003,18 @@ div.spinContainer {
 @media screen and (min-width: 2280px) {
   .roadmapCol:after {
     font-size: 36px;
+  }
+}
+
+/* About Us Page */
+.whoWeAre {
+  height: 81.5vh;
+}
+@media screen and (min-width: 990px) {
+  .whoWeAre .arrow {
+    width: 70%;
+    margin-left: -0.5em;
+    margin-top: 5vh;
   }
 }
 

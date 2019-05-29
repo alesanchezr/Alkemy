@@ -20,6 +20,7 @@ import {
   faChevronDown,
   faSpinner,
   faMobileAlt,
+  faArrowDown,
   faCheck,
   faChartPie,
   faChartLine,
@@ -32,6 +33,7 @@ import { faCalendarAlt,faCalendarPlus,faCheckCircle } from '@fortawesome/free-re
 
 library.add(
   fab,
+  faArrowDown,
   faChevronDown,
   faCalendarAlt,
   faCalendarPlus,

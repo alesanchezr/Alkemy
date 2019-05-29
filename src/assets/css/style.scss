@@ -14,8 +14,17 @@
 
 /* Mobile Menu */
 $header-height: 75px; // Set height of header
+$subheader-height: 110px; // Set height of subheader
 $animation-time: 400ms; // Set the animation speed
 $animation-function: ease; // Set the animation type
+
+
+/* VH Conversion Function */
+
+@function calcVh($target) {
+  $vh-context: (1000*.01) * 1px;
+  @return ($target/$vh-context) * 1vh;
+}
 
 /* Transition Mixin */
 
@@ -424,10 +433,13 @@ a {
   }
 }
 .subHeader{
-  background: linear-gradient(left,$alkemy_dark_blue 40%,$alkemy_blue);
+  background: $alkemy_blue url('../images/banners/banner-bg.png') center right no-repeat;
   color: white;
   width: 100%;
-  padding: 1.45rem 1.0875rem;
+  height: $subheader-height;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 .pageHero{
@@ -1046,5 +1058,19 @@ div.spinContainer{
     top: 20%;
     transform: translateY(-50%);
     white-space: pre;
+  }
+}
+
+
+/* About Us Page */
+
+.whoWeAre{
+  height: 100vh - calcVh($header-height + $subheader-height);
+  .arrow{
+    @media screen and (min-width: 990px){
+      width: 70%;
+      margin-left: -.5em;
+      margin-top: 5vh;
+    }
   }
 }
