@@ -5,12 +5,8 @@
         "id": "1",
         "blocks": [
           {
-            "heading": "Quality Web Design & Software Development",
-            "content": "Great businesses all start with a great idea. The secret to success, however, lies in the follow-up. When it comes to your business, Alkemy is who you want on your side. Our experienced team will help you pave the way to a unique digital experience that will put your company on the map. Innovative Ideas, Care and Diligence, First Class Support, and the software development skill to follow through. Let us guide your business to the success it so rightly deserves."
-          },
-          {
-            "heading": "High Quality Web Services to Accelerate Your Business",
-            "content": "Alkemy provides an assortment of Web Design, Software Development, and Digital Marketing services that are uniquely designed to help grow your business. We pride ourselves in helping you come up with the right plan to reach your goals. Then we skillfully implement that plan with our professionalism and industry expertise to ensure maximum effect."
+            "heading": "Who we are and what we stand for",
+            "content": "Here at Alkemy, we’re a group of designers, programmers, professionals, and visionaries that are working together to develop the next big thing (and have a little fun on the side). We take pride in all we do and love creating awesome new products and websites."
           }
         ]
       },
@@ -18,20 +14,28 @@
         "id": "2",
         "blocks": [
           {
-            "heading": "Responsive Web Design",
-            "content": "We pride ourselves on creating Pixel Perfect, Fully Responsive Website Design that will awe your customers no matter what platform or browser they visit from. Let's Craft Your Dream Today!"
+            "heading": "Competitive Pricing and Delivery Times",
+            "content": "We quote projects based upon their complexity and the time it will take to produce the desired results. Some projects are more costly than others, but we always try to be as reasonable as possible with our estimates. In the world of Development and Design there is an old saying, “Fast, Cheap, and Good. You can choose any two.” (Here’s a tip: You should always choose Quality as one of the 2)"
           },
           {
-            "heading": "Software Development",
-            "content": "Have a project that needs Software Development? Let our experienced team navigate the planning, design, and development to ensure a successful launch for your product idea or platform."
+            "heading": "Always deliver work that we can be proud of",
+            "content": "Your success is a direct reflection on our success and that is why it’s important to us to provide only our best, Always. We live up to this by treating your project as if it were our project. This means:"
           },
           {
-            "heading": "E-commerce Design",
-            "content": "Whether you are using Shopify, 3dcart, Woo-Commerce, or want a custom built solution, we are happy to help you create an E-commerce website that will drive your conversions."
+            "heading": "Making meaningful suggestions when necessary.",
+            "content": "We are industry experts, and as we mentioned before, your success matters. That means that we will always suggest something if we feel it’s to your benefit. Ultimately, you will always have the final say in your project and our suggestions will only be made when we feel they are needed. Consider them carefully."
           },
           {
-            "heading": "Digital Marketing",
-            "content": "Every website needs marketing to succeed. We can help you market your unique business! Whether it’s SEO/SEM, Social Media Marketing, or Email Campaigns — Alkemy Can Help!"
+            "heading": "High Grade Quality Assurance Testing.",
+            "content": "While designing and developing, we run through many checks to ensure that quality is being met. However infrequently, things are bound to slip through the cracks. To answer this concern, we provide you with rounds of revisions (number of revision rounds depends on your specific agreement). This means that you have an opportunity to provide your own feedback during the process. We also provide a final review period for the product, so that you and your team can have some time to explore and see if anything was missed."
+          },
+          {
+            "heading": "Always have fun in everything we do.",
+            "content": "We love what we do and feel blessed that we can enjoy doing what we love everyday. This translates into a better working relationship with you and your business. Relationships are powerful motivators and we’re not just looking to collect a fee from you. We want to help your business succeed for years to come, and that means building a strong foundation."
+          },
+          {
+            "heading": "Approach every project holistically, by suggesting a valid Marketing and Care Strategy.",
+            "content": "Every Website, App, or Web App doesn't just need good code to succeed. Marketing and Regular Maintenance are just as important to make sure that you launch your vision correctly. With our Marketing Services we leverage SEO (Search Engine Optimization), Content Creation, Social Media Marketing, and PPC (Pay Per Click) Marketing to help boost traffic and visibility for your website. We start with forming the plan for your business so that you can reach your specific goals, and then get you on a program that will steadily bring in traffic and keep your audience growing. While with our Care Packages, we can ensure that your website gets the continuous maintenance and care that it needs to succeed."
           }
         ]
       },
@@ -41,6 +45,14 @@
           {
             "heading": "Our Passion",
             "content": "What drives us? The desire to create Awesome Software that answers the needs of our world. We meet complex problems with creative and innovative solutions every day. At our center is the idea that each member of our team brings something unique to the table and we strive to show it every chance we get."
+          },
+          {
+            "heading": "",
+            "content": "Here at Alkemy, we believe in the Japanese principle of Kaizen."
+          },
+          {
+            "heading": "",
+            "content": "We apply this by constantly striving to improve our business bit by bit. From that code that we updated to make your website load quicker, to the adjustment we made on mobile devices so that users could interact better — Our team is always working on making something better so that we can be proud of everything we create and do."
           }
         ]
       }

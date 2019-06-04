@@ -100,6 +100,9 @@ $facebook: #4267b2;
 $twitter: #1da1f2;
 $alkemy_card_border: #84BAD9;
 
+.text-gray{
+  color: #666 !important;
+}
 
 /* Scrollbars */
 /* width */
@@ -568,7 +571,7 @@ blockquote{
 
   /*Font*/
   font-family: Merriweather, serif;
-  font-size: 14px;
+  font-size: unset!important;
   font-weight: 400;
   line-height: 1.2;
   color: #666;
@@ -1061,6 +1064,13 @@ div.spinContainer{
   }
 }
 
+/* Digital Marketing */
+
+.marketingReinvented{
+  background: $alkemy_dark_blue;
+  color: white;
+  h2{color: white;}
+}
 
 /* About Us Page */
 
@@ -1076,10 +1086,53 @@ div.spinContainer{
 }
 
 .aboutValues{
-  background: url('../images/about/city-bg.jpg');
+  background: url('../images/about/city-bg.jpg') no-repeat center center;
+  background-size: cover;
   min-height: 100vh - calcVh($header-height);
   .coreValues{
     background: rgba(0,0,0,.7);
+    color: white;
 
+    .valueTitle{
+      color: $alkemy_yellow;
+      font-weight: bold;
+    }
+
+  	ul{
+  		list-style: disc;
+  	}
+
+  	ol{
+  	    list-style: none;
+  	    counter-reset: alkemy-counter;
+
+  		li:before{
+  			content: '\f0c3';
+  		    font: 600 2.5rem/1 'Font Awesome 5 Free';
+  		    position: absolute;
+  		    display: inline-flex;
+  		    margin-left: -3.5rem;
+  		    margin-top: .5rem;
+  		    color: $alkemy_blue;
+  		}
+
+  		ul{
+  			list-style: none;
+  		}
+
+  		li ul li:before{
+  			content: '\f105';
+  		    font: Bold 2rem/1 'Font Awesome 5 Free';
+  		    position: absolute;
+  		    display: inline-flex;
+  		    margin-left: -1.8rem;
+  		    margin-top: -.2rem;
+  		    color: $alkemy_yellow;
+  		}
+  	}
   }
+}
+
+.ourPassion{
+
 }

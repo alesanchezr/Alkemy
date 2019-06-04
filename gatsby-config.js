@@ -5,7 +5,9 @@ module.exports = {
     author: `@alkemydev`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-react-helmet`
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -28,9 +30,15 @@ module.exports = {
         publicPath: `${__dirname}/images/`
       },
     },
-    `gatsby-transformer-json`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-transformer-json`
+    },
+    {
+      resolve: `gatsby-transformer-sharp`
+    },
+    {
+      resolve: `gatsby-plugin-sharp`
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -63,7 +71,7 @@ module.exports = {
               // you may use this to prevent Prism from re-processing syntax.
               // This is an uncommon use-case though;
               // If you're unsure, it's best to use the default value.
-              classPrefix: "language-",
+              classPrefix: `language-`,
               // This is used to allow setting a language for inline code
               // (i.e. single backticks) by creating a separator.
               // This separator is a string and will do no white-space
@@ -75,19 +83,21 @@ module.exports = {
               // setting this to '{ sh: "bash" }' will let you use
               // the language "sh" which will highlight using the
               // bash highlighter.
-              aliases: { sh: "bash" }
+              aliases: { sh: `bash` }
             }
           },
           {
-            resolve: "gatsby-remark-external-links",
+            resolve: `gatsby-remark-external-links`,
             options: {
-              target: "_blank",
-              rel: "nofollow"
+              target: `_blank`,
+              rel: `nofollow`
             }
           }
         ]
       }
     },
-    `gatsby-plugin-offline`,
-  ],
+    {
+      resolve: `gatsby-plugin-offline`
+    }
+  ]
 }

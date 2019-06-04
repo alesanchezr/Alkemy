@@ -70,7 +70,7 @@ const DigitalMarketing = ({data}) => {
           </section>
 
           {/* Section 2 */}
-          <section className="deliverYourMessage mb-4">
+          <section className="marketingReinvented mb-4">
             <Row className="px-5 py-4 d-flex justify-content-center align-items-center">
               <Col xs={12} md={6}>
               {data.marketingImg.childImageSharp
@@ -102,7 +102,7 @@ const DigitalMarketing = ({data}) => {
           </section>
 
           {/* Section 3 */}
-          <section className="wordpressDesign mb-4 py-4">
+          <section className="conversionPlanning mb-4 py-4">
             <h1>{data.digitalMarketingJson && data.digitalMarketingJson.sections[1].heading}</h1>
             <Row className="px-5 pt-4">
               <Col xs={12} md={7}>
@@ -132,7 +132,7 @@ const DigitalMarketing = ({data}) => {
           </section>
 
           {/* Section 4 */}
-          <section className="webDesignPlans mb-4 py-4">
+          <section className="socialMediaMarketing mb-4 py-4">
             <Row className="px-5">
               <Col xs={12} md={5}>
               {data.socialMedia.childImageSharp

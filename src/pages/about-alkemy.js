@@ -11,18 +11,19 @@ import SEO from "../components/seo"
 
 /*
 Layout props:
-  pageTitle: SEO friendly title for the title bar
+  renderHeaderSolid: Whether the top navigation should be solid or start transparent
   headerTitle: array that defines subheader props
       [
         boolean (is there a subheader),
         string (subheader text)
       ]
+  bodyClasses: additional classes to add to body tag
 */
 
 
 const AboutAlkemy = ({data}) => {
-
-    const pageTitle = "About Us"
+    // pageTitle: SEO friendly title for the title bar
+    const pageTitle = "About Alkemy"
 
     return(
     <ScrollWrapper onWindowScroll={handleScroll}>
@@ -47,15 +48,16 @@ const AboutAlkemy = ({data}) => {
               }
               </Col>
               <Col xs={12} sm={6}>
-                <h2 className="mb-4">{data.aboutJson && data.aboutJson.sections[0].blocks[1].heading}</h2>
-                <p className="mb-4">{data.aboutJson && data.aboutJson.sections[0].blocks[1].content}</p>
+                <h2 className="mb-4">{data.aboutJson && data.aboutJson.sections[0].blocks[0].heading}</h2>
+                <p className="mb-4">{data.aboutJson && data.aboutJson.sections[0].blocks[0].content}</p>
                 <div className="arrow">
                 {data.arrowLine.childImageSharp
                   && (
                   <Img
+                    objectFit="contain"
                     className="h-100"
                     fluid={data.arrowLine.childImageSharp.fluid}
-                    alt="Alkemy is always the best fit for your business and digital presence." />
+                    alt="Arrow showing a journey from one point down to the next section." />
                   )
                 }
                 </div>
@@ -65,12 +67,41 @@ const AboutAlkemy = ({data}) => {
 
           {/* Section 2 */}
           <section className="aboutValues py-4">
-            <Row className="px-5 pt-4">
-              <Col xs={12} md={6}>
-                <div className="coreValues p-5">
-                  <h2 className="text-white mb-4">{data.aboutJson && data.aboutJson.sections[1].blocks[0].heading}</h2>
-                  <p className="text-white">{data.aboutJson && data.aboutJson.sections[1].blocks[0].content}</p>
-                  <Button onClick={handleDiscussClick} className="btn btn-primary">Let's Discuss My Project</Button>
+            <Row className="px-5 py-4">
+              <Col xs={12} md={8}>
+                <div className="coreValues p-5 font-weight-light">
+                  <ol>
+                    <li><span className="valueTitle">{data.aboutJson && data.aboutJson.sections[1].blocks[0].heading}</span><br/>{data.aboutJson && data.aboutJson.sections[1].blocks[0].content}</li>
+                    <li><span className="valueTitle">{data.aboutJson && data.aboutJson.sections[1].blocks[1].heading}</span><br/>{data.aboutJson && data.aboutJson.sections[1].blocks[1].content}
+                      <ul>
+                        <li><span className="valueTitle">{data.aboutJson && data.aboutJson.sections[1].blocks[2].heading}</span> {data.aboutJson && data.aboutJson.sections[1].blocks[2].content}</li>
+                        <li><span className="valueTitle">{data.aboutJson && data.aboutJson.sections[1].blocks[3].heading}</span> {data.aboutJson && data.aboutJson.sections[1].blocks[3].content}</li>
+                      </ul>
+                    </li>
+                    <li><span className="valueTitle">{data.aboutJson && data.aboutJson.sections[1].blocks[4].heading}</span><br/>{data.aboutJson && data.aboutJson.sections[1].blocks[4].content}</li>
+                  </ol>
+                </div>
+              </Col>
+            </Row>
+          </section>
+
+          {/* Section 3 */}
+          <section className="ourPassion py-4">
+            <Row className="py-2">
+              <Col xs={12}>
+                <div>
+                  <h2 className="mb-4">{data.aboutJson && data.aboutJson.sections[2].blocks[0].heading}</h2>
+                  <p>{data.aboutJson && data.aboutJson.sections[2].blocks[0].content}</p>
+                  <p>{data.aboutJson && data.aboutJson.sections[2].blocks[1].content}</p>
+                  <blockquote className="blockquote default my-4 py-3">
+                    <h2 className="text-gray bold">kai·zen</h2>
+                    <p>
+                      /ˈkīzən/<br/>
+                      noun
+                    </p>
+                    <p>a Japanese business philosophy of continuous improvement of working practices, personal efficiency, etc.</p>
+                  </blockquote>
+                  <p>{data.aboutJson && data.aboutJson.sections[2].blocks[2].content}</p>
                 </div>
               </Col>
             </Row>
@@ -85,13 +116,6 @@ const AboutAlkemy = ({data}) => {
 }
 
 const dreamForm = React.createRef();
-
-const handleDiscussClick = () => {
-  window.scrollTo({
-    top: dreamForm.current.offsetTop-80,
-    behavior: "smooth"
-  })
-}
 
 const handleScroll = () => {
 
