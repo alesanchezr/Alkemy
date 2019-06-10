@@ -3,6 +3,13 @@ module.exports = {
     title: `Alkemy, Inc.`,
     description: `Make your next Web Design or Software Development project a success with Alkemy!`,
     author: `@alkemydev`,
+    company: `Alkemy, Inc.`,
+    address: `9055 Wiles Road`,
+    city: `Coral Springs`,
+    state: `FL`,
+    zip: `33067`,
+    phone: `877-4ALKEMY (425-5369)`,
+    phoneDial: `8774255369`
   },
   plugins: [
     {

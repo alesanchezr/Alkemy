@@ -475,17 +475,20 @@ a {
   right: 0;
 }
 .footer .socialLinks {
-  font-size: 1.2rem;
   right: 0;
   bottom: 0;
 }
-.footer .socialLinks .social-twitter:hover path {
+
+.socialLinks {
+  font-size: 1.2rem;
+}
+.socialLinks .social-twitter:hover path {
   fill: #1da1f2;
 }
-.footer .socialLinks .social-facebook:hover path {
+.socialLinks .social-facebook:hover path {
   fill: #4267b2;
 }
-.footer .socialLinks .social-linkedin:hover path {
+.socialLinks .social-linkedin:hover path {
   fill: #0077B5;
 }
 
@@ -1071,6 +1074,43 @@ div.spinContainer {
   margin-left: -1.8rem;
   margin-top: -0.2rem;
   color: #F0C611;
+}
+
+/* Contact Alkemy */
+.contactIntro {
+  height: 81.5vh;
+}
+
+.contactDetails {
+  background: url("../images/contact/contact-bg.jpg") top center;
+  min-height: 100vh;
+  width: 100vw;
+}
+.contactDetails .intl-tel-input.allow-dropdown .flag-container {
+  left: 22px;
+}
+.contactDetails select,
+.contactDetails div.intl-tel-input.allow-dropdown input,
+.contactDetails div.intl-tel-input.allow-dropdown input[type=tel],
+.contactDetails div.intl-tel-input.allow-dropdown input[type=text] {
+  text-indent: 22px;
+}
+.contactDetails address a {
+  color: white;
+}
+.contactDetails address a:hover {
+  color: #F0C611;
+}
+.contactDetails textarea {
+  padding: 0.5rem 1.4rem;
+}
+.contactDetails .contactForm,
+.contactDetails .companyInfo {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+.contactDetails .socialLinks svg.social-facebook {
+  margin-left: 0 !important;
 }
 
 /*# sourceMappingURL=style.css.map */

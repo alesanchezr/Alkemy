@@ -487,23 +487,26 @@ a {
     right: 0;
   }
   .socialLinks{
-    font-size: 1.2rem;
     right: 0;
     bottom: 0;
-    .social-twitter:hover {
-      path{
-        fill: $twitter;
-      }
+  }
+}
+
+.socialLinks{
+  font-size: 1.2rem;
+  .social-twitter:hover {
+    path{
+      fill: $twitter;
     }
-    .social-facebook:hover{
-      path{
-        fill: $facebook;
-      }
+  }
+  .social-facebook:hover{
+    path{
+      fill: $facebook;
     }
-    .social-linkedin:hover{
-      path{
-        fill: $linkedin;
-      }
+  }
+  .social-linkedin:hover{
+    path{
+      fill: $linkedin;
     }
   }
 }
@@ -1135,4 +1138,50 @@ div.spinContainer{
 
 .ourPassion{
 
+}
+
+/* Contact Alkemy */
+
+.contactIntro{
+  height: 100vh - calcVh($header-height + $subheader-height);
+}
+
+.contactDetails{
+  background: url('../images/contact/contact-bg.jpg') top center;
+  min-height: 100vh;
+  width: 100vw;
+
+  .intl-tel-input.allow-dropdown .flag-container{
+    left: 22px;
+  }
+
+  select,
+  div.intl-tel-input.allow-dropdown input,
+  div.intl-tel-input.allow-dropdown input[type=tel],
+  div.intl-tel-input.allow-dropdown input[type=text]{
+    text-indent: 22px;
+  }
+
+  address{
+    a{
+      color: white;
+      &:hover{
+        color: $alkemy_yellow;
+      }
+    }
+  }
+  textarea{
+    padding: .5rem 1.4rem;
+  }
+  .contactForm,
+  .companyInfo{
+    background: rgba(0,0,0,.7);
+    color: white;
+  }
+
+  .socialLinks{
+    svg.social-facebook{
+      margin-left: 0 !important;
+    }
+  }
 }
