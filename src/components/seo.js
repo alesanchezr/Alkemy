@@ -30,7 +30,7 @@ import favicon16 from '../assets/images/favicons/favicon-16x16.png'
 import favicon32 from '../assets/images/favicons/favicon-32x32.png'
 import favicon96 from '../assets/images/favicons/favicon-96x96.png'
 
-function SEO({ description, lang, meta, title, keywords }) {
+function SEO({ description, lang, meta, title, keywords, children }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -157,6 +157,8 @@ function SEO({ description, lang, meta, title, keywords }) {
     		fbq('track', 'PageView');
     	`}</script>
     	{/* End Facebook Pixel Code */}
+
+      {children}
     </Helmet>
   )
 }

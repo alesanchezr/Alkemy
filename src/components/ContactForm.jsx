@@ -264,7 +264,7 @@ validate = ()=>{
                         value={this.state.formValues.reason}
                         onChange={e=>this.handleFieldChange(e,'reason')}
                         >
-                        <option disabled selected>Please select your reason for contacting us</option>
+                        <option disabled defaultValue>Please select your reason for contacting us</option>
                         <option>I'm Interested in Investing in Alkemy</option>
                         <option>I'm looking to contract Alkemy</option>
                         <option>I have a General Inquiry</option>

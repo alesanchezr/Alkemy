@@ -5,7 +5,7 @@ import Layout from '../components/layout'
 import ScrollWrapper from '../components/scrollWrapper.jsx'
 import CompanyInfo from '../components/CompanyInfo.jsx'
 import ContactForm from '../components/ContactForm.jsx'
-import Map from '../components/Map.jsx'
+import GoogleApiWrapper from '../components/Map.jsx'
 import SEO from "../components/seo"
 
 /*
@@ -19,11 +19,11 @@ Layout props:
   bodyClasses: additional classes to add to body tag
 */
 
-
 const ContactAlkemy = ({data}) => {
     // pageTitle: SEO friendly title for the title bar
     const pageTitle = "Contact Alkemy"
-
+    // const apiKey = "AIzaSyBYHI6XtXdoqNykOWaNMqrpjayUUHUy-KQ"
+    const apiKey = "AIzaSyDUZpO1zjvq2K06tUOFMGILQJj7LfmF9pY"
     return(
     <ScrollWrapper onWindowScroll={handleScroll}>
         <Layout
@@ -31,7 +31,7 @@ const ContactAlkemy = ({data}) => {
           headerTitle={[true,pageTitle]}
           bodyClasses="contactAlkemy"
           >
-          <SEO title={pageTitle} />
+          <SEO title={pageTitle}/>
 
           {/* Section 1 */}
           <section className="contactIntro d-flex align-items-center">
@@ -58,7 +58,11 @@ const ContactAlkemy = ({data}) => {
               </Col>
               <Col xs={12} md={5}>
                 <CompanyInfo />
-
+                <Row className="h-50">
+                  <Col xs={12}>
+                    <GoogleApiWrapper apiKey={apiKey}/>
+                  </Col>
+                </Row>
               </Col>
             </Row>
           </section>
