@@ -3,7 +3,7 @@ import { Col, Row } from 'reactstrap'
 import { Map, GoogleApiWrapper } from 'google-maps-react';
 
 export class ContactMap extends React.Component {
-  constructor(){
+  constructor(props){
     super(props);
     this.mapCanvas = React.createRef()
   }
