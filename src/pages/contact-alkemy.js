@@ -1,12 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import { Button, Col, Row } from 'reactstrap'
 import Layout from '../components/layout'
 import ScrollWrapper from '../components/scrollWrapper.jsx'
 import CompanyInfo from '../components/CompanyInfo.jsx'
 import ContactForm from '../components/ContactForm.jsx'
-import GoogleApiWrapper from '../components/Map.jsx'
+import ContactMap from '../components/Map.jsx'
 import SEO from "../components/seo"
+import '../utils/utils.js'
 
 /*
 Layout props:
@@ -22,8 +24,7 @@ Layout props:
 const ContactAlkemy = ({data}) => {
     // pageTitle: SEO friendly title for the title bar
     const pageTitle = "Contact Alkemy"
-    // const apiKey = "AIzaSyBYHI6XtXdoqNykOWaNMqrpjayUUHUy-KQ"
-    const apiKey = "AIzaSyDUZpO1zjvq2K06tUOFMGILQJj7LfmF9pY"
+
     return(
     <ScrollWrapper onWindowScroll={handleScroll}>
         <Layout
@@ -34,9 +35,9 @@ const ContactAlkemy = ({data}) => {
           <SEO title={pageTitle}/>
 
           {/* Section 1 */}
-          <section className="contactIntro d-flex align-items-center">
-            <Row>
-              <Col xs={12}>
+          <section className="contactIntro py-5">
+            <Row className="align-items-center">
+              <Col xs={12} md={6}>
                 <div className="px-5">
                   <h2>{data.contactJson && data.contactJson.sections[0].blocks[0].heading}</h2>
                   <p className="my-4">{data.contactJson && data.contactJson.sections[0].blocks[0].content}</p>
@@ -46,6 +47,15 @@ const ContactAlkemy = ({data}) => {
                     <li><strong>{data.contactJson && data.contactJson.sections[1].blocks[2].heading}</strong> {data.contactJson && data.contactJson.sections[1].blocks[2].content}</li>
                   </ul>
                 </div>
+              </Col>
+              <Col xs={12} md={6}>
+                {data.contactImg.childImageSharp
+                  && (
+                  <Img
+                    fluid={data.contactImg.childImageSharp.fluid}
+                    alt="Wait till you experience our best in class Customer Service!" />
+                  )
+                }
               </Col>
             </Row>
           </section>
@@ -58,9 +68,9 @@ const ContactAlkemy = ({data}) => {
               </Col>
               <Col xs={12} md={5}>
                 <CompanyInfo />
-                <Row className="h-50">
+                <Row className="h-50 mt-5">
                   <Col xs={12}>
-                    <GoogleApiWrapper apiKey={apiKey}/>
+                    <ContactMap />
                   </Col>
                 </Row>
               </Col>
@@ -85,6 +95,9 @@ export const query = graphql`
         content
       }
     }
+  }
+  contactImg: file(relativePath: {regex: "/contact.jpg/"}) {
+    ...fluidImageSmall
   }
 }
 `;

@@ -1,11 +1,14 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Col, Row } from 'reactstrap'
 
 // Social Links Widget, Modify the following array to suit
 // your structure for social media.
 
 // Image references should be the src ref for FontAwesomeIcon.
 // Don't forget to import the icon to the library on layout.js
+
+// Adjust Bootstrap Columns as needed based on the number of social icons
 
 const _linkArray= [
   {id:1,platform: 'facebook', url: '//www.facebook.com/alkemydev/', icon: 'facebook', color:'white'},
@@ -16,17 +19,21 @@ const _linkArray= [
 const SocialLinks = (props) => {
   return (
     <div className={"mr-5 socialLinks "+props.className}>
-      {renderSocialLinks(_linkArray)}
+      <Row>
+        {renderSocialLinks(_linkArray)}
+      </Row>
     </div>
   )
 }
 
 const renderSocialLinks = (menu) => {
-  return menu.map(item=>{
+  return menu.map((item,index)=>{
     return(
-      <a href={item.url} key={item.id} target="_blank" rel="noopener noreferrer">
-        <FontAwesomeIcon icon={['fab',item.icon]} color={item.color} size="lg" className={"align-middle ml-2 social-"+item.platform}/>
-      </a>
+      <Col xs={4} key={item.id}>
+        <a href={item.url} target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={['fab',item.icon]} color={item.color} size="lg" className={"align-middle social-"+item.platform+" ml-0"}/>
+        </a>
+      </Col>
     )
   })
 }
