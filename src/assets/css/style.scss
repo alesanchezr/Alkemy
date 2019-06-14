@@ -1142,10 +1142,6 @@ div.spinContainer{
 
 /* Contact Alkemy */
 
-/* .contactIntro{
-  height: 100vh - calcVh($header-height + $subheader-height);
-} */
-
 .contactDetails{
   background: url('../images/contact/contact-bg.jpg') top center;
   min-height: 100vh;
@@ -1180,6 +1176,14 @@ div.spinContainer{
     color: white;
   }
 
+  .contactForm{
+    button{
+      &:hover{
+        max-width: unset;
+      }
+    }
+  }
+
   .googleMap{
     position: relative !important;
     height: 50vh !important;
@@ -1188,10 +1192,4 @@ div.spinContainer{
       padding: 1rem 1.5rem 1rem 1rem;
     }
   }
-
-  /* .socialLinks{
-    svg.social-facebook{
-      margin-left: 0 !important;
-    }
-  } */
 }
