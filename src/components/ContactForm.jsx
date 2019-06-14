@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Col, Row, Form,
-  FormFeedback,FormGroup, Label, Input,FormText } from 'reactstrap'
+  FormFeedback,FormGroup, Label, CustomInput,Input,FormText } from 'reactstrap'
 import IntlTelInput from 'react-intl-tel-input'
 import 'react-intl-tel-input/dist/main.css'
 import ThankYou from './thankYou.jsx'
@@ -75,29 +75,30 @@ export default class ContactForm extends React.Component {
 
   handleSubmit = e=>{
     e.preventDefault()
+    if(this.validate()){
+      // handle form submit here
+      const recaptchaValue = this.state.formValues['g-recaptcha-response'];
 
-    // handle form submit here
-    const recaptchaValue = this.state.formValues['g-recaptcha-response'];
-
-    if(recaptchaValue !== ''){
-      fetch('/', {
-        method: 'POST',
-        body: {
-          "form-name": "contactForm",
-          ...this.state.formValues
-        }
+      if(recaptchaValue !== ''){
+        fetch('/', {
+          method: 'POST',
+          body: {
+            "form-name": "contactForm",
+            ...this.state.formValues
+          }
         }).then((res) => {
           this.setState({
             success: true
           })
         })
         .catch(error => console.log(error))
-    }else{
-      let errors = {...this.state.errors}
-      errors.ReCAPTCHA = 'ReCAPTCHA Verification Needed to Submit Form.'
-      this.setState({
-        errors
-      })
+      }else{
+        let errors = {...this.state.errors}
+        errors.ReCAPTCHA = 'ReCAPTCHA Verification Needed to Submit Form.'
+        this.setState({
+          errors
+        })
+      }
     }
 
   }
@@ -121,15 +122,21 @@ validate = ()=>{
            }
       }
     }
+  }else{
+    isError=true
+    errors.fullNameLength='Full name is a Required Field.'
   }
 
   // Email Validation
   let emailReg = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   let emailValid = emailReg.test(String(this.state.formValues.email.toLowerCase()))
   console.log('email valid: ',emailValid)
-  if(!emailValid){
+  if(!emailValid&&this.state.formValues.email.length>0){
     isError=true
     errors.emailFormat='Invalid format. Must be name@domain.com'
+  }else if(!emailValid&&this.state.formValues.email.length===0){
+    isError=true
+    errors.emailFormat='Email is a Required Field.'
   }
 
   // Phone Validation
@@ -137,9 +144,12 @@ validate = ()=>{
   let phone = this.state.formValues.phone
   let phoneValidate = phoneReg.test(String(phone))
 
-  if(phoneValidate === false){
+  if(!phoneValidate && phone.length>0){
     isError=true
     errors.phone='Not a valid phone number.'
+  }else if(phone.length===0){
+    isError=true
+    errors.phone='Phone is a Required Field.'
   }
 
   if(isError){
@@ -189,6 +199,7 @@ validate = ()=>{
                           typeof this.state.errors.fullNameLength !== 'undefined' &&
                           this.state.errors.fullNameLength.length>0
                         }
+                        onBlur={e=>this.validate()}
                         onChange={e=>this.handleFieldChange(e,'fullName')}
                         placeholder="Please tell us your Full Name"
                         />
@@ -212,6 +223,7 @@ validate = ()=>{
                           typeof this.state.errors.companyName !== 'undefined' &&
                           this.state.errors.companyName.length>0
                         }
+                        onBlur={e=>this.validate()}
                         onChange={e=>this.handleFieldChange(e,'companyName')}
                         placeholder="What is your Company Name?"
                         />
@@ -230,6 +242,7 @@ validate = ()=>{
                           typeof this.state.errors.emailFormat !== 'undefined' &&
                           this.state.errors.emailFormat.length>0
                         }
+                        onBlur={e=>this.validate()}
                         onChange={e=>this.handleFieldChange(e,'email')}
                         placeholder="Enter your Email Address"
                         />
@@ -247,10 +260,15 @@ validate = ()=>{
                         format
                         containerClassName="intl-tel-input"
                         className='form-control'
+                        onBlur={e=>this.validate()}
                         onPhoneNumberChange={(valid,value)=>this.handleFieldChange([valid,value],'phone')}
                         defaultValue={this.state.formValues.phone}
+                        invalid={
+                          typeof this.state.errors.phone !== 'undefined' &&
+                          this.state.errors.phone.length>0
+                        }
                         />
-                        <FormFeedback>{this.state.errors.phone}</FormFeedback>
+                        <FormFeedback className="intl-tel-input">{this.state.errors.phone}</FormFeedback>
                     </Col>
                   </FormGroup>
                   <FormGroup row>
@@ -258,23 +276,27 @@ validate = ()=>{
                       Reason*
                     </Label>
                     <Col sm={9}>
-                      <Input
+                      <CustomInput
                         type="select"
                         name="reason"
                         value={this.state.formValues.reason}
                         onChange={e=>this.handleFieldChange(e,'reason')}
+                        invalid={
+                          this.state.formValues.reason.length === 0
+                        }
                         >
-                        <option disabled defaultValue>Please select your reason for contacting us</option>
+                        <option value="" disabled defaultValue>Please select your reason for contacting us</option>
                         <option>I'm Interested in Investing in Alkemy</option>
                         <option>I'm looking to contract Alkemy</option>
                         <option>I have a General Inquiry</option>
                         <option>Other/Unspecified</option>
-                      </Input>
+                      </CustomInput>
+                      <FormFeedback>Please Select a Reason for Contacting Us.</FormFeedback>
                     </Col>
                   </FormGroup>
                   <FormGroup row>
                     <Label for="comments" sm={3}>
-                      Comments*
+                      Comments
                     </Label>
                     <Col sm={9}>
                       <Input
