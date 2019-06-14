@@ -1091,20 +1091,27 @@ div.spinContainer {
 .contactDetails div.intl-tel-input.allow-dropdown input[type=text] {
   text-indent: 22px;
 }
-.contactDetails address a {
-  color: white;
-}
-.contactDetails address a:hover {
-  color: #F0C611;
-}
 .contactDetails textarea {
   padding: 0.5rem 1.4rem;
 }
 .contactDetails .contactForm,
 .contactDetails .companyInfo,
-.contactDetails .mapCol {
+.contactDetails .mapCol,
+.contactDetails .thankYou {
   background: rgba(0, 0, 0, 0.7);
   color: white;
+}
+.contactDetails .contactForm a,
+.contactDetails .companyInfo a,
+.contactDetails .mapCol a,
+.contactDetails .thankYou a {
+  color: #2bb3e5;
+}
+.contactDetails .contactForm a:hover,
+.contactDetails .companyInfo a:hover,
+.contactDetails .mapCol a:hover,
+.contactDetails .thankYou a:hover {
+  color: #F0C611;
 }
 .contactDetails .contactForm button:hover {
   max-width: unset;

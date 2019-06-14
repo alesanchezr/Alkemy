@@ -1158,22 +1158,21 @@ div.spinContainer{
     text-indent: 22px;
   }
 
-  address{
-    a{
-      color: white;
-      &:hover{
-        color: $alkemy_yellow;
-      }
-    }
-  }
   textarea{
     padding: .5rem 1.4rem;
   }
   .contactForm,
   .companyInfo,
-  .mapCol{
+  .mapCol,
+  .thankYou{
     background: rgba(0,0,0,.7);
     color: white;
+    a{
+      color: $alkemy_blue;
+      &:hover{
+        color: $alkemy_yellow;
+      }
+    }
   }
 
   .contactForm{
