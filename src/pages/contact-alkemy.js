@@ -36,9 +36,9 @@ const ContactAlkemy = ({data}) => {
 
           {/* Section 1 */}
           <section className="contactIntro py-5">
-            <Row className="align-items-center">
+            <Row className="align-items-center px-5">
               <Col xs={12} md={6}>
-                <div className="px-5">
+                <div className="mr-4">
                   <h2>{data.contactJson && data.contactJson.sections[0].blocks[0].heading}</h2>
                   <p className="my-4">{data.contactJson && data.contactJson.sections[0].blocks[0].content}</p>
                   <ul className="contactTopics">
