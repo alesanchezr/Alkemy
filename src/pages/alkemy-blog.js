@@ -23,7 +23,7 @@ Layout props:
 
 const AlkemyBlog = ({data}) => {
     // pageTitle: SEO friendly title for the title bar
-    const pageTitle = "About Alkemy"
+    const pageTitle = "Alkemy Blog"
 
     return(
 		<ScrollWrapper onWindowScroll={handleScroll}>
@@ -80,9 +80,28 @@ const handleScroll = () => {
 
 export const query = graphql`
 {
-  
+	allMarkdownRemark {
+		edges {
+			node {
+				fields {
+					slug
+				}
+				frontmatter {
+					path
+					date
+					title
+					tags
+					excerpt
+					cover
+				}
+				children {
+					id
+				}
+			}
+		}
+	}
 }
 `;
 
 
-export default AboutAlkemy
+export default AlkemyBlog
