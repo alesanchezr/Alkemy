@@ -47,6 +47,7 @@
     "typography": "^0.16.19"
   },
   "devDependencies": {
+    "eslint-config-react-app": "^4.0.1",
     "prettier": "^1.17.1"
   },
   "keywords": [
