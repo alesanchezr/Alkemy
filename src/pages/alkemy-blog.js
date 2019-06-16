@@ -8,6 +8,7 @@ import Layout from '../components/layout'
 import ScrollWrapper from '../components/scrollWrapper.jsx'
 import BuildYourDream from '../components/BuildYourDream.jsx'
 import SEO from "../components/seo"
+import { addJS } from '../utils/utils.js';
 
 /*
 Layout props:
@@ -21,10 +22,12 @@ Layout props:
 */
 
 
+// eslint-disable-next-line
 const AlkemyBlog = ({data}) => {
     // pageTitle: SEO friendly title for the title bar
     const pageTitle = "Alkemy Blog"
-
+	addJS(`body`
+		,null, `//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ae21853f0b21631`)
     return(
 		<ScrollWrapper onWindowScroll={handleScroll}>
 			<Layout
@@ -35,7 +38,7 @@ const AlkemyBlog = ({data}) => {
 			<SEO title={pageTitle} />
 
 			{/* Section 1 */}
-			<section className="">
+			<section className="blog-featured">
 				<Row className="align-items-center h-100">
 				<Col xs={12} sm={6} className="text-center h-100">
 				
@@ -48,10 +51,11 @@ const AlkemyBlog = ({data}) => {
 			</section>
 
 			{/* Section 2 */}
-			<section className="py-4">
+			<section className="py-4 blog-post-listing">
 				<Row className="px-5 py-4">
 				<Col xs={12} md={8}>
-					
+					sample blog article
+					<div className="addthis_inline_share_toolbox"></div>
 				</Col>
 				</Row>
 			</section>
@@ -60,8 +64,7 @@ const AlkemyBlog = ({data}) => {
 			<section className="py-4">
 				<Row className="py-2">
 				<Col xs={12}>
-					sample blog article
-					<div className="addthis_inline_share_toolbox"> </div>
+					
 				</Col>
 				</Row>
 			</section>
@@ -71,8 +74,7 @@ const AlkemyBlog = ({data}) => {
 			</section>
 			
 			</Layout>
-			< script type = "text/javascript"
-			src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ae21853f0b21631" ></ script>
+			
 		</ScrollWrapper>
   	)
 }

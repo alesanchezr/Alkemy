@@ -29,3 +29,15 @@ fragment fluidImageXS on File {
   }
 }
 `;
+
+
+export function addJS(position=`head`, jsCode, source) {
+  // eslint-disable-next-line no-undef
+  let el = document.getElementsByTagName(position)
+  // eslint-disable-next-line no-undef
+  let s = document.createElement(`script`)
+  s.src = source
+  s.type = `text/javascript`
+  if (jsCode) s.innerText = jsCode
+  el[0].appendChild(s)
+}
