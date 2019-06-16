@@ -42,6 +42,7 @@ const AlkemyBlog = ({data}) => {
 				</Col>
 				<Col xs={12} sm={6}>
 					
+
 				</Col>
 				</Row>
 			</section>
@@ -59,7 +60,8 @@ const AlkemyBlog = ({data}) => {
 			<section className="py-4">
 				<Row className="py-2">
 				<Col xs={12}>
-					
+					sample blog article
+					<div className="addthis_inline_share_toolbox"> </div>
 				</Col>
 				</Row>
 			</section>
@@ -67,7 +69,10 @@ const AlkemyBlog = ({data}) => {
 			<section ref={dreamForm}>
 				<BuildYourDream />
 			</section>
+			
 			</Layout>
+			< script type = "text/javascript"
+			src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ae21853f0b21631" ></ script>
 		</ScrollWrapper>
   	)
 }

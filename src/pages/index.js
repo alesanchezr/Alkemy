@@ -78,25 +78,35 @@ const HomePage = ({data}) => {
 
               {/* Cover Video Slider */}
               <VideoCarousel slides={slideArray} showIndicators={false} >
-                {/* Cover Text */}
-                <div className="cover-text">
-                  <h1 className="mb-5">
-                    <span className="cover-text-1a animated bounceInLeft d-block">Your Brand Deserves</span>
-                    <span className="cover-text-1b animated bounceInRight d-block">Only The Best</span>
-                  </h1>
+                < Row className = "h-100 d-flex align-items-center" >
+                  < Col xs = {
+                    12
+                  }
+                  md = {
+                    6
+                  }
+                  className = "px-5 bg-transparent" >
+                    {/* Cover Text */}
+                    <div className="cover-text">
+                      <h1 className="mb-5">
+                        <span className="cover-text-1a animated bounceInLeft d-block mb-3">Your Brand Deserves</span>
+                        <span className="cover-text-1b animated bounceInRight d-block">Only The Best</span>
+                      </h1>
 
-                  {/* Cover CTA */}
-                  <Button
-                    color="primary"
-                    size="lg"
-                    to="/about-alkemy"
-                    tag={Link}
-                    className="animated fadeInUp"
-                    block
-                    >
-                    Learn More
-                  </Button>
-                </div>
+                      {/* Cover CTA */}
+                      <Button
+                        color="primary"
+                        size="lg"
+                        to="/about-alkemy"
+                        tag={Link}
+                        className="animated fadeInUp"
+                        block
+                        >
+                        Learn More
+                      </Button>
+                    </div>
+                  </Col>
+                </Row>
 
 
 

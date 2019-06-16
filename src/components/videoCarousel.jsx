@@ -8,8 +8,8 @@ class VideoCarousel extends React.Component{
     this.state = {
       currentIndex: 0,
       slides: this.props.slides,
-      vidClasses: "vc-video",
-      containerClasses: "vc-wrap"
+      vidClasses: "vc-video bg-transparent",
+      containerClasses: "vc-wrap bg-transparent"
     };
 
     this.handleEnded = this.handleEnded.bind(this);
@@ -57,7 +57,7 @@ class VideoCarousel extends React.Component{
               )
             : ("")
           }
-          <div style={{background:'transparent'}}>{this.props.children}</div>
+          {this.props.children}
           {
             typeof this.state.slides !=='undefined'
             ?(
