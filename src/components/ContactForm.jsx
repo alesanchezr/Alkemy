@@ -14,7 +14,7 @@ if(typeof window !=='undefined'){
   };
 }
 
-// @ToDo Figure out what is causing the contactForm to not submit properly in production
+// @todo Figure out what is causing the contactForm to not submit properly in production
 
 // @body: 
 export default class ContactForm extends React.Component {
