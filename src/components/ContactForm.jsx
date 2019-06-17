@@ -76,16 +76,24 @@ export default class ContactForm extends React.Component {
   handleSubmit = e=>{
     e.preventDefault()
     if(this.validate()){
+      console.log('submitting')
       // handle form submit here
+      const encode = (data) => {
+        return Object.keys(data)
+          .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+          .join("&");
+      }
+
       const recaptchaValue = this.state.formValues['g-recaptcha-response'];
 
       if(recaptchaValue !== ''){
+        console.log('performing fetch')
         fetch('/', {
           method: 'POST',
-          body: {
+          body: encode({
             "form-name": "contactForm",
             ...this.state.formValues
-          }
+          })
         }).then((res) => {
           this.setState({
             success: true
@@ -130,7 +138,7 @@ validate = ()=>{
   // Email Validation
   let emailReg = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   let emailValid = emailReg.test(String(this.state.formValues.email.toLowerCase()))
-  console.log('email valid: ',emailValid)
+
   if(!emailValid&&this.state.formValues.email.length>0){
     isError=true
     errors.emailFormat='Invalid format. Must be name@domain.com'
@@ -279,6 +287,7 @@ validate = ()=>{
                       <CustomInput
                         type="select"
                         name="reason"
+                        id="reason"
                         value={this.state.formValues.reason}
                         onChange={e=>this.handleFieldChange(e,'reason')}
                         invalid={
