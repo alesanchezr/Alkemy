@@ -14,6 +14,8 @@ if(typeof window !=='undefined'){
   };
 }
 
+// ToDo: Figure out what is causing the contactForm to not submit properly in production
+
 export default class ContactForm extends React.Component {
   constructor(){
     super();
@@ -180,7 +182,7 @@ validate = ()=>{
             <h2 className="mb-3">Would you like to get in touch?</h2>
             <p>Please take a moment to fill out the following form so that we can better assist you.</p>
             <p className="muted"><small>* denotes a required field</small></p>
-
+            
             <Form
             name="contactForm"
             data-netlify="true"
