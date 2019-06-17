@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
-import { Card, CardImg, CardText, CardImgOverlay,
+import { Link } from 'gatsby'
+import Img from 'gatsby-image'
+import { Card, CardText, CardImgOverlay,
   CardTitle, Row, Col, CardBody, CardFooter, Button } from "reactstrap"
 import Loading from './loading.jsx'
 
@@ -25,12 +26,14 @@ const BlogWidget = (props) => {
             <Link
               to={edge.node.frontmatter.path}
               >
-              <CardImg
-                top
-                src={edge.node.frontmatter.cover}
-                alt={edge.node.frontmatter.title}
-                className="blogCard mb-0"
-                />
+              {edge.node.frontmatter.cover
+                && (
+                  <Img
+                    className="card-img-top blogCard mb-0"
+                  fluid={edge.node.frontmatter.cover.childImageSharp.fluid}
+                    alt={edge.node.frontmatter.title} />
+                )
+              }
             </Link>
             <CardBody className="w-100 p-3 blogCard-body">
               <Link

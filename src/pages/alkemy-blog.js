@@ -80,28 +80,30 @@ const dreamForm = React.createRef()
 const handleScroll = () => {}
 
 export const query = graphql`
-    {
-        allMarkdownRemark {
-            edges {
-                node {
-                    fields {
-                        slug
-                    }
-                    frontmatter {
-                        path
-                        date
-                        title
-                        tags
-                        excerpt
-                        cover
-                    }
-                    children {
-                        id
-                    }
-                }
-            }
-        }
-    }
-`
+           {
+               allMarkdownRemark {
+                   edges {
+                       node {
+                           fields {
+                               slug
+                           }
+                           frontmatter {
+                               path
+                               date
+                               title
+                               tags
+                               excerpt
+                               cover {
+                                   ...fluidImageSmall
+                               }
+                           }
+                           children {
+                               id
+                           }
+                       }
+                   }
+               }
+           }
+       `
 
 export default AlkemyBlog

@@ -40,16 +40,16 @@
    if (node.internal.type === `MarkdownRemark`) {
      const value = createFilePath({ node, getNode, basePath: `./src/content/posts` })
      createNodeField({
-       node,
        name: `slug`,
+       node,
        value,
      });
    }
    if (node.internal.type === `Json`) {
      const value = createFilePath({ node, getNode, basePath: `./src/content/pages` })
      createNodeField({
-       node,
        name: `slug`,
+       node,
        value,
      });
    }
@@ -71,14 +71,7 @@
             }
             frontmatter{
               path
-              date
-              title
               tags
-              excerpt
-              cover
-            }
-            children {
-              id
             }
           }
         }

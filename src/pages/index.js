@@ -357,17 +357,19 @@ export const query = graphql`
       }
     }
   }
-  allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+  allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}) {
     edges {
       node {
         id
         excerpt(pruneLength: 100)
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          path
+          cover {
+            ...fluidImageSmall
+          }
           title
+          path
           excerpt
-          cover
+          date(formatString: "MMMM DD, YYYY")
         }
       }
     }
