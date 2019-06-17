@@ -76,7 +76,6 @@ export default class ContactForm extends React.Component {
   handleSubmit = e=>{
     e.preventDefault()
     if(this.validate()){
-      console.log('submitting')
       // handle form submit here
       const encode = (data) => {
         return Object.keys(data)
@@ -87,7 +86,6 @@ export default class ContactForm extends React.Component {
       const recaptchaValue = this.state.formValues['g-recaptcha-response'];
 
       if(recaptchaValue !== ''){
-        console.log('performing fetch')
         fetch('/', {
           method: 'POST',
           body: encode({
