@@ -33,7 +33,6 @@ export default class BuildYourDream extends React.Component {
         budget: '',
         timeframe: '',
         designExamples: '',
-        logo: '',
         industry: '',
         otherIndustry: ''
       },
@@ -134,24 +133,10 @@ export default class BuildYourDream extends React.Component {
     e.preventDefault()
     let valid = this.validate()
 
-    // handle form submit here
-    const fileInput = document.querySelector("#fileField")
-    const file = fileInput.files[0]
-
     const encode = (data) => {
-      const formData = new FormData()
-      Object.keys(data)
-          .map(key=>{
-            if (
-              key === 'logo' &&
-              typeof file !== 'undefined'
-            ) {
-              formData.append(key, file, file.name)
-            } else {
-              formData.append(key, data[key])
-            }
-            return formData
-          })
+      return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
     }
 
     const recaptchaValue = this.state.formValues['g-recaptcha-response'];
@@ -159,6 +144,7 @@ export default class BuildYourDream extends React.Component {
     if(valid && recaptchaValue.length>0){
       fetch("/", {
           method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: encode({
               "form-name": "dreamForm",
               ...this.state.formValues,
@@ -344,22 +330,6 @@ export default class BuildYourDream extends React.Component {
       case 3:
         return (
           <Row form className="my-4 pt-0 pb-2">
-            <Col xs={12} className="my-2 p-0">
-              <FormGroup>
-                <Label for="logo">Company Logo</Label>
-                <input
-                  id="fileField"
-                  type="file"
-                  accept="image/*"
-                  name="logo"
-                  className="pl-0"
-                  onChange={e=>this.handleFieldChange(e,'logo')}
-                  />
-                <FormText color="muted">
-                  Please upload a logo for your company. This will help provide a general idea of your style and color scheme.
-                </FormText>
-              </FormGroup>
-            </Col>
             <Col xs={12} sm={6} className="my-2 py-0 pr-3">
               <FormGroup>
                 <Input
