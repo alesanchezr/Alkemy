@@ -95,6 +95,7 @@ export default class ContactForm extends React.Component {
         // eslint-disable-next-line no-undef
         fetch("/", {
             method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({
                 "form-name": "contactForm",
                 ...this.state.formValues,

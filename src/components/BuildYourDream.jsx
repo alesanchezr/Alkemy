@@ -157,18 +157,20 @@ export default class BuildYourDream extends React.Component {
     const recaptchaValue = this.state.formValues['g-recaptcha-response'];
 
     if(valid && recaptchaValue.length>0){
-      fetch('/', {
-        method: 'POST',
-        body: encode({
-          "form-name": "dreamForm",
-          ...this.state.formValues
-        })
-        }).then((res) => {
-          this.setState({
-            success: true
+      fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encode({
+              "form-name": "dreamForm",
+              ...this.state.formValues,
+          }),
+      })
+          .then(res => {
+              this.setState({
+                  success: true,
+              })
           })
-        })
-        .catch(error => console.log(error))
+          .catch(error => console.log(error))
     }else{
       let errors = {...this.state.errors}
       errors.ReCAPTCHA = 'ReCAPTCHA Verification Needed to Submit Form.'
