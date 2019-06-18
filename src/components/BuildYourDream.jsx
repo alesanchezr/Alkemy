@@ -132,6 +132,7 @@ export default class BuildYourDream extends React.Component {
 
   handleSubmit = e=>{
     e.preventDefault()
+    let valid = this.validate()
 
     // handle form submit here
     const fileInput = document.querySelector("#fileField")
@@ -155,7 +156,7 @@ export default class BuildYourDream extends React.Component {
 
     const recaptchaValue = this.state.formValues['g-recaptcha-response'];
 
-    if(recaptchaValue !== ''){
+    if(valid && recaptchaValue.length>0){
       fetch('/', {
         method: 'POST',
         body: encode({
@@ -588,7 +589,7 @@ validate = ()=>{
                     </Button>
                   <Button
                     color="primary"
-                    disabled={!this.isEnabled()}
+                    disabled={!this.isEnabled}
                     type={
                       this.state.formStep<this.state.stepperSteps.length-1
                       ? 'button'

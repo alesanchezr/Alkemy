@@ -49,7 +49,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
     e.preventDefault()
     let valid = this.validate()
     // handle form submit here
-
+    console.log('valid? ',valid)
     const encode = (data) => {
       return Object.keys(data)
         .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -58,7 +58,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
 
     const recaptchaValue = this.state.formValues['g-recaptcha-response'];
 
-    if(valid && recaptchaValue!==''){
+    if(valid && recaptchaValue.length>0){
       fetch('/', {
         method: 'POST',
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -166,126 +166,149 @@ export default class FreeWebsiteAnalysis extends React.Component {
   }
 
   render(){
-    return(
-      <>
-        {
-          this.state.success
-          ?(<ThankYou />)
-          :(
-            <section className="contactForm py-5 px-3">
-              <h1 className="text-center">LET'S GET STARTED</h1>
-              <div className="container">
-                <p>Are you interested in a Completely FREE Analysis of your Website and it's current SEO issues? Please provide us with your name, email address, and website’s URL and we’ll handle the rest!</p>
-                <Form
-                  name="freeWebsiteAnalysis"
-                  data-netlify="true"
-                  data-netlify-honeypot="bot-field"
-                  data-netlify-recaptcha="true"
-                  onSubmit={(e)=>this.handleSubmit(e)}
-                  className="py-3 mb-0"
-                  >
-                  <Row form className="my-2 py-0">
-                    <Col xs={12} md={6} className="my-2 py-0">
-                      <FormGroup>
-                        <Input
-                          type="text"
-                          name="fullName"
-                          invalid={
-                            typeof this.state.errors.fullNameLength !== 'undefined' &&
-                            this.state.errors.fullNameLength.length>0
-                          }
-                          onChange={e=>this.handleFieldChange(e)}
-                          placeholder="Please tell us your Full Name"
-                          />
-                          <FormFeedback
-                            className="my-3"
-                            >
-                          {this.state.errors.fullNameLength}
-                          </FormFeedback>
-                      </FormGroup>
-                    </Col>
-                    <Col xs={12} md={6} className="my-2 py-0">
-                      <FormGroup>
-                        <Input
-                          type="text"
-                          name="email"
-                          invalid={
-                            typeof this.state.errors.emailFormat !== 'undefined' &&
-                            this.state.errors.emailFormat.length>0
-                          }
-                          onChange={e=>this.handleFieldChange(e)}
-                          placeholder="Enter your Email Address"
-                          />
-                          <FormFeedback
-                            className="my-3"
-                            >
-                          {this.state.errors.emailFormat}
-                          </FormFeedback>
-                      </FormGroup>
-                    </Col>
-                  </Row>
-                  <FormGroup className="my-2">
-                    <Input
-                      type="text"
-                      name="webAddress"
-                      invalid={
-                        typeof this.state.errors.websiteURLFormat !== 'undefined' &&
-                        this.state.errors.websiteURLFormat.length>0
-                      }
-                      onChange={e=>this.handleFieldChange(e)}
-                      placeholder="What is your Website Address? (ex. www.yourwebsite.com)"
-                      />
-                      <FormFeedback
-                        className="my-3"
+    return (
+        <>
+            {this.state.success ? (
+                <ThankYou />
+            ) : (
+                <section className="contactForm py-5 px-3">
+                    <h1 className="text-center">LET&lsquo;S GET STARTED</h1>
+                    <div className="container">
+                        <p>
+                            Are you interested in a Completely FREE Analysis of
+                            your Website and it&lsquo;s current SEO issues?
+                            Please provide us with your name, email address, and
+                            website&lsquo;s URL and we&lsquo;ll handle the rest!
+                        </p>
+                        <Form
+                            name="freeWebsiteAnalysis"
+                            data-netlify="true"
+                            data-netlify-honeypot="bot-field"
+                            data-netlify-recaptcha="true"
+                            onSubmit={e => this.handleSubmit(e)}
+                            className="py-3 mb-0"
                         >
-                      {this.state.errors.websiteURLFormat}
-                      </FormFeedback>
-                  </FormGroup>
-                  <FormGroup check className="mt-4 mb-0 text-center">
-                    <Input
-                      type="checkbox"
-                      name="authCheck"
-                      id="authCheck"
-                      invalid={
-                        typeof this.state.errors.authCheck !== 'undefined'
-                      }
-                      checked={this.state.formValues.authCheck}
-                      onChange={e=>this.handleFieldChange(e)}
-                      />
-                    <Label for="authCheck" className="text-left">
-                      I authorize Alkemy, Inc. to contact me via email so that I may recieve my free website analysis.
-                    </Label>
-                    <FormFeedback
-                      className="text-center mb-4"
-                      >
-                    {this.state.errors.authCheck}
-                    </FormFeedback>
-                  </FormGroup>
-                  <FormGroup>
-                    <ReCAPTCHA
-                      className="recaptcha"
-                      sitekey={RECAPTCHA_KEY}
-                      onChange={this.handleRecaptcha}
-                    />
-                    <FormText color="danger" className="text-center">
-                      {this.state.errors.ReCAPTCHA}
-                    </FormText>
-                  </FormGroup>
-                  <FormGroup className="text-center">
-                    <Button
-                      className="btn btn-primary"
-                      type="submit"
-                      value="submit"
-                      >Send me my FREE Website Analysis</Button>
-                  </FormGroup>
-                  <input type="hidden" name="form-name" value="freeWebsiteAnalysis" />
-                  <input type="text" name="bot-field" className="hp"/>
-                </Form>
-              </div>
-            </section>
-          )
-        }
-      </>
+                            <Row form className="my-2 py-0">
+                                <Col xs={12} md={6} className="my-2 py-0">
+                                    <FormGroup>
+                                        <Input
+                                            type="text"
+                                            name="fullName"
+                                            invalid={
+                                                typeof this.state.errors
+                                                    .fullNameLength !==
+                                                    "undefined" &&
+                                                this.state.errors.fullNameLength
+                                                    .length > 0
+                                            }
+                                            onChange={e =>
+                                                this.handleFieldChange(e)
+                                            }
+                                            placeholder="Please tell us your Full Name"
+                                        />
+                                        <FormFeedback className="my-3">
+                                            {this.state.errors.fullNameLength}
+                                        </FormFeedback>
+                                    </FormGroup>
+                                </Col>
+                                <Col xs={12} md={6} className="my-2 py-0">
+                                    <FormGroup>
+                                        <Input
+                                            type="text"
+                                            name="email"
+                                            invalid={
+                                                typeof this.state.errors
+                                                    .emailFormat !==
+                                                    "undefined" &&
+                                                this.state.errors.emailFormat
+                                                    .length > 0
+                                            }
+                                            onChange={e =>
+                                                this.handleFieldChange(e)
+                                            }
+                                            placeholder="Enter your Email Address"
+                                        />
+                                        <FormFeedback className="my-3">
+                                            {this.state.errors.emailFormat}
+                                        </FormFeedback>
+                                    </FormGroup>
+                                </Col>
+                            </Row>
+                            <FormGroup className="my-2">
+                                <Input
+                                    type="text"
+                                    name="webAddress"
+                                    invalid={
+                                        typeof this.state.errors
+                                            .websiteURLFormat !== "undefined" &&
+                                        this.state.errors.websiteURLFormat
+                                            .length > 0
+                                    }
+                                    onChange={e => this.handleFieldChange(e)}
+                                    placeholder="What is your Website Address? (ex. www.yourwebsite.com)"
+                                />
+                                <FormFeedback className="my-3">
+                                    {this.state.errors.websiteURLFormat}
+                                </FormFeedback>
+                            </FormGroup>
+                            <FormGroup check className="mt-4 mb-0 text-center">
+                                <Input
+                                    type="checkbox"
+                                    name="authCheck"
+                                    id="authCheck"
+                                    invalid={
+                                        typeof this.state.errors.authCheck !==
+                                        "undefined"
+                                    }
+                                    checked={this.state.formValues.authCheck}
+                                    onChange={e => this.handleFieldChange(e)}
+                                />
+                                <Label for="authCheck" className="text-left">
+                                    I authorize Alkemy, Inc. to contact me via
+                                    email so that I may recieve my free website
+                                    analysis.
+                                </Label>
+                                <FormFeedback className="text-center mb-4">
+                                    {this.state.errors.authCheck}
+                                </FormFeedback>
+                            </FormGroup>
+                            <FormGroup>
+                                <ReCAPTCHA
+                                    className="recaptcha"
+                                    sitekey={RECAPTCHA_KEY}
+                                    onChange={this.handleRecaptcha}
+                                />
+                                <FormText
+                                    color="danger"
+                                    className="text-center"
+                                >
+                                    {this.state.errors.ReCAPTCHA}
+                                </FormText>
+                            </FormGroup>
+                            <FormGroup className="text-center">
+                                <Button
+                                    className="btn btn-primary"
+                                    type="submit"
+                                    value="submit"
+                                >
+                                    Send me my FREE Website Analysis
+                                </Button>
+                            </FormGroup>
+                            <input
+                                type="hidden"
+                                name="form-name"
+                                value="freeWebsiteAnalysis"
+                            />
+                            <input
+                                type="text"
+                                name="bot-field"
+                                className="hp"
+                            />
+                        </Form>
+                    </div>
+                </section>
+            )}
+        </>
     )
   }
 }

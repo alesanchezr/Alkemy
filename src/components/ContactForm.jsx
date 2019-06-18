@@ -81,17 +81,17 @@ export default class ContactForm extends React.Component {
 
   handleSubmit = e=>{
     e.preventDefault()
-    if(this.validate()){
-      // handle form submit here
-      const encode = (data) => {
-        return Object.keys(data)
-          .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-          .join("&");
-      }
+    let valid = this.validate()
+    // handle form submit here
+    const encode = (data) => {
+      return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+    }
 
-      const recaptchaValue = this.state.formValues['g-recaptcha-response'];
+    const recaptchaValue = this.state.formValues['g-recaptcha-response'];
 
-      if(recaptchaValue !== ''){
+    if (valid && recaptchaValue.length > 0) {
         // eslint-disable-next-line no-undef
         fetch("/", {
             method: "POST",
@@ -109,14 +109,14 @@ export default class ContactForm extends React.Component {
             })
             // eslint-disable-next-line no-undef
             .catch(error => console.log(error))
-      }else{
-        let errors = {...this.state.errors}
-        errors.ReCAPTCHA = 'ReCAPTCHA Verification Needed to Submit Form.'
+    } else {
+        let errors = { ...this.state.errors }
+        errors.ReCAPTCHA = "ReCAPTCHA Verification Needed to Submit Form."
         this.setState({
-          errors
+            errors,
         })
-      }
     }
+    
 
   }
 
@@ -225,7 +225,7 @@ validate = ()=>{
                                                 this.state.errors.fullNameLength
                                                     .length > 0
                                             }
-                                            onBlur={this.validate()}
+                                            onBlur={this.validate}
                                             onChange={e =>
                                                 this.handleFieldChange(
                                                     e,
@@ -258,7 +258,7 @@ validate = ()=>{
                                                 this.state.errors.companyName
                                                     .length > 0
                                             }
-                                            onBlur={this.validate()}
+                                            onBlur={this.validate}
                                             onChange={e =>
                                                 this.handleFieldChange(
                                                     e,
@@ -285,7 +285,7 @@ validate = ()=>{
                                                 this.state.errors.emailFormat
                                                     .length > 0
                                             }
-                                            onBlur={this.validate()}
+                                            onBlur={this.validate}
                                             onChange={e =>
                                                 this.handleFieldChange(
                                                     e,
@@ -310,7 +310,7 @@ validate = ()=>{
                                             format
                                             containerClassName="intl-tel-input"
                                             className="form-control"
-                                            onBlur={this.validate()}
+                                            onBlur={this.validate}
                                             onPhoneNumberChange={(
                                                 valid,
                                                 value
@@ -365,11 +365,11 @@ validate = ()=>{
                                                 contacting us
                                             </option>
                                             <option>
-                                                I@lsquo;m Interested in
+                                                I&lsquo;m Interested in
                                                 Investing in Alkemy
                                             </option>
                                             <option>
-                                                I@lsquo;m looking to contract
+                                                I&lsquo;m looking to contract
                                                 Alkemy
                                             </option>
                                             <option>
