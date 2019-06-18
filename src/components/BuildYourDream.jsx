@@ -159,7 +159,6 @@ export default class BuildYourDream extends React.Component {
     if(valid && recaptchaValue.length>0){
       fetch("/", {
           method: "POST",
-          headers: { "Content-Type": "multipart/form-data" },
           body: encode({
               "form-name": "dreamForm",
               ...this.state.formValues,
@@ -611,7 +610,7 @@ validate = ()=>{
                     </Button>
                 </FormGroup>
                 <input type="hidden" name="form-name" value="dreamForm" />
-                <input type="text" name="bot-field" className="hp"/>
+                <input type="hidden" name="bot-field" className="hp"/>
               </Form>
             </div>
           </section>
