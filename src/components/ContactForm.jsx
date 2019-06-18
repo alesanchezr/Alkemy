@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react'
 import { Button, Col, Row, Form,
   FormFeedback,FormGroup, Label, CustomInput,Input,FormText } from 'reactstrap'
@@ -6,8 +7,11 @@ import 'react-intl-tel-input/dist/main.css'
 import ThankYou from './thankYou.jsx'
 import ReCAPTCHA from "react-google-recaptcha";
 
+
+// eslint-disable-next-line no-undef
 const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY;
 if(typeof window !=='undefined'){
+  // eslint-disable-next-line no-undef
   window.recaptchaOptions = {
     useRecaptchaNet: true,
     removeOnUnmount: false,
@@ -15,8 +19,7 @@ if(typeof window !=='undefined'){
 }
 
 // @todo Figure out what is causing the contactForm to not submit properly in production
-
-// @body: 
+// @body For some reason, the form submits, but Netlify is not seeing the result.
 export default class ContactForm extends React.Component {
   constructor(){
     super();
@@ -89,18 +92,23 @@ export default class ContactForm extends React.Component {
       const recaptchaValue = this.state.formValues['g-recaptcha-response'];
 
       if(recaptchaValue !== ''){
-        fetch('/', {
-          method: 'POST',
-          body: encode({
-            "form-name": "contactForm",
-            ...this.state.formValues
-          })
-        }).then((res) => {
-          this.setState({
-            success: true
-          })
+        // eslint-disable-next-line no-undef
+        fetch("/", {
+            method: "POST",
+            body: encode({
+                "form-name": "contactForm",
+                ...this.state.formValues,
+            }),
         })
-        .catch(error => console.log(error))
+            .then(res => {
+                // eslint-disable-next-line no-undef
+                console.log(res)
+                this.setState({
+                    success: true,
+                })
+            })
+            // eslint-disable-next-line no-undef
+            .catch(error => console.log(error))
       }else{
         let errors = {...this.state.errors}
         errors.ReCAPTCHA = 'ReCAPTCHA Verification Needed to Submit Form.'
@@ -173,181 +181,269 @@ validate = ()=>{
 }
 
   render(){
-    return(
-      <>
-      {
-        this.state.success
-        ? (<ThankYou />)
-        : (
-          <section className="contactForm p-4">
-            <h2 className="mb-3">Would you like to get in touch?</h2>
-            <p>Please take a moment to fill out the following form so that we can better assist you.</p>
-            <p className="muted"><small>* denotes a required field</small></p>
-            
-            <Form
-            name="contactForm"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            data-netlify-recaptcha="true"
-            onSubmit={e=>this.handleSubmit(e)}
-            ref={this.contactForm}
-            className="py-3 mb-0"
-            >
-              <Row form className="">
-                <Col xs={12} className="">
-                  <FormGroup row>
-                    <Label for="fullName" sm={3}>
-                      Name*
-                    </Label>
-                    <Col sm={9}>
-                      <Input
-                        type="text"
-                        name="fullName"
-                        value={this.state.formValues.fullName}
-                        invalid={
-                          typeof this.state.errors.fullNameLength !== 'undefined' &&
-                          this.state.errors.fullNameLength.length>0
-                        }
-                        onBlur={e=>this.validate()}
-                        onChange={e=>this.handleFieldChange(e,'fullName')}
-                        placeholder="Please tell us your Full Name"
-                        />
-                        <FormFeedback
-                          className="my-3"
-                          >
-                        {this.state.errors.fullNameLength}
-                        </FormFeedback>
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Label for="companyName" sm={3}>
-                      Company
-                    </Label>
-                    <Col sm={9}>
-                      <Input
-                        type="text"
-                        name="companyName"
-                        value={this.state.formValues.companyName}
-                        invalid={
-                          typeof this.state.errors.companyName !== 'undefined' &&
-                          this.state.errors.companyName.length>0
-                        }
-                        onBlur={e=>this.validate()}
-                        onChange={e=>this.handleFieldChange(e,'companyName')}
-                        placeholder="What is your Company Name?"
-                        />
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Label for="email" sm={3}>
-                      Email*
-                    </Label>
-                    <Col sm={9}>
-                      <Input
-                        type="text"
-                        name="email"
-                        value={this.state.formValues.email}
-                        invalid={
-                          typeof this.state.errors.emailFormat !== 'undefined' &&
-                          this.state.errors.emailFormat.length>0
-                        }
-                        onBlur={e=>this.validate()}
-                        onChange={e=>this.handleFieldChange(e,'email')}
-                        placeholder="Enter your Email Address"
-                        />
-                        <FormFeedback>{this.state.errors.emailFormat}</FormFeedback>
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Label for="phone" sm={3}>
-                      Phone*
-                    </Label>
-                    <Col sm={9}>
-                      <IntlTelInput
-                        type='tel'
-                        fieldName="phone"
-                        format
-                        containerClassName="intl-tel-input"
-                        className='form-control'
-                        onBlur={e=>this.validate()}
-                        onPhoneNumberChange={(valid,value)=>this.handleFieldChange([valid,value],'phone')}
-                        defaultValue={this.state.formValues.phone}
-                        invalid={
-                          typeof this.state.errors.phone !== 'undefined' &&
-                          this.state.errors.phone.length>0
-                        }
-                        />
-                        <FormFeedback className="intl-tel-input">{this.state.errors.phone}</FormFeedback>
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Label for="reason" sm={3}>
-                      Reason*
-                    </Label>
-                    <Col sm={9}>
-                      <CustomInput
-                        type="select"
-                        name="reason"
-                        id="reason"
-                        value={this.state.formValues.reason}
-                        onChange={e=>this.handleFieldChange(e,'reason')}
-                        invalid={
-                          this.state.formValues.reason.length === 0
-                        }
-                        >
-                        <option value="" disabled defaultValue>Please select your reason for contacting us</option>
-                        <option>I'm Interested in Investing in Alkemy</option>
-                        <option>I'm looking to contract Alkemy</option>
-                        <option>I have a General Inquiry</option>
-                        <option>Other/Unspecified</option>
-                      </CustomInput>
-                      <FormFeedback>Please Select a Reason for Contacting Us.</FormFeedback>
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Label for="comments" sm={3}>
-                      Comments
-                    </Label>
-                    <Col sm={9}>
-                      <Input
-                        rows={4}
-                        type="textarea"
-                        name="comments"
-                        value={this.state.formValues.comments}
-                        onChange={e=>this.handleFieldChange(e,'comments')}
-                        placeholder="Please elaborate on your selected reason."
-                        />
-                    </Col>
-                  </FormGroup>
-                  <FormGroup>
-                    <ReCAPTCHA
-                      className="recaptcha"
-                      sitekey={RECAPTCHA_KEY}
-                      onChange={this.handleRecaptcha}
-                    />
-                    <FormText color="danger" className="text-center">
-                      {this.state.errors.ReCAPTCHA}
-                    </FormText>
-                  </FormGroup>
-                  <FormGroup className="text-center mb-0">
-                    <Button
-                      color="primary"
-                      type="submit"
-                      block
-                      onClick={e=>this.handleSubmit(e)}
-                      >
-                      Submit Contact Request
-                      </Button>
-                  </FormGroup>
-                  <input type="hidden" name="form-name" value="contactForm" />
-                  <input type="text" name="bot-field" className="hp"/>
-                </Col>
-              </Row>
-            </Form>
-          </section>
-        )
-      }
-      </>
+    return (
+        <>
+            {this.state.success ? (
+                <ThankYou />
+            ) : (
+                <section className="contactForm p-4">
+                    <h2 className="mb-3">Would you like to get in touch?</h2>
+                    <p>
+                        Please take a moment to fill out the following form so
+                        that we can better assist you.
+                    </p>
+                    <p className="muted">
+                        <small>* denotes a required field</small>
+                    </p>
+
+                    <Form
+                        name="contactForm"
+                        data-netlify="true"
+                        data-netlify-honeypot="bot-field"
+                        data-netlify-recaptcha="true"
+                        onSubmit={e => this.handleSubmit(e)}
+                        ref={this.contactForm}
+                        className="py-3 mb-0"
+                    >
+                        <Row form className="">
+                            <Col xs={12} className="">
+                                <FormGroup row>
+                                    <Label for="fullName" sm={3}>
+                                        Name*
+                                    </Label>
+                                    <Col sm={9}>
+                                        <Input
+                                            type="text"
+                                            name="fullName"
+                                            value={
+                                                this.state.formValues.fullName
+                                            }
+                                            invalid={
+                                                typeof this.state.errors
+                                                    .fullNameLength !==
+                                                    "undefined" &&
+                                                this.state.errors.fullNameLength
+                                                    .length > 0
+                                            }
+                                            onBlur={this.validate()}
+                                            onChange={e =>
+                                                this.handleFieldChange(
+                                                    e,
+                                                    "fullName"
+                                                )
+                                            }
+                                            placeholder="Please tell us your Full Name"
+                                        />
+                                        <FormFeedback className="my-3">
+                                            {this.state.errors.fullNameLength}
+                                        </FormFeedback>
+                                    </Col>
+                                </FormGroup>
+                                <FormGroup row>
+                                    <Label for="companyName" sm={3}>
+                                        Company
+                                    </Label>
+                                    <Col sm={9}>
+                                        <Input
+                                            type="text"
+                                            name="companyName"
+                                            value={
+                                                this.state.formValues
+                                                    .companyName
+                                            }
+                                            invalid={
+                                                typeof this.state.errors
+                                                    .companyName !==
+                                                    "undefined" &&
+                                                this.state.errors.companyName
+                                                    .length > 0
+                                            }
+                                            onBlur={this.validate()}
+                                            onChange={e =>
+                                                this.handleFieldChange(
+                                                    e,
+                                                    "companyName"
+                                                )
+                                            }
+                                            placeholder="What is your Company Name?"
+                                        />
+                                    </Col>
+                                </FormGroup>
+                                <FormGroup row>
+                                    <Label for="email" sm={3}>
+                                        Email*
+                                    </Label>
+                                    <Col sm={9}>
+                                        <Input
+                                            type="text"
+                                            name="email"
+                                            value={this.state.formValues.email}
+                                            invalid={
+                                                typeof this.state.errors
+                                                    .emailFormat !==
+                                                    "undefined" &&
+                                                this.state.errors.emailFormat
+                                                    .length > 0
+                                            }
+                                            onBlur={this.validate()}
+                                            onChange={e =>
+                                                this.handleFieldChange(
+                                                    e,
+                                                    "email"
+                                                )
+                                            }
+                                            placeholder="Enter your Email Address"
+                                        />
+                                        <FormFeedback>
+                                            {this.state.errors.emailFormat}
+                                        </FormFeedback>
+                                    </Col>
+                                </FormGroup>
+                                <FormGroup row>
+                                    <Label for="phone" sm={3}>
+                                        Phone*
+                                    </Label>
+                                    <Col sm={9}>
+                                        <IntlTelInput
+                                            type="tel"
+                                            fieldName="phone"
+                                            format
+                                            containerClassName="intl-tel-input"
+                                            className="form-control"
+                                            onBlur={this.validate()}
+                                            onPhoneNumberChange={(
+                                                valid,
+                                                value
+                                            ) =>
+                                                this.handleFieldChange(
+                                                    [valid, value],
+                                                    "phone"
+                                                )
+                                            }
+                                            defaultValue={
+                                                this.state.formValues.phone
+                                            }
+                                            invalid={
+                                                typeof this.state.errors
+                                                    .phone !== "undefined" &&
+                                                this.state.errors.phone.length >
+                                                    0
+                                            }
+                                        />
+                                        <FormFeedback className="intl-tel-input">
+                                            {this.state.errors.phone}
+                                        </FormFeedback>
+                                    </Col>
+                                </FormGroup>
+                                <FormGroup row>
+                                    <Label for="reason" sm={3}>
+                                        Reason*
+                                    </Label>
+                                    <Col sm={9}>
+                                        <CustomInput
+                                            type="select"
+                                            name="reason"
+                                            id="reason"
+                                            value={this.state.formValues.reason}
+                                            onChange={e =>
+                                                this.handleFieldChange(
+                                                    e,
+                                                    "reason"
+                                                )
+                                            }
+                                            invalid={
+                                                this.state.formValues.reason
+                                                    .length === 0
+                                            }
+                                        >
+                                            <option
+                                                value=""
+                                                disabled
+                                                defaultValue
+                                            >
+                                                Please select your reason for
+                                                contacting us
+                                            </option>
+                                            <option>
+                                                I@lsquo;m Interested in
+                                                Investing in Alkemy
+                                            </option>
+                                            <option>
+                                                I@lsquo;m looking to contract
+                                                Alkemy
+                                            </option>
+                                            <option>
+                                                I have a General Inquiry
+                                            </option>
+                                            <option>Other/Unspecified</option>
+                                        </CustomInput>
+                                        <FormFeedback>
+                                            Please Select a Reason for
+                                            Contacting Us.
+                                        </FormFeedback>
+                                    </Col>
+                                </FormGroup>
+                                <FormGroup row>
+                                    <Label for="comments" sm={3}>
+                                        Comments
+                                    </Label>
+                                    <Col sm={9}>
+                                        <Input
+                                            rows={4}
+                                            type="textarea"
+                                            name="comments"
+                                            value={
+                                                this.state.formValues.comments
+                                            }
+                                            onChange={e =>
+                                                this.handleFieldChange(
+                                                    e,
+                                                    "comments"
+                                                )
+                                            }
+                                            placeholder="Please elaborate on your selected reason."
+                                        />
+                                    </Col>
+                                </FormGroup>
+                                <FormGroup>
+                                    <ReCAPTCHA
+                                        className="recaptcha"
+                                        sitekey={RECAPTCHA_KEY}
+                                        onChange={this.handleRecaptcha}
+                                    />
+                                    <FormText
+                                        color="danger"
+                                        className="text-center"
+                                    >
+                                        {this.state.errors.ReCAPTCHA}
+                                    </FormText>
+                                </FormGroup>
+                                <FormGroup className="text-center mb-0">
+                                    <Button
+                                        color="primary"
+                                        type="submit"
+                                        block
+                                        onClick={e => this.handleSubmit(e)}
+                                    >
+                                        Submit Contact Request
+                                    </Button>
+                                </FormGroup>
+                                <input
+                                    type="hidden"
+                                    name="form-name"
+                                    value="contactForm"
+                                />
+                                <input
+                                    type="text"
+                                    name="bot-field"
+                                    className="hp"
+                                />
+                            </Col>
+                        </Row>
+                    </Form>
+                </section>
+            )}
+        </>
     )
   }
 }
