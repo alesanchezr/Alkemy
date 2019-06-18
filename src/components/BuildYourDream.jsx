@@ -159,7 +159,7 @@ export default class BuildYourDream extends React.Component {
     if(valid && recaptchaValue.length>0){
       fetch("/", {
           method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          headers: { "Content-Type": "multipart/form-data" },
           body: encode({
               "form-name": "dreamForm",
               ...this.state.formValues,
