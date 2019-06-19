@@ -141,7 +141,7 @@ module.exports = {
                     },
                 },
                 // // Optional filter to limit indexed nodes
-                // filter: (node, getNode) => node.frontmatter.tags !== "exempt",
+                filter: (node, getNode) => node.frontmatter.tags !== "exempt",
                 // For any node of type Asset, this is how BlogPost featuredImage is resolved
                 Asset: {
                     fileUrl: node => node.file && node.file.url,
