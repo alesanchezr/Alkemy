@@ -5,8 +5,6 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
-import React from "react"
-
 require('./src/assets/css/layout.css')
 require('bootstrap/dist/css/bootstrap.min.css')
 require('./src/assets/css/style.css')

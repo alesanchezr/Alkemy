@@ -8,6 +8,7 @@ import Layout from "../components/layout"
 import ScrollWrapper from "../components/scrollWrapper.jsx"
 import FreeWebsiteAnalysis from "../components/freeWebsiteAnalysis.jsx"
 import SEO from "../components/seo"
+import BlogSearch from "../components/BlogSearch.jsx"
 import { addJS } from "../utils/utils.js"
 
 /*
@@ -22,7 +23,7 @@ Layout props:
 */
 
 // eslint-disable-next-line
-const AlkemyBlog = ({ data }) => {
+const AlkemyBlog = ({ data: { allMarkdownRemark} }) => {
     // pageTitle: SEO friendly title for the title bar
     const pageTitle = "Alkemy Blog"
 
@@ -47,7 +48,14 @@ const AlkemyBlog = ({ data }) => {
                 <section className="blog-featured">
                     <Row className="align-items-center h-100">
                         <Col xs={12} sm={6} className="text-center h-100" />
-                        <Col xs={12} sm={6} />
+                        <Col xs={12} sm={6}>
+                            <BlogSearch
+                                data={searchData}
+                                onSearch={(text, hits) =>
+                                    console.log(text,hits)
+                                }
+                            />
+                        </Col>
                     </Row>
                 </section>
 
