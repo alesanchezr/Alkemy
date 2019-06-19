@@ -23,9 +23,6 @@ export default class BlogSearch extends React.Component {
     this.searchRef = React.createRef()
   }
 
-  componentDidMount(){
-    console.log(this.props.searchIndex)
-  }
   getOrCreateIndex = () =>
     this.index
       ? this.index
