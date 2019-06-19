@@ -1,11 +1,14 @@
+/* eslint-disable no-console */
 import React from 'react'
 import { Button, Col, Row, Form, FormFeedback,
   FormGroup, Label, Input,FormText } from 'reactstrap'
 import ThankYou from './thankYou.jsx'
 import ReCAPTCHA from "react-google-recaptcha";
 
+// eslint-disable-next-line no-undef
 const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY;
 if(typeof window !=='undefined'){
+  // eslint-disable-next-line no-undef
   window.recaptchaOptions = {
     useRecaptchaNet: true,
     removeOnUnmount: false,
@@ -49,7 +52,6 @@ export default class FreeWebsiteAnalysis extends React.Component {
     e.preventDefault()
     let valid = this.validate()
     // handle form submit here
-    console.log('valid? ',valid)
     const encode = (data) => {
       return Object.keys(data)
         .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -59,6 +61,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
     const recaptchaValue = this.state.formValues['g-recaptcha-response'];
 
     if(valid && recaptchaValue.length>0){
+      // eslint-disable-next-line no-undef
       fetch('/', {
         method: 'POST',
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -66,11 +69,13 @@ export default class FreeWebsiteAnalysis extends React.Component {
           "form-name": "freeWebsiteAnalysis",
           ...this.state.formValues
         })
+        // eslint-disable-next-line no-unused-vars
         }).then((res) => {
           this.setState({
             success: true
           })
         })
+        // eslint-disable-next-line no-undef
         .catch(error => console.log(error))
     }else{
       let errors = {...this.state.errors}
@@ -133,6 +138,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
 
 
     // websiteURLFormat Validation
+    // eslint-disable-next-line no-useless-escape
     let urlReg = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/
     let url = this.state.formValues.webAddress
     let urlValidate = urlReg.test(String(url))

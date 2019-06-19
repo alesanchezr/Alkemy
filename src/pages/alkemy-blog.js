@@ -6,7 +6,7 @@ import { Button, Col, Row } from "reactstrap"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Layout from "../components/layout"
 import ScrollWrapper from "../components/scrollWrapper.jsx"
-import BuildYourDream from "../components/BuildYourDream.jsx"
+import FreeWebsiteAnalysis from "../components/freeWebsiteAnalysis.jsx"
 import SEO from "../components/seo"
 import { addJS } from "../utils/utils.js"
 
@@ -38,6 +38,7 @@ const AlkemyBlog = ({ data }) => {
             <Layout
                 renderHeaderSolid={true}
                 headerTitle={[true, pageTitle]}
+                search={true}
                 bodyClasses="blog"
             >
                 <SEO title={pageTitle} />
@@ -53,22 +54,17 @@ const AlkemyBlog = ({ data }) => {
                 {/* Section 2 */}
                 <section className="py-4 blog-post-listing">
                     <Row className="px-5 py-4">
-                        <Col xs={12} md={8}>
-                            sample blog article
-                            <div className="addthis_inline_share_toolbox" />
-                        </Col>
+                        <Col xs={12} md={8} />
                     </Row>
                 </section>
 
                 {/* Section 3 */}
                 <section className="py-4">
-                    <Row className="py-2">
-                        <Col xs={12} />
-                    </Row>
+                    <Row className="py-2" />
                 </section>
 
                 <section ref={dreamForm}>
-                    <BuildYourDream />
+                    <FreeWebsiteAnalysis />
                 </section>
             </Layout>
         </ScrollWrapper>
@@ -80,30 +76,30 @@ const dreamForm = React.createRef()
 const handleScroll = () => {}
 
 export const query = graphql`
-           {
-               allMarkdownRemark {
-                   edges {
-                       node {
-                           fields {
-                               slug
-                           }
-                           frontmatter {
-                               path
-                               date
-                               title
-                               tags
-                               excerpt
-                               cover {
-                                   ...fluidImageSmall
-                               }
-                           }
-                           children {
-                               id
-                           }
-                       }
-                   }
-               }
-           }
-       `
+    {
+        allMarkdownRemark {
+            edges {
+                node {
+                    fields {
+                        slug
+                    }
+                    frontmatter {
+                        path
+                        date
+                        title
+                        tags
+                        excerpt
+                        cover {
+                            ...fluidImageSmall
+                        }
+                    }
+                    children {
+                        id
+                    }
+                }
+            }
+        }
+    }
+`
 
 export default AlkemyBlog

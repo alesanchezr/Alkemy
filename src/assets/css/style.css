@@ -996,45 +996,58 @@ section.recentBlogPosts .cardRow .blogCard .card-img-overlay {
   }
 }
 
-section.contactForm, section.dreamForm, section.thankYou {
-  background: #EAF3F8;
-}
-
-section.contactForm form textarea,
+.formDefaults form textarea, section.contactForm form textarea, section.dreamForm form textarea, section.thankYou form textarea, .blogSearch form textarea,
+.formDefaults form select,
 section.contactForm form select,
-section.contactForm form input,
-section.contactForm form button, section.dreamForm form textarea,
 section.dreamForm form select,
-section.dreamForm form input,
-section.dreamForm form button, section.thankYou form textarea,
 section.thankYou form select,
+.blogSearch form select,
+.formDefaults form input,
+section.contactForm form input,
+section.dreamForm form input,
 section.thankYou form input,
-section.thankYou form button {
+.blogSearch form input,
+.formDefaults form button,
+section.contactForm form button,
+section.dreamForm form button,
+section.thankYou form button,
+.blogSearch form button {
   -webkit-box-shadow: 2px 4px 6px;
           box-shadow: 2px 4px 6px;
   border-radius: 2px;
 }
 
-section.contactForm form textarea,
-section.contactForm form input, section.dreamForm form textarea,
-section.dreamForm form input, section.thankYou form textarea,
-section.thankYou form input {
+.formDefaults form textarea, section.contactForm form textarea, section.dreamForm form textarea, section.thankYou form textarea, .blogSearch form textarea,
+.formDefaults form input,
+section.contactForm form input,
+section.dreamForm form input,
+section.thankYou form input,
+.blogSearch form input {
   padding: 1.4rem;
 }
 
-section.contactForm form input[type=file], section.dreamForm form input[type=file], section.thankYou form input[type=file] {
+.formDefaults form input[type=file], section.contactForm form input[type=file], section.dreamForm form input[type=file], section.thankYou form input[type=file], .blogSearch form input[type=file] {
   padding: unset;
   -webkit-box-shadow: unset;
           box-shadow: unset;
   border-radius: unset;
 }
 
-section.contactForm form button, section.dreamForm form button, section.thankYou form button {
+
+.formDefaults form button,
+section.contactForm form button,
+section.dreamForm form button,
+section.thankYou form button,
+.blogSearch form button {
   padding: .25rem 2.5rem;
 }
 
-section.contactForm form button:hover, section.dreamForm form button:hover, section.thankYou form button:hover {
+.formDefaults form button:hover, section.contactForm form button:hover, section.dreamForm form button:hover, section.thankYou form button:hover, .blogSearch form button:hover {
   max-width: 50%;
+}
+
+section.contactForm, section.dreamForm, section.thankYou {
+  background: rgba(43, 179, 229, 0.1);
 }
 
 .hp {
@@ -1071,7 +1084,7 @@ section.deliverYourMessage {
 
 .plan:nth-of-type(odd) .planCard {
   border: 1px solid #d2e6f1;
-  background: #EAF3F8;
+  background: rgba(43, 179, 229, 0.1);
 }
 
 ul .planFeatureIcon {
@@ -1130,7 +1143,7 @@ div.spinContainer {
 }
 
 .roadmap {
-  background: #EAF3F8;
+  background: rgba(43, 179, 229, 0.1);
 }
 
 .innovativeDesign {
@@ -1303,5 +1316,24 @@ div.spinContainer {
 .contactDetails .googleMap .gm-style .gm-style-iw-d {
   overflow: hidden !important;
   padding: 1rem 1.5rem 1rem 1rem;
+}
+
+.blogSearch input[type="text"] {
+  padding: 14px;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.blogSearch .searchButton {
+  background: #1E5E8D;
+  padding: 8px 14px;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.blogSearch .searchButton:hover, .blogSearch .searchButton:focus {
+  scale: unset;
 }
 /*# sourceMappingURL=style.css.map */

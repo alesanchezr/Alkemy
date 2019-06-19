@@ -3,6 +3,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
+import InjectContext, { Context } from "../store/appContext.js"
 
 import Header from "./header"
 import Footer from "./footer"
@@ -23,6 +24,7 @@ import {
     faMoneyBillAlt,
     faGem,
     faStar,
+    faSearch
 } from "@fortawesome/free-solid-svg-icons"
 import {
     faCalendarAlt,
@@ -45,7 +47,8 @@ library.add(
     faRocket,
     faMoneyBillAlt,
     faGem,
-    faStar
+    faStar,
+    faSearch
 )
 
 
@@ -56,6 +59,7 @@ const Layout = ({
     headerTitle,
     headerType,
     bodyClasses,
+    search
 }) => (
     <StaticQuery
         query={graphql`
@@ -80,11 +84,12 @@ const Layout = ({
                     />
                 </noscript>
                 {/* End Google Tag Manager (noscript) */}
-
+                
                 <Header
                     hideHeader={headerTitle ? headerTitle[0] : null}
                     pageTitle={headerTitle ? headerTitle[1] : null}
                     renderHeaderSolid={renderHeaderSolid}
+                    search={search}
                 />
                 <div
                     id="main"
@@ -115,6 +120,8 @@ const Layout = ({
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
     headerTitle: PropTypes.array,
+    renderHeaderSolid: PropTypes.bool,
+    search: PropTypes.bool
 }
 
-export default Layout
+export default InjectContext(Layout)
