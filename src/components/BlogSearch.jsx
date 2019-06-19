@@ -17,55 +17,37 @@ import {
 
 // Blog search widget 
 
-const getSearch = ({ location }) => {
-  if (!location) return '';
-  if (!location.search) return '';
-
-  const query = location.search.substring(1);
-  const parsed = qs.parse(query);
-  if (!parsed.q) return '';
-  return parsed.q;
-};
 export default class BlogSearch extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-
-    this.updateQuery = evt => {
-      const text = evt.target.value;
-      const newQuery = qs.stringify({ q: text }, { format: 'RFC1738' });
-      const hits = this.getHits(text);
-      this.props.onSearch(text, hits);
-      this.setState(s => {
-        return {
-          ...s,
-          hits,
-          query: text,
-        };
-      });
-    };
-
-    const query = getSearch(props);
+  constructor(props) {
+    super(props)
     this.state = {
+      query: ``,
+      results: [],
+    }
+    this.searchRef = React.createRef()
+  }
+
+  getOrCreateIndex = () =>
+    this.index
+      ? this.index
+      : // Create an elastic lunr index and hydrate with graphql query results
+        Index.load(this.props.searchIndex)
+
+  search = e => {
+    e.preventDefault()
+    const query = this.searchRef.current.value
+    this.index = this.getOrCreateIndex()
+    this.setState({
       query,
-      hits: this.getHits(query),
-    };
-  }
-
-  createIndex() {
-    this.index = Index.load(this.props.data.index);
-  }
-
-  getHits(query) {
-    if (!query) return [];
-
-    if (!this.index) this.createIndex();
-    const hits = this.index.search(query);
-    return hits.map(({ ref }) => this.index.documentStore.getDoc(ref));
+      // Query the index with search string to get an [] of IDs
+      results: this.index
+        .search(query, {})
+        // Map over each ID and return the full document
+        .map(({ ref }) => this.index.documentStore.getDoc(ref)),
+    })
   }
 
   render() {
-    const { query, hits } = this.state;
-
     return (
         <Row className="blogSearch">
             <Col>
@@ -73,26 +55,19 @@ export default class BlogSearch extends React.Component {
                   {
                     ({store,actions})=>{
                       return (
-                          <Form
-                              className="m-0"
-                              onSubmit={(e, actions) =>
-                                  handleSearchSubmit(e, actions)
-                              }
-                          >
+                          <Form className="m-0" onSubmit={e => this.search(e)}>
                               <InputGroup>
                                   <Input
                                       placeholder="Search..."
                                       type="text"
-                                      innerRef={searchRef}
+                                      innerRef={this.searchRef}
                                   />
                                   <InputGroupAddon
                                       addonType="append"
                                       className="align-items-center justify-content-center"
                                   >
                                       <Button
-                                          onClick={() =>
-                                              actions.search(searchRef.current.value)
-                                          }
+                                          onClick={e => this.search(e)}
                                           className="searchButton"
                                       >
                                           <FontAwesomeIcon
@@ -113,19 +88,3 @@ export default class BlogSearch extends React.Component {
     )
   }
 }
-
-const searchRef = React.createRef()
-
-const handleSearchSubmit = (e) => {
-  e.preventDefault()
-  search()
-}
-
-export default BlogSearch
-
-Search.propTypes = {
-  data: PropTypes.shape({
-    index: PropTypes.object.isRequired,
-  }).isRequired,
-  onSearch: PropTypes.func.isRequired,
-};

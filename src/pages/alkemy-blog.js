@@ -23,7 +23,7 @@ Layout props:
 */
 
 // eslint-disable-next-line
-const AlkemyBlog = ({ data: { allMarkdownRemark} }) => {
+const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
     // pageTitle: SEO friendly title for the title bar
     const pageTitle = "Alkemy Blog"
 
@@ -39,7 +39,7 @@ const AlkemyBlog = ({ data: { allMarkdownRemark} }) => {
             <Layout
                 renderHeaderSolid={true}
                 headerTitle={[true, pageTitle]}
-                search={true}
+                search={false}
                 bodyClasses="blog"
             >
                 <SEO title={pageTitle} />
@@ -50,10 +50,7 @@ const AlkemyBlog = ({ data: { allMarkdownRemark} }) => {
                         <Col xs={12} sm={6} className="text-center h-100" />
                         <Col xs={12} sm={6}>
                             <BlogSearch
-                                data={searchData}
-                                onSearch={(text, hits) =>
-                                    console.log(text,hits)
-                                }
+                                searchIndex={siteSearchIndex.index}
                             />
                         </Col>
                     </Row>
@@ -84,30 +81,33 @@ const dreamForm = React.createRef()
 const handleScroll = () => {}
 
 export const query = graphql`
-    {
-        allMarkdownRemark {
-            edges {
-                node {
-                    fields {
-                        slug
-                    }
-                    frontmatter {
-                        path
-                        date
-                        title
-                        tags
-                        excerpt
-                        cover {
-                            ...fluidImageSmall
-                        }
-                    }
-                    children {
-                        id
-                    }
-                }
-            }
-        }
-    }
-`
+           {
+               siteSearchIndex {
+                   index
+               }
+               allMarkdownRemark {
+                   edges {
+                       node {
+                           fields {
+                               slug
+                           }
+                           frontmatter {
+                               path
+                               date
+                               title
+                               tags
+                               excerpt
+                               cover {
+                                   ...fluidImageSmall
+                               }
+                           }
+                           children {
+                               id
+                           }
+                       }
+                   }
+               }
+           }
+       `
 
 export default AlkemyBlog
