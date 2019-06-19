@@ -23,6 +23,13 @@ export default class BlogSearch extends React.Component {
     this.searchRef = React.createRef()
   }
 
+  keyHandler = (e,actions)=> {
+    if(e.keyCode==13){
+      this.searchHandler(e,actions)
+      console.log("data about evt: ", e, e.keyCode)
+    }
+  }
+
   getOrCreateIndex = () =>
     this.index
       ? this.index
@@ -30,18 +37,18 @@ export default class BlogSearch extends React.Component {
         Index.load(this.props&&this.props.searchIndex)
 
   searchHandler = (e,actions) => {
-    e.preventDefault()
     const query = this.searchRef.current.value
     this.index = this.getOrCreateIndex()
+    let results = this.index
+            .search(query, { expand: true })
+            // Map over each ID and return the full document
+            .map(({ ref }) => this.index.documentStore.getDoc(ref))
     this.setState({
         query,
         // Query the index with search string to get an [] of IDs
-        results: this.index
-            .search(query, { expand: true })
-            // Map over each ID and return the full document
-            .map(({ ref }) => this.index.documentStore.getDoc(ref)),
+        results: results
     })
-    actions.search(this.state.results)
+    actions.search(results)
   }
 
   render() {
@@ -52,35 +59,31 @@ export default class BlogSearch extends React.Component {
                   {
                     ({actions})=>{
                       return (
-                          <Form
-                              className="m-0"
-                              onSubmit={e => this.searchHandler(e, actions)}
-                          >
-                              <InputGroup>
-                                  <Input
-                                      placeholder="Search..."
-                                      type="text"
-                                      innerRef={this.searchRef}
-                                  />
-                                  <InputGroupAddon
-                                      addonType="append"
-                                      className="align-items-center justify-content-center"
+                          <InputGroup>
+                              <Input
+                                  placeholder="Search..."
+                                  type="text"
+                                  innerRef={this.searchRef}
+                                  onKeyDown={e => this.keyHandler(e, actions)}
+                              />
+                              <InputGroupAddon
+                                  addonType="append"
+                                  className="align-items-center justify-content-center"
+                              >
+                                  <Button
+                                      onClick={e =>
+                                          this.searchHandler(e, actions)
+                                      }
+                                      className="searchButton"
                                   >
-                                      <Button
-                                          onClick={e =>
-                                              this.searchHandler(e, actions)
-                                          }
-                                          className="searchButton"
-                                      >
-                                          <FontAwesomeIcon
-                                              icon="search"
-                                              size="1x"
-                                              color="white"
-                                          />
-                                      </Button>
-                                  </InputGroupAddon>
-                              </InputGroup>
-                          </Form>
+                                      <FontAwesomeIcon
+                                          icon="search"
+                                          size="1x"
+                                          color="white"
+                                      />
+                                  </Button>
+                              </InputGroupAddon>
+                          </InputGroup>
                       )
                     }
                   } 

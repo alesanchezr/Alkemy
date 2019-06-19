@@ -5,8 +5,7 @@ const getState = ({ getStore, setStore }) => {
         },
         actions: {
             search: queryResult => {
-                let store = getStore()
-
+                // let store = getStore()
                 setStore({searchResults: queryResult})
             },
         },

@@ -2,9 +2,9 @@
 path: "/may-2018-web-design-promo"
 date: "2018-05-07"
 title: "May 2018 - 20% Off Web Design Packages"
-tags: ['promo','company news']
+tags: ['promo','company news','news']
 cover: "../../assets/images/may-2018-promo.png"
-excerpt: "Today is the launch of the new Alkemy, Inc. website! We hope you enjoy using it as much as we loved creating it. We'll be updating our site very frequently in the future to ensure quality content, so make sure to check back periodically."
+excerpt: "Been looking for an excuse to get a new website? Or maybe you just need an excuse to re-do your current one. Whatever the reason, Alkemy has you covered with our May 2018 promo!"
 ---
 
 <div class="row">
