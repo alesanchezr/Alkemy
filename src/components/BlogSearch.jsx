@@ -1,9 +1,6 @@
 import React from 'react'
-import { graphql } from "gatsby"
-import PropTypes from 'prop-types';
 import { Index } from "elasticlunr"
 import { Context } from "../store/appContext.js"
-import qs from 'qs';
 import {
     Row,
     Col,
@@ -16,7 +13,6 @@ import {
   import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 // Blog search widget 
-
 export default class BlogSearch extends React.Component {
   constructor(props) {
     super(props)
@@ -27,24 +23,28 @@ export default class BlogSearch extends React.Component {
     this.searchRef = React.createRef()
   }
 
+  componentDidMount(){
+    console.log(this.props.searchIndex)
+  }
   getOrCreateIndex = () =>
     this.index
       ? this.index
       : // Create an elastic lunr index and hydrate with graphql query results
-        Index.load(this.props.searchIndex)
+        Index.load(this.props&&this.props.searchIndex)
 
-  search = e => {
+  searchHandler = (e,actions) => {
     e.preventDefault()
     const query = this.searchRef.current.value
     this.index = this.getOrCreateIndex()
     this.setState({
-      query,
-      // Query the index with search string to get an [] of IDs
-      results: this.index
-        .search(query, {})
-        // Map over each ID and return the full document
-        .map(({ ref }) => this.index.documentStore.getDoc(ref)),
+        query,
+        // Query the index with search string to get an [] of IDs
+        results: this.index
+            .search(query, { expand: true })
+            // Map over each ID and return the full document
+            .map(({ ref }) => this.index.documentStore.getDoc(ref)),
     })
+    actions.search(this.state.results)
   }
 
   render() {
@@ -53,9 +53,12 @@ export default class BlogSearch extends React.Component {
             <Col>
                 <Context.Consumer>
                   {
-                    ({store,actions})=>{
+                    ({actions})=>{
                       return (
-                          <Form className="m-0" onSubmit={e => this.search(e)}>
+                          <Form
+                              className="m-0"
+                              onSubmit={e => this.searchHandler(e, actions)}
+                          >
                               <InputGroup>
                                   <Input
                                       placeholder="Search..."
@@ -67,7 +70,9 @@ export default class BlogSearch extends React.Component {
                                       className="align-items-center justify-content-center"
                                   >
                                       <Button
-                                          onClick={e => this.search(e)}
+                                          onClick={e =>
+                                              this.searchHandler(e, actions)
+                                          }
                                           className="searchButton"
                                       >
                                           <FontAwesomeIcon

@@ -136,10 +136,16 @@ module.exports = {
                         tags: node => node.frontmatter.tags,
                         path: node => node.frontmatter.path,
                         excerpt: node => node.frontmatter.excerpt,
+                        cover: node => (node, getNode) =>
+                            getNode(node.featuredImage___NODE),
                     },
                 },
                 // Optional filter to limit indexed nodes
                 filter: (node, getNode) => node.frontmatter.tags !== "exempt",
+                // For any node of type Asset, this is how BlogPost featuredImage is resolved
+                Asset: {
+                    fileUrl: node => node.file && node.file.url,
+                },
             },
         },
     ],

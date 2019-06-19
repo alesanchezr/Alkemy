@@ -1,14 +1,14 @@
 const getState = ({ getStore, setStore }) => {
     return {
         store: {
-            searchString: ''
+            searchResults: [],
         },
         actions: {
-            search: (query)=>{
+            search: queryResult => {
                 let store = getStore()
-                store.searchString = query
-                setStore(store)
-            }
+
+                setStore({searchResults: queryResult})
+            },
         },
     }
 }

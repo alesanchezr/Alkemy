@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, StaticQuery } from "gatsby"
 import ReactNavbar from './Navbar.jsx'
 import { Button, Col, Row } from "reactstrap"
 import BlogSearch from './BlogSearch.jsx'
@@ -33,35 +33,79 @@ var _menuArray = [
 
 const windowGlobal = typeof window !== 'undefined' && window.location.pathname
 
-const Header = ({ pageTitle, hideHeader, renderHeaderSolid, search }) => (
-    <>
-        <header
-            className={
-                renderHeaderSolid
-                    ? "header solid fadeInDown position-sticky"
-                    : "header fadeInDown position-fixed"
+const Header = ({
+    pageTitle,
+    hideHeader,
+    renderHeaderSolid,
+    search,
+}) => (
+    <StaticQuery
+        query={graphql`
+            query HeaderBlogQuery {
+                siteSearchIndex {
+                   index
+                }
+                allMarkdownRemark {
+                   edges {
+                       node {
+                           fields {
+                               slug
+                           }
+                           frontmatter {
+                               path
+                               date
+                               title
+                               tags
+                               excerpt
+                               cover {
+                                   ...fluidImageSmall
+                               }
+                           }
+                           children {
+                               id
+                           }
+                       }
+                   }
+               }
             }
-        >
-            <ReactNavbar menuArray={_menuArray} />
-        </header>
-        {hideHeader === true ? (
-            <Row className="subHeader mx-0">
-                <Col xs={12} md={8}>
-                    <h1 className="m-0 font-weight-normal">
-                        <Link
-                            tag="h1"
-                            to={windowGlobal}
-                            className="m-0 text-white"
-                        >
-                            {pageTitle}
-                        </Link>
-                    </h1>
-                </Col>
-                {search === true ? (<Col xs={12} md={4}><BlogSearch/></Col>) : null}
-            </Row>
-        ) : (
-            ""
+        `}
+        render={data => (
+            <>
+                <header
+                    className={
+                        renderHeaderSolid
+                            ? "header solid fadeInDown position-sticky"
+                            : "header fadeInDown position-fixed"
+                    }
+                >
+                    <ReactNavbar menuArray={_menuArray} />
+                </header>
+                {hideHeader === true ? (
+                    <Row className="subHeader mx-0">
+                        <Col xs={12} md={8}>
+                            <h1 className="m-0 font-weight-normal">
+                                <Link
+                                    tag="h1"
+                                    to={windowGlobal}
+                                    className="m-0 text-white"
+                                >
+                                    {pageTitle}
+                                </Link>
+                            </h1>
+                        </Col>
+                        {search === true ? (
+                            <Col xs={12} md={4}>
+                                <BlogSearch
+                                    searchIndex={
+                                        data.siteSearchIndex.index
+                                    }
+                                />
+                            </Col>
+                        ) : null}
+                    </Row>
+                ) : null}
+            </>
         )}
-    </>
+    />
 )
 export default Header

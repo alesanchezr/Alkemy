@@ -39,7 +39,7 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
             <Layout
                 renderHeaderSolid={true}
                 headerTitle={[true, pageTitle]}
-                search={false}
+                search={true}
                 bodyClasses="blog"
             >
                 <SEO title={pageTitle} />
@@ -49,9 +49,6 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                     <Row className="align-items-center h-100">
                         <Col xs={12} sm={6} className="text-center h-100" />
                         <Col xs={12} sm={6}>
-                            <BlogSearch
-                                searchIndex={siteSearchIndex.index}
-                            />
                         </Col>
                     </Row>
                 </section>
