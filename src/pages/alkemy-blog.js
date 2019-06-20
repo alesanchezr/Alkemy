@@ -1,15 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
-import "../utils/utils.js"
-import { Button, Col, Row } from "reactstrap"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Context } from "../store/appContext.js"
+import { addJS, fluidImageSmall } from "../utils/utils.js"
 import Layout from "../components/layout"
 import ScrollWrapper from "../components/scrollWrapper.jsx"
+import { Button, Col, Row } from "reactstrap"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import FreeWebsiteAnalysis from "../components/freeWebsiteAnalysis.jsx"
 import SEO from "../components/seo"
 import BlogSearch from "../components/BlogSearch.jsx"
-import { addJS } from "../utils/utils.js"
 
 /*
 Layout props:
@@ -47,8 +47,11 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                 {/* Section 1 */}
                 <section className="blog-featured">
                     <Row className="align-items-center h-100">
-                        <Col xs={12} sm={6} className="text-center h-100" />
+                        <Col xs={12} sm={6} className="text-center h-100">
+                            {/* Latest Blog Information */}
+                        </Col>
                         <Col xs={12} sm={6}>
+                            {/* Latest Blog Image */}
                         </Col>
                     </Row>
                 </section>
@@ -56,13 +59,14 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                 {/* Section 2 */}
                 <section className="py-4 blog-post-listing">
                     <Row className="px-5 py-4">
-                        <Col xs={12} md={8} />
+                        <Col xs={12} md={9}>
+                            {/* next 6 blogs */}
+                            
+                        </Col>
+                        <Col xs={12} md={3}>
+                            {/* Sidebar component */}
+                        </Col>
                     </Row>
-                </section>
-
-                {/* Section 3 */}
-                <section className="py-4">
-                    <Row className="py-2" />
                 </section>
 
                 <section ref={dreamForm}>

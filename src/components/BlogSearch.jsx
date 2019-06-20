@@ -1,10 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Index } from "elasticlunr"
 import { Context } from "../store/appContext.js"
 import {
     Row,
     Col,
-    Form,
     InputGroup,
     Input,
     InputGroupAddon,
@@ -115,4 +115,8 @@ export default class BlogSearch extends React.Component {
         </Row>
     )
   }
+}
+
+BlogSearch.propTypes = {
+  searchIndex: PropTypes.object,
 }

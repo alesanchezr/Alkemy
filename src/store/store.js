@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 const getState = ({ getStore, setStore }) => {
     return {
         store: {
@@ -5,7 +6,6 @@ const getState = ({ getStore, setStore }) => {
         },
         actions: {
             search: queryResult => {
-                // let store = getStore()
                 setStore({searchResults: queryResult})
             },
         },
