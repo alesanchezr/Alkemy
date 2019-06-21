@@ -9,7 +9,6 @@ import { FormGroup, Label, CustomInput, Button, Col, Row } from "reactstrap"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import FreeWebsiteAnalysis from "../components/freeWebsiteAnalysis.jsx"
 import SEO from "../components/seo"
-import BlogSearch from "../components/BlogSearch.jsx"
 import CustomSelect from "../components/CustomSelect.jsx"
 
 /*
@@ -52,11 +51,19 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                         <Col xs={12} sm={6}>
                             {/* Category Dropdown */}
                             <CustomSelect 
-                                arrowColor="" 
-                                classes="" 
-                                selectLabel="" 
+                                arrowColor="blue" 
+                                classes="text-muted" 
+                                selectLabel="Jump to:" 
                                 placeholder="" 
-                                options={}
+                                options={[
+                                    {
+                                        label: 'test',
+                                        icon: 'check',
+                                        size: 'md',
+                                        iconColor: 'blue'
+                                    }
+                                ]}
+                                onClick={console.log('test')}
                                 />
                             
                         </Col>

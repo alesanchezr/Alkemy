@@ -23,7 +23,6 @@ const CustomSelect = (props)=> {
     // icon (string) - name of option icon
     // size (string) - size of option icon
     // iconColor (string) - color of option icon
-    // disabled (bool) - is the option disabled?
     // label (string) - text for option 
 
     const buildOptions = () => {
