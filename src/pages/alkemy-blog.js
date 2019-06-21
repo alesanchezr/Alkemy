@@ -5,11 +5,12 @@ import { Context } from "../store/appContext.js"
 import { addJS, fluidImageSmall } from "../utils/utils.js"
 import Layout from "../components/layout"
 import ScrollWrapper from "../components/scrollWrapper.jsx"
-import { Button, Col, Row } from "reactstrap"
+import { FormGroup, Label, CustomInput, Button, Col, Row } from "reactstrap"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import FreeWebsiteAnalysis from "../components/freeWebsiteAnalysis.jsx"
 import SEO from "../components/seo"
 import BlogSearch from "../components/BlogSearch.jsx"
+import CustomSelect from "../components/CustomSelect.jsx"
 
 /*
 Layout props:
@@ -45,6 +46,24 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                 <SEO title={pageTitle} />
 
                 {/* Section 1 */}
+                <section className="blog-category-filter my-3">
+                    <Row className="align-items-center h-100">
+                        <Col md={6} className="d-none d-md-block" />
+                        <Col xs={12} sm={6}>
+                            {/* Category Dropdown */}
+                            <CustomSelect 
+                                arrowColor="" 
+                                classes="" 
+                                selectLabel="" 
+                                placeholder="" 
+                                options={}
+                                />
+                            
+                        </Col>
+                    </Row>
+                </section>
+
+                {/* Section 2 */}
                 <section className="blog-featured">
                     <Row className="align-items-center h-100">
                         <Col xs={12} sm={6} className="text-center h-100">
@@ -56,12 +75,11 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                     </Row>
                 </section>
 
-                {/* Section 2 */}
+                {/* Section 3 */}
                 <section className="py-4 blog-post-listing">
                     <Row className="px-5 py-4">
                         <Col xs={12} md={9}>
                             {/* next 6 blogs */}
-                            
                         </Col>
                         <Col xs={12} md={3}>
                             {/* Sidebar component */}
