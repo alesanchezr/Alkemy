@@ -33,7 +33,7 @@ export default class ReactNavbar extends React.Component {
       dropdownOpen: false,
       loading: true,
       mobileMenuClasses: "d-block d-lg-none mobileMenu",
-      togglerClasses: "mr-2 d-lg-none hamburger hamburger--slider",
+      togglerClasses: "mr-3 d-lg-none hamburger hamburger--slider",
       icon: ['far','calendar-alt']
     };
 
@@ -87,13 +87,13 @@ export default class ReactNavbar extends React.Component {
     if(this.state.isOpen){
       this.setState({
         mobileMenuClasses: "d-block d-lg-none mobileMenu open",
-        togglerClasses: "mr-2 d-lg-none hamburger hamburger--slider is-active"
+        togglerClasses: "mr-3 d-lg-none hamburger hamburger--slider is-active"
       })
       document.body.classList.add('open')
     }else{
       this.setState({
         mobileMenuClasses: "d-block d-lg-none mobileMenu",
-        togglerClasses: "mr-2 d-lg-none hamburger hamburger--slider"
+        togglerClasses: "mr-3 d-lg-none hamburger hamburger--slider"
       })
     }
   }
@@ -199,7 +199,7 @@ export default class ReactNavbar extends React.Component {
               <span className="hamburger-inner"></span>
             </span>
           </NavbarToggler>
-          <Collapse className="d-none d-lg-block" navbar>
+          <Collapse className="d-none d-lg-block mr-md-2" navbar>
             <Nav className="ml-auto" navbar>
               {this.renderMenuLinks()}
               <Button

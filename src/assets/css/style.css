@@ -33,6 +33,30 @@ html {
   }
 }
 
+.navbar-nav,
+.navbar-nav button {
+  font-size: 1.2rem;
+}
+
+.navbar-nav,
+.navbar-nav button {
+  font-size: 16px;
+}
+
+@media screen and (min-width: 320px) {
+  .navbar-nav,
+  .navbar-nav button {
+    font-size: calc(16px + 4 * ((100vw - 320px) / 1960));
+  }
+}
+
+@media screen and (min-width: 2280px) {
+  .navbar-nav,
+  .navbar-nav button {
+    font-size: 20px;
+  }
+}
+
 h1, .cover-text-1b {
   font-size: 2.0736rem;
 }
@@ -128,7 +152,7 @@ h3 {
   visibility: hidden;
 }
 
-html {
+html, body {
   overflow-x: hidden;
   width: 100%;
   height: 100%;
@@ -305,7 +329,6 @@ a {
 }
 
 .mobileMenu .navbar-nav {
-  font-size: 1.3rem;
   line-height: 4vh;
   margin: 0;
   position: absolute;
@@ -313,10 +336,6 @@ a {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-}
-
-.mobileMenu .navbar-nav .siteTitle {
-  font-size: 1.8rem;
 }
 
 .mobileMenu .navbar-nav .siteTitle:first-of-type {
@@ -1483,5 +1502,9 @@ div.select label.option input:checked ~ span.title {
           box-shadow: none;
   color: inherit;
   width: 100%;
+}
+
+.blog-featured {
+  min-height: 81.5vh;
 }
 /*# sourceMappingURL=style.css.map */

@@ -2,6 +2,10 @@
 path: "/building-a-killer-website-that-converts"
 date: "2018-05-02"
 title: "The Secret to Building a Killer Website that Converts"
+author: "Jonathan F."
+authorURL: "/alkemy-blog"
+readingTime: "7-10 min"
+category: "Web Design"
 tags: ['planning','web design','conversions']
 cover: "../../assets/images/design-your-dream.jpeg"
 excerpt: "It’s no secret that any business is doomed without a great website. There are many factors that go into creating a great website, but what helps one transition from a great website to a Killer Website?"

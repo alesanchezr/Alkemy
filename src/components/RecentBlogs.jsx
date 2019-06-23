@@ -4,11 +4,12 @@ import {
     Row, Col
 } from "reactstrap"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import BlogInfoBar from "./BlogInfoBar.jsx"
 
-const BlogInfoBar = (props) => {
+const RecentBlogs = (props) => {
     const {...other} = props
 
-    const renderHorizontal = ()=>{
+    const renderBlogHome = ()=>{
         return (
             <>
                 <Col xs={4}>
@@ -33,22 +34,11 @@ const BlogInfoBar = (props) => {
                         {props.time} Read
                     </p>
                 </Col>
-                <Col xs={4}>
-                    <p className="d-flex align-items-center text-right">
-                        <FontAwesomeIcon
-                            icon={["far", "user"]}
-                            size="sm"
-                            color="black"
-                            className="mr-2"
-                        />
-                        {props.author}
-                    </p>
-                </Col>
             </>
         )
     }
 
-    const renderVertical = ()=>{
+    const renderAlternate = ()=>{
         return (
             <>
                 <Col xs={12}>
@@ -79,21 +69,19 @@ const BlogInfoBar = (props) => {
 
     return (
         // eslint-disable-next-line react/prop-types
-        <Row {...other} className={props.className+' align-items-center'}>
+        <Row {...other} className={props.className+"h-100 px-5"}>
             {
-                props.layout.toLowerCase()==='horizontal'
-                ? renderHorizontal()
-                : renderVertical()
+                props.layout.toLowerCase()==='home'
+                ? renderBlogHome()
+                : renderAlternate()
             }
         </Row>
     )
 }
 
-BlogInfoBar.propTypes = {
-    category: PropTypes.string, // Category of the post
-    time: PropTypes.string, // Reading time
-    author: PropTypes.string, // Who Wrote the Post
-    layout: PropTypes.string // Horizontal or Vertical
+RecentBlogs.propTypes = {
+    layout: PropTypes.string, // How to render
+    data: PropTypes.array, // Blog data from allMarkdownRemark
 }
 
-export default BlogInfoBar
+export default RecentBlogs

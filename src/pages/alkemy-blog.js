@@ -12,6 +12,7 @@ import FreeWebsiteAnalysis from "../components/freeWebsiteAnalysis.jsx"
 import SEO from "../components/seo"
 import CustomSelect from "../components/CustomSelect.jsx"
 import BlogInfoBar from "../components/BlogInfoBar.jsx"
+import RecentBlogs from "../components/RecentBlogs.jsx"
 
 /*
 Layout props:
@@ -28,6 +29,11 @@ Layout props:
 const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
     // pageTitle: SEO friendly title for the title bar
     const pageTitle = "Alkemy Blog"
+
+    const blogs = ()=>{
+        let data = allMarkdownRemark.edges.splice(0,1)
+        return data
+    }
 
     const filterBlogsByCategory = ()=>{
         let data = allMarkdownRemark.edges.map(e=>{
@@ -83,9 +89,8 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                                 classes="text-muted"
                                 selectlabel="Jump to:"
                                 placeholder="Select a value..."
-                                options={[{ label: "test" }]}
+                                options={blogCategories()}
                                 ref={categorySelect}
-                                onClick={() => console.log(blogCategories)}
                             />
                         </Col>
                     </Row>
@@ -94,7 +99,7 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                 {/* Section 2 */}
                 <section className="blog-featured">
                     <Row className="h-100 px-5">
-                        <Col xs={12} sm={6} className="h-100">
+                        <Col xs={12} md={6} className="h-100 pr-5">
                             {/* Latest Blog Information */}
                             <h2>
                                 {
@@ -109,9 +114,19 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                                 }
                             </p>
                             <BlogInfoBar
-                                category="News"
-                                time="5 min"
-                                author="Jonathan"
+                                category={
+                                    allMarkdownRemark.edges[0].node.frontmatter
+                                        .category
+                                }
+                                time={
+                                    allMarkdownRemark.edges[0].node.frontmatter
+                                        .readingTime
+                                }
+                                author={
+                                    allMarkdownRemark.edges[0].node.frontmatter
+                                        .author
+                                }
+                                layout="horizontal"
                                 className="my-4"
                             />
                             <Button
@@ -127,7 +142,11 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                                 Read Full Post
                             </Button>
                         </Col>
-                        <Col xs={12} sm={6}>
+                        <Col
+                            xs={12}
+                            md={6}
+                            className="mb-5 mt-md-0 order-first order-md-last"
+                        >
                             {/* Latest Blog Image */}
                             <Img
                                 className="h-100"
@@ -143,14 +162,7 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
 
                 {/* Section 3 */}
                 <section className="py-4 blog-post-listing">
-                    <Row className="px-5 py-4">
-                        <Col xs={12} md={9}>
-                            {/* next 6 blogs */}
-                        </Col>
-                        <Col xs={12} md={3}>
-                            {/* Sidebar component */}
-                        </Col>
-                    </Row>
+                    <RecentBlogs data={blogs} layout="home" />
                 </section>
 
                 <section ref={dreamForm}>
@@ -187,6 +199,10 @@ export const query = graphql`
                                path
                                date
                                title
+                               author
+                               authorURL
+                               category
+                               readingTime
                                tags
                                excerpt
                                cover {
