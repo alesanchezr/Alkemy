@@ -1,6 +1,6 @@
 import React from "react"
 import _ from "lodash"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import { Context } from "../store/appContext.js"
 import { addJS, fluidImageSmall } from "../utils/utils.js"
@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import FreeWebsiteAnalysis from "../components/freeWebsiteAnalysis.jsx"
 import SEO from "../components/seo"
 import CustomSelect from "../components/CustomSelect.jsx"
+import BlogInfoBar from "../components/BlogInfoBar.jsx"
 
 /*
 Layout props:
@@ -41,7 +42,20 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
         }
         return data
     }
-    // addJS(position,inner script,source) - adds JS to document dynamically
+
+    const blogCategories = ()=>{
+        let categories = allMarkdownRemark.edges.map(e => {
+            return e.node.frontmatter.category
+        })
+        categories = _.uniq(categories)
+        let labels = []
+        for (let i = 0; i < categories.length; i++) {
+            labels.push({ label: categories[i] })
+        }
+        return labels
+    }
+
+    // addJS(position,inner script,source) - adds JS to document dynamically for AddThis Toolbar
     addJS(
         `body`,
         null,
@@ -69,13 +83,9 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                                 classes="text-muted"
                                 selectlabel="Jump to:"
                                 placeholder="Select a value..."
-                                options={[
-                                    {
-                                        label: "item",
-                                    },
-                                ]}
+                                options={[{ label: "test" }]}
                                 ref={categorySelect}
-                                onClick={() => handleSelected()}
+                                onClick={() => console.log(blogCategories)}
                             />
                         </Col>
                     </Row>
@@ -88,17 +98,34 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                             {/* Latest Blog Information */}
                             <h2>
                                 {
-                                    allMarkdownRemark.edges[0].node
-                                        .frontmatter.title
+                                    allMarkdownRemark.edges[0].node.frontmatter
+                                        .title
                                 }
                             </h2>
-                            <p>
+                            <p className="my-4">
                                 {
-                                    allMarkdownRemark.edges[0].node
-                                        .frontmatter.excerpt
+                                    allMarkdownRemark.edges[0].node.frontmatter
+                                        .excerpt
                                 }
                             </p>
-
+                            <BlogInfoBar
+                                category="News"
+                                time="5 min"
+                                author="Jonathan"
+                                className="my-4"
+                            />
+                            <Button
+                                to={
+                                    allMarkdownRemark.edges[0].node.frontmatter
+                                        .path
+                                }
+                                tag={Link}
+                                color="primary"
+                                className="my-4"
+                                block
+                            >
+                                Read Full Post
+                            </Button>
                         </Col>
                         <Col xs={12} sm={6}>
                             {/* Latest Blog Image */}
@@ -137,10 +164,7 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
 const dreamForm = React.createRef()
 const categorySelect = React.createRef()
 
-const handleSelected = (data) => {
-    console.log('data ',data)
-    
-
+const handleSelected = () => {
     console.log(categorySelect.current.state.selectedOption)
 }
 

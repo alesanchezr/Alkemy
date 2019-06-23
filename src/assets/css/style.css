@@ -1356,13 +1356,10 @@ div.select {
   position: relative;
   overflow: hidden;
   display: inline-block;
-  margin: auto;
   width: 330px;
   height: 100%;
   border: 1px solid #2bb3e5;
-  font-size: 14px;
-  -webkit-box-shadow: 0px 1em 2em -1.5em rgba(0, 0, 0, 0.5);
-          box-shadow: 0px 1em 2em -1.5em rgba(0, 0, 0, 0.5);
+  font-size: 16px;
 }
 
 div.select > .toggle {
@@ -1478,8 +1475,8 @@ div.select label.option input:checked ~ span.title {
   position: absolute;
   display: block;
   z-index: 3;
-  top: 5px;
-  font-size: 12px;
+  top: 0;
+  font-size: 16px;
   background: #fff;
   border-top: 0px;
   -webkit-box-shadow: none;

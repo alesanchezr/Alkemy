@@ -1238,12 +1238,10 @@ div.select {
   position: relative;
   overflow: hidden;
   display: inline-block;
-  margin: auto;
   width: 330px;
   height: 100%;
   border: 1px solid $alkemy_blue;
-  font-size: 14px;
-  box-shadow: 0px 1em 2em -1.5em rgba(0, 0, 0, .5);
+  font-size: 16px;
 
   >.toggle {
     position: absolute;
@@ -1356,8 +1354,8 @@ div.select {
         position: absolute;
         display: block;
         z-index: 3;
-        top: 5px;
-        font-size: 12px;
+        top: 0;
+        font-size: 16px;
         background: #fff;
         border-top: 0px;
         box-shadow: none;
