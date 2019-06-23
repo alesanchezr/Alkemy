@@ -1349,22 +1349,23 @@ div.spinContainer {
   background: black;
 }
 
-.select {
+div.select {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: relative;
   overflow: hidden;
   display: inline-block;
   margin: auto;
   width: 330px;
   height: 100%;
-  border-color: #2bb3e5;
-  border-bottom: 0px;
-  border-radius: 3px;
-  font-size: 12px;
+  border: 1px solid #2bb3e5;
+  font-size: 14px;
   -webkit-box-shadow: 0px 1em 2em -1.5em rgba(0, 0, 0, 0.5);
           box-shadow: 0px 1em 2em -1.5em rgba(0, 0, 0, 0.5);
 }
 
-.select > i.toggle {
+div.select > .toggle {
   position: absolute;
   z-index: 4;
   right: 1.5em;
@@ -1372,19 +1373,19 @@ div.spinContainer {
   color: #ccc;
 }
 
-.select .title,
-.select .placeholder {
+div.select .title,
+div.select .placeholder {
   position: relative;
   display: block;
   width: 100%;
   height: 100%;
-  padding: 1.5em 2em;
+  padding: 1em 2em;
   background: white;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   cursor: pointer;
 }
 
-.select > input {
+div.select > input {
   position: absolute;
   left: 0px;
   top: 0px;
@@ -1396,39 +1397,39 @@ div.spinContainer {
   cursor: pointer;
 }
 
-.select > input:checked ~ i.toggle.icon-arrow-down {
+div.select > input:checked ~ .toggle.down {
   display: none;
 }
 
-.select > input:checked ~ i.toggle.icon-arrow-up {
+div.select > input:checked ~ .toggle.up {
   display: block;
 }
 
-.select > input:checked div.options label.option .title {
+div.select > input:checked .options label.option .title {
   display: none !important;
 }
 
-.select > input:not(:checked) {
+div.select > input:not(:checked) {
   z-index: 4;
 }
 
-.select > input:not(:checked) ~ label.option > span.title {
+div.select > input:not(:checked) ~ label.option > span.title {
   display: none;
 }
 
-.select > input:not(:checked) ~ i.toggle.icon-arrow-up {
+div.select > input:not(:checked) ~ .toggle.up {
   display: none;
 }
 
-.select > input:not(:checked) ~ i.toggle.icon-arrow-down {
+div.select > input:not(:checked) ~ .toggle.down {
   display: block;
 }
 
-.select > input:disabled {
+div.select > input:disabled {
   cursor: no-drop;
 }
 
-.select > span.placeholder {
+div.select > span.placeholder {
   position: relative;
   z-index: 0;
   display: inline-block;
@@ -1437,7 +1438,7 @@ div.spinContainer {
   border-top: 0px;
 }
 
-.select label.option {
+div.select label.option {
   display: block;
   overflow: hidden;
   z-index: 1;
@@ -1446,34 +1447,38 @@ div.spinContainer {
   transition: all 1s ease-out;
 }
 
-.select label.option span.title {
+div.select label.option:last-child {
+  margin-bottom: 0;
+}
+
+div.select label.option span.title {
   position: relative;
   z-index: 2;
   -webkit-transition: background .3s ease-out;
   transition: background .3s ease-out;
 }
 
-.select label.option span.title i.icon {
+div.select label.option span.title .icon {
   padding-right: 8px;
   color: white;
 }
 
-.select label.option span.title:hover {
+div.select label.option span.title:hover {
   color: #fff;
-  background: rgba(0, 0, 0, 0.7);
+  background: #106281;
   -webkit-box-shadow: inset 0px 1px 0px rgba(0, 0, 0, 0.1);
           box-shadow: inset 0px 1px 0px rgba(0, 0, 0, 0.1);
 }
 
-.select label.option input {
+div.select label.option input {
   display: none;
 }
 
-.select label.option input:checked ~ span.title {
+div.select label.option input:checked ~ span.title {
   position: absolute;
   display: block;
   z-index: 3;
-  top: 0px;
+  top: 5px;
   font-size: 12px;
   background: #fff;
   border-top: 0px;
@@ -1481,16 +1486,5 @@ div.spinContainer {
           box-shadow: none;
   color: inherit;
   width: 100%;
-}
-
-.select label.option input:disabled ~ span.title {
-  background: #f9f9f9 !important;
-  color: #aaa;
-}
-
-.select label.option input:disabled ~ span.title:hover {
-  color: #aaa;
-  background: none;
-  cursor: no-drop;
 }
 /*# sourceMappingURL=style.css.map */

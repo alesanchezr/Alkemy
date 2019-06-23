@@ -1232,21 +1232,20 @@ div.spinContainer{
   }
 }
 
-// Pure css Select
-.select {
+// Custom Select
+div.select {
+  align-items: center;
   position: relative;
   overflow: hidden;
   display: inline-block;
   margin: auto;
   width: 330px;
   height: 100%;
-  border-color: $alkemy_blue;
-  border-bottom: 0px;
-  border-radius: 3px;
-  font-size: 12px;
+  border: 1px solid $alkemy_blue;
+  font-size: 14px;
   box-shadow: 0px 1em 2em -1.5em rgba(0, 0, 0, .5);
 
-  >i.toggle {
+  >.toggle {
     position: absolute;
     z-index: 4;
     right: 1.5em;
@@ -1260,7 +1259,7 @@ div.spinContainer{
     display: block;
     width: 100%;
     height: 100%;
-    padding: 1.5em 2em;
+    padding: 1em 2em;
     background: rgba(255, 255, 255, 1);
     border-top: 1px solid rgba(0, 0, 0, .05);
     cursor: pointer;
@@ -1278,15 +1277,15 @@ div.spinContainer{
     cursor: pointer;
 
     &:checked {
-      ~i.toggle.icon-arrow-down {
+      ~.toggle.down {
         display: none;
       }
 
-      ~i.toggle.icon-arrow-up {
+      ~.toggle.up {
         display: block;
       }
 
-      div.options label.option .title {
+      .options label.option .title {
         display: none !important;
       }
     }
@@ -1300,11 +1299,11 @@ div.spinContainer{
         }
       }
 
-      ~i.toggle.icon-arrow-up {
+      ~.toggle.up {
         display: none;
       }
 
-      ~i.toggle.icon-arrow-down {
+      ~.toggle.down {
         display: block;
       }
     }
@@ -1329,20 +1328,23 @@ div.spinContainer{
     z-index: 1;
     width: 100%;
     transition: all 1s ease-out;
+    &:last-child{
+      margin-bottom:0;
+    }
 
     span.title {
       position: relative;
       z-index: 2;
       transition: background .3s ease-out;
 
-      i.icon {
+      .icon {
         padding-right: 8px;
         color: white;
       }
 
       &:hover {
         color: #fff;
-        background: darken(rgba($alkemy_darkest_blue,.7),25%);
+        background: darken($alkemy_blue,25%);
         box-shadow: inset 0px 1px 0px rgba(0, 0, 0, .1);
       }
     }
@@ -1354,26 +1356,13 @@ div.spinContainer{
         position: absolute;
         display: block;
         z-index: 3;
-        top: 0px;
+        top: 5px;
         font-size: 12px;
         background: #fff;
         border-top: 0px;
         box-shadow: none;
         color: inherit;
         width: 100%;
-      }
-
-      &:disabled {
-        &~span.title {
-          background: #f9f9f9 !important;
-          color: #aaa;
-
-          &:hover {
-            color: #aaa;
-            background: none;
-            cursor: no-drop;
-          }
-        }
       }
     }
   }

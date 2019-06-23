@@ -10,51 +10,39 @@ import {
 } from "reactstrap"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-const CustomSelect = (props)=> {
-    // define state and setState
-    const {selectedOption, setSelection} = useState('')
-    // define spread for additional props that are passed such as onClick()
-    const {...other} = props
+export default class CustomSelect extends React.Component {
+    constructor(props) {
+      super(props);
 
+      this.state = {
+        selectedOption: ''
+      }
+    }
 
-    // Build Individual options from props.options array
+    handleSelection = (label) => {
+      this.setState({
+        selectedOption: label
+      })
+    }
+
+    // Build Individual options from this.props.options array
 
     // Individual Option Objects:
-    // icon (string) - name of option icon
-    // size (string) - size of option icon
-    // iconColor (string) - color of option icon
     // label (string) - text for option 
 
-    const buildOptions = () => {
-        return props.options.map(
+    buildOptions = () => {
+        return this.props.options.map(
             (item, index) => {
-              const { icon, iconColor, iconSize, label} = item
-              // TODO Create onClick Actions so that when item is clicked it is added to state via setSelection()
+
               return (
                   <Label
-                      class="option"
+                      className="option"
                       key={index}
+                      onClick={() => this.handleSelection(item.label)}
                   >
-                      <Input
-                          type="radio"
-                          name={label}
-                          value={label}
-                      />
+                      <Input type="radio" name="option" value={item.label} />
                       <span className="title animated fadeIn">
-                          <FontAwesomeIcon
-                              icon={icon}
-                              size={
-                                  iconSize ||
-                                  "md"
-                              }
-                              color={
-                                  iconColor ||
-                                  "white"
-                              }
-                              className="icon select-icon"
-                          />
-                          {label ||
-                              "Option"}
+                          {item.label || "Option"}
                       </span>
                   </Label>
               )
@@ -62,39 +50,48 @@ const CustomSelect = (props)=> {
         )
     }
 
-    return (
-        <span {...other}>
-            <Label inline for="custom-select">
-                {props.selectLabel}
-            </Label>
-            <div name="custom-select" className="select animated zoomIn">
-                <Input type="radio" name="option" className={props.classes} />
-                <FontAwesomeIcon
-                    icon="arrow-down"
-                    size="md"
-                    color={props.arrowColor}
-                    className="icon select-icon"
-                />
-                <FontAwesomeIcon
-                    icon="arrow-up"
-                    size="md"
-                    color={props.arrowColor}
-                    className="icon select-icon"
-                />
-                <span className="placeholder">{this.props.placeholder}</span>
-                {buildOptions}
-            </div>
-        </span>
-    )
+    render(){
+
+      return (
+          <div
+              {...this.props}
+              className="d-flex align-items-center justify-content-end mr-5"
+          >
+              <Label for="custom-select" className="mr-3 my-auto">
+                  {this.props.selectlabel}
+              </Label>
+              <div name="custom-select" className="select animated zoomIn">
+                  <Input
+                      type="radio"
+                      name="option"
+                      className={this.props.classes}
+                  />
+                  <FontAwesomeIcon
+                      icon="arrow-down"
+                      size="sm"
+                      color={this.props.arrowcolor}
+                      className="toggle icon select-icon down"
+                  />
+                  <FontAwesomeIcon
+                      icon="arrow-up"
+                      size="sm"
+                      color={this.props.arrowcolor}
+                      className="toggle icon select-icon up"
+                  />
+                  <span className="placeholder">{this.props.placeholder}</span>
+
+                  {this.buildOptions()}
+              </div>
+          </div>
+      )
+    }
 }
 
 
 CustomSelect.propTypes = {
-    arrowColor: PropTypes.string, // Color of the select (up and down) arrows
+    arrowcolor: PropTypes.string, // Color of the select (up and down) arrows
     classes: PropTypes.string, // Additional classes to add to select
-    selectLabel: PropTypes.string,
+    selectlabel: PropTypes.string,
     options: PropTypes.array,
     placeholder: PropTypes.string,
 }
-
-export default CustomSelect

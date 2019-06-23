@@ -17,6 +17,7 @@ import {
     faSpinner,
     faMobileAlt,
     faArrowDown,
+    faArrowUp,
     faCheck,
     faChartPie,
     faChartLine,
@@ -35,6 +36,7 @@ import {
 library.add(
     fab,
     faArrowDown,
+    faArrowUp,
     faChevronDown,
     faCalendarAlt,
     faCalendarPlus,

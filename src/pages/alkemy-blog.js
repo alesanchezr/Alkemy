@@ -1,4 +1,5 @@
 import React from "react"
+import _ from "lodash"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import { Context } from "../store/appContext.js"
@@ -27,6 +28,19 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
     // pageTitle: SEO friendly title for the title bar
     const pageTitle = "Alkemy Blog"
 
+    const filterBlogsByCategory = ()=>{
+        let data = allMarkdownRemark.edges.map(e=>{
+            for(let i=0;i<e.node.frontmatter.tags.length;i++){
+                if(e.node.frontmatter.tags[i].toLowerCase().includes('news')) return e
+            }
+        })
+        for(let i=0;i<data.length;i++){
+            if(typeof data[i]==='undefined'){
+                data.splice(i,1)
+            }
+        }
+        return data
+    }
     // addJS(position,inner script,source) - adds JS to document dynamically
     addJS(
         `body`,
@@ -50,34 +64,52 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                         <Col md={6} className="d-none d-md-block" />
                         <Col xs={12} sm={6}>
                             {/* Category Dropdown */}
-                            <CustomSelect 
-                                arrowColor="blue" 
-                                classes="text-muted" 
-                                selectLabel="Jump to:" 
-                                placeholder="" 
+                            <CustomSelect
+                                arrowcolor="blue"
+                                classes="text-muted"
+                                selectlabel="Jump to:"
+                                placeholder="Select a value..."
                                 options={[
                                     {
-                                        label: 'test',
-                                        icon: 'check',
-                                        size: 'md',
-                                        iconColor: 'blue'
-                                    }
+                                        label: "item",
+                                    },
                                 ]}
-                                onClick={console.log('test')}
-                                />
-                            
+                                ref={categorySelect}
+                                onClick={() => handleSelected()}
+                            />
                         </Col>
                     </Row>
                 </section>
 
                 {/* Section 2 */}
                 <section className="blog-featured">
-                    <Row className="align-items-center h-100">
-                        <Col xs={12} sm={6} className="text-center h-100">
+                    <Row className="h-100 px-5">
+                        <Col xs={12} sm={6} className="h-100">
                             {/* Latest Blog Information */}
+                            <h2>
+                                {
+                                    allMarkdownRemark.edges[0].node
+                                        .frontmatter.title
+                                }
+                            </h2>
+                            <p>
+                                {
+                                    allMarkdownRemark.edges[0].node
+                                        .frontmatter.excerpt
+                                }
+                            </p>
+
                         </Col>
                         <Col xs={12} sm={6}>
                             {/* Latest Blog Image */}
+                            <Img
+                                className="h-100"
+                                fluid={
+                                    allMarkdownRemark.edges[0].node.frontmatter
+                                        .cover.childImageSharp.fluid
+                                }
+                                alt="Alkemy is always the best fit for your business and digital presence."
+                            />
                         </Col>
                     </Row>
                 </section>
@@ -103,6 +135,14 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
 }
 
 const dreamForm = React.createRef()
+const categorySelect = React.createRef()
+
+const handleSelected = (data) => {
+    console.log('data ',data)
+    
+
+    console.log(categorySelect.current.state.selectedOption)
+}
 
 const handleScroll = () => {}
 
@@ -111,7 +151,9 @@ export const query = graphql`
                siteSearchIndex {
                    index
                }
-               allMarkdownRemark {
+               allMarkdownRemark(
+                   sort: { order: DESC, fields: [frontmatter___date] }
+               ) {
                    edges {
                        node {
                            fields {
