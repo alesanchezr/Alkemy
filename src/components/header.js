@@ -81,7 +81,7 @@ const Header = ({
                     <ReactNavbar menuArray={_menuArray} />
                 </header>
                 {hideHeader === true ? (
-                    <Row className="subHeader mx-0">
+                    <Row className="subHeader mx-0 px-1">
                         <Col xs={12} md={8}>
                             <h1 className="m-0 font-weight-normal">
                                 <Link
