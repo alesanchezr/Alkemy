@@ -1507,4 +1507,10 @@ div.select label.option input:checked ~ span.title {
 .blog-featured {
   min-height: 81.5vh;
 }
+
+@media screen and (min-width: 1080px) {
+  .blogCard {
+    max-height: 50vh;
+  }
+}
 /*# sourceMappingURL=style.css.map */

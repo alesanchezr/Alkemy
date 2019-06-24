@@ -8,7 +8,7 @@ readingTime: "2 min"
 category: "News"
 tags: ['promo','company news','news']
 cover: "../../assets/images/may-2018-promo.png"
-excerpt: "Been looking for an excuse to get a new website? Or maybe you just need an excuse to re-do your current one. Whatever the reason, Alkemy has you covered with our May 2018 promo!"
+excerpt: "Been looking for an excuse to get a new website? Or maybe you just need an excuse to re-do your current one. Whatever the reason, Alkemy has you covered with our May 2018 promo! Take 20% off all Web Design Packages in the month of May."
 ---
 
 <div class="row">

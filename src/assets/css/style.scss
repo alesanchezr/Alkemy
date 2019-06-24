@@ -1375,3 +1375,9 @@ div.select {
 .blog-featured{
   min-height: 100vh - calcVh(($header-height+$subheader-height));
 }
+
+.blogCard {
+  @media screen and (min-width: 1080px) {
+    max-height: 50vh;
+  }
+}

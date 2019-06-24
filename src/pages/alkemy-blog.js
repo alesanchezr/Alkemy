@@ -31,9 +31,10 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
     // pageTitle: SEO friendly title for the title bar
     const pageTitle = "Alkemy Blog"
 
-    const blogs = ()=>{
-        let data = allMarkdownRemark.edges.splice(0,1)
-        return data
+    const createBlogArray = ()=>{
+        let blogArray = allMarkdownRemark.edges
+        if(blogArray.length>1) blogArray.shift()
+        return blogArray
     }
 
     const filterBlogsByCategory = ()=>{
@@ -107,31 +108,32 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
 
                 {/* Section 2 */}
                 <section className="blog-featured">
-                    <Row className="h-100 px-5">
+                    <Row className="h-100 px-5 align-items-center">
                         <Col xs={12} md={6} className="h-100 pr-5">
                             {/* Latest Blog Information */}
                             <h2>
-                                {
+                                {allMarkdownRemark.edges &&
                                     allMarkdownRemark.edges[0].node.frontmatter
-                                        .title
-                                }
+                                        .title}
                             </h2>
                             <p className="my-4">
-                                {
+                                {allMarkdownRemark.edges &&
                                     allMarkdownRemark.edges[0].node.frontmatter
-                                        .excerpt
-                                }
+                                        .excerpt}
                             </p>
                             <BlogInfoBar
                                 category={
+                                    allMarkdownRemark.edges &&
                                     allMarkdownRemark.edges[0].node.frontmatter
                                         .category
                                 }
                                 time={
+                                    allMarkdownRemark.edges &&
                                     allMarkdownRemark.edges[0].node.frontmatter
                                         .readingTime
                                 }
                                 author={
+                                    allMarkdownRemark.edges &&
                                     allMarkdownRemark.edges[0].node.frontmatter
                                         .author
                                 }
@@ -140,6 +142,7 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                             />
                             <Button
                                 to={
+                                    allMarkdownRemark.edges &&
                                     allMarkdownRemark.edges[0].node.frontmatter
                                         .path
                                 }
@@ -149,12 +152,6 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                                 block
                             >
                                 Read Full Post
-                            </Button>
-                            <Button
-                                to=''
-                                onClick={filterBlogsByCategory()}
-                            >
-                                test
                             </Button>
                         </Col>
                         <Col
@@ -166,6 +163,7 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                             <Img
                                 className="h-100"
                                 fluid={
+                                    allMarkdownRemark.edges &&
                                     allMarkdownRemark.edges[0].node.frontmatter
                                         .cover.childImageSharp.fluid
                                 }
@@ -177,7 +175,10 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
 
                 {/* Section 3 */}
                 <section className="py-4 blog-post-listing">
-                    <RecentBlogs blogdata={blogs?blogs:null} layout="home" />
+                    <RecentBlogs
+                        blogdata={allMarkdownRemark.edges && createBlogArray()}
+                        layout="home"
+                    />
                 </section>
 
                 <section ref={dreamForm}>
@@ -191,9 +192,9 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
 const dreamForm = React.createRef()
 const categorySelect = React.createRef()
 
-const handleSelected = () => {
-    console.log(categorySelect.current.state.selectedOption)
-}
+// const handleSelected = () => {
+//     console.log(categorySelect.current.state.selectedOption)
+// }
 
 const handleScroll = () => {}
 

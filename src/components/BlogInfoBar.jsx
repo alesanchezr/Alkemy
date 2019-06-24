@@ -52,7 +52,7 @@ const BlogInfoBar = (props) => {
         return (
             <>
                 <Col xs={12}>
-                    <p className="d-flex align-items-center">
+                    <p className="d-flex align-items-center mb-0">
                         <FontAwesomeIcon
                             icon={["far", "list-alt"]}
                             size="sm"
@@ -63,14 +63,14 @@ const BlogInfoBar = (props) => {
                     </p>
                 </Col>
                 <Col xs={12}>
-                    <p className="d-flex align-items-center">
+                    <p className="d-flex align-items-center mb-0">
                         <FontAwesomeIcon
                             icon={["far", "clock"]}
                             size="sm"
                             color="black"
                             className="mr-2"
                         />
-                    {props.time} Read
+                        {props.time} Read
                     </p>
                 </Col>
             </>
