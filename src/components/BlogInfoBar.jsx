@@ -23,7 +23,7 @@ const BlogInfoBar = (props) => {
                     </p>
                 </Col>
                 <Col xs={4}>
-                    <p className="d-flex align-items-center text-center">
+                    <p className="d-flex align-items-center justify-content-center">
                         <FontAwesomeIcon
                             icon={["far", "clock"]}
                             size="sm"
@@ -34,7 +34,7 @@ const BlogInfoBar = (props) => {
                     </p>
                 </Col>
                 <Col xs={4}>
-                    <p className="d-flex align-items-center text-right">
+                    <p className="d-flex align-items-center justify-content-end">
                         <FontAwesomeIcon
                             icon={["far", "user"]}
                             size="sm"

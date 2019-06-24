@@ -14,6 +14,7 @@ import CustomSelect from "../components/CustomSelect.jsx"
 import BlogInfoBar from "../components/BlogInfoBar.jsx"
 import RecentBlogs from "../components/RecentBlogs.jsx"
 
+
 /*
 Layout props:
   renderHeaderSolid: Whether the top navigation should be solid or start transparent
@@ -36,17 +37,25 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
     }
 
     const filterBlogsByCategory = ()=>{
-        let data = allMarkdownRemark.edges.map(e=>{
-            for(let i=0;i<e.node.frontmatter.tags.length;i++){
-                if(e.node.frontmatter.tags[i].toLowerCase().includes('news')) return e
-            }
-        })
-        for(let i=0;i<data.length;i++){
-            if(typeof data[i]==='undefined'){
-                data.splice(i,1)
-            }
+        if (
+            categorySelect.current && typeof categorySelect.current.state
+                .selectedOption !== 'null'
+        ) {
+            let data = allMarkdownRemark.edges.map(e => {
+
+                    if (
+                        e.node.frontmatter.category
+                            .includes(
+                                categorySelect.current.state.selectedOption
+                            )
+                ){
+                    return e
+                }
+            })
+            
+            // return data
+            console.log(data)
         }
-        return data
     }
 
     const blogCategories = ()=>{
@@ -141,6 +150,12 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                             >
                                 Read Full Post
                             </Button>
+                            <Button
+                                to=''
+                                onClick={filterBlogsByCategory()}
+                            >
+                                test
+                            </Button>
                         </Col>
                         <Col
                             xs={12}
@@ -162,7 +177,7 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
 
                 {/* Section 3 */}
                 <section className="py-4 blog-post-listing">
-                    <RecentBlogs data={blogs} layout="home" />
+                    <RecentBlogs blogdata={blogs?blogs:null} layout="home" />
                 </section>
 
                 <section ref={dreamForm}>
