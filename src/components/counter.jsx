@@ -5,26 +5,26 @@ import Loading from './loading.jsx'
 
 
 const Counter = props => (
-  <h1><CountUp start={0} end={props.num} duration={3} separator=',' redraw={false}/></h1>
+  <h2><CountUp start={0} end={props.num} duration={5} separator=',' redraw={false}/></h2>
 )
 
-export default Watch(
-  class ReactCounter extends React.Component {
+class ReactCounter extends React.Component {
     constructor(props) {
-      super(props);
-      this.myRef = React.createRef();
+        super(props)
+        this.myRef = React.createRef()
     }
 
     render() {
-      return(
-        <>
-          {
-            (!this.props.isInViewport)
-            ? (<Counter num={Number(this.props.theNumber)}/>)
-            : (<Loading />)
-          }
-        </>
-      )
+        return (
+            <>
+                {!this.props.isInViewport || this.props.isInViewport ? (
+                    <Counter num={Number(this.props.theNumber)} />
+                ) : (
+                    <Loading className="my-4" />
+                )}
+            </>
+        )
     }
-  }
-)
+}
+
+export default Watch(ReactCounter)

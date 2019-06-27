@@ -1,4 +1,5 @@
-import React from "react"
+import React, {useRef} from "react"
+import { navigate } from "@reach/router"
 import _ from "lodash"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
@@ -60,9 +61,11 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
     }
 
     const blogCategories = ()=>{
-        let categories = allMarkdownRemark.edges.map(e => {
-            return e.node.frontmatter.category
-        })
+        let categories = allMarkdownRemark.edges && allMarkdownRemark.edges.map(
+            e => {
+                return e.node.frontmatter.category
+            }
+        )
         categories = _.uniq(categories)
         let labels = []
         for (let i = 0; i < categories.length; i++) {
@@ -107,12 +110,12 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                 </section>
 
                 {/* Section 2 */}
-                <section className="blog-featured">
+                <section className="blog-featured my-5 position-relative">
                     <Row className="h-100 px-5 align-items-center">
                         <Col xs={12} md={6} className="h-100 pr-5">
                             {/* Latest Blog Information */}
                             <h2>
-                                {allMarkdownRemark.edges &&
+                                {allMarkdownRemark &&
                                     allMarkdownRemark.edges[0].node.frontmatter
                                         .title}
                             </h2>
@@ -171,10 +174,22 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                             />
                         </Col>
                     </Row>
+                    <span onClick={handleCaretClick} className="heroChevron">
+                        <FontAwesomeIcon
+                            icon="chevron-down"
+                            size="3x"
+                            color="black"
+                            className="animated fadeOutDown infinite"
+                        />
+                    </span>
                 </section>
 
                 {/* Section 3 */}
-                <section className="py-4 blog-post-listing">
+                <section
+                    className="py-4 blog-post-listing"
+                    ref={additionalBlogs}
+                    id="test"
+                >
                     <RecentBlogs
                         blogdata={allMarkdownRemark.edges && createBlogArray()}
                         layout="home"
@@ -191,10 +206,18 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
 
 const dreamForm = React.createRef()
 const categorySelect = React.createRef()
+const additionalBlogs = React.createRef()
 
-// const handleSelected = () => {
-//     console.log(categorySelect.current.state.selectedOption)
-// }
+const handleCaretClick = () => {
+    // eslint-disable-next-line no-undef
+    requestAnimationFrame(() => {
+        // eslint-disable-next-line no-undef
+        document.body.scrollTo({
+            top: additionalBlogs.current.offsetTop-100,
+            behavior: "smooth",
+        })
+    })
+}
 
 const handleScroll = () => {}
 

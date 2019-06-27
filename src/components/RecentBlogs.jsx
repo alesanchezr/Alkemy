@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
@@ -23,12 +24,16 @@ const RecentBlogs = (props) => {
     const renderBlogHome = ()=>{
         return (
             <>
-                <CardDeck className="mb-3">
+                <CardDeck className="mb-3 h-100">
                     <Row>
                         <Col xs={12} md={3}>
                             <Card className="blogCard h-100">
                                 <Img
-                                    className="card-img-top"
+                                    imgStyle={{
+                                        minHeight: "200px",
+                                        height: "200px",
+                                    }}
+                                    className="card-img-top h-100"
                                     fluid={
                                         props.blogdata[1].node.frontmatter.cover
                                             .childImageSharp.fluid
@@ -37,7 +42,7 @@ const RecentBlogs = (props) => {
                                         props.blogdata[1].node.frontmatter.title
                                     }
                                 />
-                                <CardBody>
+                                <CardBody className="align-items-center">
                                     <CardTitle>
                                         {
                                             props.blogdata[1].node.frontmatter
@@ -72,11 +77,7 @@ const RecentBlogs = (props) => {
                         <Col xs={12} md={9}>
                             <Card className="blogCard h-100">
                                 <Row className="h-100 align-items-center">
-                                    <Col
-                                        xs={12}
-                                        md={6}
-                                        className="h-100 px-5 align-items-center"
-                                    >
+                                    <Col xs={12} md={6} className="px-5">
                                         {/* Latest Blog Information */}
                                         <Link
                                             to={
@@ -91,10 +92,10 @@ const RecentBlogs = (props) => {
                                                 }
                                             </h3>
                                             <p className="my-2">
-                                                {
+                                                {trunc(
                                                     props.blogdata[0].node
                                                         .frontmatter.excerpt
-                                                }
+                                                )}
                                             </p>
                                             <BlogInfoBar
                                                 category={
@@ -110,7 +111,7 @@ const RecentBlogs = (props) => {
                                                         .frontmatter.author
                                                 }
                                                 layout="vertical"
-                                                className="my-4"
+                                                className="mt-4"
                                             />
                                         </Link>
                                     </Col>
@@ -143,7 +144,16 @@ const RecentBlogs = (props) => {
     }
 
     const renderRow = ()=>{
-        const blogsArray = props.blogdata.splice(0,2)
+        // eslint-disable-next-line no-undef
+        const blogsArray = props.blogdata
+        console.log(
+            "Blog Array (before row render): ",
+            props.blogdata
+        )
+        if(props.blogdata.length>0) { 
+            blogsArray.splice(0,2) 
+            console.log("Blog Array (after data splice): ", blogsArray)
+        }
         return blogsArray.map((e,index)=>{
             return (
                 <Col xs={12} md={3} key={index}>

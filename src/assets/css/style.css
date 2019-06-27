@@ -23,13 +23,13 @@ html {
 
 @media screen and (min-width: 320px) {
   html {
-    font-size: calc(16px + 8 * ((100vw - 320px) / 1960));
+    font-size: calc(16px + 4 * ((100vw - 320px) / 1960));
   }
 }
 
 @media screen and (min-width: 2280px) {
   html {
-    font-size: 24px;
+    font-size: 20px;
   }
 }
 
@@ -153,9 +153,12 @@ h3 {
 }
 
 html, body {
-  overflow-x: hidden;
   width: 100%;
   height: 100%;
+}
+
+#bodyWrap {
+  overflow-x: hidden;
 }
 
 .no-overflow {
@@ -924,7 +927,7 @@ section.statsCounter {
   color: white;
 }
 
-section.statsCounter h1:first-child, section.statsCounter .cover-text-1b:first-child {
+section.statsCounter h2:first-child, section.statsCounter .cover-text-1a:first-child {
   margin-top: 2rem;
 }
 
@@ -932,7 +935,7 @@ section.statsCounter .row div {
   margin-bottom: 1.5rem;
 }
 
-section.statsCounter .row div h1, section.statsCounter .row div .cover-text-1b {
+section.statsCounter .row div h2, section.statsCounter .row div .cover-text-1a {
   margin-top: unset;
   color: #f8da32;
 }
@@ -976,6 +979,7 @@ section.recentBlogPosts .cardRow .blogCard .blogCard-body {
   width: 100%;
   bottom: 0;
   position: absolute;
+  min-height: 30%;
 }
 
 section.recentBlogPosts .cardRow .blogCard .blogCard-body a h4.card-title {
@@ -1506,6 +1510,10 @@ div.select label.option input:checked ~ span.title {
 
 .blog-featured {
   min-height: 81.5vh;
+}
+
+.blog-featured .heroChevron {
+  bottom: 25vh;
 }
 
 @media screen and (min-width: 1080px) {

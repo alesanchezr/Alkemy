@@ -66,7 +66,7 @@ $min_font: 16px;
 $max_font: 24px;
 
 html {
-  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+  @include fluid-type($min_width, $max_width, $min_font, 20px);
   line-height: 1.5;
 }
 
@@ -142,9 +142,13 @@ $alkemy_card_border: #84BAD9;
 }
 
 html,body{
-  overflow-x: hidden;
   width: 100%;
   height: 100%;
+}
+
+// add overflow-x hidden to bodyWrap to avoid window.pageYOffset being undetected
+#bodyWrap{
+  overflow-x: hidden;
 }
 
 .no-overflow{
@@ -845,10 +849,10 @@ section.statsCounter{
   background: $alkemy_dark_blue;
   color: white;
 
-  h1:first-child{margin-top: 2rem;}
+  h2:first-child{margin-top: 2rem;}
   .row div{
     margin-bottom: 1.5rem;
-    h1{
+    h2{
       margin-top:unset;
       color: $alkemy_light_yellow;
     }
@@ -888,6 +892,7 @@ section.recentBlogPosts{
         width: 100%;
         bottom: 0;
         position: absolute;
+        min-height: 30%;
         a h4.card-title{
           color: white;
           font-size: 1.2em;
@@ -1374,6 +1379,9 @@ div.select {
 
 .blog-featured{
   min-height: 100vh - calcVh(($header-height+$subheader-height));
+  .heroChevron{
+    bottom: 25vh;
+  }
 }
 
 .blogCard {
