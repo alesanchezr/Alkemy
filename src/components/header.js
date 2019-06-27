@@ -33,40 +33,35 @@ var _menuArray = [
 
 const windowGlobal = typeof window !== 'undefined' && window.location.pathname
 
-const Header = ({
-    pageTitle,
-    hideHeader,
-    renderHeaderSolid,
-    search,
-}) => (
+const Header = ({ pageTitle, hideHeader, renderHeaderSolid, search }) => (
     <StaticQuery
         query={graphql`
             query HeaderBlogQuery {
                 siteSearchIndex {
-                   index
+                    index
                 }
                 allMarkdownRemark {
-                   edges {
-                       node {
-                           fields {
-                               slug
-                           }
-                           frontmatter {
-                               path
-                               date
-                               title
-                               tags
-                               excerpt
-                               cover {
-                                   ...fluidImageSmall
-                               }
-                           }
-                           children {
-                               id
-                           }
-                       }
-                   }
-               }
+                    edges {
+                        node {
+                            fields {
+                                slug
+                            }
+                            frontmatter {
+                                path
+                                date
+                                title
+                                tags
+                                excerpt
+                                cover {
+                                    ...fluidImageSmall
+                                }
+                            }
+                            children {
+                                id
+                            }
+                        }
+                    }
+                }
             }
         `}
         render={data => (
@@ -74,7 +69,7 @@ const Header = ({
                 <header
                     className={
                         renderHeaderSolid
-                            ? "header solid fadeInDown position-sticky"
+                            ? "header solid fadeInDown position-fixed"
                             : "header fadeInDown position-fixed"
                     }
                 >
@@ -96,9 +91,7 @@ const Header = ({
                         {search === true ? (
                             <Col xs={12} md={4}>
                                 <BlogSearch
-                                    searchIndex={
-                                        data.siteSearchIndex.index
-                                    }
+                                    searchIndex={data.siteSearchIndex.index}
                                 />
                             </Col>
                         ) : null}

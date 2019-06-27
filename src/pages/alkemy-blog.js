@@ -212,14 +212,16 @@ const handleCaretClick = () => {
     // eslint-disable-next-line no-undef
     requestAnimationFrame(() => {
         // eslint-disable-next-line no-undef
-        document.body.scrollTo({
+        window.scrollTo({
             top: additionalBlogs.current.offsetTop-100,
             behavior: "smooth",
         })
     })
 }
 
-const handleScroll = () => {}
+const handleScroll = () => {
+    
+}
 
 export const query = graphql`
            {
