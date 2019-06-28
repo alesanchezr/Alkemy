@@ -27,15 +27,15 @@ const RecentBlogs = (props) => {
         return (
             <>
                 <CardDeck className="mb-3 h-100">
-                    <Row>
+                    <Row className="no-gutters">
                         <Col xs={12} md={3}>
                             <Card className="blogCard h-100">
-                                <Row className="h-100 align-items-center">
+                                <Row className="h-100 no-gutters">
                                     <Col xs={12}>
                                         <Link
                                             to={
-                                                blogData[1].node
-                                                    .frontmatter.path
+                                                blogData[1].node.frontmatter
+                                                    .path
                                             }
                                         >
                                             <Img
@@ -45,17 +45,17 @@ const RecentBlogs = (props) => {
                                                 }}
                                                 className="card-img-top"
                                                 fluid={
-                                                    blogData[1].node
-                                                        .frontmatter.cover
-                                                        .childImageSharp.fluid
+                                                    blogData[1].node.frontmatter
+                                                        .cover.childImageSharp
+                                                        .fluid
                                                 }
                                                 alt={
-                                                    blogData[1].node
-                                                        .frontmatter.title
+                                                    blogData[1].node.frontmatter
+                                                        .title
                                                 }
                                             />
-                                            <CardBody className="align-items-center">
-                                                <CardTitle tag="h5">
+                                            <CardBody className="d-flex flex-column align-items-center">
+                                                <CardTitle className="font-weight-bold">
                                                     {
                                                         blogData[1].node
                                                             .frontmatter.title
@@ -93,39 +93,39 @@ const RecentBlogs = (props) => {
                         </Col>
                         <Col xs={12} md={9}>
                             <Card className="blogCard h-100">
-                                <Row className="h-100 align-items-center">
-                                    <Col xs={12} md={6} className="px-5">
+                                <Row className="h-100 align-items-center no-gutters">
+                                    <Col xs={12} md={6} className="p-4">
                                         {/* Latest Blog Information */}
                                         <Link
                                             to={
-                                                blogData[0].node
-                                                    .frontmatter.path
+                                                blogData[0].node.frontmatter
+                                                    .path
                                             }
                                         >
-                                            <h3>
+                                            <CardTitle tag="h3">
                                                 {
-                                                    blogData[0].node
-                                                        .frontmatter.title
+                                                    blogData[0].node.frontmatter
+                                                        .title
                                                 }
-                                            </h3>
+                                            </CardTitle>
                                             <p className="my-2">
                                                 {
-                                                    blogData[0].node
-                                                        .frontmatter.excerpt
+                                                    blogData[0].node.frontmatter
+                                                        .excerpt
                                                 }
                                             </p>
                                             <BlogInfoBar
                                                 category={
-                                                    blogData[0].node
-                                                        .frontmatter.category
+                                                    blogData[0].node.frontmatter
+                                                        .category
                                                 }
                                                 time={
-                                                    blogData[0].node
-                                                        .frontmatter.readingTime
+                                                    blogData[0].node.frontmatter
+                                                        .readingTime
                                                 }
                                                 author={
-                                                    blogData[0].node
-                                                        .frontmatter.author
+                                                    blogData[0].node.frontmatter
+                                                        .author
                                                 }
                                                 layout="vertical"
                                                 className="mt-4"
@@ -141,9 +141,8 @@ const RecentBlogs = (props) => {
                                         <Img
                                             className="h-100"
                                             fluid={
-                                                blogData[0].node
-                                                    .frontmatter.cover
-                                                    .childImageSharp.fluid
+                                                blogData[0].node.frontmatter
+                                                    .cover.childImageSharp.fluid
                                             }
                                             alt="Alkemy is always the best fit for your business and digital presence."
                                         />
@@ -184,7 +183,7 @@ const RecentBlogs = (props) => {
                                 alt={e.node.frontmatter.title}
                             />
                             <CardBody>
-                                <CardTitle tag="h5">
+                                <CardTitle className="text-bold">
                                     {e.node.frontmatter.title}
                                 </CardTitle>
                                 <CardText>
@@ -195,7 +194,7 @@ const RecentBlogs = (props) => {
                                     time={e.node.frontmatter.readingTime}
                                     author={e.node.frontmatter.author}
                                     layout="vertical"
-                                    className="my-4"
+                                    className="my-2"
                                 />
                             </CardBody>
                         </Link>
@@ -209,42 +208,49 @@ const RecentBlogs = (props) => {
         for(let i=0;i<props.blogdata.length;i+4){
             let segment = props.blogdata.slice(i,4)
             return (
-                <Row>
-                    {
-                        segment.map((e, index) => {
-                            return (
-                                <Col xs={12} md={3} key={index}>
-                                    <Card className="blogCard">
-                                        <Link to={e.node.frontmatter.path}>
-                                            <Img
-                                                className="card-img-top"
-                                                fluid={
-                                                    e.node.frontmatter.cover.childImageSharp
-                                                        .fluid
+                <Row className="no-gutters">
+                    {segment.map((e, index) => {
+                        return (
+                            <Col xs={12} md={3} key={index}>
+                                <Card className="blogCard">
+                                    <Link to={e.node.frontmatter.path}>
+                                        <Img
+                                            className="card-img-top"
+                                            fluid={
+                                                e.node.frontmatter.cover
+                                                    .childImageSharp.fluid
+                                            }
+                                            alt={e.node.frontmatter.title}
+                                        />
+                                        <CardBody>
+                                            <CardTitle className="text-bold">
+                                                {e.node.frontmatter.title}
+                                            </CardTitle>
+                                            <CardText>
+                                                {trunc(
+                                                    e.node.frontmatter.excerpt
+                                                )}
+                                            </CardText>
+                                            <BlogInfoBar
+                                                category={
+                                                    e.node.frontmatter.category
                                                 }
-                                                alt={e.node.frontmatter.title}
+                                                time={
+                                                    e.node.frontmatter
+                                                        .readingTime
+                                                }
+                                                author={
+                                                    e.node.frontmatter.author
+                                                }
+                                                layout="vertical"
+                                                className="my-4"
                                             />
-                                            <CardBody>
-                                                <CardTitle tag="h5">
-                                                    {e.node.frontmatter.title}
-                                                </CardTitle>
-                                                <CardText>
-                                                    {trunc(e.node.frontmatter.excerpt)}
-                                                </CardText>
-                                                <BlogInfoBar
-                                                    category={e.node.frontmatter.category}
-                                                    time={e.node.frontmatter.readingTime}
-                                                    author={e.node.frontmatter.author}
-                                                    layout="vertical"
-                                                    className="my-4"
-                                                />
-                                            </CardBody>
-                                        </Link>
-                                    </Card>
-                                </Col>
-                            )
-                        })
-                    }
+                                        </CardBody>
+                                    </Link>
+                                </Card>
+                            </Col>
+                        )
+                    })}
                 </Row>
             )
         }
@@ -253,7 +259,7 @@ const RecentBlogs = (props) => {
 
     return (
         // eslint-disable-next-line react/prop-types
-        <div {...other} className={props.className + "h-100 px-5"}>
+        <div {...other} className={props.className + "h-100"}>
             {props.layout.toLowerCase() === "home" ? (
                 renderBlogHome()
             ) : renderAlternate()}

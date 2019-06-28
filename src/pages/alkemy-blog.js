@@ -14,6 +14,7 @@ import SEO from "../components/seo"
 import CustomSelect from "../components/CustomSelect.jsx"
 import BlogInfoBar from "../components/BlogInfoBar.jsx"
 import RecentBlogs from "../components/RecentBlogs.jsx"
+import LatestFromCategory from "../components/LatestFromCategory.jsx"
 
 
 /*
@@ -110,8 +111,8 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                 </section>
 
                 {/* Section 2 */}
-                <section className="blog-featured position-relative">
-                    <Row className="h-100 px-5 align-items-center">
+                <section className="blog-featured position-relative px-5">
+                    <Row className="h-100 align-items-center">
                         <Col xs={12} md={6} className="h-100 pr-5">
                             {/* Latest Blog Information */}
                             <h2>
@@ -177,13 +178,28 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                 </section>
 
                 {/* Section 3 */}
-                <section
-                    className="py-4 blog-post-listing"
-                >
-                    <RecentBlogs
-                        blogdata={allMarkdownRemark.edges && createBlogArray()}
-                        layout="home"
-                    />
+                <section className="py-4 blog-post-listing px-5">
+                    <Row>
+                        <Col xs={12} md={9}>
+                            <RecentBlogs
+                                blogdata={
+                                    allMarkdownRemark.edges && createBlogArray()
+                                }
+                                layout="home"
+                            />
+                        </Col>
+                        <Col md={3} className="d-none d-md-block">
+                            <LatestFromCategory
+                                blogdata={
+                                    allMarkdownRemark.edges &&
+                                    allMarkdownRemark.edges
+                                }
+                                categories={
+                                    allMarkdownRemark.edges && blogCategories()
+                                }
+                            />
+                        </Col>
+                    </Row>
                 </section>
 
                 <section ref={dreamForm}>

@@ -55,11 +55,17 @@ export default class CustomSelect extends React.Component {
       return (
           <div
               {...this.props}
-              className="d-flex align-items-center justify-content-end mr-5"
+              className={
+                  this.props.selectlabel.length > 0
+                      ? "d-flex align-items-center justify-content-end mr-5"
+                      : "d-flex align-items-center justify-content-center"
+              }
           >
-              <Label for="custom-select" className="mr-3 my-auto">
-                  {this.props.selectlabel}
-              </Label>
+              {this.props.selectlabel.length > 0 ? (
+                  <Label for="custom-select" className="mr-3 my-auto">
+                      {this.props.selectlabel}
+                  </Label>
+              ) : null}
               <div name="custom-select" className="select animated zoomIn">
                   <Input
                       type="radio"

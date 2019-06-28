@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import PropTypes from 'prop-types'
+import _ from 'lodash'
 import {
     Row,
     Col,
@@ -13,6 +14,7 @@ import {
     CardDeck,
 } from "reactstrap"
 import BlogInfoBar from "./BlogInfoBar.jsx"
+import CustomSelect from "../components/CustomSelect.jsx"
 
 const RecentBlogs = (props) => {
     const {...other} = props
@@ -23,11 +25,21 @@ const RecentBlogs = (props) => {
 
     const renderCards = ()=>{
         // eslint-disable-next-line no-undef
-        const blogsArray = props.blogdata
-        if(props.blogdata.length>0) { 
-            blogsArray.splice(0,2) 
+        let blogsArray = props.blogdata
+        console.log(blogsArray)
+        if(categorySelect.current && 
+            categorySelect.current.state.selectedOption.length > 0){
+            blogsArray = props.blogdata.filter(e => {
+                return _.includes(
+                    e.node.frontmatter.category,
+                    categorySelect.current.state.selectedOption
+                )
+            })
         }
-        return blogsArray.map((e,index)=>{
+
+        
+
+        blogsArray.length>0 && (blogsArray.map((e,index)=>{
             return (
                 <Col xs={12} key={index}>
                     <Card className="categoryCard">
@@ -59,20 +71,42 @@ const RecentBlogs = (props) => {
                     </Card>
                 </Col>
             )
-        })
+        }))
     }
 
     return (
         // eslint-disable-next-line react/prop-types
-        <div {...other} className={props.className + "h-100 px-5"}>
-            
-            {renderCards}
-        </div>
+        <>
+            <Row>
+                <Col
+                    xs={12}
+                    {...other}
+                    className={
+                        "p-4 h-100 latestFromCategory" +
+                        (props.className ? " " + props.className : "")
+                    }
+                >
+                    {/* Category Dropdown */}
+                    <CustomSelect
+                        arrowcolor="blue"
+                        classes="text-muted"
+                        selectlabel=""
+                        placeholder="Select a value..."
+                        options={props.categories}
+                        ref={categorySelect}
+                    />
+                </Col>
+            </Row>
+            <Row>{props.blogdata.length > 0 ? renderCards() : null}</Row>
+        </>
     )
 }
 
+const categorySelect = React.createRef()
+
 RecentBlogs.propTypes = {
     blogdata: PropTypes.array, // Blog data from allMarkdownRemark
+    categories: PropTypes.array
 }
 
 export default RecentBlogs

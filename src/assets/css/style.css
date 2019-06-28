@@ -1517,4 +1517,8 @@ div.select label.option input:checked ~ span.title {
 .blog-featured .heroChevron {
   margin-top: 2rem;
 }
+
+.latestFromCategory {
+  background: rgba(43, 179, 229, 0.1);
+}
 /*# sourceMappingURL=style.css.map */
