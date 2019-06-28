@@ -110,7 +110,7 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                 </section>
 
                 {/* Section 2 */}
-                <section className="blog-featured my-5 position-relative">
+                <section className="blog-featured position-relative">
                     <Row className="h-100 px-5 align-items-center">
                         <Col xs={12} md={6} className="h-100 pr-5">
                             {/* Latest Blog Information */}
@@ -174,21 +174,11 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                             />
                         </Col>
                     </Row>
-                    <span onClick={handleCaretClick} className="heroChevron">
-                        <FontAwesomeIcon
-                            icon="chevron-down"
-                            size="3x"
-                            color="black"
-                            className="animated fadeOutDown infinite"
-                        />
-                    </span>
                 </section>
 
                 {/* Section 3 */}
                 <section
                     className="py-4 blog-post-listing"
-                    ref={additionalBlogs}
-                    id="test"
                 >
                     <RecentBlogs
                         blogdata={allMarkdownRemark.edges && createBlogArray()}
@@ -206,21 +196,10 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
 
 const dreamForm = React.createRef()
 const categorySelect = React.createRef()
-const additionalBlogs = React.createRef()
 
-const handleCaretClick = () => {
-    // eslint-disable-next-line no-undef
-    requestAnimationFrame(() => {
-        // eslint-disable-next-line no-undef
-        window.scrollTo({
-            top: additionalBlogs.current.offsetTop-100,
-            behavior: "smooth",
-        })
-    })
-}
 
 const handleScroll = () => {
-    
+
 }
 
 export const query = graphql`

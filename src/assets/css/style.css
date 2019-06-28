@@ -1511,16 +1511,10 @@ div.select label.option input:checked ~ span.title {
 }
 
 .blog-featured {
-  min-height: 81.5vh;
+  min-height: 70vh;
 }
 
 .blog-featured .heroChevron {
-  bottom: 25vh;
-}
-
-@media screen and (min-width: 1080px) {
-  .blogCard {
-    max-height: 50vh;
-  }
+  margin-top: 2rem;
 }
 /*# sourceMappingURL=style.css.map */
