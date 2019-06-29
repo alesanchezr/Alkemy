@@ -11,6 +11,7 @@ import {
     CardTitle,
     CardText,
     CardDeck,
+    CardFooter,
 } from "reactstrap"
 import BlogInfoBar from "./BlogInfoBar.jsx"
 
@@ -208,53 +209,55 @@ const RecentBlogs = (props) => {
         for(let i=0;i<props.blogdata.length;i+4){
             let segment = props.blogdata.slice(i,4)
             return (
-                <Row className="no-gutters">
+                <CardDeck>
                     {segment.map((e, index) => {
                         return (
-                            <Col xs={12} md={3} key={index}>
-                                <Card className="blogCard">
-                                    <Link to={e.node.frontmatter.path}>
-                                        <Img
-                                            className="card-img-top"
-                                            fluid={
-                                                e.node.frontmatter.cover
-                                                    .childImageSharp.fluid
+                            <Card
+                                className="blogCard alt"
+                                key={index}
+                            >
+                                <Link to={e.node.frontmatter.path}>
+                                    <Img
+                                        className="card-img-top"
+                                        fluid={
+                                            e.node.frontmatter.cover
+                                                .childImageSharp.fluid
+                                        }
+                                        alt={e.node.frontmatter.title}
+                                    />
+                                    <CardBody>
+                                        <CardTitle className="text-bold">
+                                            {e.node.frontmatter.title}
+                                        </CardTitle>
+                                        <CardText>
+                                            {trunc(
+                                                e.node.frontmatter.excerpt
+                                            )}
+                                        </CardText>
+                                    </CardBody>
+                                    <CardFooter>
+                                        <BlogInfoBar
+                                            category={
+                                                e.node.frontmatter.category
                                             }
-                                            alt={e.node.frontmatter.title}
+                                            time={
+                                                e.node.frontmatter
+                                                    .readingTime
+                                            }
+                                            author={
+                                                e.node.frontmatter.author
+                                            }
+                                            layout="vertical"
+                                            className="my-4"
                                         />
-                                        <CardBody>
-                                            <CardTitle className="text-bold">
-                                                {e.node.frontmatter.title}
-                                            </CardTitle>
-                                            <CardText>
-                                                {trunc(
-                                                    e.node.frontmatter.excerpt
-                                                )}
-                                            </CardText>
-                                            <BlogInfoBar
-                                                category={
-                                                    e.node.frontmatter.category
-                                                }
-                                                time={
-                                                    e.node.frontmatter
-                                                        .readingTime
-                                                }
-                                                author={
-                                                    e.node.frontmatter.author
-                                                }
-                                                layout="vertical"
-                                                className="my-4"
-                                            />
-                                        </CardBody>
-                                    </Link>
-                                </Card>
-                            </Col>
+                                    </CardFooter>
+                                </Link>
+                            </Card>
                         )
                     })}
-                </Row>
+                </CardDeck>
             )
         }
-        
     }
 
     return (

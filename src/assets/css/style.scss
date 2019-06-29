@@ -1393,3 +1393,14 @@ div.select {
 .latestFromCategory{
   background: $alkemy_light_blue
 }
+
+.blogCard{
+  &.alt{
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+  .card-footer{
+    bottom: 0;
+  }
+}

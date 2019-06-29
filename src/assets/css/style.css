@@ -1525,4 +1525,15 @@ div.select label.option input:checked ~ span.title {
 .latestFromCategory {
   background: rgba(43, 179, 229, 0.1);
 }
+
+.blogCard.alt {
+  -ms-flex: 0 0 25%;
+  -webkit-box-flex: 0;
+          flex: 0 0 25%;
+  max-width: 25%;
+}
+
+.blogCard .card-footer {
+  bottom: 0;
+}
 /*# sourceMappingURL=style.css.map */

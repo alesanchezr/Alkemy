@@ -3,7 +3,6 @@ import React,{useState} from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import PropTypes from 'prop-types'
-import _ from 'lodash'
 import {
     Row,
     Col,
@@ -17,7 +16,7 @@ import CustomSelect from "../components/CustomSelect.jsx"
 const RecentBlogs = (props) => {
     const {...other} = props
 
-    const [dropdown, setDropdown] = useState('')
+    const [latestDropdown, setLatestDropdown] = useState('')
     
     const trunc = data => {
         return data.substring(0, 50) + "..."
@@ -28,9 +27,9 @@ const RecentBlogs = (props) => {
         // eslint-disable-next-line no-undef
         return props.blogdata
             .filter(e => {
-                if(dropdown.length>0){
-                    return e.node.frontmatter.category === dropdown
-                }else return e
+                if (latestDropdown.length > 0) {
+                    return e.node.frontmatter.category === latestDropdown
+                } else return e
                 
             })
             .map((e,index)=>{
@@ -82,7 +81,7 @@ const RecentBlogs = (props) => {
                         options={props.categories}
                         ref={byCategorySelect}
                         onChange={() =>
-                            setDropdown(
+                            setLatestDropdown(
                                 byCategorySelect.current.state.selectedOption
                             )
                         }
