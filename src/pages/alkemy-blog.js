@@ -1,14 +1,13 @@
-import React, {useRef} from "react"
-import { navigate } from "@reach/router"
+import React from "react"
 import _ from "lodash"
+import PropTypes from "prop-types"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import { Context } from "../store/appContext.js"
 import { addJS, fluidImageSmall } from "../utils/utils.js"
 import Layout from "../components/layout"
 import ScrollWrapper from "../components/scrollWrapper.jsx"
-import { FormGroup, Label, CustomInput, Button, Col, Row } from "reactstrap"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Button, Col, Row } from "reactstrap"
 import FreeWebsiteAnalysis from "../components/freeWebsiteAnalysis.jsx"
 import SEO from "../components/seo"
 import CustomSelect from "../components/CustomSelect.jsx"
@@ -29,44 +28,45 @@ Layout props:
 */
 
 // eslint-disable-next-line
-const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
+const AlkemyBlog = ({
+    data: {
+        allMarkdownRemark: { edges },
+    },
+}) => {
     // pageTitle: SEO friendly title for the title bar
     const pageTitle = "Alkemy Blog"
 
-    const createBlogArray = ()=>{
-        let blogArray = allMarkdownRemark.edges
-        if(blogArray.length>1) blogArray.shift()
+    let createBlogArray = () => {
+        let blogArray = edges.map(e=>e)
+        blogArray.length > 1 && blogArray.shift()
         return blogArray
     }
 
-    const filterBlogsByCategory = ()=>{
+    let filterBlogsByCategory = () => {
         if (
-            categorySelect.current && typeof categorySelect.current.state
-                .selectedOption !== 'null'
+            categorySelect.current &&
+            typeof categorySelect.current.state.selectedOption !== "null"
         ) {
-            let data = allMarkdownRemark.edges.map(e => {
-
-                    if (
-                        e.node.frontmatter.category
-                            .includes(
-                                categorySelect.current.state.selectedOption
-                            )
-                ){
+            let data = edges.map(e => {
+                if (
+                    e.node.frontmatter.category.includes(
+                        categorySelect.current.state.selectedOption
+                    )
+                ) {
                     return e
                 }
             })
-            
+
             // return data
-            console.log(data)
+            return data
         }
     }
 
-    const blogCategories = ()=>{
-        let categories = allMarkdownRemark.edges && allMarkdownRemark.edges.map(
-            e => {
+    let blogCategories = () => {
+        let categories =
+            edges && edges.map(e => {
                 return e.node.frontmatter.category
-            }
-        )
+            })
         categories = _.uniq(categories)
         let labels = []
         for (let i = 0; i < categories.length; i++) {
@@ -105,6 +105,7 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                                 placeholder="Select a value..."
                                 options={blogCategories()}
                                 ref={categorySelect}
+                                onClick={handleSelect}
                             />
                         </Col>
                     </Row>
@@ -115,41 +116,26 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                     <Row className="h-100 align-items-center">
                         <Col xs={12} md={6} className="h-100 pr-5">
                             {/* Latest Blog Information */}
-                            <h2>
-                                {allMarkdownRemark &&
-                                    allMarkdownRemark.edges[0].node.frontmatter
-                                        .title}
-                            </h2>
+                            <h2>{edges && edges[0].node.frontmatter.title}</h2>
                             <p className="my-4">
-                                {allMarkdownRemark.edges &&
-                                    allMarkdownRemark.edges[0].node.frontmatter
-                                        .excerpt}
+                                {edges && edges[0].node.frontmatter.excerpt}
                             </p>
                             <BlogInfoBar
                                 category={
-                                    allMarkdownRemark.edges &&
-                                    allMarkdownRemark.edges[0].node.frontmatter
-                                        .category
+                                    edges && edges[0].node.frontmatter.category
                                 }
                                 time={
-                                    allMarkdownRemark.edges &&
-                                    allMarkdownRemark.edges[0].node.frontmatter
-                                        .readingTime
+                                    edges &&
+                                    edges[0].node.frontmatter.readingTime
                                 }
                                 author={
-                                    allMarkdownRemark.edges &&
-                                    allMarkdownRemark.edges[0].node.frontmatter
-                                        .author
+                                    edges && edges[0].node.frontmatter.author
                                 }
                                 layout="horizontal"
                                 className="my-4"
                             />
                             <Button
-                                to={
-                                    allMarkdownRemark.edges &&
-                                    allMarkdownRemark.edges[0].node.frontmatter
-                                        .path
-                                }
+                                to={edges && edges[0].node.frontmatter.path}
                                 tag={Link}
                                 color="primary"
                                 className="my-4"
@@ -167,9 +153,9 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                             <Img
                                 className="h-100"
                                 fluid={
-                                    allMarkdownRemark.edges &&
-                                    allMarkdownRemark.edges[0].node.frontmatter
-                                        .cover.childImageSharp.fluid
+                                    edges &&
+                                    edges[0].node.frontmatter.cover
+                                        .childImageSharp.fluid
                                 }
                                 alt="Alkemy is always the best fit for your business and digital presence."
                             />
@@ -182,21 +168,14 @@ const AlkemyBlog = ({ data: { allMarkdownRemark, siteSearchIndex } }) => {
                     <Row>
                         <Col xs={12} md={9}>
                             <RecentBlogs
-                                blogdata={
-                                    allMarkdownRemark.edges && createBlogArray()
-                                }
+                                blogdata={edges && createBlogArray()}
                                 layout="home"
                             />
                         </Col>
                         <Col md={3} className="d-none d-md-block">
                             <LatestFromCategory
-                                blogdata={
-                                    allMarkdownRemark.edges &&
-                                    allMarkdownRemark.edges
-                                }
-                                categories={
-                                    allMarkdownRemark.edges && blogCategories()
-                                }
+                                blogdata={edges && edges}
+                                categories={edges && blogCategories()}
                             />
                         </Col>
                     </Row>
@@ -217,41 +196,46 @@ const categorySelect = React.createRef()
 const handleScroll = () => {
 
 }
+const handleSelect = () => {
+    console.log(
+        categorySelect.current&& categorySelect.current.state.selectedOption
+    )
+}
 
 export const query = graphql`
-           {
-               siteSearchIndex {
-                   index
-               }
-               allMarkdownRemark(
-                   sort: { order: DESC, fields: [frontmatter___date] }
-               ) {
-                   edges {
-                       node {
-                           fields {
-                               slug
-                           }
-                           frontmatter {
-                               path
-                               date
-                               title
-                               author
-                               authorURL
-                               category
-                               readingTime
-                               tags
-                               excerpt
-                               cover {
-                                   ...fluidImageSmall
-                               }
-                           }
-                           children {
-                               id
-                           }
-                       }
-                   }
-               }
-           }
-       `
+    {
+        siteSearchIndex {
+            index
+        }
+        allMarkdownRemark(
+            sort: { order: DESC, fields: [frontmatter___date] }
+        ) {
+            edges {
+                node {
+                    fields {
+                        slug
+                    }
+                    frontmatter {
+                        path
+                        date
+                        title
+                        author
+                        authorURL
+                        category
+                        readingTime
+                        tags
+                        excerpt
+                        cover {
+                            ...fluidImageSmall
+                        }
+                    }
+                    children {
+                        id
+                    }
+                }
+            }
+        }
+    }
+`
 
 export default AlkemyBlog

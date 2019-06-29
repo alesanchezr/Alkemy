@@ -1,8 +1,9 @@
-const { isNil } = require("lodash")
+const { isNil } = require(`lodash`)
 
 const mapPagesUrls = {
-    index: "/",
+    index: `/`,
 }
+
 module.exports = {
     siteMetadata: {
         title: `Alkemy, Inc.`,
@@ -116,7 +117,7 @@ module.exports = {
             options: {
                 test: /\.js$|\.jsx$/,
                 exclude: /(node_modules|.cache|public)/,
-                stages: ["develop"],
+                stages: [`develop`],
                 options: {
                     emitWarning: true,
                     failOnError: false,
@@ -141,7 +142,7 @@ module.exports = {
                     },
                 },
                 // // Optional filter to limit indexed nodes
-                filter: (node, getNode) => node.frontmatter.tags !== "exempt",
+                filter: (node, getNode) => node.frontmatter.tags !== `exempt`,
                 // For any node of type Asset, this is how BlogPost featuredImage is resolved
                 Asset: {
                     fileUrl: node => node.file && node.file.url,

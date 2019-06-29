@@ -1510,8 +1510,12 @@ div.select label.option input:checked ~ span.title {
   width: 100%;
 }
 
+.blogSearch.row {
+  padding: .5rem;
+}
+
 .blog-featured {
-  min-height: 70vh;
+  min-height: 50vh;
 }
 
 .blog-featured .heroChevron {

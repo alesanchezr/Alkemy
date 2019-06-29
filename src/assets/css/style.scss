@@ -1379,8 +1379,12 @@ div.select {
   }
 }
 
+.blogSearch.row {
+  padding: .5rem;
+}
+
 .blog-featured{
-  min-height: 70vh;
+  min-height: 50vh;
   .heroChevron{
     margin-top: 2rem;
   }

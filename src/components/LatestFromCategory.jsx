@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React, { useState } from "react"
+import React,{useState} from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import PropTypes from 'prop-types'
@@ -11,38 +11,32 @@ import {
     CardBody,
     CardTitle,
     CardText,
-    CardDeck,
 } from "reactstrap"
-import BlogInfoBar from "./BlogInfoBar.jsx"
 import CustomSelect from "../components/CustomSelect.jsx"
 
 const RecentBlogs = (props) => {
     const {...other} = props
+
+    const [dropdown, setDropdown] = useState('')
     
     const trunc = data => {
         return data.substring(0, 50) + "..."
     }
 
+   
     const renderCards = ()=>{
         // eslint-disable-next-line no-undef
-        let blogsArray = props.blogdata
-        console.log(blogsArray)
-        if(categorySelect.current && 
-            categorySelect.current.state.selectedOption.length > 0){
-            blogsArray = props.blogdata.filter(e => {
-                return _.includes(
-                    e.node.frontmatter.category,
-                    categorySelect.current.state.selectedOption
-                )
+        return props.blogdata
+            .filter(e => {
+                if(dropdown.length>0){
+                    return e.node.frontmatter.category === dropdown
+                }else return e
+                
             })
-        }
-
-        
-
-        blogsArray.length>0 && (blogsArray.map((e,index)=>{
+            .map((e,index)=>{
             return (
-                <Col xs={12} key={index}>
-                    <Card className="categoryCard">
+                <Col xs={12} key={index} className="latestFromCategory">
+                    <Card className="categoryCard mb-2">
                         <Link to={e.node.frontmatter.path}>
                             <Img
                                 className="card-img-top"
@@ -59,19 +53,12 @@ const RecentBlogs = (props) => {
                                 <CardText>
                                     {trunc(e.node.frontmatter.excerpt)}
                                 </CardText>
-                                <BlogInfoBar
-                                    category={e.node.frontmatter.category}
-                                    time={e.node.frontmatter.readingTime}
-                                    author={e.node.frontmatter.author}
-                                    layout="vertical"
-                                    className="my-4"
-                                />
                             </CardBody>
                         </Link>
                     </Card>
                 </Col>
             )
-        }))
+        })
     }
 
     return (
@@ -93,16 +80,26 @@ const RecentBlogs = (props) => {
                         selectlabel=""
                         placeholder="Select a value..."
                         options={props.categories}
-                        ref={categorySelect}
+                        ref={byCategorySelect}
+                        onChange={() =>
+                            setDropdown(
+                                byCategorySelect.current.state.selectedOption
+                            )
+                        }
                     />
                 </Col>
             </Row>
-            <Row>{props.blogdata.length > 0 ? renderCards() : null}</Row>
+            <Row>
+                {byCategorySelect.current &&
+                byCategorySelect.current.state.selectedOption.length > 0
+                    ? renderCards()
+                    : renderCards()}
+            </Row>
         </>
     )
 }
 
-const categorySelect = React.createRef()
+const byCategorySelect = React.createRef()
 
 RecentBlogs.propTypes = {
     blogdata: PropTypes.array, // Blog data from allMarkdownRemark
