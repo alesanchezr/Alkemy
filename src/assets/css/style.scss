@@ -1245,6 +1245,26 @@ div.spinContainer{
 }
 
 // Custom Select
+.category-select{
+  .select__control{
+    border-color: $alkemy_blue;
+    border-radius: 0;
+    &:hover, &.select__control--is--focused{
+      border-color: $alkemy_blue;
+    }
+  }
+
+  .select__menu,
+  .select__menu-list,
+  .select__menu-option{
+    background:white;
+  }
+  .select__menu-option{
+    &:hover{
+      background: $alkemy_blue;
+    }
+  }
+}
 div.select {
   align-items: center;
   position: relative;
@@ -1296,6 +1316,12 @@ div.select {
       }
 
       .options label.option .title {
+        display: none !important;
+      }
+    }
+
+    &.closed{
+      .options{
         display: none !important;
       }
     }
@@ -1364,19 +1390,23 @@ div.select {
       display: none;
 
       &:checked~span.title {
-        position: absolute;
-        display: block;
-        z-index: 3;
-        top: 0;
-        font-size: 16px;
-        background: #fff;
-        border-top: 0px;
-        box-shadow: none;
-        color: inherit;
-        width: 100%;
+        @extend .optionShow;
       }
     }
   }
+}
+
+.optionShow{
+  position: absolute;
+  display: block;
+  z-index: 3;
+  top: 0;
+  font-size: 16px;
+  background: #fff;
+  border-top: 0px;
+  box-shadow: none;
+  color: inherit;
+  width: 100%;
 }
 
 .blogSearch.row {
@@ -1390,15 +1420,40 @@ div.select {
   }
 }
 
+.blog-post-listing{
+  .card{
+    border: none;
+    border-radius: 0;
+    .card-body{
+      font-size: 16px;
+    }
+  }
+}
+
 .latestFromCategory{
-  background: $alkemy_light_blue
+  background: $alkemy_light_blue;
+  .card{
+    background: transparent;
+    border: none;
+    .card-img-top{
+      max-height: 160px;
+    }
+    .card-body{
+      padding: 1.25rem 0;
+    }
+  }
 }
 
 .blogCard{
+  height: 100%;
+  background: $alkemy_light_blue;
   &.alt{
     -ms-flex: 0 0 25%;
     flex: 0 0 25%;
     max-width: 25%;
+  }
+  .card-body{
+    padding: 1.25rem;
   }
   .card-footer{
     bottom: 0;

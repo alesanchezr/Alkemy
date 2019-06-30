@@ -27,11 +27,11 @@ const RecentBlogs = (props) => {
     const renderBlogHome = ()=>{
         return (
             <>
-                <CardDeck className="mb-3 h-100">
+                <CardDeck className="mb-3">
                     <Row className="no-gutters">
                         <Col xs={12} md={3}>
-                            <Card className="blogCard h-100">
-                                <Row className="h-100 no-gutters">
+                            <Card className="blogCard">
+                                <Row className="no-gutters">
                                     <Col xs={12}>
                                         <Link
                                             to={
@@ -93,8 +93,8 @@ const RecentBlogs = (props) => {
                             </Card>
                         </Col>
                         <Col xs={12} md={9}>
-                            <Card className="blogCard h-100">
-                                <Row className="h-100 align-items-center no-gutters">
+                            <Card className="blogCard">
+                                <Row className="align-items-center no-gutters">
                                     <Col xs={12} md={6} className="p-4">
                                         {/* Latest Blog Information */}
                                         <Link
@@ -136,7 +136,7 @@ const RecentBlogs = (props) => {
                                     <Col
                                         xs={12}
                                         md={6}
-                                        className="mb-5 mb-md-0 order-first order-md-last h-100"
+                                        className="mb-5 mb-md-0 mb-lg-0 mb-xl-0 order-first order-md-last h-100"
                                     >
                                         {/* Latest Blog Image */}
                                         <Img

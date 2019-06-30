@@ -15,16 +15,28 @@ export default class CustomSelect extends React.Component {
       super(props);
 
       this.state = {
-        selectedOption: ''
+        selectedOption: '',
+        closed: true
       }
     }
 
-    handleSelection = (label) => {
-      this.setState({
-        selectedOption: label
-      })
+    componentDidMount(){
+        this.props.default && this.selectDefault()
     }
 
+    handleSelection = (label,state) => {
+        this.setState({
+            selectedOption: label,
+            closed: state
+        })
+    }
+
+    selectDefault = ()=>{
+        this.setState({
+            selectedOption: this.props.options[0],
+            closed: true,
+        })
+    }
     // Build Individual options from this.props.options array
 
     // Individual Option Objects:
@@ -33,12 +45,11 @@ export default class CustomSelect extends React.Component {
     buildOptions = () => {
         return this.props.options.map(
             (item, index) => {
-
               return (
                   <Label
-                      className="option"
+                      className={"option"+" "+"option-"+index}
                       key={index}
-                      onClick={() => this.handleSelection(item.label)}
+                      onClick={() => this.handleSelection(item.label,true)}
                   >
                       <Input type="radio" name="option" value={item.label} />
                       <span className="title animated fadeIn">
@@ -70,21 +81,46 @@ export default class CustomSelect extends React.Component {
                   <Input
                       type="radio"
                       name="option"
-                      className={this.props.classes}
+                      className={
+                          this.props.classes +
+                          (this.state.closed ? " closed" : "")
+                      }
+                      onClick={() =>
+                          this.handleSelection(
+                              this.state.selection,
+                              !this.state.closed
+                          )
+                      }
                   />
                   <FontAwesomeIcon
                       icon="arrow-down"
                       size="sm"
                       color={this.props.arrowcolor}
                       className="toggle icon select-icon down"
+                      onClick={() =>
+                          this.handleSelection(this.state.selection, false)
+                      }
                   />
                   <FontAwesomeIcon
                       icon="arrow-up"
                       size="sm"
                       color={this.props.arrowcolor}
                       className="toggle icon select-icon up"
+                      onClick={() =>
+                          this.handleSelection(this.state.selection, true)
+                      }
                   />
-                  <span className="placeholder">{this.props.placeholder}</span>
+                  <span
+                      className="placeholder"
+                      onClick={() =>
+                          this.handleSelection(
+                              this.state.selection,
+                              !this.state.closed
+                          )
+                      }
+                  >
+                      {this.props.placeholder}
+                  </span>
 
                   {this.buildOptions()}
               </div>
@@ -100,4 +136,5 @@ CustomSelect.propTypes = {
     selectlabel: PropTypes.string,
     options: PropTypes.array,
     placeholder: PropTypes.string,
+    default: PropTypes.bool
 }

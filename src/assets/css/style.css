@@ -1373,6 +1373,25 @@ div.spinContainer {
   background: black;
 }
 
+.category-select .select__control {
+  border-color: #2bb3e5;
+  border-radius: 0;
+}
+
+.category-select .select__control:hover, .category-select .select__control.select__control--is--focused {
+  border-color: #2bb3e5;
+}
+
+.category-select .select__menu,
+.category-select .select__menu-list,
+.category-select .select__menu-option {
+  background: white;
+}
+
+.category-select .select__menu-option:hover {
+  background: #2bb3e5;
+}
+
 div.select {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -1427,6 +1446,10 @@ div.select > input:checked ~ .toggle.up {
 }
 
 div.select > input:checked .options label.option .title {
+  display: none !important;
+}
+
+div.select > input.closed .options {
   display: none !important;
 }
 
@@ -1496,7 +1519,7 @@ div.select label.option input {
   display: none;
 }
 
-div.select label.option input:checked ~ span.title {
+.optionShow, div.select label.option input:checked ~ span.title {
   position: absolute;
   display: block;
   z-index: 3;
@@ -1522,7 +1545,34 @@ div.select label.option input:checked ~ span.title {
   margin-top: 2rem;
 }
 
+.blog-post-listing .card {
+  border: none;
+  border-radius: 0;
+}
+
+.blog-post-listing .card .card-body {
+  font-size: 16px;
+}
+
 .latestFromCategory {
+  background: rgba(43, 179, 229, 0.1);
+}
+
+.latestFromCategory .card {
+  background: transparent;
+  border: none;
+}
+
+.latestFromCategory .card .card-img-top {
+  max-height: 160px;
+}
+
+.latestFromCategory .card .card-body {
+  padding: 1.25rem 0;
+}
+
+.blogCard {
+  height: 100%;
   background: rgba(43, 179, 229, 0.1);
 }
 
@@ -1531,6 +1581,10 @@ div.select label.option input:checked ~ span.title {
   -webkit-box-flex: 0;
           flex: 0 0 25%;
   max-width: 25%;
+}
+
+.blogCard .card-body {
+  padding: 1.25rem;
 }
 
 .blogCard .card-footer {
