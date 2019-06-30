@@ -98,17 +98,16 @@ const AlkemyBlog = ({
                     if (results[item].path === e.node.frontmatter.path) return e
                 }
             })
+            
             setFilter(true)
             setSearchResults(blogs.length)
             resetDropdown()
-        } else if (dropdown.value && dropdown.value.length > 0) {
-            if(dropdown.value.toLowerCase()!='blog home'){
-                blogs = blogs.filter(e => {
-                    return e.node.frontmatter.category === dropdown.value
-                })
-            }else{
-                blogs = edges.map(e => e)
-            }
+        } else if (dropdown.value && dropdown.value.length > 0 &&
+            dropdown.value.toLowerCase()!='blog home') {
+
+            blogs = blogs.filter(e => {
+                return e.node.frontmatter.category === dropdown.value
+            })
             
             setFilter(false)
             setSearchResults(0)
