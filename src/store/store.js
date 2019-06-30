@@ -3,10 +3,14 @@ const getState = ({ getStore, setStore }) => {
     return {
         store: {
             searchResults: [],
+            searchTitle: ''
         },
         actions: {
             search: queryResult => {
                 setStore({searchResults: queryResult})
+            },
+            searchTitle: queryResult => {
+                setStore({searchTitle: queryResult})
             },
         },
     }

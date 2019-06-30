@@ -11,13 +11,12 @@ import {
     CardTitle,
     CardText,
 } from "reactstrap"
-// import CustomSelect from "../components/CustomSelect.jsx"
 import Select from "react-select"
 
 const RecentBlogs = (props) => {
     const {...other} = props
 
-    const [latestDropdown, setLatestDropdown] = useState(props.categories[0].label)
+    const [latestDropdown, setLatestDropdown] = useState(props.categories[0])
 
     const trunc = data => {
         return data.substring(0, 50) + "..."
@@ -25,17 +24,15 @@ const RecentBlogs = (props) => {
 
     const handleSelectChange = option =>{
         setLatestDropdown(option)
-        console.log(option)
     }
 
     const renderCards = ()=>{
         // eslint-disable-next-line no-undef
         return props.blogdata
             .filter(e => {
-                if (latestDropdown.length>0) {
-                    return e.node.frontmatter.category === latestDropdown
-                } else return e
-                
+                if (latestDropdown.value) {
+                    return e.node.frontmatter.category === latestDropdown.value
+                } else return e 
             })
             .map((e,index)=>{
             return (
@@ -84,9 +81,10 @@ const RecentBlogs = (props) => {
                         classNamePrefix="select"
                         defaultValue={props.categories[0]}
                         name="categories"
+                        value={latestDropdown}
                         options={props.categories}
                         ref={byCategorySelect}
-                        onChange={value => handleSelectChange(value.label)}
+                        onChange={value => handleSelectChange(value)}
                     />
                 </Col>
             </Row>

@@ -61,6 +61,8 @@ export default class BlogSearch extends React.Component {
         results: results
     })
     actions.search(results)
+    actions.searchTitle(this.searchRef.current.value)
+    this.searchRef.current.value = ""
   }
 
   render() {
@@ -103,7 +105,7 @@ export default class BlogSearch extends React.Component {
                               >
                                   <PopoverBody>
                                       Search query must have more than 2
-                                      characters. Please try again.
+                                      characters.
                                   </PopoverBody>
                               </Popover>
                           </InputGroup>
