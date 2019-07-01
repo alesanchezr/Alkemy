@@ -34,7 +34,8 @@ const AlkemyBlog = ({
 }) => {
     // pageTitle: SEO friendly title for the title bar
     const pageTitle = "Alkemy Blog"
-    // define state hook for category dropdown
+    
+    // define state hooks
     const [dropdown, setDropdown] = useState('')
     const [filterBySearch, setFilter] = useState(false)
     const [searchResults, setSearchResults] = useState(0)
@@ -63,17 +64,17 @@ const AlkemyBlog = ({
         return blogArray
     }
 
-    let resetDropdown = ()=>{
+    const resetDropdown = ()=>{
         setDropdown("")
     }
-    let resetSearch = actions => {
+    const resetSearch = actions => {
         setFilter(false)
         setSearchResults(0)
         actions.search("")
         actions.searchTitle("")
     }
 
-    let blogCategories = (jump=false) => {
+    const blogCategories = (jump=false) => {
         // create a categories array
         let categories =
             edges && edges.map(e => {

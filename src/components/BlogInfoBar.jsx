@@ -35,13 +35,17 @@ const BlogInfoBar = (props) => {
                 </Col>
                 <Col xs={4}>
                     <p className="d-flex align-items-center justify-content-end">
-                        <FontAwesomeIcon
-                            icon={["far", "user"]}
-                            size="sm"
-                            color="black"
-                            className="mr-2"
-                        />
-                        {props.author}
+                        {props.author && props.author.length > 0 ? (
+                            <FontAwesomeIcon
+                                icon={["far", "user"]}
+                                size="sm"
+                                color="black"
+                                className="mr-2"
+                            />
+                        ) : null}
+                        {props.author && props.author.length > 0
+                            ? props.author
+                            : null}
                     </p>
                 </Col>
             </>

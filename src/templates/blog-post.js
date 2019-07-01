@@ -9,6 +9,7 @@ import { rhythm, scale } from "../utils/typography"
 import { FormGroup, Label, Col, Row, Container } from "reactstrap"
 import FreeWebsiteAnalysis from "../components/freeWebsiteAnalysis.jsx"
 import Select from "react-select"
+import BlogInfoBar from "../components/BlogInfoBar.jsx"
 
 /*
 Layout props:
@@ -114,27 +115,25 @@ class BlogPostTemplate extends React.Component {
                                     Jump to:
                                 </Label>
                                 <Col xs={9}>
-                                  <Context.Consumer>
-                                    {({actions})=>
-                                      (
-                                        <Select
-                                          className="category-select"
-                                          classNamePrefix="select"
-                                          placeholder="Select a value..."
-                                          name="categories"
-                                          options={blogCategories(true)}
-                                          ref={this.categorySelect}
-                                          value={this.state.dropdown}
-                                          onChange={value =>
-                                              this.handleDropdownChange(
-                                                  value,
-                                                  actions
-                                              )
-                                          }
-                                        />
-                                      )
-                                    }
-                                  </Context.Consumer>
+                                    <Context.Consumer>
+                                        {({ actions }) => (
+                                            <Select
+                                                className="category-select"
+                                                classNamePrefix="select"
+                                                placeholder="Select a value..."
+                                                name="categories"
+                                                options={blogCategories(true)}
+                                                ref={this.categorySelect}
+                                                value={this.state.dropdown}
+                                                onChange={value =>
+                                                    this.handleDropdownChange(
+                                                        value,
+                                                        actions
+                                                    )
+                                                }
+                                            />
+                                        )}
+                                    </Context.Consumer>
                                 </Col>
                             </FormGroup>
                         </Col>
@@ -143,8 +142,13 @@ class BlogPostTemplate extends React.Component {
                 <section className="blog-single-post-info">
                     <Row>
                         <Col>
-                            <h1>{post.frontmatter.title}</h1>
-                            <p>{post.frontmatter.date}</p>
+                            <h2>{post.frontmatter.title}</h2>
+                            <BlogInfoBar
+                                category={post.frontmatter.category}
+                                time={post.frontmatter.readingTime}
+                                layout="horizontal"
+                                className="my-4"
+                            />
                         </Col>
                         <Col>
                             <Img
