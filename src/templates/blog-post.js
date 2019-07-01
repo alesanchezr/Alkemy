@@ -43,8 +43,8 @@ class BlogPostTemplate extends React.Component {
     if (value.label.toLowerCase() === "blog home") {
         navigate("/alkemy-blog/")
     } else {
-        let category = value.label.replace(/\s/g, "+") // sanitize the name for use in url
-        navigate(`/alkemy-blog/`, { query: value })
+        // let category = value.label.replace(/\s/g, "+") // sanitize the name for use in url
+        navigate(`/alkemy-blog/`, { state: {value} })
         // navigate(`/alkemy-blog/?cat=${category}`,{queryParam: category})
     }
   }

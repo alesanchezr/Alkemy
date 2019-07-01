@@ -30,7 +30,7 @@ Layout props:
 const AlkemyBlog = ({
     data: {
         allMarkdownRemark: { edges },
-    },
+    },location
 }) => {
     // pageTitle: SEO friendly title for the title bar
     const pageTitle = "Alkemy Blog"
@@ -39,16 +39,16 @@ const AlkemyBlog = ({
     const [filterBySearch, setFilter] = useState(false)
     const [searchResults, setSearchResults] = useState(0)
 
+    // useEffect hook to check if their is a state value and trigger it in the dropdown
     useEffect(() => {
-        // use location.search to get ?cat=<:category> and store in string
-        let cat = location.state && location.state.query
-        // split string and use only the part after the equals sign
-        // cat = _.startCase(cat.split("=")[1].replace(/([+])/g, " "))
-        console.log(cat)
-        // set the dropdown parameters and reset the search
-        typeof cat !== 'undefined' && setDropdown(cat)
-        // location.search
-    }, [])
+        if (location.state && location.state.value) {
+            // use location.state to get information from single post
+            let cat = location.state.value
+
+            // set the dropdown parameters and reset the search
+            setDropdown(cat)
+        }
+    }, []) // pass empty array as second arg so it only runs on mount
 
     // addJS(position,inner script,source) - adds JS to document dynamically for AddThis Toolbar
     addJS(
