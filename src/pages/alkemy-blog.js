@@ -1,4 +1,4 @@
-import React,{useState} from "react"
+import React, { useState, useEffect } from "react"
 import _ from "lodash"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
@@ -38,6 +38,17 @@ const AlkemyBlog = ({
     const [dropdown, setDropdown] = useState('')
     const [filterBySearch, setFilter] = useState(false)
     const [searchResults, setSearchResults] = useState(0)
+
+    useEffect(() => {
+        // use location.search to get ?cat=<:category> and store in string
+        let cat = location.state && location.state.query
+        // split string and use only the part after the equals sign
+        // cat = _.startCase(cat.split("=")[1].replace(/([+])/g, " "))
+        console.log(cat)
+        // set the dropdown parameters and reset the search
+        typeof cat !== 'undefined' && setDropdown(cat)
+        // location.search
+    }, [])
 
     // addJS(position,inner script,source) - adds JS to document dynamically for AddThis Toolbar
     addJS(
