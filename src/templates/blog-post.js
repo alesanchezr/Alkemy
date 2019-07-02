@@ -201,6 +201,7 @@ class BlogPostTemplate extends React.Component {
                     </li>
                 </ul>
             </Container>
+            <FreeWebsiteAnalysis />
         </Layout>
     )
   }
