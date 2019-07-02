@@ -4,6 +4,7 @@ import Img from "gatsby-image"
 import { Context } from "../store/appContext.js"
 import { addJS, fluidImageSmall } from "../utils/utils.js"
 import Layout from "../components/layout"
+import _ from "lodash"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 import { FormGroup, Label, Col, Row, Container } from "reactstrap"
@@ -100,7 +101,7 @@ class BlogPostTemplate extends React.Component {
                 title={post.frontmatter.title}
                 description={post.frontmatter.description || post.excerpt}
             />
-            <Container fluid className="px-5">
+            <Container fluid className="blog-single">
                 <section className="blog-category-filter my-3">
                     <Row className="align-items-center h-100">
                         <Col md={8} className="d-none d-md-block" />
@@ -143,6 +144,7 @@ class BlogPostTemplate extends React.Component {
                     <Row>
                         <Col>
                             <h2>{post.frontmatter.title}</h2>
+
                             <BlogInfoBar
                                 category={post.frontmatter.category}
                                 time={post.frontmatter.readingTime}
@@ -172,9 +174,9 @@ class BlogPostTemplate extends React.Component {
                     marginBottom: rhythm(1),
                 }}
             />
-            <Container fluid className="px-4">
+            <Container fluid className="blog-single-post-nav">
                 <ul
-                    className="blog-single-post-nav"
+                    className="blog-single-post-nav-ul ml-0"
                     style={{
                         display: `flex`,
                         flexWrap: `wrap`,

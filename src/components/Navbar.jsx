@@ -199,7 +199,7 @@ export default class ReactNavbar extends React.Component {
               <span className="hamburger-inner"></span>
             </span>
           </NavbarToggler>
-          <Collapse className="d-none d-lg-block mr-md-2" navbar>
+          <Collapse className="d-none d-lg-block" navbar>
             <Nav className="ml-auto" navbar>
               {this.renderMenuLinks()}
               <Button

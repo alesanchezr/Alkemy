@@ -76,8 +76,8 @@ const Header = ({ pageTitle, hideHeader, renderHeaderSolid, search }) => (
                     <ReactNavbar menuArray={_menuArray} />
                 </header>
                 {hideHeader === true ? (
-                    <Row className="subHeader mx-0 px-1">
-                        <Col xs={12} md={8}>
+                    <Row className="subHeader mx-0">
+                        <Col xs={12} md={8} className="px-0">
                             <h1 className="m-0 font-weight-normal">
                                 <Link
                                     tag="h1"
@@ -89,7 +89,7 @@ const Header = ({ pageTitle, hideHeader, renderHeaderSolid, search }) => (
                             </h1>
                         </Col>
                         {search === true ? (
-                            <Col xs={12} md={4}>
+                            <Col xs={12} md={4} className="px-0">
                                 <BlogSearch
                                     searchIndex={data.siteSearchIndex.index}
                                 />

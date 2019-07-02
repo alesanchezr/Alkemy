@@ -288,6 +288,10 @@ a {
   }
 }
 
+.navbar{
+  padding: .5rem 4.5rem;
+}
+
 .navbar-nav{
   .dropdown-menu{
     font-size: inherit;
@@ -460,7 +464,7 @@ a {
   width: 100%;
   height: $subheader-height;
   margin-top: $header-height;
-  padding: 1rem;
+  padding: 1rem 4.5rem;
   display: flex;
   align-items: center;
 }
@@ -1316,4 +1320,9 @@ div.spinContainer{
   .card-footer{
     bottom: 0;
   }
+}
+
+.blog-single,
+.blog-single-post-nav {
+  padding: 0 4.5rem;
 }

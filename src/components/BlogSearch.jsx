@@ -67,7 +67,7 @@ export default class BlogSearch extends React.Component {
 
   render() {
     return (
-        <Row className="blogSearch">
+        <Row className="blogSearch px-0">
             <Col>
                 <Context.Consumer>
                   {
