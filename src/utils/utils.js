@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 
-import { graphql } from 'gatsby'
+import { graphql, useStaticQuery } from "gatsby"
 
 export const fluidImage = graphql`
 fragment fluidImage on File {
@@ -31,6 +31,25 @@ fragment fluidImageXS on File {
   }
 }
 `;
+
+export const useAuthorData = (authorName) => {
+  const { author } = useStaticQuery(
+      graphql`
+      authorQuery {
+        name
+        path
+        bio
+        position
+        company
+        website
+        photo{
+          ...fluidImageSmall
+        }
+      }
+    `
+  )
+  return site.siteMetadata
+}
 
 
 export function addJS(position=`head`, jsCode, source) {

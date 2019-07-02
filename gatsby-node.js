@@ -76,7 +76,6 @@
                            path
                            title
                            author
-                           authorURL
                            category
                            readingTime
                            tags

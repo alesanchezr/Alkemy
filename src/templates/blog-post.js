@@ -151,22 +151,27 @@ class BlogPostTemplate extends React.Component {
                                 layout="horizontal"
                                 className="my-4"
                             />
+                            <Row>
+                                <Col>
+                                    <Img
+                                        className="h-100"
+                                        fluid={
+                                            post.frontmatter.cover
+                                                .childImageSharp.fluid
+                                        }
+                                        alt="Alkemy is always the best fit for your business and digital presence."
+                                    />
+                                </Col>
+                                <Col>text</Col>
+                            </Row>
                         </Col>
-                        <Col>
-                            <Img
-                                className="h-100"
-                                fluid={
-                                    post.frontmatter.cover.childImageSharp.fluid
-                                }
-                                alt="Alkemy is always the best fit for your business and digital presence."
-                            />
-                        </Col>
+                        <Col></Col>
                     </Row>
                 </section>
 
                 <section
                     dangerouslySetInnerHTML={{ __html: post.html }}
-                    className="blog-single-post"
+                    className="blog-single-post my-5"
                 />
             </Container>
             <hr
