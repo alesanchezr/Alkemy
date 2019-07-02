@@ -424,7 +424,7 @@ const handleCaretClick = () => {
   // eslint-disable-next-line no-undef
   requestAnimationFrame(() => {
       // eslint-disable-next-line no-undef
-      document.body.scrollTo({
+      window && window.scrollTo({
           top: introSection.current.offsetTop - 100,
           behavior: "smooth",
       })
