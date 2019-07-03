@@ -58,6 +58,7 @@
  exports.createPages = ({ actions, graphql }) => {
    const { createPage } = actions
    const blogPost = path.resolve("./src/templates/blog-post.js")
+   const authorProfile = path.resolve("./src/templates/author.js")
    const tagTemplate = path.resolve("./src/templates/tags.js")
    const tagIndexTemplate = path.resolve("./src/templates/tagIndex.js")
 
@@ -83,6 +84,14 @@
                    }
                }
            }
+            allAuthorsJson {
+                   edges {
+                       node {
+                           name
+                           slug
+                       }
+                   }
+               }
        }
    `).then(result => {
        if (result.errors) {
@@ -104,6 +113,19 @@
                    author: "/"+post.node.frontmatter.author+"/",
                    previous,
                    next,
+               },
+           })
+       })
+
+       const authors = result.data.allAuthorsJson.edges
+
+       authors.forEach((post) => {
+           createPage({
+               path: "/author" + post.node.slug,
+               component: authorProfile,
+               context: {
+                   slug: post.node.slug,
+                   author: "/" + post.node.name + "/",
                },
            })
        })

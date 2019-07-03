@@ -3,7 +3,7 @@
 import React,{useEffect} from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
-import InjectContext, { Context } from "../store/appContext.js"
+import InjectContext from "../store/appContext.js"
 
 import Header from "./header"
 import Footer from "./footer"
@@ -25,7 +25,8 @@ import {
     faMoneyBillAlt,
     faGem,
     faStar,
-    faSearch
+    faSearch,
+    faGlobe
 } from "@fortawesome/free-solid-svg-icons"
 import {
     faCalendarAlt,
@@ -54,6 +55,7 @@ library.add(
     faRocket,
     faMoneyBillAlt,
     faGem,
+    faGlobe,
     faStar,
     faSearch,
     faUser
