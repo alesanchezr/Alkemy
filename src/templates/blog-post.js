@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql, navigate } from "gatsby"
 import Img from "gatsby-image"
 import { Context } from "../store/appContext.js"
-import { addJS, fluidImageSmall } from "../utils/utils.js"
+import { addJS, fluidImageSmall, fluidImageXS } from "../utils/utils.js"
 import Layout from "../components/layout"
 import _ from "lodash"
 import SEO from "../components/seo"
@@ -11,6 +11,8 @@ import { FormGroup, Label, Col, Row, Container } from "reactstrap"
 import FreeWebsiteAnalysis from "../components/freeWebsiteAnalysis.jsx"
 import Select from "react-select"
 import BlogInfoBar from "../components/BlogInfoBar.jsx"
+import FloatingTitleBar from "../components/FloatingTitleBar.js"
+import { faStickyNote } from "@fortawesome/free-regular-svg-icons";
 
 /*
 Layout props:
@@ -32,6 +34,7 @@ class BlogPostTemplate extends React.Component {
     }
     
     this.categorySelect = React.createRef()
+    this.contentSection = React.createRef()
   }
   
   handleDropdownChange = (value,actions)=>{
@@ -58,7 +61,7 @@ class BlogPostTemplate extends React.Component {
     const pageTitle = "Alkemy Blog"
     const edges = this.props.data.allMarkdownRemark.edges
     const author =
-        this.props.data.allAuthorsJson.edges[0].node.name
+        this.props.data.allAuthorsJson.edges[0].node
 
     let blogCategories = (jump = false) => {
         // create a categories array
@@ -104,7 +107,7 @@ class BlogPostTemplate extends React.Component {
                 title={post.frontmatter.title}
                 description={post.frontmatter.description || post.excerpt}
             />
-            <Container fluid className="blog-single">
+            <Container fluid className="blog-single mb-5">
                 <section className="blog-category-filter my-3">
                     <Row className="align-items-center h-100">
                         <Col md={8} className="d-none d-md-block" />
@@ -147,25 +150,33 @@ class BlogPostTemplate extends React.Component {
                     <Row>
                         <Col>
                             <h2>{post.frontmatter.title}</h2>
+                            <Row className="my-4">
+                                <Col md={6}>
+                                    <BlogInfoBar
+                                        category={post.frontmatter.category}
+                                        time={post.frontmatter.readingTime}
+                                        layout="horizontal"
+                                    />
+                                </Col>
+                            </Row>
 
-                            <BlogInfoBar
-                                category={post.frontmatter.category}
-                                time={post.frontmatter.readingTime}
-                                layout="horizontal"
-                                className="my-4"
-                            />
                             <Row>
-                                <Col>
+                                <Col xs={12} md={4}>
                                     <Img
                                         className="h-100"
                                         fluid={
-                                            post.frontmatter.cover
-                                                .childImageSharp.fluid
+                                            author.photo.childImageSharp.fluid
                                         }
                                         alt="Alkemy is always the best fit for your business and digital presence."
                                     />
+                                    <Link to={"/author" + author.slug}>
+                                        View My Profile...
+                                    </Link>
                                 </Col>
-                                <Col>text</Col>
+                                <Col>
+                                    <h3>{author.name}</h3>
+                                    <p>{author.bio}</p>
+                                </Col>
                             </Row>
                         </Col>
                         <Col>
@@ -179,8 +190,17 @@ class BlogPostTemplate extends React.Component {
                         </Col>
                     </Row>
                 </section>
+            </Container>
 
+            <FloatingTitleBar
+                title={post.frontmatter.title}
+                category={post.frontmatter.category}
+                time={post.frontmatter.readingTime}
+            />
+
+            <Container>
                 <section
+                    ref={this.contentSection}
                     dangerouslySetInnerHTML={{ __html: post.html }}
                     className="blog-single-post my-5"
                 />
@@ -261,11 +281,14 @@ export const query = graphql`
                    edges {
                        node {
                            name
+                           slug
                            bio
                            position
                            company
                            website
-                           photo
+                           photo {
+                               ...fluidImageXS
+                           }
                        }
                    }
                }

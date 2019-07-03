@@ -1459,7 +1459,28 @@ div.spinContainer {
 }
 
 .blog-single,
-.blog-single-post-nav {
+.blog-single-post-nav,
+.blog-title-bar {
   padding: 0 4.5rem;
+}
+
+.blog-title-bar {
+  margin-top: 8.5rem;
+  top: 73px;
+  height: 75px;
+  background: #2bb3e5;
+  z-index: 1000;
+}
+
+.blog-title-bar .row {
+  height: 75px;
+}
+
+.blog {
+  overflow: auto;
+}
+
+.blog #bodyWrap {
+  overflow-x: unset;
 }
 /*# sourceMappingURL=style.css.map */

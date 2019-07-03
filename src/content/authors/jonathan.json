@@ -1,8 +1,9 @@
 {
     "name":"Jonathan Ferragut",
+    "slug":"/jferragut",
     "position": "President/CEO, Fullstack Code Monkey, Father of Dragons",
     "company": "Alkemy, Inc.",
     "bio": "I like to code, break stuff, and find awesome solutions. I'm an everyday learner and feel that if you aren't growing, you are being left behind. The world is awesome, let's learn and build together.",
     "website": "https://www.alkemyinc.com",
-    "photo": ""
+    "photo": "../../assets/images/about/puzzle-pieces.jpg"
 }

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from "react"
+import React,{useEffect} from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import InjectContext, { Context } from "../store/appContext.js"
@@ -68,7 +68,11 @@ const Layout = ({
     headerType,
     bodyClasses,
     search
-}) => (
+}) => {
+    useEffect(() => {
+        document && document.body.classList.add(bodyClasses)
+    }, [])
+    return (
     <StaticQuery
         query={graphql`
             query SiteTitleQuery {
@@ -123,7 +127,7 @@ const Layout = ({
             </div>
         )}
     />
-)
+)}
 
 Layout.propTypes = {
     children: PropTypes.node.isRequired,

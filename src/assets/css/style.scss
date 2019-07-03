@@ -14,6 +14,7 @@
 
 /* Mobile Menu */
 $header-height: 75px; // Set height of header
+$half_viewport: 50vh; // Set height of header
 $subheader-height: 110px; // Set height of subheader
 $animation-time: 400ms; // Set the animation speed
 $animation-function: ease; // Set the animation type
@@ -1276,7 +1277,7 @@ div.spinContainer{
 }
 
 .blog-featured{
-  min-height: 50vh;
+  min-height: $half_viewport;
   .heroChevron{
     margin-top: 2rem;
   }
@@ -1323,6 +1324,25 @@ div.spinContainer{
 }
 
 .blog-single,
-.blog-single-post-nav {
+.blog-single-post-nav,
+.blog-title-bar {
   padding: 0 4.5rem;
+}
+
+.blog-title-bar{
+  margin-top: 8.5rem;
+  top: $header-height - 2px;
+  height: $header-height;
+  background: $alkemy_blue;
+  z-index: 1000;
+  .row{
+    height: $header-height;
+  }
+}
+
+.blog{
+  overflow: auto;
+  #bodyWrap{
+    overflow-x: unset;
+  }
 }
