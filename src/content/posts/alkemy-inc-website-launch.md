@@ -2,8 +2,7 @@
 path: "/alkemy-inc-website-launch"
 date: "2018-04-25"
 title: "Alkemy, Inc. - We've launched our NEW website presence!"
-author: "Jonathan F."
-authorURL: "/alkemy-blog"
+author: "Jonathan Ferragut"
 readingTime: "2 min"
 category: "News"
 tags: ['website','company news','launch']

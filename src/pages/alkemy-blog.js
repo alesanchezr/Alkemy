@@ -337,7 +337,6 @@ export const query = graphql`
                         date
                         title
                         author
-                        authorURL
                         category
                         readingTime
                         tags

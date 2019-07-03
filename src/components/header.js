@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, StaticQuery } from "gatsby"
+import { graphql, Link, StaticQuery } from "gatsby"
 import ReactNavbar from './Navbar.jsx'
 import { Button, Col, Row } from "reactstrap"
 import BlogSearch from './BlogSearch.jsx'
@@ -49,6 +49,7 @@ const Header = ({ pageTitle, hideHeader, renderHeaderSolid, search }) => (
                             frontmatter {
                                 path
                                 date
+                                author
                                 title
                                 tags
                                 excerpt

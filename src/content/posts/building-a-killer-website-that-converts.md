@@ -2,8 +2,7 @@
 path: "/building-a-killer-website-that-converts"
 date: "2018-05-02"
 title: "The Secret to Building a Killer Website that Converts"
-author: "Jonathan F."
-authorURL: "/alkemy-blog"
+author: "Jonathan Ferragut"
 readingTime: "7-10 min"
 category: "Web Design"
 tags: ['planning','web design','conversions']

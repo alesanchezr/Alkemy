@@ -74,8 +74,8 @@
                        }
                        frontmatter {
                            path
-                           title
                            author
+                           title
                            category
                            readingTime
                            tags
@@ -101,6 +101,7 @@
                component: blogPost,
                context: {
                    slug: post.node.fields.slug,
+                   author: "/"+post.node.frontmatter.author+"/",
                    previous,
                    next,
                },

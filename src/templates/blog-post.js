@@ -24,8 +24,8 @@ Layout props:
 */
 
 class BlogPostTemplate extends React.Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
 
     this.state = {
       dropdown: ''
@@ -33,7 +33,7 @@ class BlogPostTemplate extends React.Component {
     
     this.categorySelect = React.createRef()
   }
-
+  
   handleDropdownChange = (value,actions)=>{
     this.setState({dropdown: value})
 
@@ -57,6 +57,8 @@ class BlogPostTemplate extends React.Component {
     const { previous, next } = this.props.pageContext
     const pageTitle = "Alkemy Blog"
     const edges = this.props.data.allMarkdownRemark.edges
+    const author =
+        this.props.data.allAuthorsJson.edges[0].node.name
 
     let blogCategories = (jump = false) => {
         // create a categories array
@@ -88,6 +90,7 @@ class BlogPostTemplate extends React.Component {
         `//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ae21853f0b21631`
     )
 
+    
     return (
         <Layout
             location={this.props.location}
@@ -165,7 +168,15 @@ class BlogPostTemplate extends React.Component {
                                 <Col>text</Col>
                             </Row>
                         </Col>
-                        <Col></Col>
+                        <Col>
+                            <Img
+                                className="h-100"
+                                fluid={
+                                    post.frontmatter.cover.childImageSharp.fluid
+                                }
+                                alt="Alkemy is always the best fit for your business and digital presence."
+                            />
+                        </Col>
                     </Row>
                 </section>
 
@@ -215,37 +226,48 @@ class BlogPostTemplate extends React.Component {
 export default BlogPostTemplate
 
 export const query = graphql`
-  query BlogPostQuery($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
-        date(formatString: "MMMM, DD, YYYY")
-        author
-        authorURL
-        category
-        readingTime
-        tags
-        excerpt
-        cover {
-          ...fluidImageSmall
-        }
-      }
-    }
-    allMarkdownRemark{
-      edges {
-        node {
-          frontmatter {
-          category
-          }
-        }
-      }
-    }
-  }
-`
+           query BlogPostQuery($slug: String!, $author: String!) {
+               site {
+                   siteMetadata {
+                       title
+                       author
+                   }
+               }
+               markdownRemark(fields: { slug: { eq: $slug } }) {
+                   html
+                   frontmatter {
+                       title
+                       date(formatString: "MMMM, DD, YYYY")
+                       author
+                       category
+                       readingTime
+                       tags
+                       excerpt
+                       cover {
+                           ...fluidImageSmall
+                       }
+                   }
+               }
+               allMarkdownRemark {
+                   edges {
+                       node {
+                           frontmatter {
+                               category
+                           }
+                       }
+                   }
+               }
+               allAuthorsJson(filter: { name: { regex: $author } }) {
+                   edges {
+                       node {
+                           name
+                           bio
+                           position
+                           company
+                           website
+                           photo
+                       }
+                   }
+               }
+           }
+       `

@@ -2,8 +2,7 @@
 path: "/may-2018-web-design-promo"
 date: "2018-05-07"
 title: "May 2018 - 20% Off Web Design Packages"
-author: "Jonathan F."
-authorURL: "/alkemy-blog"
+author: "Jonathan Ferragut"
 readingTime: "2 min"
 category: "News"
 tags: ['promo','company news','news']
