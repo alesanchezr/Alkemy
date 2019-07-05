@@ -19,9 +19,6 @@ export default class SkillGraph extends React.Component{
                             margin: 0,
                             size: "70%",
                             background: "#fff",
-                            image: undefined,
-                            imageOffsetX: 0,
-                            imageOffsetY: 0,
                             position: "front",
                             dropShadow: {
                                 enabled: true,
@@ -43,9 +40,7 @@ export default class SkillGraph extends React.Component{
                                 opacity: 0.35,
                             },
                         },
-
                         dataLabels: {
-                            showOn: "always",
                             name: {
                                 show: false,
                             },
@@ -53,7 +48,9 @@ export default class SkillGraph extends React.Component{
                                 formatter: function(value) {
                                     return value
                                 },
-                                textAnchor: 'middle',
+                                textAnchor: "middle",
+                                offsetY: 9,
+                                offsetX: 5,
                                 color: "#111",
                                 fontSize: "30px",
                                 show: true,
@@ -80,7 +77,6 @@ export default class SkillGraph extends React.Component{
                 labels: ["Percent"],
             },
             series: [68],
-            position: 0
         }
     }
 
@@ -92,7 +88,6 @@ export default class SkillGraph extends React.Component{
             },
             series: this.props.series,
         })
-        this.container = React.createRef()
     }
 
     renderSkillRows = ()=>{
@@ -100,14 +95,15 @@ export default class SkillGraph extends React.Component{
             <Row>
                 {this.state.series.map((e, index) => {
                     return (
-                        <Col key={index}>
-                            <div className="radialbar">
+                        <Col xs={12} sm={4} md={2} key={index}>
+                            <div className="radialbar text-center">
                                 <Chart
                                     options={this.state.options}
                                     series={[e]}
                                     type="radialBar"
-                                    height="200"
+                                    height="100%"
                                 />
+                                <h6>{this.state.options.labels[index]}</h6>
                             </div>
                         </Col>
                     )
@@ -118,7 +114,7 @@ export default class SkillGraph extends React.Component{
 
     render(){
         return (
-            <div ref={this.container}>
+            <div>
                 {this.renderSkillRows()}
             </div>
         )

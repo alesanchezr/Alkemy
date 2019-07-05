@@ -5,5 +5,9 @@
     "company": "Alkemy, Inc.",
     "bio": "I like to code, break stuff, and find awesome solutions. I'm an everyday learner and feel that if you aren't growing, you are being left behind. The world is awesome, let's learn and build together.",
     "website": "https://www.alkemyinc.com",
-    "photo": "../../assets/images/authors/jonathan-headshot.jpg"
+    "photo": "../../assets/images/authors/jonathan-headshot.jpg",
+    "skills": {
+        "labels": ["ReactJS", "Javascript", "Python", "PHP", "Django","Flask","VueJS","GatsbyJS","HTML","CSS"],
+        "series": [85,90,80,75,85,85,75,95,95,75]
+    }
 }

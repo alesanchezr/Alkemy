@@ -84,14 +84,18 @@
                    }
                }
            }
-            allAuthorsJson {
-                   edges {
-                       node {
-                           name
-                           slug
+           allAuthorsJson {
+               edges {
+                   node {
+                       name
+                       slug
+                       skills {
+                           labels
+                           series
                        }
                    }
                }
+           }
        }
    `).then(result => {
        if (result.errors) {
@@ -110,7 +114,7 @@
                component: blogPost,
                context: {
                    slug: post.node.fields.slug,
-                   author: "/"+post.node.frontmatter.author+"/",
+                   author: "/" + post.node.frontmatter.author + "/",
                    previous,
                    next,
                },
@@ -119,7 +123,7 @@
 
        const authors = result.data.allAuthorsJson.edges
 
-       authors.forEach((post) => {
+       authors.forEach(post => {
            createPage({
                path: "/author" + post.node.slug,
                component: authorProfile,

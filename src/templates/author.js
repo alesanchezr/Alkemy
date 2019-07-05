@@ -139,7 +139,7 @@ class AuthorProfile extends React.Component {
                         </Col>
                     </Row>
                 </section>
-                <section className="blog-author-profile">
+                <section className="blog-author-profile my-4">
                     <Row>
                         <Col xs={12} md={4}>
                             <Img
@@ -162,27 +162,28 @@ class AuthorProfile extends React.Component {
                             </Link>
                         </Col>
                         <Col xs={12} md={8}>
-                            <Row className="mb-2">
-                                <Col>
+                            <Row>
+                                <Col className="align-items-center">
                                     <h2>{author.name}</h2>
                                 </Col>
-                                <Col className="align-items-end">
-                                    <p className="font-weight-bold">
+                                <Col className="align-items-center">
+                                    <p className="font-weight-bold text-right mb-0">
                                         {author.position}
                                     </p>
-                                </Col>
-                                <Col xs={12} className="">
-                                    <p className="text-muted">
+                                    <p className="text-muted text-right mb-0">
                                         {author.company}
                                     </p>
                                 </Col>
                             </Row>
-
-                            <p>{author.bio}</p>
-
+                            <Row className="my-4">
+                                <Col>
+                                    <p>{author.bio}</p>
+                                </Col>
+                            </Row>
+                            
                             <SkillGraph
-                                labels={["ReactJS", "Javascript"]}
-                                series={Array(67,80)}
+                                labels={author.skills.labels}
+                                series={author.skills.series}
                             />
                         </Col>
                     </Row>
@@ -218,6 +219,10 @@ export const query = graphql`
                            website
                            photo {
                                ...fluidImageSmall
+                           }
+                           skills {
+                               labels
+                               series
                            }
                        }
                    }
