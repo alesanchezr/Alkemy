@@ -7,7 +7,7 @@ import BlogInfoBar from "./BlogInfoBar.jsx"
 
 
 const FloatingTitleBar = props => {
-    const {...style} = props.style
+    const {...style} = props.style && props.style
     const {className} = props
     return (
         <Container

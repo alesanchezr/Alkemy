@@ -1,15 +1,32 @@
 import React from "react"
+import {isBrowser} from "gatsby"
 import PropTypes from 'prop-types'
 import {
     Row, Col
 } from "reactstrap"
-import Chart from "react-apexcharts"
+
+const Chart = isBrowser && import("react-apexcharts")
+
 
 export default class SkillGraph extends React.Component{
     constructor(props) {
         super(props);
 
         this.state = {
+            chart: {
+                events: {
+                    beforeMount: async function(val) {
+                        await (typeof window !== "undefined").then(e => {
+                            return val
+                        })
+                    },
+                    mounted: async function(val) {
+                        await (typeof window !== "undefined").then(e => {
+                            return val
+                        })
+                    },
+                },
+            },
             options: {
                 plotOptions: {
                     radialBar: {
@@ -78,16 +95,20 @@ export default class SkillGraph extends React.Component{
             },
             series: [68],
         }
+        this.myChartRow = React.createRef()
     }
 
     componentDidMount(){
-        this.setState({
-            options: {
-                ...this.state.options,
-                labels: this.props.labels,
-            },
-            series: this.props.series,
-        })
+        if (typeof window !== "undefined" && document) {
+            this.setState({
+                options: {
+                    ...this.state.options,
+                    labels: this.props.labels,
+                },
+                series: this.props.series,
+            })
+            this.myChartRow.current.innerHTML = this.renderSkillRows()
+        }
     }
 
     renderSkillRows = ()=>{
@@ -114,8 +135,8 @@ export default class SkillGraph extends React.Component{
 
     render(){
         return (
-            <div>
-                {this.renderSkillRows()}
+            <div ref={this.myChartRow}>
+
             </div>
         )
     }

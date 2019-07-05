@@ -180,7 +180,6 @@ class AuthorProfile extends React.Component {
                                     <p>{author.bio}</p>
                                 </Col>
                             </Row>
-                            
                             <SkillGraph
                                 labels={author.skills.labels}
                                 series={author.skills.series}
