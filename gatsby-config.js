@@ -7,7 +7,20 @@ const mapPagesUrls = {
 module.exports = {
     siteMetadata: {
         title: `Alkemy, Inc.`,
-        description: `Make your next Web Design or Software Development project a success with Alkemy!`,
+        description: `Make your next Web Development, Design, eCommerce, or Marketing project a success with Alkemy. Well Crafted, Pixel Perfect, Conversion Optimized Results.`,
+        keywords: `
+            Web Design Company, 
+            Web Design and Development, 
+            custom software development company, 
+            Wordpress website design,
+            web design agency,
+            responsive web design,
+            Web Development Company, 
+            Digital Marketing Agency, 
+            Digital Marketing services, 
+            Best Website Design,
+            web application development
+            `,
         author: `@alkemydev`,
         company: `Alkemy, Inc.`,
         address: `9055 Wiles Road`,
@@ -67,7 +80,9 @@ module.exports = {
                 start_url: `/`,
                 background_color: `#ffffff`,
                 theme_color: `#2bb3e5`,
-                display: `minimal-ui`,
+                description: `Make your next Web Development, Design, eCommerce, or Marketing project a success with Alkemy. Well Crafted, Pixel Perfect, Conversion Optimized Results.`,
+                lang: `en`,
+                display: `standalone`,
                 icon: `src/assets/images/favicons/favicon-32x32.png`, // This path is relative to the root of the site.
             },
         },
