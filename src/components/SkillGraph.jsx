@@ -13,20 +13,6 @@ export default class SkillGraph extends React.Component{
         super(props);
 
         this.state = {
-            chart: {
-                events: {
-                    beforeMount: async function(val) {
-                        await (typeof window !== "undefined").then(e => {
-                            return val
-                        })
-                    },
-                    mounted: async function(val) {
-                        await (typeof window !== "undefined").then(e => {
-                            return val
-                        })
-                    },
-                },
-            },
             options: {
                 plotOptions: {
                     radialBar: {
@@ -95,20 +81,16 @@ export default class SkillGraph extends React.Component{
             },
             series: [68],
         }
-        this.myChartRow = React.createRef()
     }
 
     componentDidMount(){
-        if (typeof window !== "undefined" && document) {
-            this.setState({
-                options: {
-                    ...this.state.options,
-                    labels: this.props.labels,
-                },
-                series: this.props.series,
-            })
-            this.myChartRow.current.innerHTML = this.renderSkillRows()
-        }
+        this.setState({
+            options: {
+                ...this.state.options,
+                labels: this.props.labels,
+            },
+            series: this.props.series,
+        })
     }
 
     renderSkillRows = ()=>{
@@ -134,11 +116,7 @@ export default class SkillGraph extends React.Component{
     }
 
     render(){
-        return (
-            <div ref={this.myChartRow}>
-
-            </div>
-        )
+        return <div>{this.renderSkillRows()}</div>
     }
 }
 
