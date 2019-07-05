@@ -6,6 +6,7 @@ import { addJS, fluidImageSmall } from "../utils/utils.js"
 import Layout from "../components/layout"
 import _ from "lodash"
 import SEO from "../components/seo"
+import SkillGraph from "../components/SkillGraph.jsx"
 import { FormGroup, Label, Col, Row, Container } from "reactstrap"
 import FreeWebsiteAnalysis from "../components/freeWebsiteAnalysis.jsx"
 import Select from "react-select"
@@ -178,6 +179,11 @@ class AuthorProfile extends React.Component {
                             </Row>
 
                             <p>{author.bio}</p>
+
+                            <SkillGraph
+                                labels={["ReactJS", "Javascript"]}
+                                series={Array(67,80)}
+                            />
                         </Col>
                     </Row>
                 </section>
