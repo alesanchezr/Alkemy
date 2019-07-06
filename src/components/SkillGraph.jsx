@@ -1,11 +1,8 @@
 import React from "react"
-import {isBrowser} from "gatsby"
 import PropTypes from 'prop-types'
 import {
     Row, Col
 } from "reactstrap"
-
-const Chart = isBrowser && import("react-apexcharts")
 
 
 export default class SkillGraph extends React.Component{
@@ -13,82 +10,14 @@ export default class SkillGraph extends React.Component{
         super(props);
 
         this.state = {
-            options: {
-                plotOptions: {
-                    radialBar: {
-                        startAngle: -135,
-                        endAngle: 225,
-                        hollow: {
-                            margin: 0,
-                            size: "70%",
-                            background: "#fff",
-                            position: "front",
-                            dropShadow: {
-                                enabled: true,
-                                top: 3,
-                                left: 0,
-                                blur: 4,
-                                opacity: 0.24,
-                            },
-                        },
-                        track: {
-                            background: "#fff",
-                            strokeWidth: "67%",
-                            margin: 0, // margin is in pixels
-                            dropShadow: {
-                                enabled: true,
-                                top: -3,
-                                left: 0,
-                                blur: 4,
-                                opacity: 0.35,
-                            },
-                        },
-                        dataLabels: {
-                            name: {
-                                show: false,
-                            },
-                            value: {
-                                formatter: function(value) {
-                                    return value
-                                },
-                                textAnchor: "middle",
-                                offsetY: 9,
-                                offsetX: 5,
-                                color: "#111",
-                                fontSize: "30px",
-                                show: true,
-                            },
-                        },
-                    },
-                },
-                fill: {
-                    type: "gradient",
-                    gradient: {
-                        shade: "dark",
-                        type: "horizontal",
-                        shadeIntensity: 0.5,
-                        gradientToColors: ["#ABE5A1"],
-                        inverseColors: true,
-                        opacityFrom: 1,
-                        opacityTo: 1,
-                        stops: [0, 100],
-                    },
-                },
-                stroke: {
-                    lineCap: "round",
-                },
-                labels: ["Percent"],
-            },
+            labels: ["Percent"],
             series: [68],
         }
     }
 
     componentDidMount(){
         this.setState({
-            options: {
-                ...this.state.options,
-                labels: this.props.labels,
-            },
+            labels: this.props.labels,
             series: this.props.series,
         })
     }
@@ -99,20 +28,83 @@ export default class SkillGraph extends React.Component{
                 {this.state.series.map((e, index) => {
                     return (
                         <Col xs={12} sm={4} md={2} key={index}>
-                            <div className="radialbar text-center">
-                                <Chart
-                                    options={this.state.options}
-                                    series={[e]}
-                                    type="radialBar"
+                            <div className="radialbar text-center mb-2">
+                                <svg
+                                    width="100%"
                                     height="100%"
-                                />
-                                <h6>{this.state.options.labels[index]}</h6>
+                                    viewBox="0 0 42 42"
+                                    className="donut"
+                                >
+                                    <circle
+                                        className="donut-hole"
+                                        cx="21"
+                                        cy="21"
+                                        r="15.91549430918954"
+                                        fill="#fff"
+                                    ></circle>
+                                    <text
+                                        x="50%"
+                                        y="50%"
+                                        textAnchor="middle"
+                                        fill="black"
+                                        dy=".3em"
+                                        fontSize="10"
+                                    >
+                                        {e}%
+                                    </text>
+                                    <circle
+                                        className="donut-ring"
+                                        cx="21"
+                                        cy="21"
+                                        r="15.91549430918954"
+                                        fill="transparent"
+                                        stroke="#d2d3d4"
+                                        strokeWidth="3"
+                                    ></circle>
+                                    <defs>
+                                        <linearGradient
+                                            id="linear"
+                                            x1="0%"
+                                            y1="0%"
+                                            x2="100%"
+                                            y2="0%"
+                                            gradientTransform="rotate(90)"
+                                        >
+                                            <stop
+                                                offset="0%"
+                                                stop-color="#2bb3e5"
+                                            />
+                                            <stop
+                                                offset="100%"
+                                                stop-color="#1E5E8D"
+                                            />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle
+                                        className="donut-segment"
+                                        cx="21"
+                                        cy="-21"
+                                        r="15.91549430918954"
+                                        fill="transparent"
+                                        stroke="url(#linear)"
+                                        strokeWidth="3"
+                                        strokeDasharray={e}
+                                        strokeDashoffset="0"
+                                        transform="rotate(90)"
+                                    ></circle>
+                                </svg>
+                                <h6>{this.state.labels[index]}</h6>
                             </div>
                         </Col>
                     )
                 })}
             </Row>
         )
+    }
+
+    calcDasharray = (e)=>{
+        // format "size remaining", ex. "85 15" - 85% of donut
+        return (e+" "+(100-e))
     }
 
     render(){
