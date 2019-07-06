@@ -100,7 +100,7 @@ class AuthorProfile extends React.Component {
                 title={author.name}
                 description={author.name + "-" + author.bio}
             />
-            <Container fluid className="blog-author mb-5">
+            <Container fluid className="blog-author pb-5">
                 <section className="blog-category-filter my-3">
                     <Row className="align-items-center h-100">
                         <Col md={8} className="d-none d-md-block" />
@@ -139,7 +139,7 @@ class AuthorProfile extends React.Component {
                         </Col>
                     </Row>
                 </section>
-                <section className="blog-author-profile my-4">
+                <section className="blog-author-profile my-5">
                     <Row>
                         <Col xs={12} md={4}>
                             <Img
