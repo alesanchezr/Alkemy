@@ -153,13 +153,13 @@ class AuthorProfile extends React.Component {
                                     author.company
                                 }
                             />
-                            <Link to={"/author" + author.website}>
+                            <a href={author.website}>
                                 <FontAwesomeIcon
                                     icon="globe"
                                     className="authorWebsite mr-2 mt-3"
                                 />
                                 Visit My Website
-                            </Link>
+                            </a>
                         </Col>
                         <Col xs={12} md={8}>
                             <Row>
