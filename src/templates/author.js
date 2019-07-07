@@ -181,8 +181,7 @@ class AuthorProfile extends React.Component {
                                 </Col>
                             </Row>
                             <SkillGraph
-                                labels={author.skills.labels}
-                                series={author.skills.series}
+                                skills={author.skills}
                             />
                         </Col>
                     </Row>
@@ -220,8 +219,8 @@ export const query = graphql`
                                ...fluidImageSmall
                            }
                            skills {
-                               labels
-                               series
+                               name
+                               level
                            }
                        }
                    }

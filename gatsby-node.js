@@ -90,8 +90,8 @@
                        name
                        slug
                        skills {
-                           labels
-                           series
+                           name
+                           level
                        }
                    }
                }

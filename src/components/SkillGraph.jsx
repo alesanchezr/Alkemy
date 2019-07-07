@@ -10,22 +10,20 @@ export default class SkillGraph extends React.Component{
         super(props);
 
         this.state = {
-            labels: ["Percent"],
-            series: [68],
+            skills: [],
         }
     }
 
     componentDidMount(){
         this.setState({
-            labels: this.props.labels,
-            series: this.props.series,
+            skills: this.props.skills
         })
     }
 
     renderSkillRows = ()=>{
         return (
             <Row>
-                {this.state.series.map((e, index) => {
+                {this.state.skills.map((e, index) => {
                     return (
                         <Col xs={12} sm={4} md={2} key={index}>
                             <div className="radialbar text-center mb-2">
@@ -50,15 +48,16 @@ export default class SkillGraph extends React.Component{
                                         dy=".3em"
                                         fontSize="10"
                                     >
-                                        {e}%
+                                        {e.level}%
                                     </text>
                                     <circle
                                         className="donut-ring"
+                                        filter="url(#Bevel)"
                                         cx="21"
                                         cy="21"
                                         r="15.91549430918954"
                                         fill="transparent"
-                                        stroke="#d2d3d4"
+                                        stroke="#bdbdbe"
                                         strokeWidth="3"
                                     ></circle>
                                     <defs>
@@ -72,28 +71,117 @@ export default class SkillGraph extends React.Component{
                                         >
                                             <stop
                                                 offset="0%"
-                                                stop-color="#2bb3e5"
+                                                stopColor="#2bb3e5"
                                             />
                                             <stop
                                                 offset="100%"
-                                                stop-color="#1E5E8D"
+                                                stopColor="#1E5E8D"
                                             />
                                         </linearGradient>
                                     </defs>
+                                    <filter
+                                        id="Bevel"
+                                        filterUnits="objectBoundingBox"
+                                        x="-10%"
+                                        y="-10%"
+                                        width="150%"
+                                        height="150%"
+                                    >
+                                        <feGaussianBlur
+                                            in="SourceAlpha"
+                                            stdDeviation="3"
+                                            result="blur"
+                                        />
+                                        <feSpecularLighting
+                                            in="blur"
+                                            surfaceScale="5"
+                                            specularConstant="0.5"
+                                            specularExponent="10"
+                                            result="specOut"
+                                            lightingColor="white"
+                                        >
+                                            <fePointLight
+                                                x="-5000"
+                                                y="-10000"
+                                                z="20000"
+                                            />
+                                        </feSpecularLighting>
+                                        <feComposite
+                                            in="specOut"
+                                            in2="SourceAlpha"
+                                            operator="in"
+                                            result="specOut2"
+                                        />
+                                        <feComposite
+                                            in="SourceGraphic"
+                                            in2="specOut2"
+                                            operator="arithmetic"
+                                            k1="0"
+                                            k2="1"
+                                            k3="1"
+                                            k4="0"
+                                            result="litPaint"
+                                        />
+                                    </filter>
+                                    <filter
+                                        id="Bevel2"
+                                        filterUnits="objectBoundingBox"
+                                        x="-10%"
+                                        y="-10%"
+                                        width="150%"
+                                        height="150%"
+                                    >
+                                        <feGaussianBlur
+                                            in="SourceAlpha"
+                                            stdDeviation="0.5"
+                                            result="blur"
+                                        />
+                                        <feSpecularLighting
+                                            in="blur"
+                                            surfaceScale="5"
+                                            specularConstant="0.5"
+                                            specularExponent="10"
+                                            result="specOut"
+                                            lightingColor="white"
+                                        >
+                                            <fePointLight
+                                                x="-5000"
+                                                y="-10000"
+                                                z="0000"
+                                            />
+                                        </feSpecularLighting>
+                                        <feComposite
+                                            in="specOut"
+                                            in2="SourceAlpha"
+                                            operator="in"
+                                            result="specOut2"
+                                        />
+                                        <feComposite
+                                            in="SourceGraphic"
+                                            in2="specOut2"
+                                            operator="arithmetic"
+                                            k1="0"
+                                            k2="1"
+                                            k3="1"
+                                            k4="0"
+                                            result="litPaint"
+                                        />
+                                    </filter>
                                     <circle
                                         className="donut-segment"
                                         cx="21"
                                         cy="-21"
                                         r="15.91549430918954"
                                         fill="transparent"
+                                        filter="url(#Bevel2)"
                                         stroke="url(#linear)"
                                         strokeWidth="3"
-                                        strokeDasharray={e}
+                                        strokeDasharray={e.level}
                                         strokeDashoffset="0"
                                         transform="rotate(90)"
                                     ></circle>
                                 </svg>
-                                <h6>{this.state.labels[index]}</h6>
+                                <h6>{e.name}</h6>
                             </div>
                         </Col>
                     )
@@ -102,17 +190,11 @@ export default class SkillGraph extends React.Component{
         )
     }
 
-    calcDasharray = (e)=>{
-        // format "size remaining", ex. "85 15" - 85% of donut
-        return (e+" "+(100-e))
-    }
-
     render(){
         return <div>{this.renderSkillRows()}</div>
     }
 }
 
 SkillGraph.propTypes = {
-    labels: PropTypes.array, 
-    series: PropTypes.array, 
+    skills: PropTypes.array,  
 }
