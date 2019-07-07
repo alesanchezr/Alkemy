@@ -71,13 +71,13 @@ class BlogPostTemplate extends React.Component {
     const post = data.mdx
     const siteTitle = data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
-    console.log('author: ',this.props.pageContext.author)
+
     const pageTitle = "Alkemy Blog"
     const edges = data.allMdx.edges
     const author =
         data.allAuthorsJson.edges[0] &&
         data.allAuthorsJson.edges[0].node
-    console.log(typeof author!=='undefined' && author)
+
 
     let blogCategories = (jump = false) => {
         // create a categories array

@@ -23,7 +23,7 @@ const RecentBlogs = (props) => {
     }
 
     const blogData = props.blogdata
-    console.log('blogdata: ',blogData)
+
 
     const renderBlogHome = ()=>{
         if(blogData.length>1)
@@ -211,7 +211,7 @@ const RecentBlogs = (props) => {
     const renderAlternate = ()=>{
         for(let i=0;i<props.blogdata.length;i+4){
             let segment = props.blogdata.slice(i-4,4)
-            console.log('segment ',segment,i)
+
             return (
                 <CardDeck>
                     {segment.map((e, index) => {

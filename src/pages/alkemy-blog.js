@@ -103,7 +103,7 @@ const AlkemyBlog = ({
 
     const renderView = (store)=>{
         let blogs = edges.map(e => e)
-        console.log(blogs)
+
         if (store.searchResults.length > 0) {
             let results = store.searchResults
             blogs = blogs.filter(e => {

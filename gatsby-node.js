@@ -130,7 +130,6 @@
             })
 
             const authors = result.data.allAuthorsJson.edges
-            console.log(authors)
 
             authors.forEach(post => {
                 createPage({
@@ -141,7 +140,6 @@
                         author: "/" + post.node.name + "/",
                     },
                 })
-                console.log("/" + post.node.name + "/")
             })
 
             // Tag pages:
