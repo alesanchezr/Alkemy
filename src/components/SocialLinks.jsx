@@ -1,6 +1,8 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Col, Row } from 'reactstrap'
+import PropTypes from 'prop-types'
+
 
 // Social Links Widget, Modify the following array to suit
 // your structure for social media.
@@ -10,23 +12,41 @@ import { Col, Row } from 'reactstrap'
 
 // Adjust Bootstrap Columns as needed based on the number of social icons
 
-const _linkArray= [
-  {id:1,platform: 'facebook', url: '//www.facebook.com/alkemydev/', icon: 'facebook', color:'white'},
-  {id:2,platform: 'twitter', url: '//twitter.com/alkemyDev', icon: 'twitter', color: 'white'},
-  {id:3,platform: 'linkedin', url: '//www.linkedin.com/company/alkemydev', icon: 'linkedin', color:'white'},
-]
+
 
 const SocialLinks = (props) => {
   return (
-    <div className={"mr-5 socialLinks "+props.className}>
-      <Row>
-        {renderSocialLinks(_linkArray)}
-      </Row>
-    </div>
+      <div className={"mr-5 socialLinks " + props.className}>
+          <Row>{renderSocialLinks(props.colors)}</Row>
+      </div>
   )
 }
 
-const renderSocialLinks = (menu) => {
+const renderSocialLinks = (colorArray) => {
+  const colors = colorArray || ["white", "white", "white"]
+  const menu = [
+      {
+          id: 1,
+          platform: "facebook",
+          url: "//www.facebook.com/alkemydev/",
+          icon: "facebook",
+          color: colors[0],
+      },
+      {
+          id: 2,
+          platform: "twitter",
+          url: "//twitter.com/alkemyDev",
+          icon: "twitter",
+          color: colors[1],
+      },
+      {
+          id: 3,
+          platform: "linkedin",
+          url: "//www.linkedin.com/company/alkemydev",
+          icon: "linkedin",
+          color: colors[2],
+      },
+  ]
   return menu.map((item,index)=>{
     return(
       <Col xs={4} key={item.id}>
@@ -36,6 +56,10 @@ const renderSocialLinks = (menu) => {
       </Col>
     )
   })
+}
+
+SocialLinks.propTypes = {
+  colors: PropTypes.Array
 }
 
 export default SocialLinks

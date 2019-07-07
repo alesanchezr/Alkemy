@@ -1347,3 +1347,24 @@ div.spinContainer{
     overflow-x: unset;
   }
 }
+
+.shortSocialBar{
+  width: 250px;
+  svg:hover{
+    &.social-facebook {
+      path{
+        fill: lighten($facebook,10%);
+      }
+    }
+    &.social-twitter {
+      path {
+        fill: lighten($twitter, 10%);
+      }
+    }
+    &.social-linkedin {
+      path {
+        fill: lighten($linkedin, 10%);
+      }
+    }
+  }
+}

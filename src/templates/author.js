@@ -53,7 +53,7 @@ class AuthorProfile extends React.Component {
 
   render() {
     const pageTitle = "Alkemy Blog"
-    const edges = this.props.data.allMarkdownRemark.edges
+    const edges = this.props.data.allMdx.edges
     const author = this.props.data.allAuthorsJson.edges[0].node
 
     let blogCategories = (jump = false) => {
@@ -197,7 +197,7 @@ export default AuthorProfile
 
 export const query = graphql`
            query AuthorQuery($author: String!) {
-               allMarkdownRemark {
+               allMdx {
                    edges {
                        node {
                            frontmatter {

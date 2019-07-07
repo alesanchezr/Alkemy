@@ -23,141 +23,144 @@ const RecentBlogs = (props) => {
     }
 
     const blogData = props.blogdata
+    console.log('blogdata: ',blogData)
 
     const renderBlogHome = ()=>{
-        return (
-            <>
-                <CardDeck className="mb-3">
-                    <Row className="no-gutters">
-                        <Col xs={12} md={3}>
-                            <Card className="blogCard">
-                                <Row className="no-gutters">
-                                    <Col xs={12}>
-                                        <Link
-                                            to={
-                                                blogData[1].node.frontmatter
-                                                    .path
-                                            }
-                                        >
-                                            <Img
-                                                imgStyle={{
-                                                    minHeight: "200px",
-                                                    height: "200px",
-                                                }}
-                                                className="card-img-top"
-                                                fluid={
+        if(blogData.length>1)
+            return (
+                <>
+                    <CardDeck className="mb-3">
+                        <Row className="no-gutters">
+                            <Col xs={12} md={3}>
+                                <Card className="blogCard">
+                                    <Row className="no-gutters">
+                                        <Col xs={12}>
+                                            <Link
+                                                to={
                                                     blogData[1].node.frontmatter
-                                                        .cover.childImageSharp
-                                                        .fluid
+                                                        .path
                                                 }
-                                                alt={
-                                                    blogData[1].node.frontmatter
-                                                        .title
+                                            >
+                                                <Img
+                                                    imgStyle={{
+                                                        minHeight: "200px",
+                                                        height: "200px",
+                                                    }}
+                                                    className="card-img-top"
+                                                    fluid={
+                                                        blogData[1].node.frontmatter
+                                                            .cover.childImageSharp
+                                                            .fluid
+                                                    }
+                                                    alt={
+                                                        blogData[1].node.frontmatter
+                                                            .title
+                                                    }
+                                                />
+                                                <CardBody className="d-flex flex-column align-items-center">
+                                                    <CardTitle className="font-weight-bold">
+                                                        {
+                                                            blogData[1].node
+                                                                .frontmatter.title
+                                                        }
+                                                    </CardTitle>
+                                                    <CardText>
+                                                        {trunc(
+                                                            blogData[1].node
+                                                                .frontmatter.excerpt
+                                                        )}
+                                                    </CardText>
+                                                    <BlogInfoBar
+                                                        category={
+                                                            blogData[1].node
+                                                                .frontmatter
+                                                                .category
+                                                        }
+                                                        time={
+                                                            blogData[1].node
+                                                                .frontmatter
+                                                                .readingTime
+                                                        }
+                                                        author={
+                                                            blogData[1].node
+                                                                .frontmatter.author
+                                                        }
+                                                        layout="vertical"
+                                                        className="my-4"
+                                                    />
+                                                </CardBody>
+                                            </Link>
+                                        </Col>
+                                    </Row>
+                                </Card>
+                            </Col>
+                            <Col xs={12} md={9}>
+                                <Card className="blogCard">
+                                    <Row className="align-items-center no-gutters">
+                                        <Col xs={12} md={6} className="p-4">
+                                            {/* Latest Blog Information */}
+                                            <Link
+                                                to={
+                                                    blogData[0].node.frontmatter
+                                                        .path
                                                 }
-                                            />
-                                            <CardBody className="d-flex flex-column align-items-center">
-                                                <CardTitle className="font-weight-bold">
+                                            >
+                                                <CardTitle tag="h3">
                                                     {
-                                                        blogData[1].node
-                                                            .frontmatter.title
+                                                        blogData[0].node.frontmatter
+                                                            .title
                                                     }
                                                 </CardTitle>
-                                                <CardText>
-                                                    {trunc(
-                                                        blogData[1].node
-                                                            .frontmatter.excerpt
-                                                    )}
-                                                </CardText>
+                                                <p className="my-2">
+                                                    {
+                                                        blogData[0].node.frontmatter
+                                                            .excerpt
+                                                    }
+                                                </p>
                                                 <BlogInfoBar
                                                     category={
-                                                        blogData[1].node
-                                                            .frontmatter
+                                                        blogData[0].node.frontmatter
                                                             .category
                                                     }
                                                     time={
-                                                        blogData[1].node
-                                                            .frontmatter
+                                                        blogData[0].node.frontmatter
                                                             .readingTime
                                                     }
                                                     author={
-                                                        blogData[1].node
-                                                            .frontmatter.author
+                                                        blogData[0].node.frontmatter
+                                                            .author
                                                     }
                                                     layout="vertical"
-                                                    className="my-4"
+                                                    className="mt-4"
                                                 />
-                                            </CardBody>
-                                        </Link>
-                                    </Col>
-                                </Row>
-                            </Card>
-                        </Col>
-                        <Col xs={12} md={9}>
-                            <Card className="blogCard">
-                                <Row className="align-items-center no-gutters">
-                                    <Col xs={12} md={6} className="p-4">
-                                        {/* Latest Blog Information */}
-                                        <Link
-                                            to={
-                                                blogData[0].node.frontmatter
-                                                    .path
-                                            }
+                                            </Link>
+                                        </Col>
+                                        <Col
+                                            xs={12}
+                                            md={6}
+                                            className="mb-5 mb-md-0 mb-lg-0 mb-xl-0 order-first order-md-last h-100"
                                         >
-                                            <CardTitle tag="h3">
-                                                {
+                                            {/* Latest Blog Image */}
+                                            <Img
+                                                className="h-100"
+                                                fluid={
                                                     blogData[0].node.frontmatter
-                                                        .title
+                                                        .cover.childImageSharp.fluid
                                                 }
-                                            </CardTitle>
-                                            <p className="my-2">
-                                                {
-                                                    blogData[0].node.frontmatter
-                                                        .excerpt
-                                                }
-                                            </p>
-                                            <BlogInfoBar
-                                                category={
-                                                    blogData[0].node.frontmatter
-                                                        .category
-                                                }
-                                                time={
-                                                    blogData[0].node.frontmatter
-                                                        .readingTime
-                                                }
-                                                author={
-                                                    blogData[0].node.frontmatter
-                                                        .author
-                                                }
-                                                layout="vertical"
-                                                className="mt-4"
+                                                alt="Alkemy is always the best fit for your business and digital presence."
                                             />
-                                        </Link>
-                                    </Col>
-                                    <Col
-                                        xs={12}
-                                        md={6}
-                                        className="mb-5 mb-md-0 mb-lg-0 mb-xl-0 order-first order-md-last h-100"
-                                    >
-                                        {/* Latest Blog Image */}
-                                        <Img
-                                            className="h-100"
-                                            fluid={
-                                                blogData[0].node.frontmatter
-                                                    .cover.childImageSharp.fluid
-                                            }
-                                            alt="Alkemy is always the best fit for your business and digital presence."
-                                        />
-                                    </Col>
-                                </Row>
-                            </Card>
-                        </Col>
-                    </Row>
-                </CardDeck>
-                <CardDeck>
-                    <Row>{renderRow()}</Row>
-                </CardDeck>
-            </>
-        )
+                                        </Col>
+                                    </Row>
+                                </Card>
+                            </Col>
+                        </Row>
+                    </CardDeck>
+                    <CardDeck>
+                        <Row>{renderRow()}</Row>
+                    </CardDeck>
+                </>
+            )
+        else renderAlternate()
     }
 
     const renderRow = ()=>{

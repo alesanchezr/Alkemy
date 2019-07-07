@@ -37,7 +37,7 @@
  exports.onCreateNode = ({ node, getNode, actions }) => {
    const { createNodeField } = actions
 
-   if (node.internal.type === `MarkdownRemark`) {
+   if (node.internal.type === `Mdx`) {
      const value = createFilePath({ node, getNode, basePath: `./src/content/posts` })
      createNodeField({
        name: `slug`,
@@ -61,30 +61,33 @@
    const authorProfile = path.resolve("./src/templates/author.js")
    const tagTemplate = path.resolve("./src/templates/tags.js")
    const tagIndexTemplate = path.resolve("./src/templates/tagIndex.js")
-
-   return graphql(`
-       {
-           siteSearchIndex {
-               index
-           }
-           allMarkdownRemark {
-               edges {
-                   node {
-                       fields {
-                           slug
-                       }
-                       frontmatter {
-                           path
-                           author
-                           title
-                           category
-                           readingTime
-                           tags
-                       }
-                   }
-               }
-           }
-           allAuthorsJson {
+   
+   
+   // eslint-disable-next-line no-undef
+   return new Promise((resolve, reject) => {
+    resolve(
+        graphql(`
+          {
+            allMdx(
+              sort: { fields: [frontmatter___date], order: DESC }
+              limit: 1000
+            ) {
+              edges {
+                node {
+                  code {
+                    scope
+                  }
+                  fields {
+                    slug
+                  }
+                  frontmatter {
+                    title
+                    author
+                  }
+                }
+              }
+            }
+            allAuthorsJson {
                edges {
                    node {
                        name
@@ -95,67 +98,75 @@
                        }
                    }
                }
-           }
-       }
-   `).then(result => {
-       if (result.errors) {
-           throw result.errors
-       }
+            }
+            siteSearchIndex {
+                index
+            }
+          }
+        `
+        ).then(result => {
+            if (result.errors) {
+                console.log(result.errors)
+                reject(result.errors)
+            }
 
-       const posts = result.data.allMarkdownRemark.edges
+            const posts = result.data.allMdx.edges
 
-       posts.forEach((post, index) => {
-           const previous =
-               index === posts.length - 1 ? null : posts[index + 1].node
-           const next = index === 0 ? null : posts[index - 1].node
+            posts.forEach((post, index) => {
+                const previous =
+                    index === posts.length - 1 ? null : posts[index + 1].node
+                const next = index === 0 ? null : posts[index - 1].node
 
-           createPage({
-               path: post.node.fields.slug,
-               component: blogPost,
-               context: {
-                   slug: post.node.fields.slug,
-                   author: "/" + post.node.frontmatter.author + "/",
-                   previous,
-                   next,
-               },
-           })
-       })
+                createPage({
+                    path: post.node.fields.slug,
+                    component: blogPost,
+                    context: {
+                        slug: post.node.fields.slug,
+                        author: "/" + post.node.frontmatter.author + "/",
+                        previous,
+                        next,
+                    },
+                })
+            })
 
-       const authors = result.data.allAuthorsJson.edges
+            const authors = result.data.allAuthorsJson.edges
+            console.log(authors)
 
-       authors.forEach(post => {
-           createPage({
-               path: "/author" + post.node.slug,
-               component: authorProfile,
-               context: {
-                   slug: post.node.slug,
-                   author: "/" + post.node.name + "/",
-               },
-           })
-       })
+            authors.forEach(post => {
+                createPage({
+                    path: "/author" + post.node.slug,
+                    component: authorProfile,
+                    context: {
+                        slug: post.node.slug,
+                        author: "/" + post.node.name + "/",
+                    },
+                })
+                console.log("/" + post.node.name + "/")
+            })
 
-       // Tag pages:
-       let tags = []
-       // Iterate through each post, putting all found tags into `tags`
-       _.each(posts, edge => {
-           if (_.get(edge, "node.frontmatter.tags")) {
-               tags = tags.concat(edge.node.frontmatter.tags)
-           }
-       })
-       // Eliminate duplicate tags
-       tags = _.uniq(tags)
+            // Tag pages:
+            let tags = []
+            // Iterate through each post, putting all found tags into `tags`
+            _.each(posts, edge => {
+                if (_.get(edge, "node.frontmatter.tags")) {
+                    tags = tags.concat(edge.node.frontmatter.tags)
+                }
+            })
+            // Eliminate duplicate tags
+            tags = _.uniq(tags)
 
-       // Make tag pages
-       tags.forEach(tag => {
-           createPage({
-               path: `/tags/${_.kebabCase(tag)}/`,
-               component: tagTemplate,
-               context: {
-                   tag,
-               },
-           })
-       })
+            // Make tag pages
+            tags.forEach(tag => {
+                createPage({
+                    path: `/tags/${_.kebabCase(tag)}/`,
+                    component: tagTemplate,
+                    context: {
+                        tag,
+                    },
+                })
+            })
 
-       return null
-   })
-}
+            return Promise.resolve()
+        })
+    )
+ })}

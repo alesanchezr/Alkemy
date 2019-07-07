@@ -29,7 +29,7 @@ Layout props:
 // eslint-disable-next-line
 const AlkemyBlog = ({
     data: {
-        allMarkdownRemark: { edges },
+        allMdx: { edges },
     },location
 }) => {
     // pageTitle: SEO friendly title for the title bar
@@ -103,6 +103,7 @@ const AlkemyBlog = ({
 
     const renderView = (store)=>{
         let blogs = edges.map(e => e)
+        console.log(blogs)
         if (store.searchResults.length > 0) {
             let results = store.searchResults
             blogs = blogs.filter(e => {
@@ -324,7 +325,7 @@ export const query = graphql`
         siteSearchIndex {
             index
         }
-        allMarkdownRemark(
+        allMdx(
             sort: { order: DESC, fields: [frontmatter___date] }
         ) {
             edges {

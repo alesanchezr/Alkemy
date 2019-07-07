@@ -409,7 +409,7 @@ const HomePage = ({data}) => {
                   </div>
               </section>
               <section className="recentBlogPosts">
-                  <BlogWidget posts={data.allMarkdownRemark.edges} />
+                  <BlogWidget posts={data.allMdx.edges} />
               </section>
 
               <FreeWebsiteAnalysis />
@@ -459,7 +459,7 @@ export const query = graphql`
       }
     }
   }
-  allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}) {
+  allMdx(sort: {order: DESC, fields: [frontmatter___date]}) {
     edges {
       node {
         id

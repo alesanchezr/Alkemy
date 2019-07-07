@@ -1,5 +1,7 @@
 import React from "react"
 import { Link, graphql, navigate } from "gatsby"
+import MDXRenderer from "gatsby-mdx/mdx-renderer"
+import { MDXProvider } from "@mdx-js/react"
 import Img from "gatsby-image"
 import { Context } from "../store/appContext.js"
 import { addJS, fluidImageSmall, fluidImageXS } from "../utils/utils.js"
@@ -7,12 +9,12 @@ import Layout from "../components/layout"
 import _ from "lodash"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
-import { FormGroup, Label, Col, Row, Container } from "reactstrap"
+import { FormGroup, Label, Col, Row, Container,Button } from "reactstrap"
 import FreeWebsiteAnalysis from "../components/freeWebsiteAnalysis.jsx"
 import Select from "react-select"
 import BlogInfoBar from "../components/BlogInfoBar.jsx"
 import FloatingTitleBar from "../components/FloatingTitleBar.js"
-import { faStickyNote } from "@fortawesome/free-regular-svg-icons";
+import SocialLinks from "../components/SocialLinks.jsx"
 
 /*
 Layout props:
@@ -24,6 +26,16 @@ Layout props:
       ]
   bodyClasses: additional classes to add to body tag
 */
+
+const components = {
+    Button,
+    Link,
+    Col,
+    Row,
+    Container,
+    Img,
+    SocialLinks
+}
 
 class BlogPostTemplate extends React.Component {
   constructor(props){
@@ -55,13 +67,17 @@ class BlogPostTemplate extends React.Component {
   }
 
   render() {
-    const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
+    const data = this.props.data
+    const post = data.mdx
+    const siteTitle = data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
+    console.log('author: ',this.props.pageContext.author)
     const pageTitle = "Alkemy Blog"
-    const edges = this.props.data.allMarkdownRemark.edges
+    const edges = data.allMdx.edges
     const author =
-        this.props.data.allAuthorsJson.edges[0].node
+        data.allAuthorsJson.edges[0] &&
+        data.allAuthorsJson.edges[0].node
+    console.log(typeof author!=='undefined' && author)
 
     let blogCategories = (jump = false) => {
         // create a categories array
@@ -198,12 +214,10 @@ class BlogPostTemplate extends React.Component {
                 time={post.frontmatter.readingTime}
             />
 
-            <Container>
-                <section
-                    ref={this.contentSection}
-                    dangerouslySetInnerHTML={{ __html: post.html }}
-                    className="blog-single-post my-5"
-                />
+            <Container className="my-5">
+                <MDXProvider components={components}>
+                    <MDXRenderer>{post.code.body}</MDXRenderer>
+                </MDXProvider>
             </Container>
             <hr
                 style={{
@@ -253,8 +267,10 @@ export const query = graphql`
                        author
                    }
                }
-               markdownRemark(fields: { slug: { eq: $slug } }) {
-                   html
+               mdx(fields: { slug: { eq: $slug } }) {
+                   code {
+                       body
+                   }
                    frontmatter {
                        title
                        date(formatString: "MMMM, DD, YYYY")
@@ -268,7 +284,7 @@ export const query = graphql`
                        }
                    }
                }
-               allMarkdownRemark {
+               allMdx {
                    edges {
                        node {
                            frontmatter {
@@ -283,9 +299,6 @@ export const query = graphql`
                            name
                            slug
                            bio
-                           position
-                           company
-                           website
                            photo {
                                ...fluidImageXS
                            }

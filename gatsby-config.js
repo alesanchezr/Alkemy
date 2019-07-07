@@ -73,6 +73,41 @@ module.exports = {
             resolve: `gatsby-plugin-sharp`,
         },
         {
+            resolve: `gatsby-mdx`,
+            options: {
+                extensions: [`.mdx`, `.md`],
+                gatsbyRemarkPlugins: [
+                    {
+                        resolve: `gatsby-remark-images`,
+                        options: {
+                            maxWidth: 1035,
+                            sizeByPixelDensity: true,
+                            showCaptions: true,
+                            linkImagesToOriginal: false,
+                        },
+                    },
+                    {
+                        resolve: `gatsby-remark-prismjs`,
+                        options: {
+                            classPrefix: `language-`,
+                            inlineCodeMarker: null,
+                            aliases: {},
+                        },
+                    },
+                    {
+                        resolve: `gatsby-remark-external-links`,
+                        options: {
+                            target: null,
+                            rel: `nofollow noopener noreferrer external`,
+                        },
+                    },
+                    {
+                        resolve: `gatsby-remark-slug`,
+                    },
+                ],
+            },
+        },
+        {
             resolve: `gatsby-plugin-manifest`,
             options: {
                 name: `Alkemy, Inc.`,
@@ -92,45 +127,45 @@ module.exports = {
                 pathToConfigModule: `src/utils/typography.js`,
             },
         },
-        {
-            resolve: `gatsby-transformer-remark`,
-            options: {
-                plugins: [
-                    {
-                        resolve: `gatsby-remark-prismjs`,
-                        options: {
-                            // Class prefix for <pre> tags containing syntax highlighting;
-                            // defaults to 'language-' (eg <pre class="language-js">).
-                            // If your site loads Prism into the browser at runtime,
-                            // (eg for use with libraries like react-live),
-                            // you may use this to prevent Prism from re-processing syntax.
-                            // This is an uncommon use-case though;
-                            // If you're unsure, it's best to use the default value.
-                            classPrefix: `language-`,
-                            // This is used to allow setting a language for inline code
-                            // (i.e. single backticks) by creating a separator.
-                            // This separator is a string and will do no white-space
-                            // stripping.
-                            // A suggested value for English speakers is the non-ascii
-                            // character '›'.
-                            inlineCodeMarker: null,
-                            // This lets you set up language aliases.  For example,
-                            // setting this to '{ sh: "bash" }' will let you use
-                            // the language "sh" which will highlight using the
-                            // bash highlighter.
-                            aliases: { sh: `bash` },
-                        },
-                    },
-                    {
-                        resolve: `gatsby-remark-external-links`,
-                        options: {
-                            target: `_blank`,
-                            rel: `nofollow`,
-                        },
-                    },
-                ],
-            },
-        },
+        // {
+        //     resolve: `gatsby-transformer-remark`,
+        //     options: {
+        //         plugins: [
+        //             {
+        //                 resolve: `gatsby-remark-prismjs`,
+        //                 options: {
+        //                     // Class prefix for <pre> tags containing syntax highlighting;
+        //                     // defaults to 'language-' (eg <pre class="language-js">).
+        //                     // If your site loads Prism into the browser at runtime,
+        //                     // (eg for use with libraries like react-live),
+        //                     // you may use this to prevent Prism from re-processing syntax.
+        //                     // This is an uncommon use-case though;
+        //                     // If you're unsure, it's best to use the default value.
+        //                     classPrefix: `language-`,
+        //                     // This is used to allow setting a language for inline code
+        //                     // (i.e. single backticks) by creating a separator.
+        //                     // This separator is a string and will do no white-space
+        //                     // stripping.
+        //                     // A suggested value for English speakers is the non-ascii
+        //                     // character '›'.
+        //                     inlineCodeMarker: null,
+        //                     // This lets you set up language aliases.  For example,
+        //                     // setting this to '{ sh: "bash" }' will let you use
+        //                     // the language "sh" which will highlight using the
+        //                     // bash highlighter.
+        //                     aliases: { sh: `bash` },
+        //                 },
+        //             },
+        //             {
+        //                 resolve: `gatsby-remark-external-links`,
+        //                 options: {
+        //                     target: `_blank`,
+        //                     rel: `nofollow`,
+        //                 },
+        //             },
+        //         ],
+        //     },
+        // },
         {
             resolve: `gatsby-plugin-offline`,
         },
@@ -154,7 +189,7 @@ module.exports = {
                 // How to resolve each field`s value for a supported node type
                 resolvers: {
                     // For any node of type MarkdownRemark, list how to resolve the fields` values
-                    MarkdownRemark: {
+                    Mdx: {
                         title: node => node.frontmatter.title,
                         tags: node => node.frontmatter.tags,
                         path: node => node.frontmatter.path,

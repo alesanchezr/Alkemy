@@ -1484,4 +1484,20 @@ div.spinContainer {
 .blog #bodyWrap {
   overflow-x: unset;
 }
+
+.shortSocialBar {
+  width: 250px;
+}
+
+.shortSocialBar svg:hover.social-facebook path {
+  fill: #6283c5;
+}
+
+.shortSocialBar svg:hover.social-twitter path {
+  fill: #4db5f5;
+}
+
+.shortSocialBar svg:hover.social-linkedin path {
+  fill: #0099e8;
+}
 /*# sourceMappingURL=style.css.map */

@@ -40,7 +40,7 @@ const Header = ({ pageTitle, hideHeader, renderHeaderSolid, search }) => (
                 siteSearchIndex {
                     index
                 }
-                allMarkdownRemark {
+                allMdx {
                     edges {
                         node {
                             fields {
