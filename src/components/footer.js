@@ -55,21 +55,23 @@ const _subLinks = [
   {name: 'Site Map', id: '3', url: '/site-map'}
 ]
 
-const Footer = (props) => (
+const Footer = props => (
     <footer className="footer fadeInUp p-5">
-        <Row>
-          {renderLinkAreas(_menuArray)}
-        </Row>
+        <Row>{renderLinkAreas(_menuArray)}</Row>
 
         <Row className="my-5 my-md-2">
-          <div className="copyText text-center position-absolute my-5 my-md-2 px-5">
-            Copyright &copy; 2018, Alkemy, Inc.<br/>
-            {renderSubLinks(_subLinks)}
-          </div>
-          <SocialLinks className="position-absolute mb-3"/>
+            <div className="copyText text-center position-absolute my-5 my-md-2 px-5">
+                Copyright &copy; 2018, Alkemy, Inc.
+                <br />
+                {renderSubLinks(_subLinks)}
+            </div>
+            <SocialLinks
+                colors={["white", "white", "white"]}
+                className="position-absolute mb-3"
+            />
         </Row>
     </footer>
-  )
+)
 
 const renderLinkAreas = (menu) => {
   return menu.map(item=>{

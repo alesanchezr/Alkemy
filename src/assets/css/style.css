@@ -1477,10 +1477,6 @@ div.spinContainer {
   height: 75px;
 }
 
-.blog {
-  overflow: auto;
-}
-
 .blog #bodyWrap {
   overflow-x: unset;
 }

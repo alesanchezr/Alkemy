@@ -4,7 +4,7 @@ import React,{useEffect} from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import InjectContext from "../store/appContext.js"
-
+import { Location } from "@reach/router"
 import Header from "./header"
 import Footer from "./footer"
 
@@ -63,8 +63,8 @@ library.add(
 
 
 const Layout = ({
-    children,
     location,
+    children,
     renderHeaderSolid,
     headerTitle,
     headerType,
@@ -72,8 +72,10 @@ const Layout = ({
     search
 }) => {
     useEffect(() => {
-        document && document.body.classList.add(bodyClasses)
-    }, [])
+        if(typeof window!=='undefined'){
+            document.body.classList = bodyClasses
+        }
+    },[])
     return (
     <StaticQuery
         query={graphql`

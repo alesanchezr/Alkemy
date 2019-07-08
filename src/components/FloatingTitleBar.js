@@ -32,9 +32,9 @@ const FloatingTitleBar = props => {
     )
 }
 
-FloatingTitleBar.PropTypes = {
-    title: propTypes.string,
-    category: propTypes.string,
-    time: propTypes.string
+FloatingTitleBar.propTypes = {
+    title: PropTypes.string,
+    category: PropTypes.string,
+    time: PropTypes.string,
 }
 export default FloatingTitleBar

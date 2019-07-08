@@ -10,7 +10,7 @@ require('bootstrap/dist/css/bootstrap.min.css')
 require('./src/assets/css/style.css')
 require('./src/assets/css/animate.css')
 
-export const onServiceWorkerUpdateReady = () => {
+exports.onServiceWorkerUpdateReady = () => {
   const answer = window.confirm(
     `The Alkemy website has been updated. ` +
       `Would you like to reload and display the latest version?`
@@ -19,4 +19,8 @@ export const onServiceWorkerUpdateReady = () => {
   if (answer === true) {
     window.location.reload()
   }
+}
+
+exports.onRouteUpdate = () => {
+  window.location.action === "PUSH" && window.scrollTo(0, 0)
 }
