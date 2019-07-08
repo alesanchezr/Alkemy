@@ -116,7 +116,7 @@ class BlogPostTemplate extends React.Component {
             title={siteTitle}
             headerTitle={[true, pageTitle]}
             search={true}
-            bodyClasses="blog"
+            bodyClasses="blog-single-page"
             renderHeaderSolid={true}
         >
             <SEO

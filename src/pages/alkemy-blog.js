@@ -80,8 +80,8 @@ const AlkemyBlog = ({
             edges && edges.map(e => {
                 return e.node.frontmatter.category
             })
-        categories = _.uniq(categories)
-
+        categories = _.uniq(categories).sort((a, b) => a.localeCompare(b))
+        
         // aux array
         let categoryArray = []
 
@@ -340,14 +340,10 @@ export const query = graphql`
                         author
                         category
                         readingTime
-                        tags
                         excerpt
                         cover {
                             ...fluidImageSmall
                         }
-                    }
-                    children {
-                        id
                     }
                 }
             }

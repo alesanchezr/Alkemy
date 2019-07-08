@@ -1341,7 +1341,7 @@ div.spinContainer{
   }
 }
 
-.blog{
+.blog,.blog-single-page{
   #bodyWrap{
     overflow-x: unset;
   }
@@ -1364,6 +1364,15 @@ div.spinContainer{
       path {
         fill: lighten($linkedin, 10%);
       }
+    }
+  }
+}
+
+.blog-single-page{
+  a{
+    color: $alkemy_blue;
+    &:hover{
+      color: $alkemy_dark_blue;
     }
   }
 }

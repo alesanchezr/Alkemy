@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
-import '../utils/utils.js'
+import {fluidImageSmall} from '../utils/utils.js'
 import { Card, CardText, CardImgOverlay,CardTitle,
   CardBody, CardFooter, Button, Col, Row } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -465,13 +465,13 @@ export const query = graphql`
         id
         excerpt(pruneLength: 100)
         frontmatter {
-          cover {
-            ...fluidImageSmall
-          }
           title
           path
           excerpt
           date(formatString: "MMMM DD, YYYY")
+          cover {
+            ...fluidImageSmall
+          }
         }
       }
     }

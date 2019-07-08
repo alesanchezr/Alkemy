@@ -1477,7 +1477,7 @@ div.spinContainer {
   height: 75px;
 }
 
-.blog #bodyWrap {
+.blog #bodyWrap, .blog-single-page #bodyWrap {
   overflow-x: unset;
 }
 
@@ -1495,5 +1495,13 @@ div.spinContainer {
 
 .shortSocialBar svg:hover.social-linkedin path {
   fill: #0099e8;
+}
+
+.blog-single-page a {
+  color: #2bb3e5;
+}
+
+.blog-single-page a:hover {
+  color: #0B3C5D;
 }
 /*# sourceMappingURL=style.css.map */

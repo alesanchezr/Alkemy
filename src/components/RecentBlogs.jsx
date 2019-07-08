@@ -156,7 +156,7 @@ const RecentBlogs = (props) => {
                         </Row>
                     </CardDeck>
                     <CardDeck>
-                        <Row>{renderRow()}</Row>
+                        <Row noGutters>{renderRow()}</Row>
                     </CardDeck>
                 </>
             )

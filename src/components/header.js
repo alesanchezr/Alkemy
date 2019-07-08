@@ -43,22 +43,8 @@ const Header = ({ pageTitle, hideHeader, renderHeaderSolid, search }) => (
                 allMdx {
                     edges {
                         node {
-                            fields {
-                                slug
-                            }
                             frontmatter {
-                                path
-                                date
-                                author
                                 title
-                                tags
-                                excerpt
-                                cover {
-                                    ...fluidImageSmall
-                                }
-                            }
-                            children {
-                                id
                             }
                         }
                     }
