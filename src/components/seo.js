@@ -46,6 +46,7 @@ function SEO({
             query {
                 site {
                     siteMetadata {
+                        siteUrl
                         title
                         description
                         author
@@ -60,7 +61,7 @@ function SEO({
     const pageAuthor = author || site.siteMetadata.author
     const pageKeywords = keywords || site.siteMetadata.keywords
     const articleDate = date || null
-    const siteAddress = window && window.location.origin
+    const siteAddress = site.siteMetadata.siteUrl
 
     return (
         <Helmet

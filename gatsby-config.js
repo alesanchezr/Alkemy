@@ -6,6 +6,7 @@ const mapPagesUrls = {
 
 module.exports = {
     siteMetadata: {
+        siteUrl: `https://www.alkemyinc.com`,
         title: `Alkemy, Inc.`,
         description: `Make your next Web Development, Design, eCommerce, or Marketing project a success with Alkemy. Well Crafted, Pixel Perfect, Conversion Optimized Results.`,
         keywords: `
@@ -119,6 +120,12 @@ module.exports = {
                 lang: `en`,
                 display: `standalone`,
                 icon: `src/assets/images/favicons/favicon-32x32.png`, // This path is relative to the root of the site.
+            },
+        },
+        {
+            resolve: `gatsby-plugin-sitemap`,
+            options: {
+                sitemapSize: 5000,
             },
         },
         {
