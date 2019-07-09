@@ -59,7 +59,7 @@ const renderSocialLinks = (colorArray) => {
 }
 
 SocialLinks.propTypes = {
-  colors: PropTypes.Array
+  colors: PropTypes.array
 }
 
 export default SocialLinks

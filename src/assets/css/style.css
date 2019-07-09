@@ -57,42 +57,42 @@ html {
   }
 }
 
-h1, .cover-text-1b {
+h1, .cover-text-row .cover-text-1b {
   font-size: 2.0736rem;
 }
 
-h1, .cover-text-1b {
+h1, .cover-text-row .cover-text-1b {
   font-size: 27.648px;
 }
 
 @media screen and (min-width: 320px) {
-  h1, .cover-text-1b {
+  h1, .cover-text-row .cover-text-1b {
     font-size: calc(27.648px + 26.352 * ((100vw - 320px) / 1960));
   }
 }
 
 @media screen and (min-width: 2280px) {
-  h1, .cover-text-1b {
+  h1, .cover-text-row .cover-text-1b {
     font-size: 54px;
   }
 }
 
-h2, .cover-text-1a {
+h2, .cover-text-row .cover-text-1a {
   font-size: 1.728rem;
 }
 
-h2, .cover-text-1a {
+h2, .cover-text-row .cover-text-1a {
   font-size: 27.648px;
 }
 
 @media screen and (min-width: 320px) {
-  h2, .cover-text-1a {
+  h2, .cover-text-row .cover-text-1a {
     font-size: calc(27.648px + 26.352 * ((100vw - 320px) / 1960));
   }
 }
 
 @media screen and (min-width: 2280px) {
-  h2, .cover-text-1a {
+  h2, .cover-text-row .cover-text-1a {
     font-size: 54px;
   }
 }
@@ -186,7 +186,7 @@ body.blog section.blog-post-container {
 }
 
 /* Bootstrap Override */
-.h1, .h2, .h3, .h4, .h5, .h6, h1, .cover-text-1b, h2, .cover-text-1a, h3, h4, h5, h6 {
+.h1, .h2, .h3, .h4, .h5, .h6, h1, .cover-text-row .cover-text-1b, h2, .cover-text-row .cover-text-1a, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
@@ -309,7 +309,10 @@ a {
   z-index: 500;
 }
 
-.navbar {
+.navbar,
+.cover-text-row,
+.container-fluid,
+.alk-container {
   padding: .5rem 4.5rem;
 }
 
@@ -358,56 +361,56 @@ a {
 }
 
 /* Video Carousel Text Animations */
-.cover-text {
+.cover-text-row .cover-text {
   z-index: 500;
 }
 
-.cover-text-1a {
+.cover-text-row .cover-text-1a {
   font-size: 27.648px;
 }
 
 @media screen and (min-width: 320px) {
-  .cover-text-1a {
+  .cover-text-row .cover-text-1a {
     font-size: calc(27.648px + 39.852 * ((100vw - 320px) / 1960));
   }
 }
 
 @media screen and (min-width: 2280px) {
-  .cover-text-1a {
+  .cover-text-row .cover-text-1a {
     font-size: 67.5px;
   }
 }
 
 @media screen and (max-width: 680px) {
-  .cover-text-1a {
+  .cover-text-row .cover-text-1a {
     font-size: 1.5em;
   }
 }
 
-.cover-text-1b {
+.cover-text-row .cover-text-1b {
   font-size: 27.648px;
 }
 
 @media screen and (min-width: 320px) {
-  .cover-text-1b {
+  .cover-text-row .cover-text-1b {
     font-size: calc(27.648px + 107.352 * ((100vw - 320px) / 1960));
   }
 }
 
 @media screen and (min-width: 2280px) {
-  .cover-text-1b {
+  .cover-text-row .cover-text-1b {
     font-size: 135px;
   }
 }
 
 @media screen and (max-width: 680px) {
-  .cover-text-1b {
+  .cover-text-row .cover-text-1b {
     font-size: 3.5em;
   }
 }
 
-.cover-text-1a,
-.cover-text-1b {
+.cover-text-row .cover-text-1a,
+.cover-text-row .cover-text-1b {
   text-shadow: 1px 1px #444;
   color: white;
   -webkit-animation-delay: 2s;
@@ -932,7 +935,7 @@ section.statsCounter {
   color: white;
 }
 
-section.statsCounter h2:first-child, section.statsCounter .cover-text-1a:first-child {
+section.statsCounter h2:first-child, section.statsCounter .cover-text-row .cover-text-1a:first-child, .cover-text-row section.statsCounter .cover-text-1a:first-child {
   margin-top: 2rem;
 }
 
@@ -940,7 +943,7 @@ section.statsCounter .row div {
   margin-bottom: 1.5rem;
 }
 
-section.statsCounter .row div h2, section.statsCounter .row div .cover-text-1a {
+section.statsCounter .row div h2, section.statsCounter .row div .cover-text-row .cover-text-1a, .cover-text-row section.statsCounter .row div .cover-text-1a {
   margin-top: unset;
   color: #f8da32;
 }
@@ -948,10 +951,6 @@ section.statsCounter .row div h2, section.statsCounter .row div .cover-text-1a {
 section.statsCounter .row div .text-muted {
   color: #2bb3e5 !important;
   font-size: 1.2rem;
-}
-
-section.ourPassion {
-  padding: 4rem;
 }
 
 section.ourPassion .ourPassionImg {
@@ -964,50 +963,44 @@ section.recentBlogPosts {
   color: white;
 }
 
-section.recentBlogPosts .cardRow {
-  min-height: 40vh;
+section.recentBlogPosts .card-deck {
+  position: relative;
 }
 
-section.recentBlogPosts .cardRow .blogCard {
+section.recentBlogPosts .card-deck .row .blogCard {
   border-radius: 0;
   border: none;
-  height: 40vh;
 }
 
-section.recentBlogPosts .cardRow .blogCard .overlayFooter {
+section.recentBlogPosts .card-deck .row .blogCard .card-img-top {
+  border-radius: 0;
+}
+
+section.recentBlogPosts .card-deck .row .blogCard .card-img-overlay .card-footer {
   position: absolute;
   bottom: 0;
 }
 
-section.recentBlogPosts .cardRow .blogCard .blogCard-body {
+section.recentBlogPosts .card-deck .row .blogCard .card-body {
   background: rgba(0, 0, 0, 0.8);
-  width: 100%;
-  bottom: 0;
-  position: absolute;
-  min-height: 30%;
 }
 
-section.recentBlogPosts .cardRow .blogCard .blogCard-body a h4.card-title {
+section.recentBlogPosts .card-deck .row .blogCard .card-body a h4.card-title {
   color: white;
   font-size: 1.2em;
   font-weight: 300 !important;
 }
 
-section.recentBlogPosts .cardRow .blogCard .card-img-top {
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100%;
-}
-
-section.recentBlogPosts .cardRow .blogCard .card-img-overlay {
+section.recentBlogPosts .card-deck .row .blogCard .card-img-overlay {
   position: relative;
   -webkit-transition: .3s linear;
   transition: .3s linear;
   padding: 0;
+  border: 1px solid #2bb3e5;
 }
 
 @media only screen and (min-width: 1280px) {
-  section.recentBlogPosts .cardRow .blogCard .card-img-overlay {
+  section.recentBlogPosts .card-deck .row .blogCard .card-img-overlay {
     min-height: -webkit-fit-content;
     min-height: -moz-fit-content;
     min-height: fit-content;
@@ -1017,7 +1010,7 @@ section.recentBlogPosts .cardRow .blogCard .card-img-overlay {
 }
 
 @media only screen and (min-width: 1280px) {
-  section.recentBlogPosts .cardRow .blogCard:hover .card-img-overlay {
+  section.recentBlogPosts .card-deck .row .blogCard:hover .card-img-overlay {
     opacity: 1;
     color: white;
     background: rgba(0, 0, 0, 0.9);
@@ -1102,7 +1095,7 @@ section.deliverYourMessage {
   color: #2bb3e5;
 }
 
-.plan .planCard h2, .plan .planCard .cover-text-1a, .plan .planCard p {
+.plan .planCard h2, .plan .planCard .cover-text-row .cover-text-1a, .cover-text-row .plan .planCard .cover-text-1a, .plan .planCard p {
   color: #0B3C5D;
 }
 
@@ -1218,7 +1211,7 @@ div.spinContainer {
   color: white;
 }
 
-.marketingReinvented h2, .marketingReinvented .cover-text-1a {
+.marketingReinvented h2, .marketingReinvented .cover-text-row .cover-text-1a, .cover-text-row .marketingReinvented .cover-text-1a {
   color: white;
 }
 

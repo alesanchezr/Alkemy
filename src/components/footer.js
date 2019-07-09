@@ -27,7 +27,6 @@ const _menuArray = [
     id: '2',
     links: [
       {name: 'Read the Latest', id: '2a', url: '/alkemy-blog'},
-      {name: 'View the Archives', id: '2b', url: '/alkemy-blog/archives'},
     ]
   },
   {

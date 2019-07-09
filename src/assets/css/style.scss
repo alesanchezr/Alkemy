@@ -289,7 +289,10 @@ a {
   }
 }
 
-.navbar{
+.navbar,
+.cover-text-row,
+.container-fluid,
+.alk-container{
   padding: .5rem 4.5rem;
 }
 
@@ -339,32 +342,39 @@ a {
 
 /* Video Carousel Text Animations */
 
-.cover-text{
-  z-index: 500;
-}
+.cover-text-row{
 
-.cover-text-1a{
-  @extend h2;
-  @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font*1.25);
-  @media screen and (max-width: 680px){
-    font-size: 1.5em;
+  .cover-text {
+    z-index: 500;
+  }
+
+  .cover-text-1a {
+    @extend h2;
+    @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font*1.25);
+
+    @media screen and (max-width: 680px) {
+      font-size: 1.5em;
+    }
+  }
+
+  .cover-text-1b {
+    @extend h1;
+    @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font*2.5);
+
+    @media screen and (max-width: 680px) {
+      font-size: 3.5em;
+    }
+  }
+
+  .cover-text-1a,
+  .cover-text-1b {
+    text-shadow: 1px 1px #444;
+    color: white;
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
   }
 }
-.cover-text-1b{
-  @extend h1;
-  @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font*2.5);
-  @media screen and (max-width: 680px){
-    font-size: 3.5em;
-  }
-}
 
-.cover-text-1a,
-.cover-text-1b{
-  text-shadow: 1px 1px #444;
-  color: white;
-  -webkit-animation-delay: 2s;
-  animation-delay: 2s;
-}
 
 
 .heroChevron{
@@ -870,8 +880,6 @@ section.statsCounter{
 }
 
 section.ourPassion{
-  padding: 4rem;
-
   .ourPassionImg{
     object-fit:cover;
   }
@@ -880,53 +888,52 @@ section.ourPassion{
 section.recentBlogPosts{
   background: $alkemy_dark_blue;
   color: white;
-  .cardRow{
-    min-height: 40vh;
-
-    .blogCard {
-      border-radius: 0;
-      border: none;
-      height: 40vh;
-
-      .overlayFooter {
-        position: absolute;
-        bottom: 0;
-      }
-
-      .blogCard-body{
-        background: rgba(black,.8);
-        width: 100%;
-        bottom: 0;
-        position: absolute;
-        min-height: 30%;
-        a h4.card-title{
-          color: white;
-          font-size: 1.2em;
-          font-weight: 300 !important;
+  
+  .card-deck{
+    position: relative;
+    .row{
+      .blogCard {
+        border-radius: 0;
+        border: none;
+        
+        .card-img-top{
+          border-radius: 0;
         }
-      }
-      .card-img-top{
-        object-fit: cover;
-        width: 100%;
-      }
-      .card-img-overlay{
-        position: relative;
-        transition: .3s linear;
-        padding: 0;
-
-        @media only screen and (min-width: 1280px){
-          min-height: fit-content;
-          position: absolute;
-          opacity: 0;
+        .card-img-overlay{
+          .card-footer {
+            position: absolute;
+            bottom: 0;
+          }
         }
-      }
-
-      &:hover{
-        @media only screen and (min-width: 1280px){
-          .card-img-overlay {
-            opacity: 1;
+  
+        .card-body{
+          background: rgba(black,.8);
+          a h4.card-title{
             color: white;
-            background: rgba(0,0,0,.90);
+            font-size: 1.2em;
+            font-weight: 300 !important;
+          }
+        }
+        .card-img-overlay{
+          position: relative;
+          transition: .3s linear;
+          padding: 0;
+          border: 1px solid $alkemy_blue;
+  
+          @media only screen and (min-width: 1280px){
+            min-height: fit-content;
+            position: absolute;
+            opacity: 0;
+          }
+        }
+  
+        &:hover{
+          @media only screen and (min-width: 1280px){
+            .card-img-overlay {
+              opacity: 1;
+              color: white;
+              background: rgba(0,0,0,.90);
+            }
           }
         }
       }

@@ -66,21 +66,15 @@ const HomePage = ({data}) => {
   return (
       <ScrollWrapper onWindowScroll={handleScroll}>
           <Layout headerTitle={[false, ""]} bodyClasses="home">
-              <SEO
-                  title="Web Development, Design, eCommerce, and Marketing"
-              />
+              <SEO title="Web Development, Design, eCommerce, and Marketing" />
 
               {/* Section 1 - Hero */}
               <section className="homeHero">
-                  <div className="container-fluid px-0 position-relative">
+                  <div className="container-fluid p-0 position-relative">
                       {/* Cover Video Slider */}
                       <VideoCarousel slides={slideArray} showIndicators={false}>
-                          <Row className="h-100 d-flex align-items-center">
-                              <Col
-                                  xs={12}
-                                  md={6}
-                                  className="px-5 bg-transparent"
-                              >
+                          <Row className="cover-text-row h-100 d-flex align-items-center">
+                              <Col xs={12} md={6} className="bg-transparent">
                                   {/* Cover Text */}
                                   <div className="cover-text">
                                       <h2 className="mb-5">
@@ -119,7 +113,7 @@ const HomePage = ({data}) => {
                   </div>
               </section>
               <section ref={introSection} className="introHome my-4">
-                  <div className="container-fluid px-5 py-4">
+                  <div className="container-fluid py-4">
                       <h2 className="mb-4">
                           {data.homepageJson.sections[0].blocks[0].heading}
                       </h2>
@@ -135,7 +129,7 @@ const HomePage = ({data}) => {
                       </p>
                   </div>
               </section>
-              <section className="servicesHome mt-auto mb-5">
+              <section className="alk-container servicesHome mt-auto mb-5">
                   <Row>
                       <Col className="col-lg-3 col-sm-6 col-12">
                           <Card className="border-0 p-3 animated bounceInUp cardOne h-100">
@@ -329,9 +323,9 @@ const HomePage = ({data}) => {
                       </Col>
                   </Row>
               </section>
-              <section className="statsCounter mb-4 text-center py-4">
+              <section className="alk-container statsCounter mb-4 text-center py-4">
                   <h2>{data.homepageJson.sections[3].heading}</h2>
-                  <Row className="px-5 pt-4">
+                  <Row className="pt-4">
                       <Col xs={12} sm={6} lg={3}>
                           <ReactCounter theNumber={firstNumber} />
                           <p className="text-muted">
@@ -361,8 +355,8 @@ const HomePage = ({data}) => {
                       </Col>
                   </Row>
               </section>
-              <section className="ourPassion">
-                  <div className="container-fluid px-0 px-lg-5">
+              <section className="ourPassion my-5">
+                  <div className="alk-container container-fluid">
                       <Row className="align-items-center">
                           <Col
                               xs={12}

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
-import { Card, CardText, CardImgOverlay,
+import { CardDeck,Card, CardText, CardImgOverlay,
   CardTitle, Row, Col, CardBody, CardFooter, Button } from "reactstrap"
 import Loading from './loading.jsx'
 
@@ -19,23 +19,23 @@ const BlogWidget = (props) => {
       return(
         <Col
           key={edge.node.id}
-          sm={12}
+          xs={12}
           md={4}
         >
-          <Card className="blogCard my-3 my-md-0">
+          <Card className="blogCard">
             <Link
               to={edge.node.frontmatter.path}
               >
               {edge.node.frontmatter.cover
                 && (
                   <Img
-                    className="card-img-top blogCard mb-0"
-                  fluid={edge.node.frontmatter.cover.childImageSharp.fluid}
+                    className="card-img-top"
+                    fluid={edge.node.frontmatter.cover.childImageSharp.fluid}
                     alt={edge.node.frontmatter.title} />
                 )
               }
             </Link>
-            <CardBody className="w-100 p-3 blogCard-body">
+            <CardBody>
               <Link
                 to={edge.node.frontmatter.path}
                 >
@@ -43,10 +43,10 @@ const BlogWidget = (props) => {
               </Link>
             </CardBody>
             <CardImgOverlay className="d-none d-md-block">
-              <CardBody className="overlayBody w-100 p-3">
+              <CardBody>
                 <CardText>{edge.node.frontmatter.excerpt?edge.node.frontmatter.excerpt:(<Loading />)}</CardText>
               </CardBody>
-              <CardFooter className="overlayFooter w-100 p-3">
+              <CardFooter className="w-100">
                 <Button
                   tag={Link}
                   to={edge.node.frontmatter.path}
@@ -65,9 +65,12 @@ const BlogWidget = (props) => {
 
       <div className="container-fluid p-5">
         <h2 className="pb-3">Check Out Our Recent Posts</h2>
-        <Row className="cardRow">
-          {Posts}
-        </Row>
+        <CardDeck>
+          <Row className="no-gutters">
+            {Posts}
+          </Row>
+        </CardDeck>
+        
       </div>
     </>
   )
