@@ -12,6 +12,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { TypographyStyle, GoogleFont } from 'react-typography'
 import typography from '../utils/typography'
 
+import logo from '../assets/images/alkemy-logo-vertical.png'
 import msTileImg from '../assets/images/favicons/ms-icon-144x144.png'
 
 import appleIcon57 from '../assets/images/favicons/apple-icon-57x57.png'
@@ -30,115 +31,126 @@ import favicon16 from '../assets/images/favicons/favicon-16x16.png'
 import favicon32 from '../assets/images/favicons/favicon-32x32.png'
 import favicon96 from '../assets/images/favicons/favicon-96x96.png'
 
-function SEO({ description, lang, meta, author, title, keywords, children }) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-            keywords
-          }
-        }
-      }
-    `
-  )
+function SEO({
+    description,
+    lang,
+    meta,
+    author,
+    title,
+    keywords,
+    children,
+    date,
+}) {
+    const { site } = useStaticQuery(
+        graphql`
+            query {
+                site {
+                    siteMetadata {
+                        title
+                        description
+                        author
+                        keywords
+                    }
+                }
+            }
+        `
+    )
 
-  const metaDescription = description || site.siteMetadata.description
-  const pageAuthor = author || site.siteMetadata.author
-  const pageKeywords = keywords || site.siteMetadata.keywords
+    const metaDescription = description || site.siteMetadata.description
+    const pageAuthor = author || site.siteMetadata.author
+    const pageKeywords = keywords || site.siteMetadata.keywords
+    const articleDate = date || null
+    const siteAddress = window && window.location.origin
 
-  return (
-      <Helmet
-          title={title}
-          titleTemplate={`%s | ${site.siteMetadata.title}`}
-          meta={[
-              { name: "charset", content: "UTF-8" },
-              {
-                  name: "viewport",
-                  content:
-                      "width=device-width, initial-scale=1, maximum-scale=1",
-              },
-              { name: "keywords", content: pageKeywords },
-              { name: "author", content: pageAuthor },
-              { name: "referrer", content: "origin-when-crossorigin" },
-              { httpEquiv: "X-UA-Compatible", content: "IE=edge,chrome=1" },
-              { name: "apple-mobile-web-app-title", content: "Alkemy, Inc." },
-              { name: "msapplication-TileColor", content: "#ffffff" },
-              { property: "og:image", content: "" },
-              {
-                  name: "msvalidate.01",
-                  content: "304B53089DF131D38A8031F5232E9FB1",
-              },
-              {
-                  name: `description`,
-                  content: metaDescription,
-              },
-              {
-                  property: `og:title`,
-                  content: title,
-              },
-              {
-                  property: `og:description`,
-                  content: metaDescription,
-              },
-              {
-                  property: `og:type`,
-                  content: `website`,
-              },
-              {
-                  name: `twitter:card`,
-                  content: `summary`,
-              },
-              {
-                  name: `twitter:creator`,
-                  content: site.siteMetadata.author,
-              },
-              {
-                  name: `twitter:title`,
-                  content: title,
-              },
-              {
-                  name: `twitter:description`,
-                  content: metaDescription,
-              },
-              {
-                  name: "twitter:image:alt",
-                  content: "Screenshot of the Alkemy, Inc. Homepage.",
-              },
-          ].concat(meta)}
-      >
-          <html lang="en" amp xmlns="http://www.w3.org/1999/xhtml" />
-          <link rel="canonical" href="https://www.alkemyinc.com" />
-          <meta name="msapplication-TileImage" content={msTileImg} />
+    return (
+        <Helmet
+            title={title}
+            titleTemplate={`%s | ${site.siteMetadata.title}`}
+            meta={[
+                { name: "charset", content: "UTF-8" },
+                {
+                    name: "viewport",
+                    content:
+                        "width=device-width, initial-scale=1, maximum-scale=1",
+                },
+                { name: "keywords", content: pageKeywords },
+                { name: "author", content: pageAuthor },
+                { name: "referrer", content: "origin-when-crossorigin" },
+                { httpEquiv: "X-UA-Compatible", content: "IE=edge,chrome=1" },
+                { name: "apple-mobile-web-app-title", content: "Alkemy, Inc." },
+                { name: "msapplication-TileColor", content: "#ffffff" },
+                { property: "og:image", content: "" },
+                {
+                    name: "msvalidate.01",
+                    content: "304B53089DF131D38A8031F5232E9FB1",
+                },
+                {
+                    name: `description`,
+                    content: metaDescription,
+                },
+                {
+                    property: `og:title`,
+                    content: title,
+                },
+                {
+                    property: `og:description`,
+                    content: metaDescription,
+                },
+                {
+                    property: `og:type`,
+                    content: `website`,
+                },
+                {
+                    name: `twitter:card`,
+                    content: `summary`,
+                },
+                {
+                    name: `twitter:creator`,
+                    content: site.siteMetadata.author,
+                },
+                {
+                    name: `twitter:title`,
+                    content: title,
+                },
+                {
+                    name: `twitter:description`,
+                    content: metaDescription,
+                },
+                {
+                    name: "twitter:image:alt",
+                    content: "Screenshot of the Alkemy, Inc. Homepage.",
+                },
+            ].concat(meta)}
+        >
+            <html lang="en" amp xmlns="http://www.w3.org/1999/xhtml" />
+            <link rel="canonical" href="https://www.alkemyinc.com" />
+            <meta name="msapplication-TileImage" content={msTileImg} />
 
-          {/* App Icons and Favicon */}
-          <link rel="apple-touch-icon" sizes="57x57" href={appleIcon57} />
-          <link rel="apple-touch-icon" sizes="60x60" href={appleIcon60} />
-          <link rel="apple-touch-icon" sizes="72x72" href={appleIcon72} />
-          <link rel="apple-touch-icon" sizes="76x76" href={appleIcon76} />
-          <link rel="apple-touch-icon" sizes="114x114" href={appleIcon114} />
-          <link rel="apple-touch-icon" sizes="120x120" href={appleIcon120} />
-          <link rel="apple-touch-icon" sizes="144x144" href={appleIcon144} />
-          <link rel="apple-touch-icon" sizes="152x152" href={appleIcon152} />
-          <link rel="apple-touch-icon" sizes="180x180" href={appleIcon180} />
-          <link
-              rel="icon"
-              type="image/png"
-              sizes="192x192"
-              href={androidIcon192}
-          />
-          <link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
-          <link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
-          <link rel="icon" type="image/png" sizes="96x96" href={favicon96} />
+            {/* App Icons and Favicon */}
+            <link rel="apple-touch-icon" sizes="57x57" href={appleIcon57} />
+            <link rel="apple-touch-icon" sizes="60x60" href={appleIcon60} />
+            <link rel="apple-touch-icon" sizes="72x72" href={appleIcon72} />
+            <link rel="apple-touch-icon" sizes="76x76" href={appleIcon76} />
+            <link rel="apple-touch-icon" sizes="114x114" href={appleIcon114} />
+            <link rel="apple-touch-icon" sizes="120x120" href={appleIcon120} />
+            <link rel="apple-touch-icon" sizes="144x144" href={appleIcon144} />
+            <link rel="apple-touch-icon" sizes="152x152" href={appleIcon152} />
+            <link rel="apple-touch-icon" sizes="180x180" href={appleIcon180} />
+            <link
+                rel="icon"
+                type="image/png"
+                sizes="192x192"
+                href={androidIcon192}
+            />
+            <link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
+            <link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
+            <link rel="icon" type="image/png" sizes="96x96" href={favicon96} />
 
-          <TypographyStyle typography={typography} />
-          <GoogleFont typography={typography} />
+            <TypographyStyle typography={typography} />
+            <GoogleFont typography={typography} />
 
-          {/* Google Tag Manager */}
-          <script async defer>{`
+            {/* Google Tag Manager */}
+            <script async defer>{`
         (function(w,d,s,l,i){
           w[l]=w[l]||[];
           w[l].push({
@@ -150,15 +162,15 @@ function SEO({ description, lang, meta, author, title, keywords, children }) {
           f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-TRL98WJ');
       `}</script>
-          {/* End Google Tag Manager */}
+            {/* End Google Tag Manager */}
 
-          {/* Global site tag (gtag.js) - Google Analytics */}
-          <script
-              async
-              defer
-              src="https://www.googletagmanager.com/gtag/js?id=UA-118149481-1"
-          />
-          <script>{`
+            {/* Global site tag (gtag.js) - Google Analytics */}
+            <script
+                async
+                defer
+                src="https://www.googletagmanager.com/gtag/js?id=UA-118149481-1"
+            />
+            <script>{`
     	  window.dataLayer = window.dataLayer || [];
     	  function gtag(){dataLayer.push(arguments);}
     	  gtag('js', new Date());
@@ -166,8 +178,8 @@ function SEO({ description, lang, meta, author, title, keywords, children }) {
     	  gtag('config', 'UA-118149481-1');
     	`}</script>
 
-          {/* Facebook Pixel Code */}
-          <script async defer>{`
+            {/* Facebook Pixel Code */}
+            <script async defer>{`
     		!function(f,b,e,v,n,t,s)
     		{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     		n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -179,11 +191,94 @@ function SEO({ description, lang, meta, author, title, keywords, children }) {
     		fbq('init', '225639351519270');
     		fbq('track', 'PageView');
     	`}</script>
-          {/* End Facebook Pixel Code */}
+            {/* End Facebook Pixel Code */}
 
-          {children}
-      </Helmet>
-  )
+            <script type="application/ld+json">
+                {`{
+            "@context":"https://schema.org",
+            "@type":"WebSite",
+            "url":"${siteAddress}",
+            "name":"Alkemy, Inc.",
+          }`}
+            </script>
+            <script type="application/ld+json">
+                {`{
+            "@context":"https://schema.org",
+            "@type":"Organization",
+            "url":"${siteAddress}",
+            "name":"Alkemy, Inc.",
+            "logo": "${siteAddress}${logo}",
+            "sameAs":[
+              "https://www.facebook.com/alkemydev",
+              "https://www.twitter.com/alkemydev",
+              "https://www.linkedin.com/company/alkemydev"
+            ]
+          }`}
+            </script>
+            <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org/", 
+            "@type": "BreadcrumbList", 
+            "itemListElement": [{
+              "@type": "ListItem", 
+              "position": 1, 
+              "name": "Home",
+              "item": "${siteAddress}"  
+            },{
+              "@type": "ListItem", 
+              "position": 2, 
+              "name": "Responsive Web Design",
+              "item": "${siteAddress}/responsive-web-design"  
+            },{
+              "@type": "ListItem", 
+              "position": 3, 
+              "name": "Web Development",
+              "item": "${siteAddress}/web-development"  
+            },{
+              "@type": "ListItem", 
+              "position": 4, 
+              "name": "eCommerce Design",
+              "item": "${siteAddress}/ecommerce-design"  
+            },{
+              "@type": "ListItem", 
+              "position": 5, 
+              "name": "Digital Marketing",
+              "item": "${siteAddress}/digital-marketing"  
+            },{
+              "@type": "ListItem", 
+              "position": 6, 
+              "name": "About Alkemy",
+              "item": "${siteAddress}/about-alkemy"  
+            },{
+              "@type": "ListItem", 
+              "position": 7, 
+              "name": "Alkemy Blog",
+              "item": "${siteAddress}/alkemy-blog"  
+            },{
+              "@type": "ListItem", 
+              "position": 8, 
+              "name": "Contact Alkemy",
+              "item": "${siteAddress}/contact-alkemy"  
+            }]
+          }
+          `}</script>
+            {author !== null ? (
+                <script type="application/ld+json">{`
+            {
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "headline": "${title}",
+              "author": {
+                "@type": "Person",
+                "name": "${author}"
+              },
+              "datePublished": "${articleDate}"
+            }
+            `}</script>
+            ) : null}
+            {children}
+        </Helmet>
+    )
 }
 
 SEO.defaultProps = {
@@ -193,11 +288,12 @@ SEO.defaultProps = {
 }
 
 SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
-  keywords: PropTypes.string
+    description: PropTypes.string,
+    lang: PropTypes.string,
+    meta: PropTypes.arrayOf(PropTypes.object),
+    title: PropTypes.string.isRequired,
+    keywords: PropTypes.string,
+    date: PropTypes.string
 }
 
 export default SEO

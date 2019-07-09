@@ -122,6 +122,8 @@ class BlogPostTemplate extends React.Component {
             <SEO
                 title={post.frontmatter.title}
                 description={post.frontmatter.description || post.excerpt}
+                date={post.frontmatter.date}
+                author={post.frontmatter.author}
             />
             <Container fluid className="blog-single mb-5">
                 <section className="blog-category-filter my-3">
