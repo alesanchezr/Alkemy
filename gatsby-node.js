@@ -56,12 +56,57 @@
  };
 
  exports.createPages = ({ actions, graphql }) => {
-   const { createPage } = actions
+   const { createPage,createRedirect } = actions
+   
    const blogPost = path.resolve("./src/templates/blog-post.js")
    const authorProfile = path.resolve("./src/templates/author.js")
    const tagTemplate = path.resolve("./src/templates/tags.js")
    const tagIndexTemplate = path.resolve("./src/templates/tagIndex.js")
    
+   /*  Setup Redirects for Netlify
+      /services/#alkemy-web-design /responsive-web-design 301
+      /services/#alkemy-development /web-development 301
+      /services/#alkemy-marketing /digital-marketing 301
+      /services / 301
+      /blog /alkemy-blog 301
+      /2018/* /alkemy-blog 301
+      /2019/* /alkemy-blog 301
+  */
+ createRedirect({
+     fromPath: "/services/#alkemy-web-design",
+     toPath: "/responsive-web-design",
+     isPermanent: true,
+ })
+ createRedirect({
+     fromPath: "/services/#alkemy-development",
+     toPath: "/web-development",
+     isPermanent: true,
+ })
+ createRedirect({
+     fromPath: "/services/#alkemy-marketing",
+     toPath: "/digital-marketing",
+     isPermanent: true,
+ })
+ createRedirect({
+     fromPath: "/services",
+     toPath: "/",
+     isPermanent: true,
+ })
+ createRedirect({
+     fromPath: "/blog",
+     toPath: "/alkemy-blog",
+     isPermanent: true,
+ })
+ createRedirect({
+     fromPath: "/2018/*",
+     toPath: "/alkemy-blog",
+     isPermanent: true,
+ })
+ createRedirect({
+     fromPath: "/2019/*",
+     toPath: "/alkemy-blog",
+     isPermanent: true,
+ })
    
    // eslint-disable-next-line no-undef
    return new Promise((resolve, reject) => {
@@ -167,4 +212,5 @@
             return Promise.resolve()
         })
     )
- })}
+ })
+}
