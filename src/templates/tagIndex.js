@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import Link from "gatsby-link";
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import {Button} from "reactstrap"
+import { Button } from "reactstrap"
 import _ from "lodash"
 
 /*
@@ -18,17 +18,16 @@ Layout props:
   bodyClasses: additional classes to add to body tag
 */
 
-const Tags = ({ pageContext, data },location) => {
-  const { tag } = pageContext;
+const Tags = ({ pageContext, data }) => {
+  const { tags } = pageContext;
   const siteTitle = data.site.siteMetadata.title
-  const { edges, totalCount } = data.allMdx;
-  const tagHeader = `Found ${totalCount} article${
-      totalCount === 1 ? "" : "s"
-  } tagged with "${tag}"`
-  const pageTitle = `Blog Tag: "${_.startCase(tag)}"`
+  const tagCount = tags.length
+  const tagHeader = `${tagCount} tag${
+      tagCount === 1 ? "" : "s"
+  } found.`
+  const pageTitle="Tag Index"
   return (
       <Layout
-          location={location}
           title={siteTitle}
           headerTitle={[true, pageTitle]}
           search={false}
@@ -37,26 +36,29 @@ const Tags = ({ pageContext, data },location) => {
       >
           <SEO
               title={pageTitle}
-              description={`List of all articles tagged with ${_.startCase(
-                  tag
-              )}`}
+              description="Index of all Blog Tags on the Alkemy Site"
           />
           <div className="alk-container my-5">
               <h3>{tagHeader}</h3>
               <ul className="my-4">
-                  {edges.map(({ node }) => {
-                      const { title } = node.frontmatter
-                      const { slug } = node.fields
+                  {(tags.map((slug) => {
+                      let sanitizedSlug = ""
+                      console.log(slug, slug.includes("&"))
+                      if (slug.includes("&")) {
+                          sanitizedSlug = _.replace(slug, " & ", "-")
+                      } else if (slug.includes(" ")) {
+                          sanitizedSlug = _.replace(slug, " ", "-")
+                      }else{
+                          sanitizedSlug = slug
+                      }
                       return (
-                          <li key={slug}>
-                              <Link to={slug}>{title}</Link>
+                          <li key={sanitizedSlug}>
+                              <Link to={"/tags/" + sanitizedSlug}>{slug}</Link>
                           </li>
                       )
-                  })}
+                  }))}
               </ul>
-              <Button tag={Link} to="/tags" color="primary">
-                  ← View All Tags
-              </Button>
+              <Button tag={Link} to="/alkemy-blog" color="primary">Visit the Alkemy Blog</Button>
           </div>
       </Layout>
   )
@@ -86,7 +88,7 @@ Tags.propTypes = {
 export default Tags;
 
 export const pageQuery = graphql`
-           query ($tag: String) {
+           query TagIndexQuery($tag: String) {
                site {
                    siteMetadata {
                        title

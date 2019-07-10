@@ -185,7 +185,7 @@ class BlogPostTemplate extends React.Component {
                                         fluid={
                                             author.photo.childImageSharp.fluid
                                         }
-                                        alt="Alkemy is always the best fit for your business and digital presence."
+                                        alt={"Photo of " + author.name}
                                     />
                                     <Link to={"/author" + author.slug}>
                                         View My Profile...
@@ -203,7 +203,7 @@ class BlogPostTemplate extends React.Component {
                                 fluid={
                                     post.frontmatter.cover.childImageSharp.fluid
                                 }
-                                alt="Alkemy is always the best fit for your business and digital presence."
+                                alt={post.frontmatter.title}
                             />
                         </Col>
                     </Row>
