@@ -64,33 +64,19 @@ $animation-function: ease; // Set the animation type
 $min_width: 320px;
 $max_width: 2280px;
 $min_font: 16px;
-$max_font: 24px;
+$max_font: 21px;
 
 html {
-  @include fluid-type($min_width, $max_width, $min_font, 20px);
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
   line-height: 1.5;
 }
 
 $mod_1: 1.2; // mobile
 $mod_2: 1.5; // desktop
 
-.navbar-nav,
-.navbar-nav button {
-  font-size: $mod_1*1rem;
-  @include fluid-type($min_width, $max_width, $min_font, 20px);
-}
-
 h1 {
-  font-size: $mod_1*$mod_1*$mod_1*$mod_1 *1rem;
+  font-size: $mod_1*$mod_1*$mod_1*$mod_1*1rem;
   @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font);
-}
-h2 {
-  font-size: $mod_1*$mod_1*$mod_1 *1rem;
-  @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font);
-}
-h3 {
-  font-size: $mod_1*$mod_1 *1rem;
-  @include fluid-type($min_width, $max_width, $mod_1*$mod_1 *$min_font, $mod_2*$mod_2 *$min_font);
 }
 
 /* Colors */
@@ -181,6 +167,25 @@ body{
 /* Bootstrap Override */
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
   font-weight: 600;
+}
+
+@media (max-width: 575.98px) {
+  //Manage Display Headers for Mobile Devices
+  .display-1 {
+    font-size: 4rem;
+  }
+
+  .display-2 {
+    font-size: 2.75rem;
+  }
+
+  .display-3 {
+    font-size: 2.25rem;
+  }
+
+  .display-4 {
+    font-size: 1.75rem;
+  }
 }
 
 /* Checkboxes styles */
@@ -293,7 +298,14 @@ a {
 .cover-text-row,
 .container-fluid,
 .alk-container{
-  padding: .5rem 4.5rem;
+  padding: .5em 2em;
+  @media screen and (min-width: 992px){
+    padding: .5rem 2.5rem;
+  }
+}
+
+.navbar-brand img {
+  width: 11em;
 }
 
 .navbar-nav{
@@ -348,38 +360,12 @@ a {
     z-index: 500;
   }
 
-  .cover-text-1a {
-    @extend h2;
-    @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font*1.25);
-
-    @media screen and (max-width: 680px) {
-      font-size: 1.5em;
-    }
-  }
-
-  .cover-text-1b {
-    @extend h1;
-    @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font*2.5);
-
-    @media screen and (max-width: 680px) {
-      font-size: 3.5em;
-    }
-  }
-
   .cover-text-1a,
   .cover-text-1b {
     text-shadow: 1px 1px #444;
     color: white;
     -webkit-animation-delay: 2s;
     animation-delay: 2s;
-  }
-}
-
-
-
-.heroChevron{
-  @media screen and (max-width:1080px){
-    transform: translateX(-50%);
   }
 }
 
@@ -422,12 +408,12 @@ a {
 
   /* iPhone 6/7/8 */
   @media screen and (min-width:375px) and (min-height:667px){
-    width: 19vw;
+    width: 14vw;
   }
 
   /* iPhone 6/7/8 plus */
   @media screen and (min-width:414px) and (min-height:736px){
-    width: 17vw;
+    width: 14vw;
   }
 
   /* iPhone X */
@@ -435,14 +421,9 @@ a {
     width: 16vw;
   }
 
-  /* Nexus 10 and iPad */
+  /* Nexus 10, iPad, and iPad Pro */
   @media screen and (min-width:700px){
-    width: 9vw;
-  }
-
-  /* iPad Pro */
-  @media screen and (min-width:900px){
-    width: 7.5vw;
+    display:none;
   }
 
   padding: 1rem;
@@ -475,7 +456,6 @@ a {
   width: 100%;
   height: $subheader-height;
   margin-top: $header-height;
-  padding: 1rem 4.5rem;
   display: flex;
   align-items: center;
 }
@@ -510,7 +490,7 @@ a {
   }
 
   a{
-    color: inherit;
+    color: $alkemy_light_yellow;
     &:hover{
       color: $alkemy_light_yellow;
     }
@@ -556,7 +536,6 @@ a {
   z-index: 900;
   position: absolute;
   bottom: 2vh;
-  left: 50%;
   cursor: pointer;
   filter: drop-shadow( 1px 1px 2px rgba(0,0,0,.7) );
 }
@@ -811,6 +790,12 @@ button:focus {
     height: 100%;
     min-height:35vh;
 
+    .cardOne .card-footer,
+    .cardOne .card-footer,
+    .cardOne .card-footer,
+    .cardOne .card-footer{
+      padding: 0;
+    }
 
     .image-services.card-img-top{
       max-width: auto !important;
@@ -827,14 +812,13 @@ button:focus {
       transform: translateX(-50%);
     }
 
-
     .card-img-overlay{
       position: relative;
       transition: .3s linear;
       /* height: 100%; */
       padding: 0;
 
-      @media only screen and (min-width: 1280px){
+      @media only screen and (min-width: 992px){
         min-height: fit-content;
         position: absolute;
         opacity: 0;
@@ -849,7 +833,7 @@ button:focus {
     }
 
     &:hover{
-      @media only screen and (min-width: 1280px){
+      @media only screen and (min-width: 992px) {
         .card-img-overlay {
           opacity: 1;
           color: white;
@@ -920,7 +904,7 @@ section.recentBlogPosts{
           padding: 0;
           border: 1px solid $alkemy_blue;
   
-          @media only screen and (min-width: 1280px){
+          @media only screen and (min-width: 992px){
             min-height: fit-content;
             position: absolute;
             opacity: 0;
@@ -928,7 +912,7 @@ section.recentBlogPosts{
         }
   
         &:hover{
-          @media only screen and (min-width: 1280px){
+          @media only screen and (min-width: 992px) {
             .card-img-overlay {
               opacity: 1;
               color: white;
@@ -1330,8 +1314,7 @@ div.spinContainer{
   }
 }
 
-.blog-single,
-.blog-single-post-nav,
+
 .blog-title-bar,
 .blog-author {
   padding: 0 4.5rem;
@@ -1376,10 +1359,12 @@ div.spinContainer{
 }
 
 .blog-single-page{
-  a{
-    color: $alkemy_blue;
-    &:hover{
-      color: $alkemy_dark_blue;
+  #main:not(.footer){
+    a{
+      color: $alkemy_blue;
+      &:hover{
+        color: $alkemy_dark_blue;
+      }
     }
   }
 }

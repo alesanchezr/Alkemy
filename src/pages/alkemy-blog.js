@@ -33,7 +33,7 @@ const AlkemyBlog = ({
     },location
 }) => {
     // pageTitle: SEO friendly title for the title bar
-    const pageTitle = "Alkemy Blog"
+    const pageTitle = { name: "Alkemy Blog", url: "/alkemy-blog" }
     
     // define state hooks
     const [dropdown, setDropdown] = useState('')

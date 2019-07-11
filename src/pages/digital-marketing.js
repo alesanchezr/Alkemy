@@ -21,7 +21,7 @@ Layout props:
 
 const DigitalMarketing = ({data}) => {
 
-    const pageTitle = "Digital Marketing Services"
+    const pageTitle = { name: "Digital Marketing Services", url: "/digital-marketing" }
 
     return(
     <ScrollWrapper onWindowScroll={handleScroll}>

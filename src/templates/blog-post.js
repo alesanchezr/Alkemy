@@ -8,7 +8,7 @@ import { addJS, fluidImageSmall, fluidImageXS } from "../utils/utils.js"
 import Layout from "../components/layout"
 import _ from "lodash"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import { rhythm } from "../utils/typography"
 import { FormGroup, Label, Col, Row, Container,Button } from "reactstrap"
 import FreeWebsiteAnalysis from "../components/freeWebsiteAnalysis.jsx"
 import Select from "react-select"
@@ -72,7 +72,7 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
-    const pageTitle = "Alkemy Blog"
+    const pageTitle = {name:"Alkemy Blog",url:"/alkemy-blog"}
     const edges = data.allMdx.edges
     const author =
         data.allAuthorsJson.edges[0] &&
@@ -166,7 +166,7 @@ class BlogPostTemplate extends React.Component {
                 </section>
                 <section className="blog-single-post-info">
                     <Row>
-                        <Col>
+                        <Col xs={12} md={6}>
                             <h2>{post.frontmatter.title}</h2>
                             <Row className="my-4">
                                 <Col md={6}>
@@ -179,7 +179,7 @@ class BlogPostTemplate extends React.Component {
                             </Row>
 
                             <Row>
-                                <Col xs={12} md={4}>
+                                <Col xs={12} md={4} className="mb-5 mb-md-0">
                                     <Img
                                         className="h-100"
                                         fluid={
@@ -191,13 +191,13 @@ class BlogPostTemplate extends React.Component {
                                         View My Profile...
                                     </Link>
                                 </Col>
-                                <Col>
+                                <Col xs={12} md={8}>
                                     <h3>{author.name}</h3>
                                     <p>{author.bio}</p>
                                 </Col>
                             </Row>
                         </Col>
-                        <Col>
+                        <Col xs={12} md={6} className="mb-5 mb-md-0 order-first order-md-last">
                             <Img
                                 className="h-100"
                                 fluid={

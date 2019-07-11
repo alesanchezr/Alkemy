@@ -57,7 +57,7 @@ const WebDesign = ({data}) => {
     })
   }
 
-  const pageTitle = "Responsive Web Design"
+  const pageTitle = { name: "Responsive Web Design", url: "/responsive-web-design" }
 
   return(
     <ScrollWrapper onWindowScroll={handleScroll}>
@@ -66,7 +66,7 @@ const WebDesign = ({data}) => {
           headerTitle={[true, pageTitle]}
           bodyClasses="webDesign"
           >
-          <SEO title={pageTitle} />
+          <SEO title={pageTitle.name} />
 
           {/* Section 1 */}
           <section className="px-5 my-5">

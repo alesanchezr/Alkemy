@@ -23,7 +23,7 @@ Layout props:
 
 const ContactAlkemy = ({data}) => {
     // pageTitle: SEO friendly title for the title bar
-    const pageTitle = "Contact Alkemy"
+    const pageTitle = { name: "Contact Alkemy", url: "/contact-alkemy" }
 
     return(
     <ScrollWrapper onWindowScroll={handleScroll}>

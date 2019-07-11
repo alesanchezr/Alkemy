@@ -186,74 +186,86 @@ export default class ReactNavbar extends React.Component {
 
   render() {
     return (
-      <>
-        <Navbar fixed='top' expand="lg" dark>
-          <Link to="/" className="navbar-brand mr-lg-auto">
-              <img className="my-auto" src={alkemyLogo} alt="Alkemy, Inc." />
-          </Link>
-          <NavbarToggler
-            onClickCapture={this.toggleMobileMenu}
-            className={this.state.togglerClasses}
-            >
-            <span className="hamburger-box">
-              <span className="hamburger-inner"></span>
-            </span>
-          </NavbarToggler>
-          <Collapse className="d-none d-lg-block" navbar>
-            <Nav className="ml-auto" navbar>
-              {this.renderMenuLinks()}
-              <Button
-                outline
-                color="light"
-                onMouseOver={this.handleButtonHover}
-                onMouseOut={this.handleButtonHover}
-                onClick={this.toggleAppointmentModal}
-                className="ml-4 align-middle"
+        <>
+            <Navbar fixed="top" expand="lg" dark>
+                <Link to="/" className="navbar-brand mr-lg-auto">
+                    <img
+                        className="my-auto"
+                        src={alkemyLogo}
+                        alt="Alkemy, Inc."
+                    />
+                </Link>
+                <NavbarToggler
+                    onClickCapture={this.toggleMobileMenu}
+                    className={this.state.togglerClasses}
                 >
-                <FontAwesomeIcon icon={this.state.icon} color="white" size="lg" className="mr-2"/>
-                Reserve Appointment
-              </Button>
-            </Nav>
-          </Collapse>
-        </Navbar>
-        <div className={this.state.mobileMenuClasses} >
-
-          <Nav className="mx-auto" navbar>
-            {this.renderMobileLinks()}
-            <Button
-              outline
-              color="light"
-              className="mx-auto align-middle my-4"
-              >
-              <FontAwesomeIcon icon={this.state.icon} color="white" size="lg" className="mr-2"/>
-              Reserve Appointment
-            </Button>
-          </Nav>
-        </div>
-        <Modal
-          size={'lg'}
-          className="bookingModal"
-          isOpen={this.state.modal}
-          toggle={this.toggleAppointmentModal}>
-          <ModalHeader toggle={this.toggleAppointmentModal}>Reserve an Appointment</ModalHeader>
-          <ModalBody className="p-0 m-0">
-            {
-              this.state.loading
-              ? (<Loading size='4x'/>)
-              : null
-            }
-            <iframe
-              title='booking'
-              ref={this.iframe}
-              onLoad={e=>this.setState({loading: false})}
-              seamless
-              className="mb-0 bookingFrame"
-              src="https://squareup.com/appointments/buyer/widget/0dddc8a7-089f-45bc-870f-8a603a6dd412/GYDNKWG11FCR7"
-              />
-          </ModalBody>
-        </Modal>
-      </>
-    );
+                    <span className="hamburger-box">
+                        <span className="hamburger-inner"></span>
+                    </span>
+                </NavbarToggler>
+                <Collapse className="d-none d-lg-block" navbar>
+                    <Nav className="ml-auto" navbar>
+                        {this.renderMenuLinks()}
+                        <Button
+                            outline
+                            color="light"
+                            onMouseOver={this.handleButtonHover}
+                            onMouseOut={this.handleButtonHover}
+                            onClick={this.toggleAppointmentModal}
+                            className="ml-4 align-middle"
+                        >
+                            <FontAwesomeIcon
+                                icon={this.state.icon}
+                                color="white"
+                                size="lg"
+                                className="mr-2"
+                            />
+                            Reserve Appointment
+                        </Button>
+                    </Nav>
+                </Collapse>
+            </Navbar>
+            <div className={this.state.mobileMenuClasses}>
+                <Nav className="mx-auto" navbar>
+                    {this.renderMobileLinks()}
+                    <Button
+                        outline
+                        color="light"
+                        className="mx-auto align-middle my-4"
+                    >
+                        <FontAwesomeIcon
+                            icon={this.state.icon}
+                            color="white"
+                            size="lg"
+                            className="mr-2"
+                        />
+                        Reserve Appointment
+                    </Button>
+                </Nav>
+            </div>
+            <Modal
+                size={"lg"}
+                className="bookingModal"
+                isOpen={this.state.modal}
+                toggle={this.toggleAppointmentModal}
+            >
+                <ModalHeader toggle={this.toggleAppointmentModal}>
+                    Reserve Your Appointment
+                </ModalHeader>
+                <ModalBody className="p-0 m-0">
+                    {this.state.loading ? <Loading size="4x" /> : null}
+                    <iframe
+                        title="booking"
+                        ref={this.iframe}
+                        onLoad={e => this.setState({ loading: false })}
+                        seamless
+                        className="mb-0 bookingFrame"
+                        src="https://squareup.com/appointments/buyer/widget/0dddc8a7-089f-45bc-870f-8a603a6dd412/GYDNKWG11FCR7"
+                    />
+                </ModalBody>
+            </Modal>
+        </>
+    )
   }
 }
 

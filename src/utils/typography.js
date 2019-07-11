@@ -1,8 +1,11 @@
 import Typography from "typography"
 
 const typography = new Typography({
+  title: 'Alkemy Typography',
+  includeNormalize: true,
   baseFontSize: '16px',
   baseLineHeight: 1.666,
+  scaleRatio: 2,
   headerFontFamily: [
     "Avenir Next",
     "Helvetica Neue",
@@ -11,7 +14,6 @@ const typography = new Typography({
     "Arial",
     "sans-serif"
   ],
-  headerWeight: 700,
   bodyFontFamily: [
     "Avenir Next",
     "Helvetica Neue",
@@ -20,7 +22,6 @@ const typography = new Typography({
     "Arial",
     "sans-serif"
   ],
-  scaleRatio: 2,
 })
 
 export default typography

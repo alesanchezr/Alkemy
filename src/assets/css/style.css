@@ -23,97 +23,33 @@ html {
 
 @media screen and (min-width: 320px) {
   html {
-    font-size: calc(16px + 4 * ((100vw - 320px) / 1960));
+    font-size: calc(16px + 5 * ((100vw - 320px) / 1960));
   }
 }
 
 @media screen and (min-width: 2280px) {
   html {
-    font-size: 20px;
+    font-size: 21px;
   }
 }
 
-.navbar-nav,
-.navbar-nav button {
-  font-size: 1.2rem;
-}
-
-.navbar-nav,
-.navbar-nav button {
-  font-size: 16px;
-}
-
-@media screen and (min-width: 320px) {
-  .navbar-nav,
-  .navbar-nav button {
-    font-size: calc(16px + 4 * ((100vw - 320px) / 1960));
-  }
-}
-
-@media screen and (min-width: 2280px) {
-  .navbar-nav,
-  .navbar-nav button {
-    font-size: 20px;
-  }
-}
-
-h1, .cover-text-row .cover-text-1b {
+h1 {
   font-size: 2.0736rem;
 }
 
-h1, .cover-text-row .cover-text-1b {
+h1 {
   font-size: 27.648px;
 }
 
 @media screen and (min-width: 320px) {
-  h1, .cover-text-row .cover-text-1b {
+  h1 {
     font-size: calc(27.648px + 26.352 * ((100vw - 320px) / 1960));
   }
 }
 
 @media screen and (min-width: 2280px) {
-  h1, .cover-text-row .cover-text-1b {
+  h1 {
     font-size: 54px;
-  }
-}
-
-h2, .cover-text-row .cover-text-1a {
-  font-size: 1.728rem;
-}
-
-h2, .cover-text-row .cover-text-1a {
-  font-size: 27.648px;
-}
-
-@media screen and (min-width: 320px) {
-  h2, .cover-text-row .cover-text-1a {
-    font-size: calc(27.648px + 26.352 * ((100vw - 320px) / 1960));
-  }
-}
-
-@media screen and (min-width: 2280px) {
-  h2, .cover-text-row .cover-text-1a {
-    font-size: 54px;
-  }
-}
-
-h3 {
-  font-size: 1.44rem;
-}
-
-h3 {
-  font-size: 23.04px;
-}
-
-@media screen and (min-width: 320px) {
-  h3 {
-    font-size: calc(23.04px + 12.96 * ((100vw - 320px) / 1960));
-  }
-}
-
-@media screen and (min-width: 2280px) {
-  h3 {
-    font-size: 36px;
   }
 }
 
@@ -186,8 +122,23 @@ body.blog section.blog-post-container {
 }
 
 /* Bootstrap Override */
-.h1, .h2, .h3, .h4, .h5, .h6, h1, .cover-text-row .cover-text-1b, h2, .cover-text-row .cover-text-1a, h3, h4, h5, h6 {
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
+}
+
+@media (max-width: 575.98px) {
+  .display-1 {
+    font-size: 4rem;
+  }
+  .display-2 {
+    font-size: 2.75rem;
+  }
+  .display-3 {
+    font-size: 2.25rem;
+  }
+  .display-4 {
+    font-size: 1.75rem;
+  }
 }
 
 /* Checkboxes styles */
@@ -313,7 +264,20 @@ a {
 .cover-text-row,
 .container-fluid,
 .alk-container {
-  padding: .5rem 4.5rem;
+  padding: .5em 2em;
+}
+
+@media screen and (min-width: 992px) {
+  .navbar,
+  .cover-text-row,
+  .container-fluid,
+  .alk-container {
+    padding: .5rem 2.5rem;
+  }
+}
+
+.navbar-brand img {
+  width: 11em;
 }
 
 .navbar-nav .dropdown-menu {
@@ -365,63 +329,12 @@ a {
   z-index: 500;
 }
 
-.cover-text-row .cover-text-1a {
-  font-size: 27.648px;
-}
-
-@media screen and (min-width: 320px) {
-  .cover-text-row .cover-text-1a {
-    font-size: calc(27.648px + 39.852 * ((100vw - 320px) / 1960));
-  }
-}
-
-@media screen and (min-width: 2280px) {
-  .cover-text-row .cover-text-1a {
-    font-size: 67.5px;
-  }
-}
-
-@media screen and (max-width: 680px) {
-  .cover-text-row .cover-text-1a {
-    font-size: 1.5em;
-  }
-}
-
-.cover-text-row .cover-text-1b {
-  font-size: 27.648px;
-}
-
-@media screen and (min-width: 320px) {
-  .cover-text-row .cover-text-1b {
-    font-size: calc(27.648px + 107.352 * ((100vw - 320px) / 1960));
-  }
-}
-
-@media screen and (min-width: 2280px) {
-  .cover-text-row .cover-text-1b {
-    font-size: 135px;
-  }
-}
-
-@media screen and (max-width: 680px) {
-  .cover-text-row .cover-text-1b {
-    font-size: 3.5em;
-  }
-}
-
 .cover-text-row .cover-text-1a,
 .cover-text-row .cover-text-1b {
   text-shadow: 1px 1px #444;
   color: white;
   -webkit-animation-delay: 2s;
   animation-delay: 2s;
-}
-
-@media screen and (max-width: 1080px) {
-  .heroChevron {
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
-  }
 }
 
 /* Button Styles */
@@ -460,8 +373,7 @@ a {
   /* iPhone 6/7/8 */
   /* iPhone 6/7/8 plus */
   /* iPhone X */
-  /* Nexus 10 and iPad */
-  /* iPad Pro */
+  /* Nexus 10, iPad, and iPad Pro */
   padding: 1rem;
   background: #2bb3e5;
   -webkit-transform: translateY(-50%);
@@ -472,13 +384,13 @@ a {
 
 @media screen and (min-width: 375px) and (min-height: 667px) {
   .callNow {
-    width: 19vw;
+    width: 14vw;
   }
 }
 
 @media screen and (min-width: 414px) and (min-height: 736px) {
   .callNow {
-    width: 17vw;
+    width: 14vw;
   }
 }
 
@@ -490,13 +402,7 @@ a {
 
 @media screen and (min-width: 700px) {
   .callNow {
-    width: 9vw;
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .callNow {
-    width: 7.5vw;
+    display: none;
   }
 }
 
@@ -522,7 +428,6 @@ a {
   width: 100%;
   height: 110px;
   margin-top: 75px;
-  padding: 1rem 4.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -564,7 +469,7 @@ a {
 }
 
 .footer a {
-  color: inherit;
+  color: #f8da32;
 }
 
 .footer a:hover {
@@ -607,7 +512,6 @@ a {
   z-index: 900;
   position: absolute;
   bottom: 2vh;
-  left: 50%;
   cursor: pointer;
   -webkit-filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.7));
           filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.7));
@@ -880,6 +784,13 @@ button:focus {
           animation-delay: .75s;
 }
 
+.servicesHome .card .cardOne .card-footer,
+.servicesHome .card .cardOne .card-footer,
+.servicesHome .card .cardOne .card-footer,
+.servicesHome .card .cardOne .card-footer {
+  padding: 0;
+}
+
 .servicesHome .card .image-services.card-img-top {
   max-width: auto !important;
   max-height: 25vh;
@@ -905,7 +816,7 @@ button:focus {
   padding: 0;
 }
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 992px) {
   .servicesHome .card .card-img-overlay {
     min-height: -webkit-fit-content;
     min-height: -moz-fit-content;
@@ -922,7 +833,7 @@ button:focus {
   bottom: 1em;
 }
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 992px) {
   .servicesHome .card:hover .card-img-overlay {
     opacity: 1;
     color: white;
@@ -935,7 +846,7 @@ section.statsCounter {
   color: white;
 }
 
-section.statsCounter h2:first-child, section.statsCounter .cover-text-row .cover-text-1a:first-child, .cover-text-row section.statsCounter .cover-text-1a:first-child {
+section.statsCounter h2:first-child {
   margin-top: 2rem;
 }
 
@@ -943,7 +854,7 @@ section.statsCounter .row div {
   margin-bottom: 1.5rem;
 }
 
-section.statsCounter .row div h2, section.statsCounter .row div .cover-text-row .cover-text-1a, .cover-text-row section.statsCounter .row div .cover-text-1a {
+section.statsCounter .row div h2 {
   margin-top: unset;
   color: #f8da32;
 }
@@ -999,7 +910,7 @@ section.recentBlogPosts .card-deck .row .blogCard .card-img-overlay {
   border: 1px solid #2bb3e5;
 }
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 992px) {
   section.recentBlogPosts .card-deck .row .blogCard .card-img-overlay {
     min-height: -webkit-fit-content;
     min-height: -moz-fit-content;
@@ -1009,7 +920,7 @@ section.recentBlogPosts .card-deck .row .blogCard .card-img-overlay {
   }
 }
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 992px) {
   section.recentBlogPosts .card-deck .row .blogCard:hover .card-img-overlay {
     opacity: 1;
     color: white;
@@ -1095,7 +1006,7 @@ section.deliverYourMessage {
   color: #2bb3e5;
 }
 
-.plan .planCard h2, .plan .planCard .cover-text-row .cover-text-1a, .cover-text-row .plan .planCard .cover-text-1a, .plan .planCard p {
+.plan .planCard h2, .plan .planCard p {
   color: #0B3C5D;
 }
 
@@ -1211,7 +1122,7 @@ div.spinContainer {
   color: white;
 }
 
-.marketingReinvented h2, .marketingReinvented .cover-text-row .cover-text-1a, .cover-text-row .marketingReinvented .cover-text-1a {
+.marketingReinvented h2 {
   color: white;
 }
 
@@ -1451,8 +1362,6 @@ div.spinContainer {
   bottom: 0;
 }
 
-.blog-single,
-.blog-single-post-nav,
 .blog-title-bar,
 .blog-author {
   padding: 0 4.5rem;
@@ -1490,11 +1399,11 @@ div.spinContainer {
   fill: #0099e8;
 }
 
-.blog-single-page a {
+.blog-single-page #main:not(.footer) a {
   color: #2bb3e5;
 }
 
-.blog-single-page a:hover {
+.blog-single-page #main:not(.footer) a:hover {
   color: #0B3C5D;
 }
 /*# sourceMappingURL=style.css.map */

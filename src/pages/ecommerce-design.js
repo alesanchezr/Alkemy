@@ -79,7 +79,7 @@ const EcommerceDesign = ({data}) => {
     })
   }
 
-  const pageTitle = "eCommerce Web Design"
+  const pageTitle = { name: "eCommerce Web Design", url: "/ecommerce-design" }
 
   return(
     <ScrollWrapper onWindowScroll={handleScroll}>
@@ -88,7 +88,10 @@ const EcommerceDesign = ({data}) => {
           headerTitle={[true,pageTitle]}
           bodyClasses="eCommerce"
           >
-          <SEO title={pageTitle} />
+          <SEO 
+            title={pageTitle} 
+            
+            />
 
           {/* Section 1 */}
           <section className="px-5 mt-4 mb-5">
