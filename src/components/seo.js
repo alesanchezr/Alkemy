@@ -5,31 +5,31 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
-import { TypographyStyle, GoogleFont } from 'react-typography'
-import typography from '../utils/typography'
+import React from "react";
+import PropTypes from "prop-types";
+import Helmet from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
+import { TypographyStyle, GoogleFont } from "react-typography";
+import typography from "../utils/typography";
 
-import logo from '../assets/images/alkemy-logo-vertical.png'
-import msTileImg from '../assets/images/favicons/ms-icon-144x144.png'
+import logo from "../assets/images/alkemy-logo-vertical.png";
+import msTileImg from "../assets/images/favicons/ms-icon-144x144.png";
 
-import appleIcon57 from '../assets/images/favicons/apple-icon-57x57.png'
-import appleIcon60 from '../assets/images/favicons/apple-icon-60x60.png'
-import appleIcon72 from '../assets/images/favicons/apple-icon-72x72.png'
-import appleIcon76 from '../assets/images/favicons/apple-icon-76x76.png'
-import appleIcon114 from '../assets/images/favicons/apple-icon-114x114.png'
-import appleIcon120 from '../assets/images/favicons/apple-icon-120x120.png'
-import appleIcon144 from '../assets/images/favicons/apple-icon-144x144.png'
-import appleIcon152 from '../assets/images/favicons/apple-icon-152x152.png'
-import appleIcon180 from '../assets/images/favicons/apple-icon-180x180.png'
+import appleIcon57 from "../assets/images/favicons/apple-icon-57x57.png";
+import appleIcon60 from "../assets/images/favicons/apple-icon-60x60.png";
+import appleIcon72 from "../assets/images/favicons/apple-icon-72x72.png";
+import appleIcon76 from "../assets/images/favicons/apple-icon-76x76.png";
+import appleIcon114 from "../assets/images/favicons/apple-icon-114x114.png";
+import appleIcon120 from "../assets/images/favicons/apple-icon-120x120.png";
+import appleIcon144 from "../assets/images/favicons/apple-icon-144x144.png";
+import appleIcon152 from "../assets/images/favicons/apple-icon-152x152.png";
+import appleIcon180 from "../assets/images/favicons/apple-icon-180x180.png";
 
-import androidIcon192 from '../assets/images/favicons/android-icon-192x192.png'
+import androidIcon192 from "../assets/images/favicons/android-icon-192x192.png";
 
-import favicon16 from '../assets/images/favicons/favicon-16x16.png'
-import favicon32 from '../assets/images/favicons/favicon-32x32.png'
-import favicon96 from '../assets/images/favicons/favicon-96x96.png'
+import favicon16 from "../assets/images/favicons/favicon-16x16.png";
+import favicon32 from "../assets/images/favicons/favicon-32x32.png";
+import favicon96 from "../assets/images/favicons/favicon-96x96.png";
 
 function SEO({
     description,
@@ -55,13 +55,13 @@ function SEO({
                 }
             }
         `
-    )
+    );
 
-    const metaDescription = description || site.siteMetadata.description
-    const pageAuthor = author || site.siteMetadata.author
-    const pageKeywords = keywords || site.siteMetadata.keywords
-    const articleDate = date || null
-    const siteAddress = site.siteMetadata.siteUrl
+    const metaDescription = description || site.siteMetadata.description;
+    const pageAuthor = author || site.siteMetadata.author;
+    const pageKeywords = keywords || site.siteMetadata.keywords;
+    const articleDate = date || null;
+    const siteAddress = site.siteMetadata.siteUrl;
 
     return (
         <Helmet
@@ -123,7 +123,11 @@ function SEO({
                 },
             ].concat(meta)}
         >
-            <html lang="en" amp xmlns="http://www.w3.org/1999/xhtml" />
+            <html
+                lang={lang ? lang : "en"}
+                amp
+                xmlns="http://www.w3.org/1999/xhtml"
+            />
             <link rel="canonical" href="https://www.alkemyinc.com" />
             <meta name="msapplication-TileImage" content={msTileImg} />
 
@@ -279,14 +283,14 @@ function SEO({
             ) : null}
             {children}
         </Helmet>
-    )
+    );
 }
 
 SEO.defaultProps = {
-  meta: [],
-  description: ``,
-  keywords: `Software Development, Web Design, eCommerce Design, Digital Marketing, React, PHP, HTML, Python, Django, Gatsby, GraphQL, Wordpress Design, 3dcart, Shopify, WooCommerce, SEM, Search Engine Marketing, SEO, Search Engine Optimization, Social Media Marketing, Web Strategy`
-}
+    meta: [],
+    description: ``,
+    keywords: `Software Development, Web Design, eCommerce Design, Digital Marketing, React, PHP, HTML, Python, Django, Gatsby, GraphQL, Wordpress Design, 3dcart, Shopify, WooCommerce, SEM, Search Engine Marketing, SEO, Search Engine Optimization, Social Media Marketing, Web Strategy`,
+};
 
 SEO.propTypes = {
     description: PropTypes.string,
@@ -294,7 +298,9 @@ SEO.propTypes = {
     meta: PropTypes.arrayOf(PropTypes.object),
     title: PropTypes.string.isRequired,
     keywords: PropTypes.string,
-    date: PropTypes.string
-}
+    date: PropTypes.string,
+    author: PropTypes.string,
+    children: PropTypes.object,
+};
 
-export default SEO
+export default SEO;

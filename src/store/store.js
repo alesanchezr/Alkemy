@@ -3,17 +3,17 @@ const getState = ({ getStore, setStore }) => {
     return {
         store: {
             searchResults: [],
-            searchTitle: ''
+            searchTitle: "",
         },
         actions: {
             search: queryResult => {
-                setStore({searchResults: queryResult})
+                setStore({ searchResults: queryResult });
             },
             searchTitle: queryResult => {
-                setStore({searchTitle: queryResult})
+                setStore({ searchTitle: queryResult });
             },
         },
-    }
-}
+    };
+};
 
-export default getState
+export default getState;

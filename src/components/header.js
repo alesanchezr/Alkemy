@@ -1,8 +1,9 @@
-import React from 'react'
-import { graphql, Link, StaticQuery } from "gatsby"
-import ReactNavbar from './Navbar.jsx'
-import { Col, Row } from "reactstrap"
-import BlogSearch from './BlogSearch.jsx'
+import React from "react";
+import { graphql, Link, StaticQuery } from "gatsby";
+import ReactNavbar from "./Navbar.jsx";
+import { Col, Row } from "reactstrap";
+import BlogSearch from "./BlogSearch.jsx";
+import PropTypes from "prop-types";
 
 /*
 _menuArray object details:
@@ -14,27 +15,46 @@ _menuArray object details:
 */
 
 var _menuArray = [
-  {
-    name: 'Solutions',
-    id: '1',
-    drop: true,
-    title: true,
-    submenu: [
-      {name: 'Responsive Web Design', id: '1a', url: '/responsive-web-design'},
-      {name: 'Web Development', id: '1b', url: '/web-development'},
-      {name: 'eCommerce Design', id: '1c', url: '/ecommerce-design'},
-      {name: 'Digital Marketing', id: '1d', url: '/digital-marketing'},
-    ]
-  },
-  {name: 'Alkemy Blog', title: true, id: '2', drop:false, url: '/alkemy-blog'},
-  {name: 'About Alkemy', title: true, id: '3', drop:false, url: '/about-alkemy'},
-  {name: 'Contact Alkemy', title: true, id: '4', drop:false, url: '/contact-alkemy'},
+    {
+        name: "Solutions",
+        id: "1",
+        drop: true,
+        title: true,
+        submenu: [
+            {
+                name: "Responsive Web Design",
+                id: "1a",
+                url: "/responsive-web-design",
+            },
+            { name: "Web Development", id: "1b", url: "/web-development" },
+            { name: "eCommerce Design", id: "1c", url: "/ecommerce-design" },
+            { name: "Digital Marketing", id: "1d", url: "/digital-marketing" },
+        ],
+    },
+    {
+        name: "Alkemy Blog",
+        title: true,
+        id: "2",
+        drop: false,
+        url: "/alkemy-blog",
+    },
+    {
+        name: "About Alkemy",
+        title: true,
+        id: "3",
+        drop: false,
+        url: "/about-alkemy",
+    },
+    {
+        name: "Contact Alkemy",
+        title: true,
+        id: "4",
+        drop: false,
+        url: "/contact-alkemy",
+    },
 ];
 
-
-const Header = (
-    { pageTitle, hideHeader, renderHeaderSolid, search }
-) => (
+const Header = ({ pageTitle, hideHeader, renderHeaderSolid, search }) => (
     <StaticQuery
         query={graphql`
             query HeaderBlogQuery {
@@ -88,5 +108,12 @@ const Header = (
             </>
         )}
     />
-)
-export default Header
+);
+
+Header.propTypes = {
+    pageTitle: PropTypes.object,
+    hideHeader: PropTypes.boolean,
+    renderHeaderSolid: PropTypes.boolean,
+    search: PropTypes.boolean,
+};
+export default Header;

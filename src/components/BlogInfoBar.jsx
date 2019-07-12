@@ -1,14 +1,12 @@
-import React from "react"
-import PropTypes from 'prop-types'
-import {
-    Row, Col
-} from "reactstrap"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import React from "react";
+import PropTypes from "prop-types";
+import { Row, Col } from "reactstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const BlogInfoBar = (props) => {
-    const {...other} = props
+const BlogInfoBar = props => {
+    const { ...other } = props;
 
-    const renderHorizontal = ()=>{
+    const renderHorizontal = () => {
         return (
             <>
                 <Col>
@@ -44,16 +42,16 @@ const BlogInfoBar = (props) => {
                             />
 
                             {props.author && props.author.length > 0
-                                ? (props.author)
+                                ? props.author
                                 : null}
                         </p>
                     </Col>
                 ) : null}
             </>
-        )
-    }
+        );
+    };
 
-    const renderVertical = ()=>{
+    const renderVertical = () => {
         return (
             <>
                 <Col xs={12}>
@@ -79,27 +77,25 @@ const BlogInfoBar = (props) => {
                     </p>
                 </Col>
             </>
-        )
-    }
+        );
+    };
 
     return (
         // eslint-disable-next-line react/prop-types
-        <Row {...other} className={props.className+' align-items-center'}>
-            {
-                props.layout.toLowerCase()==='horizontal'
+        <Row {...other} className={props.className + " align-items-center"}>
+            {props.layout.toLowerCase() === "horizontal"
                 ? renderHorizontal()
-                : renderVertical()
-            }
+                : renderVertical()}
         </Row>
-    )
-}
+    );
+};
 
 BlogInfoBar.propTypes = {
     category: PropTypes.string, // Category of the post
     time: PropTypes.string, // Reading time
     author: PropTypes.string, // Who Wrote the Post
     layout: PropTypes.string, // Horizontal or Vertical
-    iconColor: PropTypes.string
-}
+    iconColor: PropTypes.string,
+};
 
-export default BlogInfoBar
+export default BlogInfoBar;

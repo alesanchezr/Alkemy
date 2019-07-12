@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react"
-import _ from "lodash"
-import { graphql, Link } from "gatsby"
-import Img from "gatsby-image"
-import { Context } from "../store/appContext.js"
-import { addJS, fluidImageSmall } from "../utils/utils.js"
-import Layout from "../components/layout"
-import ScrollWrapper from "../components/scrollWrapper.jsx"
-import { Button, Col, Row, Label, FormGroup } from "reactstrap"
-import FreeWebsiteAnalysis from "../components/freeWebsiteAnalysis.jsx"
-import SEO from "../components/seo"
-import Select from "react-select"
-import BlogInfoBar from "../components/BlogInfoBar.jsx"
-import RecentBlogs from "../components/RecentBlogs.jsx"
-import LatestFromCategory from "../components/LatestFromCategory.jsx"
-
+import React, { useState, useEffect } from "react";
+import _ from "lodash";
+import { graphql, Link } from "gatsby";
+import Img from "gatsby-image";
+import { Context } from "../store/appContext.js";
+import { addJS, fluidImageSmall } from "../utils/utils.js";
+import Layout from "../components/layout";
+import ScrollWrapper from "../components/scrollWrapper.jsx";
+import { Button, Col, Row, Label, FormGroup } from "reactstrap";
+import FreeWebsiteAnalysis from "../components/freeWebsiteAnalysis.jsx";
+import SEO from "../components/seo";
+import Select from "react-select";
+import BlogInfoBar from "../components/BlogInfoBar.jsx";
+import RecentBlogs from "../components/RecentBlogs.jsx";
+import LatestFromCategory from "../components/LatestFromCategory.jsx";
+import PropTypes from "prop-types";
 
 /*
 Layout props:
@@ -26,106 +26,110 @@ Layout props:
   bodyClasses: additional classes to add to body tag
 */
 
-// eslint-disable-next-line
 const AlkemyBlog = ({
     data: {
         allMdx: { edges },
-    },location
+    },
+    location,
 }) => {
     // pageTitle: SEO friendly title for the title bar
-    const pageTitle = { name: "Alkemy Blog", url: "/alkemy-blog" }
-    
+    const pageTitle = { name: "Alkemy Blog", url: "/alkemy-blog" };
+
     // define state hooks
-    const [dropdown, setDropdown] = useState('')
-    const [filterBySearch, setFilter] = useState(false)
-    const [searchResults, setSearchResults] = useState(0)
+    const [dropdown, setDropdown] = useState("");
+    const [filterBySearch, setFilter] = useState(false);
+    const [searchResults, setSearchResults] = useState(0);
 
     // useEffect hook to check if their is a state value and trigger it in the dropdown
     useEffect(() => {
         if (location.state && location.state.value) {
             // use location.state to get information from single post
-            let cat = location.state.value
+            let cat = location.state.value;
 
             // set the dropdown parameters and reset the search
-            setDropdown(cat)
+            setDropdown(cat);
         }
-    }, []) // pass empty array as second arg so it only runs on mount
+    }, []); // pass empty array as second arg so it only runs on mount
 
     // addJS(position,inner script,source) - adds JS to document dynamically for AddThis Toolbar
     addJS(
         `body`,
         null,
         `//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ae21853f0b21631`
-    )
+    );
 
-    let createBlogArray = (arr,home=true) => {
-        let blogArray = arr.map(e=>e)
-        if (home && blogArray.length > 0) blogArray.shift()
-        return blogArray
-    }
+    let createBlogArray = (arr, home = true) => {
+        let blogArray = arr.map(e => e);
+        if (home && blogArray.length > 0) blogArray.shift();
+        return blogArray;
+    };
 
-    const resetDropdown = ()=>{
-        setDropdown("")
-    }
+    const resetDropdown = () => {
+        setDropdown("");
+    };
     const resetSearch = actions => {
-        setFilter(false)
-        setSearchResults(0)
-        actions.search("")
-        actions.searchTitle("")
-    }
+        setFilter(false);
+        setSearchResults(0);
+        actions.search("");
+        actions.searchTitle("");
+    };
 
-    const blogCategories = (jump=false) => {
+    const blogCategories = (jump = false) => {
         // create a categories array
         let categories =
-            edges && edges.map(e => {
-                return e.node.frontmatter.category
-            })
-        categories = _.uniq(categories).sort((a, b) => a.localeCompare(b))
-        
+            edges &&
+            edges.map(e => {
+                return e.node.frontmatter.category;
+            });
+        categories = _.uniq(categories).sort((a, b) => a.localeCompare(b));
+
         // aux array
-        let categoryArray = []
+        let categoryArray = [];
 
         // if it's the Jump to menu, push in a home case
-        jump && categoryArray.push({ label: "Blog Home", value: "Blog Home" })
+        jump && categoryArray.push({ label: "Blog Home", value: "Blog Home" });
 
         // loop the category array and push in pairs to aux
-        for(let i in categories){
-            categoryArray.push({label: categories[i],value: categories[i]})
+        for (let i in categories) {
+            categoryArray.push({ label: categories[i], value: categories[i] });
         }
 
-        return categoryArray
-    }
+        return categoryArray;
+    };
 
-    const handleDropdownChange = (value,actions)=>{
-        setDropdown(value)
-        resetSearch(actions)
-    }
+    const handleDropdownChange = (value, actions) => {
+        setDropdown(value);
+        resetSearch(actions);
+    };
 
-    const renderView = (store)=>{
-        let blogs = edges.map(e => e)
+    const renderView = store => {
+        let blogs = edges.map(e => e);
 
         if (store.searchResults.length > 0) {
-            let results = store.searchResults
+            let results = store.searchResults;
             blogs = blogs.filter(e => {
                 for (let item in results) {
-                    if (results[item].path === e.node.frontmatter.path) return e
+                    if (results[item].path === e.node.frontmatter.path)
+                        return e;
                 }
-            })
-            
-            setFilter(true)
-            setSearchResults(blogs.length)
-            resetDropdown()
-        } else if (dropdown.value && dropdown.value.length > 0 &&
-            dropdown.value.toLowerCase()!='blog home') {
+            });
 
+            setFilter(true);
+            setSearchResults(blogs.length);
+            resetDropdown();
+        } else if (
+            dropdown.value &&
+            dropdown.value.length > 0 &&
+            dropdown.value.toLowerCase() != "blog home"
+        ) {
             blogs = blogs.filter(e => {
-                return e.node.frontmatter.category === dropdown.value
-            })
-            
-            setFilter(false)
-            setSearchResults(0)
+                return e.node.frontmatter.category === dropdown.value;
+            });
+
+            setFilter(false);
+            setSearchResults(0);
         }
-        
+
         if (filterBySearch === false) {
             return (
                 <>
@@ -209,7 +213,7 @@ const AlkemyBlog = ({
                                 <Col xs={12}>
                                     <RecentBlogs
                                         className="px-4"
-                                        blogdata={createBlogArray(blogs,false)}
+                                        blogdata={createBlogArray(blogs, false)}
                                         layout="alt"
                                     />
                                 </Col>
@@ -217,7 +221,7 @@ const AlkemyBlog = ({
                         </section>
                     )}
                 </>
-            )
+            );
         } else {
             return (
                 <section className="py-4 blog-post-listing px-4">
@@ -227,11 +231,9 @@ const AlkemyBlog = ({
                         </Col>
                     </Row>
                 </section>
-            )
+            );
         }
-        
-        
-    }
+    };
 
     return (
         <ScrollWrapper onWindowScroll={handleScroll}>
@@ -267,7 +269,9 @@ const AlkemyBlog = ({
                                                     classNamePrefix="select"
                                                     placeholder="Select a value..."
                                                     name="categories"
-                                                    options={blogCategories(true)}
+                                                    options={blogCategories(
+                                                        true
+                                                    )}
                                                     ref={categorySelect}
                                                     value={dropdown}
                                                     onChange={value =>
@@ -282,7 +286,7 @@ const AlkemyBlog = ({
                                     </Col>
                                 </Row>
                             </section>
-                        )
+                        );
                     }}
                 </Context.Consumer>
 
@@ -297,7 +301,7 @@ const AlkemyBlog = ({
                                     {searchResults} Posts Found.
                                 </Col>
                             </Row>
-                        ) : null
+                        ) : null;
                     }}
                 </Context.Consumer>
                 <Context.Consumer>
@@ -308,26 +312,20 @@ const AlkemyBlog = ({
                 </section>
             </Layout>
         </ScrollWrapper>
-    )
-}
+    );
+};
 
-const dreamForm = React.createRef()
-const categorySelect = React.createRef()
+const dreamForm = React.createRef();
+const categorySelect = React.createRef();
 
-
-const handleScroll = () => {
-
-}
-
+const handleScroll = () => {};
 
 export const query = graphql`
     {
         siteSearchIndex {
             index
         }
-        allMdx(
-            sort: { order: DESC, fields: [frontmatter___date] }
-        ) {
+        allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
             edges {
                 node {
                     fields {
@@ -349,6 +347,9 @@ export const query = graphql`
             }
         }
     }
-`
+`;
+AlkemyBlog.propTypes = {
+    location: PropTypes.object,
+};
 
-export default AlkemyBlog
+export default AlkemyBlog;

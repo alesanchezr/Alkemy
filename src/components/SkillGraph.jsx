@@ -1,26 +1,23 @@
-import React from "react"
-import PropTypes from 'prop-types'
-import {
-    Row, Col
-} from "reactstrap"
+import React from "react";
+import PropTypes from "prop-types";
+import { Row, Col } from "reactstrap";
 
-
-export default class SkillGraph extends React.Component{
+export default class SkillGraph extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
             skills: [],
-        }
+        };
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.setState({
-            skills: this.props.skills
-        })
+            skills: this.props.skills,
+        });
     }
 
-    renderSkillRows = ()=>{
+    renderSkillRows = () => {
         return (
             <Row>
                 {this.state.skills.map((e, index) => {
@@ -184,17 +181,17 @@ export default class SkillGraph extends React.Component{
                                 <h6>{e.name}</h6>
                             </div>
                         </Col>
-                    )
+                    );
                 })}
             </Row>
-        )
-    }
+        );
+    };
 
-    render(){
-        return <div>{this.renderSkillRows()}</div>
+    render() {
+        return <div>{this.renderSkillRows()}</div>;
     }
 }
 
 SkillGraph.propTypes = {
-    skills: PropTypes.array,  
-}
+    skills: PropTypes.array,
+};

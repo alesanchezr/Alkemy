@@ -1,17 +1,29 @@
-import React from 'react';
-import CountUp from 'react-countup'
-import { Watch } from 'scrollmonitor-react';
-import Loading from './loading.jsx'
-
+import React from "react";
+import CountUp from "react-countup";
+import { Watch } from "scrollmonitor-react";
+import Loading from "./loading.jsx";
+import PropTypes from "prop-types";
 
 const Counter = props => (
-  <h2><CountUp start={0} end={props.num} duration={5} separator=',' redraw={false}/></h2>
-)
+    <h2>
+        <CountUp
+            start={0}
+            end={props.num}
+            duration={5}
+            separator=","
+            redraw={false}
+        />
+    </h2>
+);
+
+Counter.propTypes = {
+    num: PropTypes.number,
+};
 
 class ReactCounter extends React.Component {
     constructor(props) {
-        super(props)
-        this.myRef = React.createRef()
+        super(props);
+        this.myRef = React.createRef();
     }
 
     render() {
@@ -23,8 +35,13 @@ class ReactCounter extends React.Component {
                     <Loading className="my-4" />
                 )}
             </>
-        )
+        );
     }
 }
 
-export default Watch(ReactCounter)
+ReactCounter.propTypes = {
+    isInViewport: PropTypes.boolean,
+    theNumber: PropTypes.number,
+};
+
+export default Watch(ReactCounter);

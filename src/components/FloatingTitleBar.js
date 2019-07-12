@@ -1,14 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from "gatsby"
-import { Col, Row, Container } from "reactstrap"
-import { propTypes } from 'react-typography/dist/GoogleFont';
-import BlogInfoBar from "./BlogInfoBar.jsx"
-
+import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "gatsby";
+import { Col, Row, Container } from "reactstrap";
+import { propTypes } from "react-typography/dist/GoogleFont";
+import BlogInfoBar from "./BlogInfoBar.jsx";
 
 const FloatingTitleBar = props => {
-    const {...style} = props.style && props.style
-    const {className} = props
+    const { ...style } = props.style && props.style;
     return (
         <Container
             fluid
@@ -29,12 +27,13 @@ const FloatingTitleBar = props => {
                 </Col>
             </Row>
         </Container>
-    )
-}
+    );
+};
 
 FloatingTitleBar.propTypes = {
     title: PropTypes.string,
     category: PropTypes.string,
     time: PropTypes.string,
-}
-export default FloatingTitleBar
+    style: PropTypes.object,
+};
+export default FloatingTitleBar;

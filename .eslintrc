@@ -42,14 +42,15 @@
     "rules": {
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
-        "react/prop-types": [ 0 , {
+        "react/prop-types": [ "warn" , {
             "ignore": ["data"]
         }],
-        "no-unused-vars": ["error", {
-            "varsIgnorePattern": "[fluidImage]"
+        "no-unused-vars": ["warn", {
+            "varsIgnorePattern": "[fluidImage]",
         }],
         "no-undef": ["error", {
             "typeof": false
         }],
-    }
+        "no-console": "off",
+    },
 }
