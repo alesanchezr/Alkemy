@@ -58,7 +58,7 @@ const _menuArray = [
 const _subLinks = [
     { name: "Privacy Policy", id: "1", url: "/privacy-policy" },
     { name: "Terms & Conditions", id: "2", url: "/terms-and-conditions" },
-    { name: "Site Map", id: "3", url: "/site-map" },
+    { name: "Site Map", id: "3", url: "/sitemap.xml" },
 ];
 
 const Footer = () => (
