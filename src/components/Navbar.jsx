@@ -249,10 +249,10 @@ export default class ReactNavbar extends React.Component {
                 <div className={this.state.mobileMenuClasses}>
                     <Nav className="mx-auto" navbar>
                         {this.renderMobileLinks()}
-                        <Button
+                        <li className="mx-auto my-4 nav-item"></li><Button
                             outline
                             color="light"
-                            className="mx-auto align-middle my-4"
+                            className="align-middle"
                         >
                             <FontAwesomeIcon
                                 icon={this.state.icon}
@@ -261,7 +261,7 @@ export default class ReactNavbar extends React.Component {
                                 className="mr-2"
                             />
                             Reserve Appointment
-                        </Button>
+                        </Button></li>
                     </Nav>
                 </div>
                 <Modal
