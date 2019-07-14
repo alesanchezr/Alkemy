@@ -63,7 +63,6 @@ function SEO({
     const pageKeywords = keywords?keywords:site.siteMetadata.keywords;
     const articleDate = date?date:null;
     const siteAddress = site.siteMetadata.siteUrl;
-    console.log(metaDescription)
 
     return (
         <Helmet
