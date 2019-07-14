@@ -54,7 +54,7 @@ const RecentBlogs = props => {
                                                     }
                                                     alt={
                                                         blogData[1].node
-                                                            .frontmatter.title
+                                                            .frontmatter.coverAlt
                                                     }
                                                 />
                                                 <CardBody className="d-flex flex-column align-items-center">
@@ -153,7 +153,8 @@ const RecentBlogs = props => {
                                                         .cover.childImageSharp
                                                         .fluid
                                                 }
-                                                alt="Alkemy is always the best fit for your business and digital presence."
+                                                alt={blogData[0].node.frontmatter
+                                                    .coverAlt}
                                             />
                                         </Col>
                                     </Row>
@@ -188,7 +189,7 @@ const RecentBlogs = props => {
                                     e.node.frontmatter.cover.childImageSharp
                                         .fluid
                                 }
-                                alt={e.node.frontmatter.title}
+                                alt={e.node.frontmatter.coverAlt}
                             />
                             <CardBody>
                                 <CardTitle className="text-bold">
@@ -228,7 +229,7 @@ const RecentBlogs = props => {
                                             e.node.frontmatter.cover
                                                 .childImageSharp.fluid
                                         }
-                                        alt={e.node.frontmatter.title}
+                                        alt={e.node.frontmatter.coverAlt}
                                     />
                                     <CardBody>
                                         <CardTitle className="text-bold">

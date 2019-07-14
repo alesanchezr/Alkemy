@@ -180,7 +180,7 @@ const AlkemyBlog = ({
                                             blogs[0].node.frontmatter.cover
                                                 .childImageSharp.fluid
                                         }
-                                        alt="Alkemy is always the best fit for your business and digital presence."
+                                        alt={blogs[0].node.frontmatter.coverAlt}
                                     />
                                 </Col>
                             </Row>
@@ -243,7 +243,7 @@ const AlkemyBlog = ({
                 search={true}
                 bodyClasses="blog"
             >
-                <SEO title={pageTitle} />
+                <SEO title={pageTitle.name} />
                 <Context.Consumer>
                     {({ actions }) => {
                         return (
@@ -342,6 +342,7 @@ export const query = graphql`
                         cover {
                             ...fluidImageSmall
                         }
+                        coverAlt
                     }
                 }
             }
