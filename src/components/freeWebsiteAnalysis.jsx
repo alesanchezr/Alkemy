@@ -226,6 +226,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                             <Input
                                                 type="text"
                                                 name="fullName"
+                                                id="fullName"
                                                 invalid={
                                                     typeof this.state.errors
                                                         .fullNameLength !==
@@ -258,6 +259,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                             <Input
                                                 type="text"
                                                 name="email"
+                                                id="email"
                                                 invalid={
                                                     typeof this.state.errors
                                                         .emailFormat !==
@@ -286,6 +288,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                     <Input
                                         type="text"
                                         name="webAddress"
+                                        id="webAddress"
                                         invalid={
                                             typeof this.state.errors
                                                 .websiteURLFormat !==

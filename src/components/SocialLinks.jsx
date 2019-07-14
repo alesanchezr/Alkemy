@@ -55,6 +55,7 @@ const renderSocialLinks = colorArray => {
                         className={
                             "align-middle social-" + item.platform + " ml-0"
                         }
+                        alt={'View on ' + item.platform}
                     />
                 </a>
             </Col>
