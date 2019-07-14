@@ -29,7 +29,7 @@ const BlogWidget = props => {
             return (
                 <Col key={edge.node.id} xs={12} md={4} className="mb-4">
                     <Card className="blogCard">
-                        <Link to={edge.node.frontmatter.path} ariaLabel="Read More">
+                        <Link to={edge.node.frontmatter.path} aria-label="Read More">
                             {edge.node.frontmatter.cover && (
                                 <Img
                                     className="card-img-top"

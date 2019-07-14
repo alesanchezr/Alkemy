@@ -177,18 +177,20 @@ export default class ReactNavbar extends React.Component {
                         <ul className="mobileSubMenu list-unstyled mx-auto text-center mb-5">
                             <NavItem className="text-center font-weight-bold siteTitle">
                                 <p className="text-white">{item.name}</p>
-                                {item.submenu.map(subitem => {
-                                    return (
-                                        <NavItem key={subitem.id}>
-                                            <Link
-                                                to={subitem.url}
-                                                className="text-white"
-                                            >
-                                                {subitem.name}
-                                            </Link>
-                                        </NavItem>
-                                    );
-                                })}
+                                <ul>
+                                    {item.submenu.map(subitem => {
+                                        return (
+                                            <NavItem key={subitem.id}>
+                                                <Link
+                                                    to={subitem.url}
+                                                    className="text-white"
+                                                >
+                                                    {subitem.name}
+                                                </Link>
+                                            </NavItem>
+                                        );
+                                    })}
+                                </ul>
                             </NavItem>
                         </ul>
                     </div>
@@ -219,7 +221,7 @@ export default class ReactNavbar extends React.Component {
                     <NavbarToggler
                         onClickCapture={this.toggleMobileMenu}
                         className={this.state.togglerClasses}
-                        ariaLabel="Menu"
+                        aria-label="Menu"
                     >
                         <span className="hamburger-box">
                             <span className="hamburger-inner"></span>

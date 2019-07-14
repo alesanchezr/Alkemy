@@ -440,6 +440,10 @@ a {
   margin-top: 75px;
 }
 
+.webp.webp-lossless .footer:after {
+  background: url("../images/footerbg.webp");
+}
+
 .footer {
   color: white;
   display: block;

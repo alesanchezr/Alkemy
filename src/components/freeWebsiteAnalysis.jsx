@@ -227,7 +227,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                                 type="text"
                                                 name="fullName"
                                                 id="fullName"
-                                                ariaLabel="Full Name"
+                                                aria-label="Full Name"
                                                 invalid={
                                                     typeof this.state.errors
                                                         .fullNameLength !==
@@ -261,7 +261,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                                 type="text"
                                                 name="email"
                                                 id="email"
-                                                ariaLabel="Email Address"
+                                                aria-label="Email Address"
                                                 invalid={
                                                     typeof this.state.errors
                                                         .emailFormat !==
@@ -291,7 +291,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                         type="text"
                                         name="webAddress"
                                         id="webAddress"
-                                        ariaLabel="Website Address"
+                                        aria-label="Website Address"
                                         invalid={
                                             typeof this.state.errors
                                                 .websiteURLFormat !==
@@ -316,7 +316,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                         type="checkbox"
                                         name="authCheck"
                                         id="authCheck"
-                                        ariaLabel="Authorization Checkbox"
+                                        aria-label="Authorization Checkbox"
                                         invalid={
                                             typeof this.state.errors
                                                 .authCheck !== "undefined"
@@ -371,7 +371,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                     type="text"
                                     name="bot-field"
                                     className="hp"
-                                    ariaLabel="Bot Field, do not fill."
+                                    aria-label="Bot Field, do not fill."
                                 />
                             </Form>
                         </div>

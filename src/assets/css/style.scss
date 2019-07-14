@@ -463,6 +463,13 @@ a {
 .pageHero{
   margin-top: $header-height;
 }
+
+.webp.webp-lossless .footer{
+  &:after {
+    background: url("../images/footerbg.webp");
+  }
+}
+
 .footer{
   color: white;
   display: block;
