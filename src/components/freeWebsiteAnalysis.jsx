@@ -227,7 +227,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                                 type="text"
                                                 name="fullName"
                                                 id="fullName"
-                                                aria-label="Full Name"
+                                                aria-labeledby="fullName"
                                                 invalid={
                                                     typeof this.state.errors
                                                         .fullNameLength !==
@@ -252,7 +252,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                     <Col xs={12} md={6} className="my-2 py-0">
                                         <FormGroup>
                                             <Label
-                                                    for="email"
+                                                for="email"
                                                 style={{visibility:"hidden"}}
                                             >
                                                 Email Address
@@ -261,7 +261,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                                 type="text"
                                                 name="email"
                                                 id="email"
-                                                aria-label="Email Address"
+                                                aria-labeledby="email"
                                                 invalid={
                                                     typeof this.state.errors
                                                         .emailFormat !==
@@ -274,6 +274,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                                 }
                                                 placeholder="Enter your Email Address"
                                             />
+                                            
                                             <FormFeedback className="my-3">
                                                 {this.state.errors.emailFormat}
                                             </FormFeedback>
@@ -291,7 +292,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                         type="text"
                                         name="webAddress"
                                         id="webAddress"
-                                        aria-label="Website Address"
+                                        aria-labeledby="webAddress"
                                         invalid={
                                             typeof this.state.errors
                                                 .websiteURLFormat !==
@@ -316,7 +317,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                         type="checkbox"
                                         name="authCheck"
                                         id="authCheck"
-                                        aria-label="Authorization Checkbox"
+                                        aria-labeledby="authCheck"
                                         invalid={
                                             typeof this.state.errors
                                                 .authCheck !== "undefined"
@@ -371,7 +372,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                     type="text"
                                     name="bot-field"
                                     className="hp"
-                                    aria-label="Bot Field, do not fill."
+                                    aria-labeledby="Bot Field, do not fill."
                                 />
                             </Form>
                         </div>
