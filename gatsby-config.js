@@ -178,6 +178,12 @@ module.exports = {
                 },
             },
         },
+        {
+            resolve: "gatsby-plugin-remove-console",
+            options: {
+                exclude: ["error", "warn"], // <- will be removed all console calls except these
+            },
+        },
         // {
         //     resolve: "gatsby-plugin-guess-js",
         //     options: {
