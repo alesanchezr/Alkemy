@@ -22,7 +22,7 @@
         "blocks": [
           {
             "heading": "Deliver Your Message With Beauty and Style",
-            "content": "Some text about how site will be custom designed with their business in mind and how this distinguishes them from competition. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lectus eros, suscipit nec ligula quis, maximus placerat libero. Donec sodales faucibus erat, in egestas turpis tincidunt nec. Nullam metus nisl, cursus eu imperdiet eget, rhoncus id dolor. Maecenas sed ligula molestie ante fermentum semper. Aliquam iaculis sem ut dui viverra tincidunt. Phasellus efficitur..."
+            "content": "Our Custom Website Development leverages the speed and power of GatsbyJS and ReactJS to ensure that your site leaves everyone else in a trail of dust. Hosted on Netlify, we are able to help reduce your costs, while add features that will make your website more functional and robust. Need a CMS for your new site? We can link you to Netlify's Content Management System so that your staff can maintain your blog from an easy to use interface."
           }
         ]
       },
@@ -31,7 +31,7 @@
         "blocks": [
           {
             "heading": "Beautiful Designs, Built On the Most Powerful CMS in the World",
-            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lectus eros, suscipit nec ligula quis, maximus placerat libero. Donec sodales faucibus erat, in egestas turpis tincidunt nec. Nullam metus nisl, cursus eu imperdiet eget, rhoncus id dolor. Maecenas sed ligula molestie ante fermentum semper. Aliquam iaculis sem ut dui viverra tincidunt. Phasellus efficitur, mi vel pellentesque sodales, nisl lacus vehicula lacus, at lacinia mauris erat ac arcu."
+            "content": "It's hard to ignore Wordpress in the modern age of the web. Greater than 30% of all websites are currently built on Wordpress due to the strength of it's community and the size of it's plugin library. If you are looking to get a cost effective site, and would like to leverage the power of Wordpress, we are happy to help you build your dream."
           }
         ]
       },
@@ -43,7 +43,9 @@
             "content": "Responsive websites and applications are a cornerstone of the modern world. In addition, every business or professional needs a modern and responsive website to sell more effectively. With our responsive web design services, we can help your business with it’s unique needs!",
             "disclaimers": [
               "* Additional content can be calculated separately based on the needs of your business. Please notify your project manager of any other content that you need and we will be happy to help.  Please note, these packages are not optimized for E-commerce functionality. Visit our E-Commerce Design section for more information about our E-Commerce Packages.",
-              "** Dynamic content can be edited, but some limitations apply based on your selected website design. Speak to your project manager for details on these limitations and how they can be overcome."
+              "** Dynamic content can be edited, but some limitations apply based on your selected website design. Speak to your project manager for details on these limitations and how they can be overcome.",
+              "*** Basic Technical SEO includes on-page meta and optimized page/link structure. Other SEO services not included.",
+              "**** Technical SEO Plus includes everything from basic, plus additional customization based on your industry. Rich Snippets, Image Meta, and preliminary SEO analysis."
             ]
           }
         ]
@@ -59,32 +61,37 @@
               "Static Content",
               "1 Hero Image",
               "Category Banners",
-              "Technical SEO"
+              "Basic Technical SEO***"
             ]
           },
           {
             "name": "Growth Plan",
             "icon": "chart-line",
-            "priceFrom": "From $9,999",
+            "priceFrom": "From $14,999",
             "features": [
               "Up to 10 pages Designed & Coded",
               "Dynamic Content (Can be edited**)",
               "1 Hero Image or 3 Slide Carousel",
               "Category Banners",
-              "Technical SEO",
+              "Progressive Web App (PWA)",
+              "Lighthouse Tested and Optimized",
+              "Powerful Form Handling",
+              "Google Analytics Integration and Setup",
+              "Technical SEO plus ****",
               "Custom Blog Design, Coding, Setup and Training."
             ]
           },
           {
             "name": "Startup Plan",
             "icon": "rocket",
-            "priceFrom": "From $6,999",
+            "priceFrom": "From $9,999",
             "features": [
               "Up to 7 pages Designed & Coded",
               "Static Content",
-              "1 Hero Image",
+              "1 Hero Image or 3 Slide Carousel",
               "Category Banners",
-              "Technical SEO"
+              "Powerful Form Handling",
+              "Basic Technical SEO*** + Image meta"
             ]
           }
         ]
