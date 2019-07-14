@@ -87,6 +87,20 @@ function SEO({
                 name="msvalidate.01"
                 content="304B53089DF131D38A8031F5232E9FB1"
             />
+
+            <link
+                rel="preconnect"
+                href="https://www.google-analytics.com"
+            />
+            <link
+                rel="preconnect"
+                href="https://www.google.com"
+            />
+            <link
+                rel="preconnect"
+                href="https://www.alkemyinc.com"
+            />
+
             <meta name="description" content={metaDescription} />
             <meta name="keywords" content={pageKeywords} />
             <meta name="author" content={pageAuthor} />
