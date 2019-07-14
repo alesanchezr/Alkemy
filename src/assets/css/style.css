@@ -758,6 +758,11 @@ button:focus {
   min-height: 100% !important;
 }
 
+.servicesHome .row {
+  width: 100%;
+  margin: 0 auto;
+}
+
 .servicesHome .card {
   background: transparent;
   height: 100%;
