@@ -217,6 +217,12 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                 <Row form className="my-2 py-0">
                                     <Col xs={12} md={6} className="my-2 py-0">
                                         <FormGroup>
+                                            <Label
+                                                for="fullName"
+                                                style={{visibility:"hidden";}}
+                                            >
+                                                Full Name
+                                            </Label>
                                             <Input
                                                 type="text"
                                                 name="fullName"
@@ -243,6 +249,12 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                     </Col>
                                     <Col xs={12} md={6} className="my-2 py-0">
                                         <FormGroup>
+                                            <Label
+                                                    for="email"
+                                                style={{visibility:"hidden";}}
+                                            >
+                                                Email Address
+                                            </Label>
                                             <Input
                                                 type="text"
                                                 name="email"
@@ -265,6 +277,12 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                     </Col>
                                 </Row>
                                 <FormGroup className="my-2">
+                                    <Label
+                                        for="webAddress"
+                                        style={{visibility:"hidden";}}
+                                    >
+                                        Website Address
+                                    </Label>
                                     <Input
                                         type="text"
                                         name="webAddress"
