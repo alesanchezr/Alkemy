@@ -51,6 +51,7 @@ export default class ContactForm extends React.Component {
                 emailFormat: "",
                 phone: "",
                 ReCAPTCHA: "",
+                reason: ""
             },
         };
         this.contactForm = React.createRef;
@@ -90,6 +91,7 @@ export default class ContactForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
+        this.validate();
         let valid = this.validate();
         // handle form submit here
         const encode = data => {
@@ -126,9 +128,15 @@ export default class ContactForm extends React.Component {
                 })
                 // eslint-disable-next-line no-undef
                 .catch(error => console.log(error));
-        } else {
+        } else if (valid && recaptchaValue.length=== 0) {
             let errors = { ...this.state.errors };
             errors.ReCAPTCHA = "ReCAPTCHA Verification Needed to Submit Form.";
+            this.setState({
+                errors,
+            });
+        }else{
+            let errors = { ...this.state.errors };
+            errors.ReCAPTCHA = "Please fill out all required fields.";
             this.setState({
                 errors,
             });
@@ -186,6 +194,12 @@ export default class ContactForm extends React.Component {
             isError = true;
             errors.phone = "Phone is a Required Field.";
         }
+
+        // Reason Validation
+        if (typeof this.state.formValues.reason ==="undefined" || this.state.formValues.reason === "") {
+            isError = true;
+            errors.reason = "Please select a reason for contacting us.";
+        } 
 
         if (isError) {
             this.setState({
@@ -381,8 +395,8 @@ export default class ContactForm extends React.Component {
                                                     )
                                                 }
                                                 invalid={
-                                                    this.state.formValues.reason
-                                                        .length === 0
+                                                    typeof this.state.errors.reason !== "undefined" &&
+                                                    this.state.errors.reason.length > 0
                                                 }
                                             >
                                                 <option
@@ -409,8 +423,7 @@ export default class ContactForm extends React.Component {
                                                 </option>
                                             </CustomInput>
                                             <FormFeedback>
-                                                Please Select a Reason for
-                                                Contacting Us.
+                                                {this.state.errors.reason}
                                             </FormFeedback>
                                         </Col>
                                     </FormGroup>

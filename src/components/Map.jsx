@@ -2,6 +2,7 @@ import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from "google-maps-react";
 import PropTypes from "prop-types";
+import favicon from "../assets/images/favicons/favicon-96x96.png"
 
 export class ContactMap extends React.Component {
     constructor(props) {
@@ -62,10 +63,11 @@ export class ContactMap extends React.Component {
                         <Marker
                             onClick={this.onMarkerClick}
                             icon={{
-                                url: "../assets/images/favicons/favicon-96x96.png",
+                                url: favicon,
                                 anchor: new google.maps.Point(32, 32),
                                 scaledSize: new google.maps.Size(64, 64),
                             }}
+                            visible={true}
                             name={"Alkemy, Inc."}
                         />
                         <InfoWindow

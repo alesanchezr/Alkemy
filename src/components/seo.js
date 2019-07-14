@@ -13,6 +13,7 @@ import { TypographyStyle, GoogleFont } from "react-typography";
 import typography from "../utils/typography";
 
 import logo from "../assets/images/alkemy-logo-vertical.png";
+import screenshot from "../assets/images/alkemy-website-screenshot.png";
 import msTileImg from "../assets/images/favicons/ms-icon-144x144.png";
 
 import appleIcon57 from "../assets/images/favicons/apple-icon-57x57.png";
@@ -80,7 +81,7 @@ function SEO({
                 { httpEquiv: "X-UA-Compatible", content: "IE=edge,chrome=1" },
                 { name: "apple-mobile-web-app-title", content: "Alkemy, Inc." },
                 { name: "msapplication-TileColor", content: "#ffffff" },
-                { property: "og:image", content: "" },
+                { property: "og:image", content: screenshot },
                 {
                     name: "msvalidate.01",
                     content: "304B53089DF131D38A8031F5232E9FB1",
@@ -107,7 +108,7 @@ function SEO({
                 },
                 {
                     name: `twitter:creator`,
-                    content: site.siteMetadata.author,
+                    content: pageAuthor,
                 },
                 {
                     name: `twitter:title`,
@@ -119,7 +120,7 @@ function SEO({
                 },
                 {
                     name: "twitter:image:alt",
-                    content: "Screenshot of the Alkemy, Inc. Homepage.",
+                    content: "Screenshot of the Alkemy, Inc. Website.",
                 },
             ].concat(meta)}
         >
