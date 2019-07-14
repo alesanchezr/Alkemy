@@ -47,7 +47,7 @@ const renderSocialLinks = colorArray => {
     return menu.map(item => {
         return (
             <Col xs={4} key={item.id}>
-                <a href={item.url} target="_blank" rel="noopener noreferrer">
+                <a href={item.url} target="_blank" rel="noopener noreferrer" ariaLabel={'View on ' + item.platform}>
                     <FontAwesomeIcon
                         icon={["fab", item.icon]}
                         color={item.color}

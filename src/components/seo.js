@@ -88,17 +88,12 @@ function SEO({
                 content="304B53089DF131D38A8031F5232E9FB1"
             />
 
+            <link rel="preconnect" href="https://www.google-analytics.com" />
+            <link rel="preconnect" href="https://www.google.com" />
+            <link rel="preconnect" href="https://www.alkemyinc.com" />
             <link
                 rel="preconnect"
-                href="https://www.google-analytics.com"
-            />
-            <link
-                rel="preconnect"
-                href="https://www.google.com"
-            />
-            <link
-                rel="preconnect"
-                href="https://www.alkemyinc.com"
+                href="https://marketingplatform.google.com"
             />
 
             <meta name="description" content={metaDescription} />

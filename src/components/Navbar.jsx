@@ -174,22 +174,22 @@ export default class ReactNavbar extends React.Component {
             if (item.drop) {
                 return (
                     <div key={item.id}>
-                        <NavItem className="text-center font-weight-bold siteTitle">
-                            <p className="text-white">{item.name}</p>
-                        </NavItem>
                         <ul className="mobileSubMenu list-unstyled mx-auto text-center mb-5">
-                            {item.submenu.map(subitem => {
-                                return (
-                                    <NavItem key={subitem.id}>
-                                        <Link
-                                            to={subitem.url}
-                                            className="text-white"
-                                        >
-                                            {subitem.name}
-                                        </Link>
-                                    </NavItem>
-                                );
-                            })}
+                            <NavItem className="text-center font-weight-bold siteTitle">
+                                <p className="text-white">{item.name}</p>
+                                {item.submenu.map(subitem => {
+                                    return (
+                                        <NavItem key={subitem.id}>
+                                            <Link
+                                                to={subitem.url}
+                                                className="text-white"
+                                            >
+                                                {subitem.name}
+                                            </Link>
+                                        </NavItem>
+                                    );
+                                })}
+                            </NavItem>
                         </ul>
                     </div>
                 );
@@ -219,6 +219,7 @@ export default class ReactNavbar extends React.Component {
                     <NavbarToggler
                         onClickCapture={this.toggleMobileMenu}
                         className={this.state.togglerClasses}
+                        ariaLabel="Menu"
                     >
                         <span className="hamburger-box">
                             <span className="hamburger-inner"></span>
@@ -227,32 +228,14 @@ export default class ReactNavbar extends React.Component {
                     <Collapse className="d-none d-lg-block" navbar>
                         <Nav className="ml-auto" navbar>
                             {this.renderMenuLinks()}
-                            <li className="ml-4 my-auto nav-item"><Button
-                                outline
-                                color="light"
-                                onMouseOver={this.handleButtonHover}
-                                onMouseOut={this.handleButtonHover}
-                                onClick={this.toggleAppointmentModal}
-                                className="align-middle"
-                            >
-                                <FontAwesomeIcon
-                                    icon={this.state.icon}
-                                    color="white"
-                                    size="lg"
-                                    className="mr-2"
-                                />
-                                Reserve Appointment
-                            </Button></li>
                         </Nav>
-                    </Collapse>
-                </Navbar>
-                <div className={this.state.mobileMenuClasses}>
-                    <Nav className="mx-auto" navbar>
-                        {this.renderMobileLinks()}
-                        <li className="mx-auto my-4 nav-item"><Button
+                        <Button
                             outline
                             color="light"
-                            className="align-middle"
+                            onMouseOver={this.handleButtonHover}
+                            onMouseOut={this.handleButtonHover}
+                            onClick={this.toggleAppointmentModal}
+                            className="ml-4 my-auto align-middle"
                         >
                             <FontAwesomeIcon
                                 icon={this.state.icon}
@@ -261,8 +244,26 @@ export default class ReactNavbar extends React.Component {
                                 className="mr-2"
                             />
                             Reserve Appointment
-                        </Button></li>
+                        </Button>
+                    </Collapse>
+                </Navbar>
+                <div className={this.state.mobileMenuClasses}>
+                    <Nav className="mx-auto" navbar>
+                        {this.renderMobileLinks()}
                     </Nav>
+                    <Button
+                        outline
+                        color="light"
+                        className="mx-auto my-4 align-middle"
+                    >
+                        <FontAwesomeIcon
+                            icon={this.state.icon}
+                            color="white"
+                            size="lg"
+                            className="mr-2"
+                        />
+                        Reserve Appointment
+                    </Button>
                 </div>
                 <Modal
                     size={"lg"}
