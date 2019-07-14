@@ -227,13 +227,13 @@ export default class ReactNavbar extends React.Component {
                     <Collapse className="d-none d-lg-block" navbar>
                         <Nav className="ml-auto" navbar>
                             {this.renderMenuLinks()}
-                            <Button
+                            <li className="ml-4 my-auto nav-item"><Button
                                 outline
                                 color="light"
                                 onMouseOver={this.handleButtonHover}
                                 onMouseOut={this.handleButtonHover}
                                 onClick={this.toggleAppointmentModal}
-                                className="ml-4 align-middle"
+                                className="align-middle"
                             >
                                 <FontAwesomeIcon
                                     icon={this.state.icon}
@@ -242,7 +242,7 @@ export default class ReactNavbar extends React.Component {
                                     className="mr-2"
                                 />
                                 Reserve Appointment
-                            </Button>
+                            </Button></li>
                         </Nav>
                     </Collapse>
                 </Navbar>
