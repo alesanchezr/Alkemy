@@ -58,11 +58,12 @@ function SEO({
         `
     );
 
-    const metaDescription = description || site.siteMetadata.description;
-    const pageAuthor = author || site.siteMetadata.author;
-    const pageKeywords = keywords || site.siteMetadata.keywords;
-    const articleDate = date || null;
+    const metaDescription = description?description:site.siteMetadata.description;
+    const pageAuthor = author?author:site.siteMetadata.author;
+    const pageKeywords = keywords?keywords:site.siteMetadata.keywords;
+    const articleDate = date?date:null;
     const siteAddress = site.siteMetadata.siteUrl;
+    console.log(metaDescription)
 
     return (
         <Helmet
@@ -75,53 +76,7 @@ function SEO({
                     content:
                         "width=device-width, initial-scale=1, maximum-scale=1",
                 },
-                { name: "keywords", content: pageKeywords },
-                { name: "author", content: pageAuthor },
-                { name: "referrer", content: "origin-when-crossorigin" },
                 { httpEquiv: "X-UA-Compatible", content: "IE=edge,chrome=1" },
-                { name: "apple-mobile-web-app-title", content: "Alkemy, Inc." },
-                { name: "msapplication-TileColor", content: "#ffffff" },
-                { property: "og:image", content: screenshot },
-                {
-                    name: "msvalidate.01",
-                    content: "304B53089DF131D38A8031F5232E9FB1",
-                },
-                {
-                    name: `description`,
-                    content: metaDescription,
-                },
-                {
-                    property: `og:title`,
-                    content: title,
-                },
-                {
-                    property: `og:description`,
-                    content: metaDescription,
-                },
-                {
-                    property: `og:type`,
-                    content: `website`,
-                },
-                {
-                    name: `twitter:card`,
-                    content: `summary`,
-                },
-                {
-                    name: `twitter:creator`,
-                    content: pageAuthor,
-                },
-                {
-                    name: `twitter:title`,
-                    content: title,
-                },
-                {
-                    name: `twitter:description`,
-                    content: metaDescription,
-                },
-                {
-                    name: "twitter:image:alt",
-                    content: "Screenshot of the Alkemy, Inc. Website.",
-                },
             ].concat(meta)}
         >
             <html
@@ -129,8 +84,34 @@ function SEO({
                 amp
                 xmlns="http://www.w3.org/1999/xhtml"
             />
+            <meta
+                name="msvalidate.01"
+                content="304B53089DF131D38A8031F5232E9FB1"
+            />
+            <meta name="description" content={metaDescription} />
+            <meta name="keywords" content={pageKeywords} />
+            <meta name="author" content={pageAuthor} />
+            <meta name="referrer" content="origin-when-crossorigin" />
+
+            <meta name="apple-mobile-web-app-title" content="Alkemy, Inc." />
+
+            <meta property="og:image" content={screenshot} />
+            <meta property="og:title" content={title} />
+            <meta property="og:description" content={metaDescription} />
+            <meta property="og:type" content="website" />
+
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:creator" content={pageAuthor} />
+            <meta name="twitter:title" content={title} />
+            <meta name="twitter:description" content={metaDescription} />
+            <meta
+                name="twitter:image:alt"
+                content="Screenshot of the Alkemy, Inc. Website."
+            />
+
             <link rel="canonical" href="https://www.alkemyinc.com" />
             <meta name="msapplication-TileImage" content={msTileImg} />
+            <meta name="msapplication-TileColor" content="#ffffff" />
 
             {/* App Icons and Favicon */}
             <link rel="apple-touch-icon" sizes="57x57" href={appleIcon57} />
