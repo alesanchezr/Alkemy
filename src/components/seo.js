@@ -91,7 +91,6 @@ function SEO({
             <meta name="description" content={metaDescription} />
             <meta name="keywords" content={pageKeywords} />
             <meta name="author" content={pageAuthor} />
-            <meta name="referrer" content="origin-when-crossorigin" />
 
             <meta name="apple-mobile-web-app-title" content="Alkemy, Inc." />
 
