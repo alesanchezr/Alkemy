@@ -26,13 +26,13 @@ import SEO from "../components/seo";
 import VideoCarousel from "../components/videoCarousel";
 
 // Import video assets
-import video_1_jpg from "../assets/video/home-work/home-work.jpg";
+import video_1_webp from "../assets/video/home-work/home-work.webp";
 import video_1_mp4 from "../assets/video/home-work/home-work.mp4";
 
-import video_2_jpg from "../assets/video/aloha-mundo/aloha-mundo.jpg";
+import video_2_webp from "../assets/video/aloha-mundo/aloha-mundo.webp";
 import video_2_mp4 from "../assets/video/aloha-mundo/aloha-mundo.mp4";
 
-import video_3_jpg from "../assets/video/office-day/office-day.jpg";
+import video_3_webp from "../assets/video/office-day/office-day.webp";
 import video_3_mp4 from "../assets/video/office-day/office-day.mp4";
 
 /* Define Slide Array
@@ -42,15 +42,15 @@ Each object(slide) in array should have 2 keys:
 */
 const slideArray = [
     {
-        img: video_1_jpg,
+        img: video_1_webp,
         mp4: video_1_mp4,
     },
     {
-        img: video_2_jpg,
+        img: video_2_webp,
         mp4: video_2_mp4,
     },
     {
-        img: video_3_jpg,
+        img: video_3_webp,
         mp4: video_3_mp4,
     },
 ];
