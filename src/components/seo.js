@@ -186,7 +186,7 @@ function SEO({
                 src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"
             ></script>
 
-            <script type="application/ld+json">
+            <script async defer type="application/ld+json">
                 {`{
             "@context":"https://schema.org",
             "@type":"WebSite",
@@ -198,7 +198,7 @@ function SEO({
             }
           }`}
             </script>
-            <script type="application/ld+json">
+            <script async defer type="application/ld+json">
                 {`{
             "@context":"https://schema.org",
             "@type":"Organization",
@@ -212,7 +212,7 @@ function SEO({
             ]
           }`}
             </script>
-            <script type="application/ld+json">{`
+            <script async defer type="application/ld+json">{`
           {
             "@context": "https://schema.org/", 
             "@type": "BreadcrumbList", 
@@ -260,7 +260,7 @@ function SEO({
           }
           `}</script>
             {author !== null ? (
-                <script type="application/ld+json">{`
+                <script async defer type="application/ld+json">{`
             {
               "@context": "https://schema.org",
               "@type": "Article",
