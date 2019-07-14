@@ -219,7 +219,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                         <FormGroup>
                                             <Label
                                                 for="fullName"
-                                                style={{visibility:"hidden";}}
+                                                style={{visibility:"hidden"}}
                                             >
                                                 Full Name
                                             </Label>
@@ -251,7 +251,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                         <FormGroup>
                                             <Label
                                                     for="email"
-                                                style={{visibility:"hidden";}}
+                                                style={{visibility:"hidden"}}
                                             >
                                                 Email Address
                                             </Label>
@@ -279,7 +279,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                 <FormGroup className="my-2">
                                     <Label
                                         for="webAddress"
-                                        style={{visibility:"hidden";}}
+                                        style={{visibility:"hidden"}}
                                     >
                                         Website Address
                                     </Label>
