@@ -219,6 +219,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                         <FormGroup>
                                             <Label
                                                 for="fullName"
+                                                id="fullName"
                                                 style={{visibility:"hidden"}}
                                             >
                                                 Full Name
@@ -226,7 +227,6 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                             <Input
                                                 type="text"
                                                 name="fullName"
-                                                id="fullName"
                                                 aria-labelledby="fullName"
                                                 invalid={
                                                     typeof this.state.errors
@@ -253,6 +253,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                         <FormGroup>
                                             <Label
                                                 for="email"
+                                                id="email"
                                                 style={{visibility:"hidden"}}
                                             >
                                                 Email Address
@@ -260,7 +261,6 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                             <Input
                                                 type="text"
                                                 name="email"
-                                                id="email"
                                                 aria-labelledby="email"
                                                 invalid={
                                                     typeof this.state.errors
@@ -284,6 +284,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                 <FormGroup className="my-2">
                                     <Label
                                         for="webAddress"
+                                        id="webAddress"
                                         style={{visibility:"hidden"}}
                                     >
                                         Website Address
@@ -291,7 +292,6 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                     <Input
                                         type="text"
                                         name="webAddress"
-                                        id="webAddress"
                                         aria-labelledby="webAddress"
                                         invalid={
                                             typeof this.state.errors
@@ -316,7 +316,6 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                     <Input
                                         type="checkbox"
                                         name="authCheck"
-                                        id="authCheck"
                                         aria-labelledby="authCheck"
                                         invalid={
                                             typeof this.state.errors
@@ -331,6 +330,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                     />
                                     <Label
                                         for="authCheck"
+                                        id="authCheck"
                                         className="text-left"
                                     >
                                         I authorize Alkemy, Inc. to contact me
@@ -368,11 +368,18 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                     name="form-name"
                                     value="freeWebsiteAnalysis"
                                 />
+                                <Label
+                                    for="bot-field"
+                                    id="bot-field"
+                                    style={{ visibility: "hidden" }}
+                                >
+                                    Bot Field, do not fill.
+                                </Label>
                                 <input
                                     type="text"
                                     name="bot-field"
                                     className="hp"
-                                    aria-labelledby="Bot Field, do not fill."
+                                    aria-labelledby="bot-field"
                                 />
                             </Form>
                         </div>
