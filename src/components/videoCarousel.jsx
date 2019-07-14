@@ -7,7 +7,7 @@ class VideoCarousel extends React.Component {
 
         this.state = {
             currentIndex: 0,
-            slides: this.props.slides,
+            slides: [],
             vidClasses: "vc-video bg-transparent",
             containerClasses: "vc-wrap bg-transparent",
         };
@@ -18,6 +18,12 @@ class VideoCarousel extends React.Component {
         this.nextSlide = this.nextSlide.bind(this);
     }
 
+    componentDidMount(){
+        this.setState({
+            ...this.state,
+            slides: this.props.slides
+        })
+    }
     handlePlay = () => {
         this.video.play();
     };
@@ -82,7 +88,7 @@ class VideoCarousel extends React.Component {
                             onPlay={this.handlePlay}
                             onEnded={this.handleEnded}
                             className={this.state.vidClasses}
-                            src={this.state.slides[this.state.currentIndex].mp4}
+                            src={this.state.slides.length>0?this.state.slides[this.state.currentIndex].mp4:this.props.slides[0].mp4}
                             style={{
                                 objectFit: "cover",
                                 width: "100%",
@@ -90,7 +96,7 @@ class VideoCarousel extends React.Component {
                                 overflow: "hidden",
                             }}
                             poster={
-                                this.state.slides[this.state.currentIndex].img
+                                this.state.slides.length > 0 ? this.state.slides[this.state.currentIndex].img : this.props.slides[0].img
                             }
                             ref={el => {
                                 this.video = el;
