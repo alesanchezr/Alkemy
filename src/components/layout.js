@@ -102,7 +102,7 @@ const Layout = ({
 
                     <Header
                         hideHeader={headerTitle ? headerTitle[0] : null}
-                        pageTitle={headerTitle ? headerTitle[1] : null}
+                        pageTitle={headerTitle ? headerTitle[1] : {}}
                         renderHeaderSolid={renderHeaderSolid}
                         search={search}
                     />

@@ -105,7 +105,7 @@ class VideoCarousel extends React.Component {
 
 VideoCarousel.propTypes = {
     slides: PropTypes.array,
-    showIndicators: PropTypes.boolean,
+    showIndicators: PropTypes.bool,
     children: PropTypes.object,
 };
 

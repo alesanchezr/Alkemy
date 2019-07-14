@@ -30,7 +30,7 @@ const AboutAlkemy = ({ data }) => {
                 headerTitle={[true, pageTitle]}
                 bodyClasses="webDesign"
             >
-                <SEO title={pageTitle} />
+                <SEO title={pageTitle.name} />
 
                 {/* Section 1 */}
                 <section className="whoWeAre">

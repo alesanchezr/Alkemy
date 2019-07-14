@@ -62,7 +62,7 @@ export class ContactMap extends React.Component {
                         <Marker
                             onClick={this.onMarkerClick}
                             icon={{
-                                url: "/images/favicons/favicon-96x96.png",
+                                url: "../assets/images/favicons/favicon-96x96.png",
                                 anchor: new google.maps.Point(32, 32),
                                 scaledSize: new google.maps.Size(64, 64),
                             }}
@@ -96,7 +96,7 @@ ContactMap.propTypes = {
     google: PropTypes.object,
 };
 
-export default GoogleApiWrapper(props => ({
+export default GoogleApiWrapper(() => ({
     //
     apiKey: process.env.GOOGLE_MAPS_API_KEY,
 }))(ContactMap);

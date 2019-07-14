@@ -32,7 +32,7 @@ const ContactAlkemy = ({ data }) => {
                 headerTitle={[true, pageTitle]}
                 bodyClasses="contactAlkemy"
             >
-                <SEO title={pageTitle} />
+                <SEO title={pageTitle.name} />
 
                 {/* Section 1 */}
                 <section className="contactIntro py-5">

@@ -204,6 +204,10 @@ function SEO({
             "@type":"WebSite",
             "url":"${siteAddress}",
             "name":"Alkemy, Inc.",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "${siteAddress}/alkemy-blog"
+            }
           }`}
             </script>
             <script type="application/ld+json">

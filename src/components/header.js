@@ -54,7 +54,7 @@ var _menuArray = [
     },
 ];
 
-const Header = ({ pageTitle, hideHeader, renderHeaderSolid, search }) => (
+const Header = ({ pageTitle, hideHeader, renderHeaderSolid, search}) => (
     <StaticQuery
         query={graphql`
             query HeaderBlogQuery {
@@ -112,8 +112,8 @@ const Header = ({ pageTitle, hideHeader, renderHeaderSolid, search }) => (
 
 Header.propTypes = {
     pageTitle: PropTypes.object,
-    hideHeader: PropTypes.boolean,
-    renderHeaderSolid: PropTypes.boolean,
-    search: PropTypes.boolean,
+    hideHeader: PropTypes.bool,
+    renderHeaderSolid: PropTypes.bool,
+    search: PropTypes.bool,
 };
 export default Header;

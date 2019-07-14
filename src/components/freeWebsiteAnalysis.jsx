@@ -87,7 +87,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                 }),
                 // eslint-disable-next-line no-unused-vars
             })
-                .then(res => {
+                .then(() => {
                     this.setState({
                         success: true,
                     });

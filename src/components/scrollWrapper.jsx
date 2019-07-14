@@ -28,5 +28,5 @@ ScrollWrapper.propTypes = {
     location: PropTypes.object,
     children: PropTypes.any,
     onWindowScroll: PropTypes.func,
-    didViewCountUp: PropTypes.boolean,
+    didViewCountUp: PropTypes.bool,
 };

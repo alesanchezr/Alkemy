@@ -38,7 +38,7 @@ const RecentBlogs = props => {
                                         e.node.frontmatter.cover.childImageSharp
                                             .fluid
                                     }
-                                    alt={e.node.frontmatter.title}
+                                    alt={e.node.frontmatter.coverAlt}
                                 />
                                 <CardBody>
                                     <CardTitle>

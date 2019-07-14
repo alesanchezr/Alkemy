@@ -31,7 +31,7 @@ const DigitalMarketing = ({ data }) => {
                 headerTitle={[true, pageTitle]}
                 bodyClasses="digitalMarketing"
             >
-                <SEO title={pageTitle} />
+                <SEO title={pageTitle.name} />
 
                 {/* Section 1 */}
                 <section className="px-5 my-4">

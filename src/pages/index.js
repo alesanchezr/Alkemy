@@ -76,7 +76,7 @@ const HomePage = ({ data }) => {
     };
     return (
         <ScrollWrapper onWindowScroll={handleScroll}>
-            <Layout headerTitle={[false, ""]} bodyClasses="home">
+            <Layout headerTitle={[false, {}]} bodyClasses="home">
                 <SEO title={pageTitle.name} />
 
                 {/* Section 1 - Hero */}

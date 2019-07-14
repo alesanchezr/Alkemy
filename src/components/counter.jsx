@@ -40,7 +40,7 @@ class ReactCounter extends React.Component {
 }
 
 ReactCounter.propTypes = {
-    isInViewport: PropTypes.boolean,
+    isInViewport: PropTypes.bool,
     theNumber: PropTypes.number,
 };
 

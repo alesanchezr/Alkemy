@@ -28,7 +28,7 @@ const WebDevelopment = ({ data }) => {
                 headerTitle={[true, pageTitle]}
                 bodyClasses="webDesign"
             >
-                <SEO title={pageTitle} />
+                <SEO title={pageTitle.name} />
 
                 {/* Section 1 */}
                 <section className="px-5 mt-4 mb-5">

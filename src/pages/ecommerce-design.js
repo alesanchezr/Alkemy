@@ -95,7 +95,7 @@ const EcommerceDesign = ({ data }) => {
                 headerTitle={[true, pageTitle]}
                 bodyClasses="eCommerce"
             >
-                <SEO title={pageTitle} />
+                <SEO title={pageTitle.name} />
 
                 {/* Section 1 */}
                 <section className="px-5 mt-4 mb-5">
