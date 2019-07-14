@@ -217,7 +217,7 @@ class BlogPostTemplate extends React.Component {
                                         post.frontmatter.cover.childImageSharp
                                             .fluid
                                     }
-                                    alt={post.frontmatter.title}
+                                    alt={post.frontmatter.coverAlt}
                                 />
                             </Col>
                         </Row>
@@ -303,6 +303,7 @@ export const query = graphql`
                 cover {
                     ...fluidImageSmall
                 }
+                coverAlt
             }
         }
         allMdx {

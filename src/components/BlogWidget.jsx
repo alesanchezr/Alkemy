@@ -37,7 +37,7 @@ const BlogWidget = props => {
                                         edge.node.frontmatter.cover
                                             .childImageSharp.fluid
                                     }
-                                    alt={edge.node.frontmatter.title}
+                                    alt={edge.node.frontmatter.coverAlt}
                                 />
                             )}
                         </Link>
