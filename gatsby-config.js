@@ -177,5 +177,18 @@ module.exports = {
                 },
             },
         },
+        {
+            resolve: "gatsby-plugin-guess-js",
+            options: {
+                // Find the view id in the GA admin in a section labeled "views"
+                GAViewID: `VIEW_ID`,
+                minimumThreshold: 0.03,
+                // The "period" for fetching analytic data.
+                period: {
+                    startDate: new Date("2018-1-1"),
+                    endDate: new Date(),
+                },
+            },
+        },
     ],
-}
+};

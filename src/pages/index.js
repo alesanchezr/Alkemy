@@ -109,7 +109,7 @@ const HomePage = ({ data }) => {
                                             className="animated fadeInUp"
                                             block
                                         >
-                                            Learn More
+                                            Learn About Us
                                         </Button>
                                     </div>
                                 </Col>
@@ -191,7 +191,7 @@ const HomePage = ({ data }) => {
                                                 tag={Link}
                                                 block
                                             >
-                                                Learn More
+                                                Web Design Service
                                             </Button>
                                         </CardFooter>
                                     </CardImgOverlay>
@@ -243,7 +243,7 @@ const HomePage = ({ data }) => {
                                                 tag={Link}
                                                 block
                                             >
-                                                Learn More
+                                                Web Development Service
                                             </Button>
                                         </CardFooter>
                                     </CardImgOverlay>
@@ -295,7 +295,7 @@ const HomePage = ({ data }) => {
                                                 to="/ecommerce-design"
                                                 block
                                             >
-                                                Learn More
+                                                eCommerce Design Service
                                             </Button>
                                         </CardFooter>
                                     </CardImgOverlay>
@@ -347,7 +347,7 @@ const HomePage = ({ data }) => {
                                                 to="/digital-marketing"
                                                 block
                                             >
-                                                Learn More
+                                                Digital Marketing Service
                                             </Button>
                                         </CardFooter>
                                     </CardImgOverlay>
