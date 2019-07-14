@@ -249,7 +249,7 @@ export default class ReactNavbar extends React.Component {
                 <div className={this.state.mobileMenuClasses}>
                     <Nav className="mx-auto" navbar>
                         {this.renderMobileLinks()}
-                        <li className="mx-auto my-4 nav-item"></li><Button
+                        <li className="mx-auto my-4 nav-item"><Button
                             outline
                             color="light"
                             className="align-middle"

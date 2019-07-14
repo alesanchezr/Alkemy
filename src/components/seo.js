@@ -293,7 +293,6 @@ function SEO({
 
 SEO.defaultProps = {
     meta: [],
-    description: ``,
     keywords: `Software Development, Web Design, eCommerce Design, Digital Marketing, React, PHP, HTML, Python, Django, Gatsby, GraphQL, Wordpress Design, 3dcart, Shopify, WooCommerce, SEM, Search Engine Marketing, SEO, Search Engine Optimization, Social Media Marketing, Web Strategy`,
 };
 
