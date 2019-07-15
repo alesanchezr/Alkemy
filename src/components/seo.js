@@ -135,8 +135,16 @@ function SEO({
             <TypographyStyle typography={typography} />
             <GoogleFont typography={typography} />
 
-            <link rel="preconnect" href="https://www.gstatic.com"></link>
-            <link rel="preconnect" href="https://www.google.com"></link>
+            <link
+                rel="preconnect"
+                href="https://www.gstatic.com"
+                crossOrigin
+            ></link>
+            <link
+                rel="preconnect"
+                href="https://www.google.com"
+                crossOrigin
+            ></link>
 
             {/* Google Tag Manager */}
             <script defer>{`
