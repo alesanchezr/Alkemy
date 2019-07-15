@@ -9,12 +9,20 @@ class VideoCarousel extends React.Component {
             currentIndex: 0,
             vidClasses: "vc-video bg-transparent",
             containerClasses: "vc-wrap bg-transparent",
+            slides:[]
         };
 
         this.handleEnded = this.handleEnded.bind(this);
         this.handlePlay = this.handlePlay.bind(this);
         this.prevSlide = this.prevSlide.bind(this);
         this.nextSlide = this.nextSlide.bind(this);
+    }
+
+    componentDidMount(){
+        this.setState({
+            ...this.state,
+            slides: this.props.slides
+        })
     }
 
     handlePlay = () => {
@@ -72,7 +80,7 @@ class VideoCarousel extends React.Component {
                         ""
                     )}
                     {this.props.children}
-                    {typeof this.props.slides !== "undefined" ? (
+                    {typeof this.state.slides !== "undefined" ? (
                         <video
                             autoPlay={true}
                             muted={true}
@@ -81,7 +89,7 @@ class VideoCarousel extends React.Component {
                             onPlay={this.handlePlay}
                             onEnded={this.handleEnded}
                             className={this.state.vidClasses}
-                            src={this.props.slides[this.state.currentIndex].mp4}
+                            src={this.state.slides.length>0 && this.state.slides[this.state.currentIndex].mp4}
                             style={{
                                 objectFit: "cover",
                                 width: "100%",
@@ -89,7 +97,7 @@ class VideoCarousel extends React.Component {
                                 overflow: "hidden",
                             }}
                             poster={
-                                this.props.slides[this.state.currentIndex].img
+                                this.state.slides.length > 0 && this.state.slides[this.state.currentIndex].img
                             }
                             ref={el => {
                                 this.video = el;

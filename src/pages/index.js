@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import { fluidImageSmall } from "../utils/utils.js";
@@ -25,33 +25,24 @@ import SEO from "../components/seo";
 // Carousel
 import VideoCarousel from "../components/videoCarousel";
 
-// Import video assets
-import video_1_webp from "../assets/video/home-work/home-work.webp";
-import video_1_webm from "../assets/video/home-work/home-work.webm";
-
-import video_2_webp from "../assets/video/aloha-mundo/aloha-mundo.webp";
-import video_2_webm from "../assets/video/aloha-mundo/aloha-mundo.webm";
-
-import video_3_webp from "../assets/video/office-day/office-day.webp";
-import video_3_webm from "../assets/video/office-day/office-day.webm";
-
 /* Define Slide Array
 Each object(slide) in array should have 2 keys:
     1. img - image for the video fallback poster
     2. mp4 - mp4 video file to use
 */
-const slideArray = [
+
+let slideArray = [
     {
-        img: video_1_webp,
-        mp4: video_1_webm,
+        img: require("../assets/video/home-work/home-work.jpg"),
+        mp4: require("../assets/video/home-work/home-work.mp4"),
     },
     {
-        img: video_2_webp,
-        mp4: video_2_webm,
+        img: require("../assets/video/aloha-mundo/aloha-mundo.jpg"),
+        mp4: require("../assets/video/aloha-mundo/aloha-mundo.mp4"),
     },
     {
-        img: video_3_webp,
-        mp4: video_3_webm,
+        img: require("../assets/video/office-day/office-day.jpg"),
+        mp4: require("../assets/video/office-day/office-day.mp4"),
     },
 ];
 
@@ -74,6 +65,27 @@ const HomePage = ({ data }) => {
         name: "Web Development, Design, eCommerce, and Marketing",
         url: "/",
     };
+
+    useEffect(() => {
+            const webpTest = typeof window !== "undefined" && Modernizr.webp;
+            console.log(webpTest);
+            slideArray = webpTest 
+            ? [
+                {
+                    img: require("../assets/video/home-work/home-work.webp"),
+                    mp4: require("../assets/video/home-work/home-work.webm"),
+                },
+                {
+                    img: require("../assets/video/aloha-mundo/aloha-mundo.webp"),
+                    mp4: require("../assets/video/aloha-mundo/aloha-mundo.webm"),
+                },
+                {
+                    img: require("../assets/video/office-day/office-day.webp"),
+                    mp4: require("../assets/video/office-day/office-day.webm"),
+                },
+            ]:null;
+            console.log(slideArray)
+    })
     return (
         <ScrollWrapper onWindowScroll={handleScroll}>
             <Layout headerTitle={[false, {}]} bodyClasses="home">

@@ -135,6 +135,9 @@ function SEO({
             <TypographyStyle typography={typography} />
             <GoogleFont typography={typography} />
 
+            <link rel="prefetch" href="https://www.gstatic.com"></link>
+            <link rel="prefetch" href="https://www.google.com"></link>
+
             {/* Google Tag Manager */}
             <script async defer>{`
         (function(w,d,s,l,i){

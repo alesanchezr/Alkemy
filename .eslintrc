@@ -49,7 +49,7 @@
             "varsIgnorePattern": "[fluidImage]",
         }],
         "no-undef": ["error", {
-            "typeof": false
+            "typeof": false,
         }],
         "no-console": "off",
     },
