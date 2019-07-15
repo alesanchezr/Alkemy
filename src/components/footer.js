@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "gatsby";
 import { Col, Row } from "reactstrap";
 import SocialLinks from "./SocialLinks.jsx";
+
+
 /*
 _menuArray object details:
   name:  the title of the menu item (link text)

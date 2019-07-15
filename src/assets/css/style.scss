@@ -466,7 +466,12 @@ a {
 
 .webp.webp-lossless.webplossless .footer{
   &:after {
-    background: url("../images/footerbg.webp") !important;
+    background: url("../images/footerbg.webp");
+  }
+}
+.no-webp.no-webplossless .footer{
+  &:after {
+    background: url("../images/footerbg.png");
   }
 }
 
@@ -487,7 +492,7 @@ a {
   }
   &:after{
     content: '';
-    background: url("../images/footerbg.png");
+    background: black;
     position: absolute;
     top:0;
     right:0;
