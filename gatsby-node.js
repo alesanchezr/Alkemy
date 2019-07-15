@@ -198,7 +198,7 @@
             })
             // Eliminate duplicate tags
             tags = _.uniq(tags)
-            console.log('tags: ',tags)
+
             // Make Tag Index
             createPage({
                 path: `/tags`,
