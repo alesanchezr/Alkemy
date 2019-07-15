@@ -179,11 +179,6 @@ function SEO({
     	`}</script>
             {/* End Facebook Pixel Code */}
 
-            <script
-                type="text/javascript"
-                src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"
-            ></script>
-
             <script async defer type="application/ld+json">
                 {`{
             "@context":"https://schema.org",

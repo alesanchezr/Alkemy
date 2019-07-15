@@ -440,8 +440,8 @@ a {
   margin-top: 75px;
 }
 
-.webp.webp-lossless .footer:after {
-  background: url("../images/footerbg.webp");
+.webp.webp-lossless.webplossless .footer:after {
+  background: url("../images/footerbg.webp") !important;
 }
 
 .footer {

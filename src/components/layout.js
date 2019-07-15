@@ -7,6 +7,7 @@ import InjectContext from "../store/appContext.js";
 import { Location } from "@reach/router";
 import Header from "./header";
 import Footer from "./footer";
+import Modernizr from "../utils/modernizr-custom"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

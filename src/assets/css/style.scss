@@ -464,9 +464,9 @@ a {
   margin-top: $header-height;
 }
 
-.webp.webp-lossless .footer{
+.webp.webp-lossless.webplossless .footer{
   &:after {
-    background: url("../images/footerbg.webp");
+    background: url("../images/footerbg.webp") !important;
   }
 }
 
