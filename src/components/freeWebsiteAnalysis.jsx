@@ -19,7 +19,7 @@ const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY;
 if (typeof window !== "undefined") {
     // eslint-disable-next-line no-undef
     window.recaptchaOptions = {
-        useRecaptchaNet: true,
+        useRecaptchaNet: false,
         removeOnUnmount: false,
     };
 }

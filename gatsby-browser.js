@@ -5,7 +5,7 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
-require('./src/assets/css/layout.css')
+// require('./src/assets/css/layout.css')
 require('bootstrap/dist/css/bootstrap.min.css')
 require('./src/assets/css/style.css')
 require('./src/assets/css/animate.css')

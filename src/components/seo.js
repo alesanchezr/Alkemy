@@ -135,11 +135,11 @@ function SEO({
             <TypographyStyle typography={typography} />
             <GoogleFont typography={typography} />
 
-            <link rel="prefetch" href="https://www.gstatic.com"></link>
-            <link rel="prefetch" href="https://www.google.com"></link>
+            <link rel="preconnect" href="https://www.gstatic.com"></link>
+            <link rel="preconnect" href="https://www.google.com"></link>
 
             {/* Google Tag Manager */}
-            <script async defer>{`
+            <script defer>{`
         (function(w,d,s,l,i){
           w[l]=w[l]||[];
           w[l].push({
@@ -155,11 +155,10 @@ function SEO({
 
             {/* Global site tag (gtag.js) - Google Analytics */}
             <script
-                async
                 defer
                 src="https://www.googletagmanager.com/gtag/js?id=UA-118149481-1"
             />
-            <script>{`
+            <script defer>{`
     	  window.dataLayer = window.dataLayer || [];
     	  function gtag(){dataLayer.push(arguments);}
     	  gtag('js', new Date());
@@ -168,7 +167,7 @@ function SEO({
     	`}</script>
 
             {/* Facebook Pixel Code */}
-            <script async defer>{`
+            <script defer>{`
     		!function(f,b,e,v,n,t,s)
     		{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     		n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -182,7 +181,7 @@ function SEO({
     	`}</script>
             {/* End Facebook Pixel Code */}
 
-            <script async defer type="application/ld+json">
+            <script defer type="application/ld+json">
                 {`{
             "@context":"https://schema.org",
             "@type":"WebSite",
@@ -194,7 +193,7 @@ function SEO({
             }
           }`}
             </script>
-            <script async defer type="application/ld+json">
+            <script defer type="application/ld+json">
                 {`{
             "@context":"https://schema.org",
             "@type":"Organization",
@@ -208,7 +207,7 @@ function SEO({
             ]
           }`}
             </script>
-            <script async defer type="application/ld+json">{`
+            <script defer type="application/ld+json">{`
           {
             "@context": "https://schema.org/", 
             "@type": "BreadcrumbList", 
@@ -256,7 +255,7 @@ function SEO({
           }
           `}</script>
             {author !== null ? (
-                <script async defer type="application/ld+json">{`
+                <script defer type="application/ld+json">{`
             {
               "@context": "https://schema.org",
               "@type": "Article",

@@ -84,6 +84,7 @@ class VideoCarousel extends React.Component {
                         <video
                             autoPlay={true}
                             muted={true}
+                            preload="auto"
                             playsInline={true}
                             crossOrigin="true"
                             onPlay={this.handlePlay}
