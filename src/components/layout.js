@@ -8,7 +8,7 @@ import { Location } from "@reach/router";
 import Header from "./header";
 import Footer from "./footer";
 
-const Modernizr = window && require("../utils/modernizr-custom");
+const Modernizr = typeof window!=='undefined' && require("../utils/modernizr-custom");
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
