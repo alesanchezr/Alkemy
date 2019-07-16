@@ -10,7 +10,7 @@ const FloatingTitleBar = props => {
     return (
         <Container
             fluid
-            className="d-none d-md-block position-sticky text-white blog-title-bar"
+            className="d-none d-md-block position-sticky text-white blog-title-bar alk-container"
             style={{ ...style }}
         >
             <Row className="align-items-center">

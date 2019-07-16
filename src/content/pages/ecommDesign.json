@@ -5,11 +5,11 @@
         "id": "1",
         "blocks": [
           {
-            "heading": "E-Commerce Web Design - Built to Sell and Sell Hard",
-            "content": "The secret sauce to E-Commerce always starts with a solid product, but you can’t successfully sell that product without the right website. Our E-Commerce Web Design service integrates our years of experience in the E-Commerce field to create solid stores that are built to convert your visitors into paying customers."
+            "heading": "eCommerce Web Design - Built to Sell and Sell Hard",
+            "content": "The secret sauce to eCommerce always starts with a solid product, but you can’t successfully sell that product without the right website. Our eCommerce Web Design service integrates our years of experience in the eCommerce field to create solid stores that are built to convert your visitors into paying customers."
           },
           {
-            "content": "With our E-Commerce Web Design, the difference lies in how website packages have to be bundled. We will tailor the design process for your site to the specific needs of your business and build it on the backbone of tried and true E-Commerce strategies."
+            "content": "With our eCommerce Web Design, the difference lies in how website packages have to be bundled. We will tailor the design process for your site to the specific needs of your business and build it on the backbone of tried and true eCommerce strategies."
           }
         ]
       },
@@ -17,7 +17,7 @@
         "id": "2",
         "blocks": [
           {
-            "heading": "Powered by Some of the World’s Leading E-Commerce Platforms"
+            "heading": "Powered by Some of the World’s Leading eCommerce Platforms"
           }
         ]
       },
@@ -25,7 +25,7 @@
         "id": "3",
         "blocks": [
           {
-            "heading": "Our Roadmap to Launching Your Powerhouse E-Commerce Site",
+            "heading": "Our Roadmap to Launching Your Powerhouse eCommerce Site",
             "steps": [
               {
                 "heading": "Discovery",
@@ -64,11 +64,11 @@
         "id": "5",
         "blocks": [
           {
-            "heading": "E-Commerce Web Design Packages",
+            "heading": "eCommerce Web Design Packages",
             "content": "The first step to the creation of your website is deciding on the right package to start with. Below you have a few choices to select from, but these are only starting points. Many additional modules for your store are available based on the platform that is selected. As part of our desire to help you reach your utmost success, we can help you decide on any modules that may be needed to reach your goals. If you find that the packages are not what you are looking for, you can contact us directly to have a custom plan built to the specifications that your project requires. ",
             "disclaimers": [
               "* Additional content can be calculated separately based on the needs of your business. Please notify your project manager of any other content that you need and we will be happy to help.",
-              "** Some restrictions apply. Blog design based upon selected E-commerce platform’s default blogging system. Custom Wordpress blogs are available and recommened but may incur an additional fee based on complexity. Additional hosting rates may apply."
+              "** Some restrictions apply. Blog design based upon selected ecommerce platform’s default blogging system. Custom Wordpress blogs are available and recommened but may incur an additional fee based on complexity. Additional hosting rates may apply."
             ]
           }
         ]
@@ -128,7 +128,7 @@
       {
         "plans": [
           {
-            "name": "E-comm Basics",
+            "name": "ecomm Basics",
             "icon": "money-bill-alt",
             "priceFrom": "From $6,999",
             "features": [
@@ -140,7 +140,7 @@
             ]
           },
           {
-            "name": "E-comm Dominance",
+            "name": "ecomm Dominance",
             "icon": "gem",
             "priceFrom": "From $14,999",
             "features": [
@@ -156,7 +156,7 @@
             ]
           },
           {
-            "name": "E-comm Advanced",
+            "name": "ecomm Advanced",
             "icon": "star",
             "priceFrom": "From $9,999",
             "features": [

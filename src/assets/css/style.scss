@@ -252,6 +252,7 @@ input[type="checkbox"]:checked + label:before {
   a:hover,
   .dropdown-toggle:hover{
     color: $alkemy_light_yellow !important;
+    text-decoration: none;
   }
 
   /* dropdown menu restyle */
@@ -298,7 +299,7 @@ a {
 .cover-text-row,
 .container-fluid,
 .alk-container{
-  padding: .5em 2em;
+  padding: .5em 2.2em;
   @media screen and (min-width: 992px){
     padding: .5rem 2.5rem;
   }
@@ -458,6 +459,9 @@ a {
   margin-top: $header-height;
   display: flex;
   align-items: center;
+  a:hover{
+    text-decoration: none;
+  }
 }
 
 .pageHero{
@@ -505,6 +509,7 @@ a {
     color: white;
     &:hover{
       color: $alkemy_light_yellow;
+      text-decoration: none;
     }
   }
 
@@ -1084,23 +1089,6 @@ div.spinContainer{
   color: white;
 }
 
-.roadmapCol{
-  &:after {
-    position: absolute;
-    color: rgba($alkemy_darkest_blue,.5);
-    content: "\f111  \f111  \f111";
-    font-family: "Font Awesome 5 Free";
-    font-size: 1.4em;
-    @include fluid-type($min_width, $max_width, $min_font, $mod_2*$mod_2 *$min_font);
-    font-weight: 900;
-    display: inline-flex;
-    right: -3.2em;
-    top: 20%;
-    transform: translateY(-50%);
-    white-space: pre;
-  }
-}
-
 /* Digital Marketing */
 
 .marketingReinvented{
@@ -1330,10 +1318,10 @@ div.spinContainer{
   }
 }
 
-
-.blog-title-bar,
-.blog-author {
-  padding: 0 4.5rem;
+.blogCard,.categoryCard{
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 .blog-title-bar{

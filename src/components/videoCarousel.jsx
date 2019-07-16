@@ -9,7 +9,7 @@ class VideoCarousel extends React.Component {
             currentIndex: 0,
             vidClasses: "vc-video bg-transparent",
             containerClasses: "vc-wrap bg-transparent",
-            slides:[]
+            slides: []
         };
 
         this.handleEnded = this.handleEnded.bind(this);
@@ -90,7 +90,7 @@ class VideoCarousel extends React.Component {
                             onPlay={this.handlePlay}
                             onEnded={this.handleEnded}
                             className={this.state.vidClasses}
-                            src={this.state.slides.length>0 && this.state.slides[this.state.currentIndex].mp4}
+                            src={this.state.slides.length > 0 && this.state.slides[this.state.currentIndex].mp4}
                             style={{
                                 objectFit: "cover",
                                 width: "100%",

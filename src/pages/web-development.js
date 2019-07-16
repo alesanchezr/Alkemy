@@ -19,7 +19,7 @@ Layout props:
 */
 
 const WebDevelopment = ({ data }) => {
-    const pageTitle = "Web Development Services";
+    const pageTitle = {name: "Custom Web Development",url:'/web-development'};
 
     return (
         <ScrollWrapper onWindowScroll={handleScroll}>
@@ -31,7 +31,7 @@ const WebDevelopment = ({ data }) => {
                 <SEO title={pageTitle.name} />
 
                 {/* Section 1 */}
-                <section className="px-5 mt-4 mb-5">
+                <section className=" alk-container my-5">
                     <Row className="mb-5">
                         <Col>
                             <h2 className="mb-4">
@@ -40,13 +40,13 @@ const WebDevelopment = ({ data }) => {
                                         .blocks[0].heading
                                 }
                             </h2>
-                            <p>
+                            <p className="lead">
                                 {
                                     data.webDevelopmentJson.sections[0]
                                         .blocks[0].content
                                 }
                             </p>
-                            <p>
+                            <p className="lead">
                                 {
                                     data.webDevelopmentJson.sections[0]
                                         .blocks[1].content
@@ -54,7 +54,7 @@ const WebDevelopment = ({ data }) => {
                             </p>
                         </Col>
                     </Row>
-                    <Row className="flex-column-reverse flex-md-row">
+                    <Row className="flex-column-reverse flex-md-row align-items-center">
                         <Col xs={12} sm={6}>
                             <h2 className="mb-4">
                                 {
@@ -62,20 +62,20 @@ const WebDevelopment = ({ data }) => {
                                         .blocks[2].heading
                                 }
                             </h2>
-                            <p>
+                            <p className="lead">
                                 {
                                     data.webDevelopmentJson.sections[0]
                                         .blocks[2].content
                                 }
                             </p>
-                            <p>
+                            <p className="lead">
                                 {
                                     data.webDevelopmentJson.sections[0]
                                         .blocks[3].content
                                 }
                             </p>
                             <Row>
-                                <Col xs={12} sm={6}>
+                                <Col xs={12}>
                                     <Button
                                         onClick={handleDiscussClick}
                                         color="primary"
@@ -103,9 +103,8 @@ const WebDevelopment = ({ data }) => {
                 </section>
 
                 {/* Section 2 */}
-                <section className="deliverYourMessage mb-4 py-4">
-                    <h1>{data.webDevelopmentJson.sections[1].heading}</h1>
-                    <Row className="px-5 pt-4">
+                <section className="deliverYourMessage alk-container">
+                    <Row className="align-items-center">
                         <Col xs={12} md={6}>
                             {data.webDevGraphic.childImageSharp && (
                                 <Img
@@ -113,8 +112,8 @@ const WebDevelopment = ({ data }) => {
                                         maxHeight: "auto",
                                         maxWidth: "550px",
                                         objectFit: "contain",
+                                        margin: "0",
                                     }}
-                                    className="my-auto"
                                     fluid={
                                         data.webDevGraphic.childImageSharp.fluid
                                     }
@@ -130,7 +129,7 @@ const WebDevelopment = ({ data }) => {
                                         .blocks[0].heading
                                 }
                             </h2>
-                            <p className="text-white">
+                            <p className="text-white lead my-4">
                                 {
                                     data.webDevelopmentJson.sections[1]
                                         .blocks[0].content
@@ -143,38 +142,6 @@ const WebDevelopment = ({ data }) => {
                             >
                                 Let&apos;s Discuss My Project
                             </Button>
-                        </Col>
-                    </Row>
-                </section>
-
-                {/* Section 3 */}
-                <section className="wordpressDesign mb-4 py-4">
-                    <Row className="px-5 pt-4">
-                        <Col xs={12} md={7}>
-                            <h2 className="mb-4">
-                                {
-                                    data.webDevelopmentJson.sections[2]
-                                        .blocks[0].heading
-                                }
-                            </h2>
-                            <p className="">
-                                {
-                                    data.webDevelopmentJson.sections[2]
-                                        .blocks[0].content
-                                }
-                            </p>
-                        </Col>
-
-                        <Col xs={12} md={5}>
-                            {data.codeScreen.childImageSharp && (
-                                <Img
-                                    className="my-auto h-100"
-                                    fluid={
-                                        data.codeScreen.childImageSharp.fluid
-                                    }
-                                    alt="Let us handle the coding, so that your project is built skillfully."
-                                />
-                            )}
                         </Col>
                     </Row>
                 </section>
@@ -213,9 +180,6 @@ export const query = graphql`
             ...fluidImageSmall
         }
         webDevGraphic: file(relativePath: { regex: "/developmentbtn.png/" }) {
-            ...fluidImageSmall
-        }
-        codeScreen: file(relativePath: { regex: "/code-screen.jpg/" }) {
             ...fluidImageSmall
         }
     }

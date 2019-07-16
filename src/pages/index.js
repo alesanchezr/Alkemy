@@ -66,26 +66,6 @@ const HomePage = ({ data }) => {
         url: "/",
     };
 
-    useEffect(() => {
-            const webpTest = typeof window !== "undefined" && Modernizr.webp;
-            console.log(webpTest);
-            slideArray = webpTest 
-            ? [
-                {
-                    img: require("../assets/video/home-work/home-work.webp"),
-                    mp4: require("../assets/video/home-work/home-work.webm"),
-                },
-                {
-                    img: require("../assets/video/aloha-mundo/aloha-mundo.webp"),
-                    mp4: require("../assets/video/aloha-mundo/aloha-mundo.webm"),
-                },
-                {
-                    img: require("../assets/video/office-day/office-day.webp"),
-                    mp4: require("../assets/video/office-day/office-day.webm"),
-                },
-            ]:null;
-            console.log(slideArray)
-    })
     return (
         <ScrollWrapper onWindowScroll={handleScroll}>
             <Layout headerTitle={[false, {}]} bodyClasses="home">

@@ -102,9 +102,6 @@ const DigitalMarketing = ({ data }) => {
                                         maxHeight: "auto",
                                         maxWidth: "600px",
                                         objectFit: "contain",
-                                        top: "50%",
-                                        left: "50%",
-                                        transform: "translate(-50%,-50%)",
                                         margin: "0",
                                     }}
                                     fluid={

@@ -98,7 +98,7 @@ const EcommerceDesign = ({ data }) => {
                 <SEO title={pageTitle.name} />
 
                 {/* Section 1 */}
-                <section className="px-5 mt-4 mb-5">
+                <section className="alk-container my-5">
                     <Row>
                         <Col>
                             <h2 className="mb-4">
@@ -106,12 +106,12 @@ const EcommerceDesign = ({ data }) => {
                                     data.ecommDesignJson.sections[0].blocks[0]
                                         .heading}
                             </h2>
-                            <p className="mb-4">
+                            <p className="mb-4 lead">
                                 {data.ecommDesignJson &&
                                     data.ecommDesignJson.sections[0].blocks[0]
                                         .content}
                             </p>
-                            <p className="mb-5">
+                            <p className="mb-5 lead">
                                 {data.ecommDesignJson &&
                                     data.ecommDesignJson.sections[0].blocks[1]
                                         .content}
@@ -120,7 +120,7 @@ const EcommerceDesign = ({ data }) => {
                     </Row>
 
                     {/* eCommerce platforms */}
-                    <div className="container-fluid my-5">
+                    <div className="alk-container my-5">
                         <h2 className="mb-5 text-center">
                             {data.ecommDesignJson.sections[1].blocks[0].heading}
                         </h2>
@@ -141,7 +141,7 @@ const EcommerceDesign = ({ data }) => {
                                             data.shopifyLogo.childImageSharp
                                                 .fluid
                                         }
-                                        alt="Alkemy knows the right languages and framworks to get the job done correctly."
+                                        alt="Shopify Shopping Cart Platform"
                                     />
                                 )}
                             </Col>
@@ -160,7 +160,7 @@ const EcommerceDesign = ({ data }) => {
                                         fluid={
                                             data.dcartLogo.childImageSharp.fluid
                                         }
-                                        alt="Alkemy knows the right languages and framworks to get the job done correctly."
+                                        alt="3dcart Shopping Cart Platform"
                                     />
                                 )}
                             </Col>
@@ -180,7 +180,7 @@ const EcommerceDesign = ({ data }) => {
                                             data.bigcommerceLogo.childImageSharp
                                                 .fluid
                                         }
-                                        alt="Alkemy knows the right languages and framworks to get the job done correctly."
+                                        alt="Big Commerce Shopping Cart Platform"
                                     />
                                 )}
                             </Col>
@@ -200,7 +200,7 @@ const EcommerceDesign = ({ data }) => {
                                             data.wordpressLogo.childImageSharp
                                                 .fluid
                                         }
-                                        alt="Alkemy knows the right languages and framworks to get the job done correctly."
+                                        alt="Wordpress Platform"
                                     />
                                 )}
                             </Col>
@@ -209,12 +209,12 @@ const EcommerceDesign = ({ data }) => {
                 </section>
 
                 {/* Section 2 */}
-                <section className="roadmap my-4 py-5 px-2">
+                <section className="roadmap mt-4 py-5 ">
                     <h2 className="my-4 text-center">
                         {data.ecommDesignJson &&
                             data.ecommDesignJson.sections[2].blocks[0].heading}
                     </h2>
-                    <Row className="justify-content-around">
+                    <Row className="justify-content-around alk-container">
                         <Col xs={12} md={2} className="roadmapCol">
                             <>
                                 {data.discoveryIcon.childImageSharp && (
@@ -240,7 +240,7 @@ const EcommerceDesign = ({ data }) => {
                                             data.ecommDesignJson.sections[2]
                                                 .blocks[0].steps[0].heading}
                                     </h3>
-                                    <p className="mb-5">
+                                    <p className="mb-5 lead">
                                         {data.ecommDesignJson &&
                                             data.ecommDesignJson.sections[2]
                                                 .blocks[0].steps[0].content}
@@ -274,7 +274,7 @@ const EcommerceDesign = ({ data }) => {
                                             data.ecommDesignJson.sections[2]
                                                 .blocks[0].steps[1].heading}
                                     </h3>
-                                    <p className="mb-5">
+                                    <p className="mb-5 lead">
                                         {data.ecommDesignJson &&
                                             data.ecommDesignJson.sections[2]
                                                 .blocks[0].steps[1].content}
@@ -307,7 +307,7 @@ const EcommerceDesign = ({ data }) => {
                                             data.ecommDesignJson.sections[2]
                                                 .blocks[0].steps[2].heading}
                                     </h3>
-                                    <p className="mb-5">
+                                    <p className="mb-5 lead">
                                         {data.ecommDesignJson &&
                                             data.ecommDesignJson.sections[2]
                                                 .blocks[0].steps[2].content}
@@ -340,7 +340,7 @@ const EcommerceDesign = ({ data }) => {
                                             data.ecommDesignJson.sections[2]
                                                 .blocks[0].steps[3].heading}
                                     </h3>
-                                    <p className="mb-5">
+                                    <p className="mb-5 lead">
                                         {data.ecommDesignJson &&
                                             data.ecommDesignJson.sections[2]
                                                 .blocks[0].steps[3].content}
@@ -374,7 +374,7 @@ const EcommerceDesign = ({ data }) => {
                                             data.ecommDesignJson.sections[2]
                                                 .blocks[0].steps[4].heading}
                                     </h3>
-                                    <p className="mb-5">
+                                    <p className="mb-5 lead">
                                         {data.ecommDesignJson &&
                                             data.ecommDesignJson.sections[2]
                                                 .blocks[0].steps[4].content}
@@ -386,6 +386,72 @@ const EcommerceDesign = ({ data }) => {
                 </section>
 
                 {/* Section 3 */}
+                <section className="innovativeDesign mb-4 py-4">
+                    <Row className="px-5 pt-4">
+                        <Col xs={12} md={5}>
+                            {data.ecommWebDesign.childImageSharp && (
+                                <Img
+                                    imgStyle={{
+                                        maxHeight: "auto",
+                                        maxWidth: "500px",
+                                        objectFit: "contain",
+                                        margin: "0 auto",
+                                    }}
+                                    fluid={
+                                        data.ecommWebDesign.childImageSharp
+                                            .fluid
+                                    }
+                                    alt="Alkemy knows the right languages and framworks to get the job done correctly."
+                                />
+                            )}
+                        </Col>
+                        <Col xs={12} md={7}>
+                            <h2 className="mb-4">
+                                {data.ecommDesignJson &&
+                                    data.ecommDesignJson.sections[3].blocks[0]
+                                        .heading}
+                            </h2>
+                            <p className="">
+                                {data.ecommDesignJson &&
+                                    data.ecommDesignJson.sections[3].blocks[0]
+                                        .content}
+                            </p>
+                        </Col>
+                    </Row>
+                </section>
+
+                {/* Section 4 */}
+                <section
+                    ref={plansSection}
+                    className="eCommercePlans mb-2 py-4"
+                >
+                    <Row className="px-5">
+                        <Col>
+                            <h2 className="text-center mb-4">
+                                {data.ecommDesignJson &&
+                                    data.ecommDesignJson.sections[4].blocks[0]
+                                        .heading}
+                            </h2>
+                            <p>
+                                {data.ecommDesignJson &&
+                                    data.ecommDesignJson.sections[4].blocks[0]
+                                        .content}
+                            </p>
+                        </Col>
+                    </Row>
+                    <Row className="my-5 px-5" noGutters>
+                        {data.ecommDesignJson &&
+                            planCards(data.ecommDesignJson.sections[6].plans)}
+                    </Row>
+                    <Row className="my-5 px-5" noGutters>
+                        {data.ecommDesignJson &&
+                            disclaimers(
+                                data.ecommDesignJson.sections[4].blocks[0]
+                            )}
+                    </Row>
+                </section>
+
+                {/* Section 5 */}
                 <section className="partnerSection my-2 py-0">
                     <Row className="d-flex justify-content-center align-items-center">
                         <Col xs={12} md={3}>
@@ -462,72 +528,6 @@ const EcommerceDesign = ({ data }) => {
                                 />
                             )}
                         </Col>
-                    </Row>
-                </section>
-
-                {/* Section 4 */}
-                <section className="innovativeDesign mb-4 py-4">
-                    <Row className="px-5 pt-4">
-                        <Col xs={12} md={5}>
-                            {data.ecommWebDesign.childImageSharp && (
-                                <Img
-                                    imgStyle={{
-                                        maxHeight: "auto",
-                                        maxWidth: "500px",
-                                        objectFit: "contain",
-                                        margin: "0 auto",
-                                    }}
-                                    fluid={
-                                        data.ecommWebDesign.childImageSharp
-                                            .fluid
-                                    }
-                                    alt="Alkemy knows the right languages and framworks to get the job done correctly."
-                                />
-                            )}
-                        </Col>
-                        <Col xs={12} md={7}>
-                            <h2 className="mb-4">
-                                {data.ecommDesignJson &&
-                                    data.ecommDesignJson.sections[3].blocks[0]
-                                        .heading}
-                            </h2>
-                            <p className="">
-                                {data.ecommDesignJson &&
-                                    data.ecommDesignJson.sections[3].blocks[0]
-                                        .content}
-                            </p>
-                        </Col>
-                    </Row>
-                </section>
-
-                {/* Section 5 */}
-                <section
-                    ref={plansSection}
-                    className="eCommercePlans mb-2 py-4"
-                >
-                    <Row className="px-5">
-                        <Col>
-                            <h2 className="text-center mb-4">
-                                {data.ecommDesignJson &&
-                                    data.ecommDesignJson.sections[4].blocks[0]
-                                        .heading}
-                            </h2>
-                            <p>
-                                {data.ecommDesignJson &&
-                                    data.ecommDesignJson.sections[4].blocks[0]
-                                        .content}
-                            </p>
-                        </Col>
-                    </Row>
-                    <Row className="my-5 px-5" noGutters>
-                        {data.ecommDesignJson &&
-                            planCards(data.ecommDesignJson.sections[6].plans)}
-                    </Row>
-                    <Row className="my-5 px-5" noGutters>
-                        {data.ecommDesignJson &&
-                            disclaimers(
-                                data.ecommDesignJson.sections[4].blocks[0]
-                            )}
                     </Row>
                 </section>
 
