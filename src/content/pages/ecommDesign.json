@@ -28,24 +28,19 @@
             "heading": "Our Roadmap to Launching Your Powerhouse eCommerce Site",
             "steps": [
               {
-                "heading": "Discovery",
-                "content": "At the start of your project we will meet with you to discuss all relevant details and get an idea of what will be needed."
+                "heading": "Discovery"
               },
               {
-                "heading": "Design",
-                "content": "After discovery, we will strategize about your project further and create design mock-ups to understand the visual flow and user journey."
+                "heading": "Design"
               },
               {
-                "heading": "Coding",
-                "content": "Then once we have approved designs and plans for your site, we will initialize the coding phase of the project. This is where we actually create a functional website."
+                "heading": "Coding"
               },
               {
-                "heading": "Quality Assurance",
-                "content": "Next, when coding has completed and your site is built, the new website will undergo rigorous testing to make sure that everything is fully operational and bug free."
+                "heading": "Testing"
               },
               {
-                "heading": "Launch",
-                "content": "Our final step is to make sure the launch of your website goes off without a hitch. At the end of this step, your site will be operational and visible to all major search engines."
+                "heading": "Launch"
               }
             ]
           }
@@ -56,7 +51,7 @@
         "blocks": [
           {
             "heading": "Tried and True Techniques, Innovative Designs.",
-            "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            "content": "Our years of experience working with eCommerce websites and digital marketing has provided us an edge in the online commerce sphere. We know all of the tricks to setting up a site that will not only showcase your products, but also convert! After all, the whole point of starting your eCommerce business was to make money doing what you love the most, right? Let us help you get started today!"
           }
         ]
       },
@@ -68,59 +63,9 @@
             "content": "The first step to the creation of your website is deciding on the right package to start with. Below you have a few choices to select from, but these are only starting points. Many additional modules for your store are available based on the platform that is selected. As part of our desire to help you reach your utmost success, we can help you decide on any modules that may be needed to reach your goals. If you find that the packages are not what you are looking for, you can contact us directly to have a custom plan built to the specifications that your project requires. ",
             "disclaimers": [
               "* Additional content can be calculated separately based on the needs of your business. Please notify your project manager of any other content that you need and we will be happy to help.",
-              "** Some restrictions apply. Blog design based upon selected ecommerce platform’s default blogging system. Custom Wordpress blogs are available and recommened but may incur an additional fee based on complexity. Additional hosting rates may apply."
-            ]
-          }
-        ]
-      },
-      {
-        "id": "6",
-        "blocks": [
-          {
-            "heading": "Here are some examples of modules that can be integrated in your store",
-            "modules": [
-              [
-                "Abandoned Cart Recovery",
-                "Upsell Modules",
-                "Visa Checkout",
-                "Quickbooks Integration",
-                "Xero Integration"
-              ],
-              [
-                "Google Analytics Module",
-                "Google Shopping",
-                "Fusionbot",
-                "Fraudwatch",
-                "Mega Menus"
-              ],
-              [
-                "Fly Out Cart",
-                "Live Chat Modules",
-                "Category Filters",
-                "Faceted Search Options",
-                "Inventory Source"
-              ],
-              [
-                "Oberlo",
-                "Ali Express",
-                "Doba",
-                "Mailchimp",
-                "Constant Contact"
-              ],
-              [
-                "Translation Apps",
-                "Realtime Shipping Rates",
-                "Social Media Integrations",
-                "Ratings/Reviews Apps",
-                "Out of Stock Notifications"
-              ],
-              [
-                "SEO Plugins",
-                "And many more…"
-              ]
-            ],
-            "disclaimers": [
-              "* Plugin availabilitly depends on your selected platform. If there is a specific plugin or integration that you require, speak to your project manager so that they can assist with selecting the appropriate platform for your business."
+              "** Some restrictions apply. Blog design based upon selected ecommerce platform’s default blogging system. Custom Wordpress blogs are available and recommened but may incur an additional fee based on complexity. Additional hosting rates may apply.",
+              "*** Basic Technical SEO includes on-page meta and optimized page/link structure. Other SEO services not included.",
+              "**** Technical SEO Plus includes everything from basic, plus additional customization based on your industry. Rich Snippets, Image Meta, and preliminary SEO analysis."
             ]
           }
         ]
@@ -128,7 +73,7 @@
       {
         "plans": [
           {
-            "name": "ecomm Basics",
+            "name": "Basics",
             "icon": "money-bill-alt",
             "priceFrom": "From $6,999",
             "features": [
@@ -136,11 +81,11 @@
               "1 Category Template",
               "1 Product Template",
               "3 Image Carousel",
-              "Technical SEO"
+              "Basic Technical SEO***"
             ]
           },
           {
-            "name": "ecomm Dominance",
+            "name": "Dominance",
             "icon": "gem",
             "priceFrom": "From $14,999",
             "features": [
@@ -152,11 +97,11 @@
               "Custom Contact Us Page",
               "Custom Checkout Experience",
               "Custom Blog Design **",
-              "Technical SEO"
+              "Technical SEO plus ****"
             ]
           },
           {
-            "name": "ecomm Advanced",
+            "name": "Advanced",
             "icon": "star",
             "priceFrom": "From $9,999",
             "features": [
@@ -166,7 +111,7 @@
               "3 Image Carousel",
               "Custom About Us Page",
               "Custom Contact Us Page",
-              "Technical SEO"
+              "Basic Technical SEO*** + Image meta"
             ]
           }
         ]

@@ -76,9 +76,9 @@ const EcommerceDesign = ({ data }) => {
     const disclaimers = block => {
         return block.disclaimers.map((note, index) => {
             return (
-                <p key={index}>
+                <li key={index}>
                     <small>{note}</small>
-                </p>
+                </li>
             );
         });
     };
@@ -118,94 +118,6 @@ const EcommerceDesign = ({ data }) => {
                             </p>
                         </Col>
                     </Row>
-
-                    {/* eCommerce platforms */}
-                    <div className="alk-container my-5">
-                        <h2 className="mb-5 text-center">
-                            {data.ecommDesignJson.sections[1].blocks[0].heading}
-                        </h2>
-                        <Row>
-                            <Col xs={12} md={3}>
-                                {data.shopifyLogo.childImageSharp && (
-                                    <Img
-                                        className="platforms"
-                                        imgStyle={{
-                                            maxHeight: "auto",
-                                            maxWidth: "200px",
-                                            objectFit: "contain",
-                                            top: "50%",
-                                            left: "50%",
-                                            transform: "translate(-50%,-50%)",
-                                        }}
-                                        fluid={
-                                            data.shopifyLogo.childImageSharp
-                                                .fluid
-                                        }
-                                        alt="Shopify Shopping Cart Platform"
-                                    />
-                                )}
-                            </Col>
-                            <Col xs={12} md={3}>
-                                {data.dcartLogo.childImageSharp && (
-                                    <Img
-                                        className="platforms"
-                                        imgStyle={{
-                                            maxHeight: "auto",
-                                            maxWidth: "200px",
-                                            objectFit: "contain",
-                                            top: "50%",
-                                            left: "50%",
-                                            transform: "translate(-50%,-50%)",
-                                        }}
-                                        fluid={
-                                            data.dcartLogo.childImageSharp.fluid
-                                        }
-                                        alt="3dcart Shopping Cart Platform"
-                                    />
-                                )}
-                            </Col>
-                            <Col xs={12} md={3}>
-                                {data.bigcommerceLogo.childImageSharp && (
-                                    <Img
-                                        className="platforms"
-                                        imgStyle={{
-                                            maxHeight: "auto",
-                                            maxWidth: "200px",
-                                            objectFit: "contain",
-                                            top: "50%",
-                                            left: "50%",
-                                            transform: "translate(-50%,-50%)",
-                                        }}
-                                        fluid={
-                                            data.bigcommerceLogo.childImageSharp
-                                                .fluid
-                                        }
-                                        alt="Big Commerce Shopping Cart Platform"
-                                    />
-                                )}
-                            </Col>
-                            <Col xs={12} md={3}>
-                                {data.wordpressLogo.childImageSharp && (
-                                    <Img
-                                        className="platforms"
-                                        imgStyle={{
-                                            maxHeight: "auto",
-                                            maxWidth: "200px",
-                                            objectFit: "contain",
-                                            top: "50%",
-                                            left: "50%",
-                                            transform: "translate(-50%,-50%)",
-                                        }}
-                                        fluid={
-                                            data.wordpressLogo.childImageSharp
-                                                .fluid
-                                        }
-                                        alt="Wordpress Platform"
-                                    />
-                                )}
-                            </Col>
-                        </Row>
-                    </div>
                 </section>
 
                 {/* Section 2 */}
@@ -231,21 +143,14 @@ const EcommerceDesign = ({ data }) => {
                                             data.discoveryIcon.childImageSharp
                                                 .fluid
                                         }
-                                        alt="Alkemy knows the right languages and framworks to get the job done correctly."
+                                        alt="Step 1: Discovery"
                                     />
                                 )}
-                                <div>
-                                    <h3 className="my-4 text-center font-weight-normal">
-                                        {data.ecommDesignJson &&
-                                            data.ecommDesignJson.sections[2]
-                                                .blocks[0].steps[0].heading}
-                                    </h3>
-                                    <p className="mb-5 lead">
-                                        {data.ecommDesignJson &&
-                                            data.ecommDesignJson.sections[2]
-                                                .blocks[0].steps[0].content}
-                                    </p>
-                                </div>
+                                <h3 className="my-4 text-center font-weight-normal">
+                                    {data.ecommDesignJson &&
+                                        data.ecommDesignJson.sections[2]
+                                            .blocks[0].steps[0].heading}
+                                </h3>
                             </>
                         </Col>
 
@@ -265,21 +170,14 @@ const EcommerceDesign = ({ data }) => {
                                             data.designIcon.childImageSharp
                                                 .fluid
                                         }
-                                        alt="Alkemy knows the right languages and framworks to get the job done correctly."
+                                        alt="Step 2: Design"
                                     />
                                 )}
-                                <div>
-                                    <h3 className="my-4 text-center font-weight-normal">
-                                        {data.ecommDesignJson &&
-                                            data.ecommDesignJson.sections[2]
-                                                .blocks[0].steps[1].heading}
-                                    </h3>
-                                    <p className="mb-5 lead">
-                                        {data.ecommDesignJson &&
-                                            data.ecommDesignJson.sections[2]
-                                                .blocks[0].steps[1].content}
-                                    </p>
-                                </div>
+                                <h3 className="my-4 text-center font-weight-normal">
+                                    {data.ecommDesignJson &&
+                                        data.ecommDesignJson.sections[2]
+                                            .blocks[0].steps[1].heading}
+                                </h3>
                             </>
                         </Col>
 
@@ -298,21 +196,14 @@ const EcommerceDesign = ({ data }) => {
                                         fluid={
                                             data.codeIcon.childImageSharp.fluid
                                         }
-                                        alt="Alkemy knows the right languages and framworks to get the job done correctly."
+                                        alt="Step 3: Coding"
                                     />
                                 )}
-                                <div>
-                                    <h3 className="my-4 text-center font-weight-normal">
-                                        {data.ecommDesignJson &&
-                                            data.ecommDesignJson.sections[2]
-                                                .blocks[0].steps[2].heading}
-                                    </h3>
-                                    <p className="mb-5 lead">
-                                        {data.ecommDesignJson &&
-                                            data.ecommDesignJson.sections[2]
-                                                .blocks[0].steps[2].content}
-                                    </p>
-                                </div>
+                                <h3 className="my-4 text-center font-weight-normal">
+                                    {data.ecommDesignJson &&
+                                        data.ecommDesignJson.sections[2]
+                                            .blocks[0].steps[2].heading}
+                                </h3>
                             </>
                         </Col>
 
@@ -331,21 +222,14 @@ const EcommerceDesign = ({ data }) => {
                                         fluid={
                                             data.testIcon.childImageSharp.fluid
                                         }
-                                        alt="Alkemy knows the right languages and framworks to get the job done correctly."
+                                        alt="Step 4: Testing"
                                     />
                                 )}
-                                <div>
-                                    <h3 className="my-4 text-center font-weight-normal">
-                                        {data.ecommDesignJson &&
-                                            data.ecommDesignJson.sections[2]
-                                                .blocks[0].steps[3].heading}
-                                    </h3>
-                                    <p className="mb-5 lead">
-                                        {data.ecommDesignJson &&
-                                            data.ecommDesignJson.sections[2]
-                                                .blocks[0].steps[3].content}
-                                    </p>
-                                </div>
+                                <h3 className="my-4 text-center font-weight-normal">
+                                    {data.ecommDesignJson &&
+                                        data.ecommDesignJson.sections[2]
+                                            .blocks[0].steps[3].heading}
+                                </h3>
                             </>
                         </Col>
 
@@ -365,22 +249,99 @@ const EcommerceDesign = ({ data }) => {
                                             data.launchIcon.childImageSharp
                                                 .fluid
                                         }
-                                        alt="Alkemy knows the right languages and framworks to get the job done correctly."
+                                        alt="Step 5: Launch"
                                     />
                                 )}
-                                <div>
-                                    <h3 className="my-4 text-center font-weight-normal">
-                                        {data.ecommDesignJson &&
-                                            data.ecommDesignJson.sections[2]
-                                                .blocks[0].steps[4].heading}
-                                    </h3>
-                                    <p className="mb-5 lead">
-                                        {data.ecommDesignJson &&
-                                            data.ecommDesignJson.sections[2]
-                                                .blocks[0].steps[4].content}
-                                    </p>
-                                </div>
+                                <h3 className="my-4 text-center font-weight-normal">
+                                    {data.ecommDesignJson &&
+                                        data.ecommDesignJson.sections[2]
+                                            .blocks[0].steps[4].heading}
+                                </h3>
                             </>
+                        </Col>
+                    </Row>
+                </section>
+
+                {/* eCommerce platforms */}
+                <section className="my-5">
+                    <h2 className="mb-5 text-center">
+                        {data.ecommDesignJson.sections[1].blocks[0].heading}
+                    </h2>
+                    <Row className="justify-content-between">
+                        <Col xs={12} md={3}>
+                            {data.shopifyLogo.childImageSharp && (
+                                <Img
+                                    className="platforms"
+                                    imgStyle={{
+                                        maxHeight: "auto",
+                                        maxWidth: "200px",
+                                        objectFit: "contain",
+                                        top: "50%",
+                                        left: "50%",
+                                        transform: "translate(-50%,-50%)",
+                                    }}
+                                    fluid={
+                                        data.shopifyLogo.childImageSharp.fluid
+                                    }
+                                    alt="Shopify Shopping Cart Platform"
+                                />
+                            )}
+                        </Col>
+                        <Col xs={12} md={3}>
+                            {data.dcartLogo.childImageSharp && (
+                                <Img
+                                    className="platforms"
+                                    imgStyle={{
+                                        maxHeight: "auto",
+                                        maxWidth: "200px",
+                                        objectFit: "contain",
+                                        top: "50%",
+                                        left: "50%",
+                                        transform: "translate(-50%,-50%)",
+                                    }}
+                                    fluid={data.dcartLogo.childImageSharp.fluid}
+                                    alt="3dcart Shopping Cart Platform"
+                                />
+                            )}
+                        </Col>
+                        <Col xs={12} md={3}>
+                            {data.bigcommerceLogo.childImageSharp && (
+                                <Img
+                                    className="platforms"
+                                    imgStyle={{
+                                        maxHeight: "auto",
+                                        maxWidth: "200px",
+                                        objectFit: "contain",
+                                        top: "50%",
+                                        left: "50%",
+                                        transform: "translate(-50%,-50%)",
+                                    }}
+                                    fluid={
+                                        data.bigcommerceLogo.childImageSharp
+                                            .fluid
+                                    }
+                                    alt="Big Commerce Shopping Cart Platform"
+                                />
+                            )}
+                        </Col>
+                        <Col xs={12} md={3}>
+                            {data.wordpressLogo.childImageSharp && (
+                                <Img
+                                    className="platforms"
+                                    imgStyle={{
+                                        maxHeight: "auto",
+                                        maxWidth: "200px",
+                                        objectFit: "contain",
+                                        top: "50%",
+                                        left: "50%",
+                                        transform: "translate(-50%,-50%)",
+                                    }}
+                                    fluid={
+                                        data.wordpressLogo.childImageSharp.fluid
+                                    }
+                                    alt="Wordpress Platform"
+                                />
+                            )}
                         </Col>
                     </Row>
                 </section>
@@ -401,7 +362,7 @@ const EcommerceDesign = ({ data }) => {
                                         data.ecommWebDesign.childImageSharp
                                             .fluid
                                     }
-                                    alt="Alkemy knows the right languages and framworks to get the job done correctly."
+                                    alt="Picture an iMac with a second monitor and a design prototype on the screens."
                                 />
                             )}
                         </Col>
@@ -411,7 +372,7 @@ const EcommerceDesign = ({ data }) => {
                                     data.ecommDesignJson.sections[3].blocks[0]
                                         .heading}
                             </h2>
-                            <p className="">
+                            <p className="lead">
                                 {data.ecommDesignJson &&
                                     data.ecommDesignJson.sections[3].blocks[0]
                                         .content}
@@ -423,43 +384,46 @@ const EcommerceDesign = ({ data }) => {
                 {/* Section 4 */}
                 <section
                     ref={plansSection}
-                    className="eCommercePlans mb-2 py-4"
+                    className="eCommercePlans pt-4 pb-0 alk-container"
                 >
-                    <Row className="px-5">
+                    <Row>
                         <Col>
                             <h2 className="text-center mb-4">
                                 {data.ecommDesignJson &&
                                     data.ecommDesignJson.sections[4].blocks[0]
                                         .heading}
                             </h2>
-                            <p>
+                            <p className="lead">
                                 {data.ecommDesignJson &&
                                     data.ecommDesignJson.sections[4].blocks[0]
                                         .content}
                             </p>
                         </Col>
                     </Row>
-                    <Row className="my-5 px-5" noGutters>
+                    <Row className="my-5" noGutters>
                         {data.ecommDesignJson &&
-                            planCards(data.ecommDesignJson.sections[6].plans)}
+                            planCards(data.ecommDesignJson.sections[5].plans)}
                     </Row>
-                    <Row className="my-5 px-5" noGutters>
-                        {data.ecommDesignJson &&
-                            disclaimers(
-                                data.ecommDesignJson.sections[4].blocks[0]
-                            )}
+                    <Row className="mt-3" noGutters>
+                        <ul className="small list-unstyled p-0 m-0">
+                            {data.ecommDesignJson &&
+                                disclaimers(
+                                    data.ecommDesignJson.sections[4].blocks[0]
+                                )}
+                        </ul>
                     </Row>
                 </section>
 
                 {/* Section 5 */}
-                <section className="partnerSection my-2 py-0">
-                    <Row className="d-flex justify-content-center align-items-center">
+
+                <section className="partnerSection my-2 py-0 alk-container">
+                    <Row className="justify-content-around align-items-center no-gutters">
                         <Col xs={12} md={3}>
                             {data.dcartPartner.childImageSharp && (
                                 <Img
                                     imgStyle={{
                                         maxHeight: "auto",
-                                        maxWidth: "300px",
+                                        maxWidth: "250px",
                                         objectFit: "contain",
                                         top: "50%",
                                         left: "50%",
@@ -468,7 +432,7 @@ const EcommerceDesign = ({ data }) => {
                                     fluid={
                                         data.dcartPartner.childImageSharp.fluid
                                     }
-                                    alt="Alkemy knows the right languages and framworks to get the job done correctly."
+                                    alt="Alkemy, Inc. is a 3dcart Partner."
                                 />
                             )}
                         </Col>
@@ -477,7 +441,7 @@ const EcommerceDesign = ({ data }) => {
                                 <Img
                                     imgStyle={{
                                         maxHeight: "auto",
-                                        maxWidth: "300px",
+                                        maxWidth: "250px",
                                         objectFit: "contain",
                                         top: "50%",
                                         left: "50%",
@@ -486,7 +450,7 @@ const EcommerceDesign = ({ data }) => {
                                     fluid={
                                         data.dcartExpert.childImageSharp.fluid
                                     }
-                                    alt="Alkemy knows the right languages and framworks to get the job done correctly."
+                                    alt="Alkemy, Inc. is a 3dcart Certified Expert."
                                 />
                             )}
                         </Col>
@@ -495,7 +459,7 @@ const EcommerceDesign = ({ data }) => {
                                 <Img
                                     imgStyle={{
                                         maxHeight: "auto",
-                                        maxWidth: "300px",
+                                        maxWidth: "250px",
                                         objectFit: "contain",
                                         top: "50%",
                                         left: "50%",
@@ -505,7 +469,7 @@ const EcommerceDesign = ({ data }) => {
                                         data.shopifyPartner.childImageSharp
                                             .fluid
                                     }
-                                    alt="Alkemy knows the right languages and framworks to get the job done correctly."
+                                    alt="Alkemy, Inc. is a Shopify Partner."
                                 />
                             )}
                         </Col>
@@ -514,7 +478,7 @@ const EcommerceDesign = ({ data }) => {
                                 <Img
                                     imgStyle={{
                                         maxHeight: "auto",
-                                        maxWidth: "300px",
+                                        maxWidth: "200px",
                                         objectFit: "contain",
                                         top: "50%",
                                         left: "50%",
@@ -524,36 +488,10 @@ const EcommerceDesign = ({ data }) => {
                                         data.bigcommercePartner.childImageSharp
                                             .fluid
                                     }
-                                    alt="Alkemy knows the right languages and framworks to get the job done correctly."
+                                    alt="Alkemy, Inc. is a Big Commerce Partner."
                                 />
                             )}
                         </Col>
-                    </Row>
-                </section>
-
-                {/* Section 6 */}
-                <section className="modulesList mb-5">
-                    <Row className="px-5">
-                        <Col>
-                            <h3 className="mb-4">
-                                {data.ecommDesignJson &&
-                                    data.ecommDesignJson.sections[5].blocks[0]
-                                        .heading}
-                            </h3>
-                        </Col>
-                    </Row>
-                    <Row className="my-5 px-5" noGutters>
-                        {data.ecommDesignJson &&
-                            moduleColumns(
-                                data.ecommDesignJson.sections[5].blocks[0]
-                                    .modules
-                            )}
-                    </Row>
-                    <Row className="my-5 px-5" noGutters>
-                        {data.ecommDesignJson &&
-                            disclaimers(
-                                data.ecommDesignJson.sections[5].blocks[0]
-                            )}
                     </Row>
                 </section>
 
