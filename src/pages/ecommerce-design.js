@@ -513,7 +513,6 @@ export const query = graphql`
                 blocks {
                     heading
                     content
-                    modules
                     disclaimers
                     steps {
                         heading

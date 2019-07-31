@@ -177,7 +177,7 @@ export default class ReactNavbar extends React.Component {
                         <ul className="mobileSubMenu list-unstyled mx-auto text-center mb-5">
                             <NavItem className="text-center font-weight-bold siteTitle">
                                 <p className="text-white">{item.name}</p>
-                                <ul>
+                                <ul className="list-unstyled m-0">
                                     {item.submenu.map(subitem => {
                                         return (
                                             <NavItem key={subitem.id}>
@@ -252,20 +252,22 @@ export default class ReactNavbar extends React.Component {
                 <div className={this.state.mobileMenuClasses}>
                     <Nav className="mx-auto" navbar>
                         {this.renderMobileLinks()}
+                        <li>
+                            <a
+                                color="light"
+                                className="btn btn-outline btn-white mx-auto my-4 align-middle"
+                                onClick={this.toggleAppointmentModal}
+                            >
+                                <FontAwesomeIcon
+                                    icon={this.state.icon}
+                                    color="white"
+                                    size="lg"
+                                    className="mr-2"
+                                />
+                                Reserve Appointment
+                            </a>
+                        </li>
                     </Nav>
-                    <Button
-                        outline
-                        color="light"
-                        className="mx-auto my-4 align-middle"
-                    >
-                        <FontAwesomeIcon
-                            icon={this.state.icon}
-                            color="white"
-                            size="lg"
-                            className="mr-2"
-                        />
-                        Reserve Appointment
-                    </Button>
                 </div>
                 <Modal
                     size={"lg"}

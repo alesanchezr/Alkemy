@@ -28,19 +28,24 @@
             "heading": "Our Roadmap to Launching Your Powerhouse eCommerce Site",
             "steps": [
               {
-                "heading": "Discovery"
+                "heading": "Discovery",
+                "content": ""
               },
               {
-                "heading": "Design"
+                "heading": "Design",
+                "content": ""
               },
               {
-                "heading": "Coding"
+                "heading": "Coding",
+                "content": ""
               },
               {
-                "heading": "Testing"
+                "heading": "Testing",
+                "content": ""
               },
               {
-                "heading": "Launch"
+                "heading": "Launch",
+                "content": ""
               }
             ]
           }

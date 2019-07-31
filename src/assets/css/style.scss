@@ -7,6 +7,9 @@
  License URI:  https://opensource.org/licenses/MIT
 */
 
+// Import BT sources
+@import "../../../node_modules/bootstrap/scss/functions.scss";
+@import "../../../node_modules/bootstrap/scss/variables.scss";
 
 /**********************/
 /* Variables & Mixins */
@@ -18,6 +21,23 @@ $half_viewport: 50vh; // Set height of header
 $subheader-height: 110px; // Set height of subheader
 $animation-time: 400ms; // Set the animation speed
 $animation-function: ease; // Set the animation type
+
+/* Bootstrap breakpoint override */
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1600px,
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1520px,
+);
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
 
 
 /* VH Conversion Function */
@@ -61,23 +81,41 @@ $animation-function: ease; // Set the animation type
   }
 }
 
-$min_width: 320px;
-$max_width: 2280px;
-$min_font: 16px;
-$max_font: 21px;
 
-html {
-  @include fluid-type($min_width, $max_width, $min_font, $max_font);
-  line-height: 1.5;
+$min_width: 320;
+$max_width: 2560;
+$min_font: 16;
+$max_font: 32;
+
+
+:root {
+  font-size: #{$min_font}px;
 }
 
-$mod_1: 1.2; // mobile
-$mod_2: 1.5; // desktop
-
-h1 {
-  font-size: $mod_1*$mod_1*$mod_1*$mod_1*1rem;
-  @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font);
+@media (min-width: #{$min_width}px) and (max-width: #{$max_width}px) {
+  :root {
+    @include fluid-type($min_width, $max_width, $min_font, $max_font);
+  }
 }
+
+@media (min-width: #{$max_width}px) {
+  :root {
+    font-size: #{$max_font}px;
+  }
+}
+
+// html {
+//   // @include fluid-type($min_width, $max_width, $min_font, $max_font);
+//   line-height: 1.5;
+// }
+
+// $mod_1: 1.2; // mobile
+// $mod_2: 1.5; // desktop
+
+// h1 {
+//   font-size: $mod_1*$mod_1*$mod_1*$mod_1*1rem;
+//   @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font);
+// }
 
 /* Colors */
 
@@ -315,6 +353,7 @@ a {
     top: 90%;
   }
 }
+
 .mobileMenu{
   background: $alkemy_darkest_blue;
   z-index: 1001;
@@ -398,6 +437,10 @@ a {
       background-color: darken($alkemy_light_yellow, 10%);
       transform: scale(.95);
     }
+}
+
+.btn-white{
+  border-color: white;
 }
 
 .callNow{

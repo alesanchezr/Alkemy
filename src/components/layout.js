@@ -110,11 +110,6 @@ const Layout = ({
                     />
                     <div
                         id="main"
-                        style={{
-                            margin: "0 auto",
-                            maxWidth: 1920,
-                            paddingTop: 0,
-                        }}
                     >
                         {children}
                     </div>
