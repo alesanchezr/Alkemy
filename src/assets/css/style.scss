@@ -62,60 +62,12 @@ $container-max-widths: (
   @return $value / ($value * 0 + 1);
 }
 
-@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
-  $u1: unit($min-vw);
-  $u2: unit($max-vw);
-  $u3: unit($min-font-size);
-  $u4: unit($max-font-size);
-
-  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
-    & {
-      font-size: $min-font-size;
-      @media screen and (min-width: $min-vw) {
-        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
-      }
-      @media screen and (min-width: $max-vw) {
-        font-size: $max-font-size;
-      }
-    }
+body{
+  font-size: calc(18px + .1vw);
+  @media (min-width: 1021px) and (max-width: 1100px) {
+    font-size: calc(1.5vw);
   }
 }
-
-
-$min_width: 320;
-$max_width: 2560;
-$min_font: 16;
-$max_font: 32;
-
-
-:root {
-  font-size: #{$min_font}px;
-}
-
-@media (min-width: #{$min_width}px) and (max-width: #{$max_width}px) {
-  :root {
-    @include fluid-type($min_width, $max_width, $min_font, $max_font);
-  }
-}
-
-@media (min-width: #{$max_width}px) {
-  :root {
-    font-size: #{$max_font}px;
-  }
-}
-
-// html {
-//   // @include fluid-type($min_width, $max_width, $min_font, $max_font);
-//   line-height: 1.5;
-// }
-
-// $mod_1: 1.2; // mobile
-// $mod_2: 1.5; // desktop
-
-// h1 {
-//   font-size: $mod_1*$mod_1*$mod_1*$mod_1*1rem;
-//   @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font);
-// }
 
 /* Colors */
 

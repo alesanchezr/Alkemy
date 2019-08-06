@@ -90,7 +90,11 @@ class VideoCarousel extends React.Component {
                             onPlay={this.handlePlay}
                             onEnded={this.handleEnded}
                             className={this.state.vidClasses}
-                            src={this.state.slides.length > 0 && this.state.slides[this.state.currentIndex].mp4}
+                            src={
+                                this.props.slides[this.state.currentIndex]
+                                    .mp4 ||
+                                this.state.slides[this.state.currentIndex].mp4
+                            }
                             style={{
                                 objectFit: "cover",
                                 width: "100%",
@@ -98,7 +102,9 @@ class VideoCarousel extends React.Component {
                                 overflow: "hidden",
                             }}
                             poster={
-                                this.state.slides.length > 0 && this.state.slides[this.state.currentIndex].img
+                                this.props.slides[this.state.currentIndex]
+                                    .img ||
+                                this.state.slides[this.state.currentIndex].img
                             }
                             ref={el => {
                                 this.video = el;
