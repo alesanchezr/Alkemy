@@ -526,6 +526,13 @@ a {
   .socialLinks{
     right: 0;
     bottom: 0;
+    max-width: 10vw;
+    @media only screen and (max-width: 767px){
+      right: unset;
+      max-width: unset;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 }
 

@@ -68,7 +68,7 @@ const Footer = () => (
         <Row>{renderLinkAreas(_menuArray)}</Row>
 
         <Row className="my-5 my-md-2">
-            <div className="copyText text-center position-absolute my-5 my-md-2 px-5">
+            <div className="copyText text-center position-absolute my-5 my-md-2">
                 Copyright &copy; 2018, Alkemy, Inc.
                 <br />
                 {renderSubLinks(_subLinks)}
