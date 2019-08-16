@@ -294,7 +294,7 @@ a {
 .cover-text-row,
 .container-fluid,
 .alk-container{
-  padding: .5em 2.2em;
+  padding: .5em 2em;
   @media screen and (min-width: 992px){
     padding: .5rem 2.5rem;
   }
@@ -302,6 +302,9 @@ a {
 
 .navbar-brand img {
   width: 11em;
+  @media screen and (max-width: 321px){
+    width: 10em;
+  }
 }
 
 .navbar-nav{
@@ -326,11 +329,13 @@ a {
     border-bottom: 2px solid lightgray !important;
   }
   .navbar-nav {
-
     line-height: 4vh;
     margin: 0;
     position: absolute;
     top: 50%;
+    @media screen and (max-width: 321px){
+      top: 55%;
+    }
     left: 50%;
     transform: translate(-50%,-50%);
     .siteTitle{
