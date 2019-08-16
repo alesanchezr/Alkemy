@@ -105,9 +105,13 @@ export default class FreeWebsiteAnalysis extends React.Component {
 
     handleFieldChange = e => {
         let formValues = this.state.formValues;
+        console.log('target ',e.target.name);
         if (e.target.name === "authCheck") {
             formValues[e.target.name] = !this.state.formValues.authCheck;
-        } else {
+            console.log(formValues[e.target.name]);
+        } else if(e.target.id==="authCheck"){
+            formValues[e.target.id] = !this.state.formValues.authCheck;
+        }else{
             formValues[e.target.name] = e.target.value;
         }
         this.setState({
@@ -220,7 +224,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                             <Label
                                                 for="fullName"
                                                 id="fullName"
-                                                style={{visibility:"hidden"}}
+                                                style={{ visibility: "hidden" }}
                                             >
                                                 Full Name
                                             </Label>
@@ -254,7 +258,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                             <Label
                                                 for="email"
                                                 id="email"
-                                                style={{visibility:"hidden"}}
+                                                style={{ visibility: "hidden" }}
                                             >
                                                 Email Address
                                             </Label>
@@ -274,7 +278,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                                 }
                                                 placeholder="Enter your Email Address"
                                             />
-                                            
+
                                             <FormFeedback className="my-3">
                                                 {this.state.errors.emailFormat}
                                             </FormFeedback>
@@ -285,7 +289,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                     <Label
                                         for="webAddress"
                                         id="webAddress"
-                                        style={{visibility:"hidden"}}
+                                        style={{ visibility: "hidden" }}
                                     >
                                         Website Address
                                     </Label>
@@ -332,6 +336,9 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                         for="authCheck"
                                         id="authCheck"
                                         className="text-left"
+                                        onClick={e =>
+                                            this.handleFieldChange(e)
+                                        }
                                     >
                                         I authorize Alkemy, Inc. to contact me
                                         via email so that I may recieve my free
