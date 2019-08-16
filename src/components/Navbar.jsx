@@ -250,9 +250,9 @@ export default class ReactNavbar extends React.Component {
                     </Collapse>
                 </Navbar>
                 <div className={this.state.mobileMenuClasses}>
-                    <Nav className="mx-auto" navbar>
+                    <Nav className="mx-auto w-100" navbar>
                         {this.renderMobileLinks()}
-                        <li>
+                        <li className="mx-auto">
                             <a
                                 color="light"
                                 className="btn btn-outline btn-white mx-auto my-4 align-middle"
