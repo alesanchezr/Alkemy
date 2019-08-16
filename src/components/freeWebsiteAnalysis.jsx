@@ -94,28 +94,40 @@ export default class FreeWebsiteAnalysis extends React.Component {
                 })
                 // eslint-disable-next-line no-undef
                 .catch(error => console.log(error));
-        } else {
+        } else if (valid && recaptchaValue.length === 0) {
             let errors = { ...this.state.errors };
             errors.ReCAPTCHA = "ReCAPTCHA Verification Needed to Submit Form.";
             this.setState({
                 errors,
             });
-        }
+        } else {
+            let state = this.state;
+            state.errors.ReCAPTCHA = "ReCAPTCHA Verification Needed to Submit Form.";
+            this.setState({
+                state
+            });
+        } 
     };
 
     handleFieldChange = e => {
         let formValues = this.state.formValues;
-        console.log('target ',e.target.name);
+        let errors = this.state.errors
         if (e.target.name === "authCheck") {
             formValues[e.target.name] = !this.state.formValues.authCheck;
-            console.log(formValues[e.target.name]);
         } else if(e.target.id==="authCheck"){
             formValues[e.target.id] = !this.state.formValues.authCheck;
         }else{
             formValues[e.target.name] = e.target.value;
         }
+
+        if(formValues["authCheck"]===true){
+            errors.authCheck=""
+        }
+
         this.setState({
+            ...this.state,
             formValues,
+            errors
         });
     };
 
@@ -176,6 +188,8 @@ export default class FreeWebsiteAnalysis extends React.Component {
                 errors.websiteURLFormat =
                     "Website format is invalid. Must be of type www.yoursite.com";
             }
+        }else{
+            errors.websiteURLFormat='';
         }
 
         if (this.state.formValues.authCheck === false) {
