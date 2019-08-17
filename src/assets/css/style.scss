@@ -1159,7 +1159,8 @@ div.spinContainer{
 
   		li:before{
   			content: '\f0c3';
-  		    font: 600 2.5rem/1 'Font Awesome 5 Free';
+          font: 600 2.5rem/1 'Font Awesome 5 Free';
+          font-weight: 900;
   		    position: absolute;
   		    display: inline-flex;
   		    margin-left: -3.5rem;
@@ -1173,7 +1174,8 @@ div.spinContainer{
 
   		li ul li:before{
   			content: '\f105';
-  		    font: Bold 2rem/1 'Font Awesome 5 Free';
+          font: Bold 2rem/1 'Font Awesome 5 Free';
+          font-weight: 900;
   		    position: absolute;
   		    display: inline-flex;
   		    margin-left: -1.8rem;
