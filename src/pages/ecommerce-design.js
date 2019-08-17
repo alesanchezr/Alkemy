@@ -23,7 +23,7 @@ const EcommerceDesign = ({ data }) => {
     // function for creating a list of Plan features
     const planFeatures = plan => {
         return (
-            <ul className="fa-ul">
+            <ul className="fa-ul w-50 w-lg-100 mx-auto my-3">
                 {plan.features.map((feature, index) => {
                     return (
                         <li key={index}>
@@ -44,7 +44,7 @@ const EcommerceDesign = ({ data }) => {
     const planCards = plans => {
         return plans.map((plan, index) => {
             return (
-                <Col key={index} className="my-auto plan">
+                <Col xs={12} lg={4} key={index} className="my-auto plan">
                     <Card className="my-4 p-4 planCard">
                         <h2 className="text-center mb-4">{plan.name}</h2>
                         <FontAwesomeIcon
@@ -263,7 +263,7 @@ const EcommerceDesign = ({ data }) => {
                 </section>
 
                 {/* eCommerce platforms */}
-                <section className="my-5">
+                <section className="my-5 alk-container">
                     <h2 className="mb-5 text-center">
                         {data.ecommDesignJson.sections[1].blocks[0].heading}
                     </h2>
@@ -348,16 +348,13 @@ const EcommerceDesign = ({ data }) => {
 
                 {/* Section 3 */}
                 <section className="innovativeDesign mb-4 py-4">
-                    <Row className="px-5 pt-4">
-                        <Col xs={12} md={5}>
+                    <Row className="alk-container pt-4">
+                        <Col xs={12} lg={5} className="mb-5">
                             {data.ecommWebDesign.childImageSharp && (
                                 <Img
-                                    imgStyle={{
-                                        maxHeight: "auto",
-                                        maxWidth: "500px",
-                                        objectFit: "contain",
-                                        margin: "0 auto",
-                                    }}
+                                    imgStyle={{ objectFit: "contain" }}
+                                    style={{ maxWidth: "500px" }}
+                                    className="mx-auto"
                                     fluid={
                                         data.ecommWebDesign.childImageSharp
                                             .fluid
@@ -366,7 +363,7 @@ const EcommerceDesign = ({ data }) => {
                                 />
                             )}
                         </Col>
-                        <Col xs={12} md={7}>
+                        <Col xs={12} lg={7}>
                             <h2 className="mb-4">
                                 {data.ecommDesignJson &&
                                     data.ecommDesignJson.sections[3].blocks[0]
@@ -416,7 +413,7 @@ const EcommerceDesign = ({ data }) => {
 
                 {/* Section 5 */}
 
-                <section className="partnerSection my-2 py-0 alk-container">
+                <section className="partnerSection my-5 my-lg-2 py-0 alk-container">
                     <Row className="justify-content-around align-items-center no-gutters">
                         <Col xs={12} md={3}>
                             {data.dcartPartner.childImageSharp && (
