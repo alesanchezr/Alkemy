@@ -34,7 +34,7 @@ const DigitalMarketing = ({ data }) => {
                 <SEO title={pageTitle.name} />
 
                 {/* Section 1 */}
-                <section className="px-5 my-4">
+                <section className="alk-container my-4">
                     <Row>
                         <Col>
                             <h2 className="mb-4">
@@ -49,8 +49,8 @@ const DigitalMarketing = ({ data }) => {
                             </p>
                         </Col>
                     </Row>
-                    <Row>
-                        <Col xs={12} sm={6}>
+                    <Row className="flex-column-reverse flex-lg-row">
+                        <Col xs={12} lg={6}>
                             <h2 className="mb-4">
                                 {data.digitalMarketingJson &&
                                     data.digitalMarketingJson.sections[0]
@@ -61,10 +61,11 @@ const DigitalMarketing = ({ data }) => {
                                     data.digitalMarketingJson.sections[0]
                                         .blocks[1].content}
                             </p>
-                            <Row>
-                                <Col xs={12} sm={6}>
+                            <Row className="mb-4">
+                                <Col xs={12} lg={6}>
                                     <Button
-                                        href="/"
+                                        onClick={handleDiscussClick}
+                                        block
                                         className="btn btn-primary form-control"
                                     >
                                         Let’s Grow My Traffic
@@ -72,7 +73,7 @@ const DigitalMarketing = ({ data }) => {
                                 </Col>
                             </Row>
                         </Col>
-                        <Col xs={12} sm={6}>
+                        <Col xs={12} lg={6} className="mb-4">
                             {data.seoGraphic.childImageSharp && (
                                 <Img
                                     imgStyle={{
@@ -93,17 +94,14 @@ const DigitalMarketing = ({ data }) => {
                 </section>
 
                 {/* Section 2 */}
-                <section className="marketingReinvented mb-4">
-                    <Row className="px-5 py-4 d-flex justify-content-center align-items-center">
-                        <Col xs={12} md={6}>
+                <section className="marketingReinvented mb-4 py-4">
+                    <Row className="alk-container py-4 d-flex justify-content-center align-items-center">
+                        <Col xs={12} lg={6} className="mb-4">
                             {data.marketingImg.childImageSharp && (
                                 <Img
-                                    imgStyle={{
-                                        maxHeight: "auto",
-                                        maxWidth: "600px",
-                                        objectFit: "contain",
-                                        margin: "0",
-                                    }}
+                                    imgStyle={{ objectFit: "contain" }}
+                                    style={{ maxWidth: "500px" }}
+                                    className="mx-auto"
                                     fluid={
                                         data.marketingImg.childImageSharp.fluid
                                     }
@@ -112,7 +110,7 @@ const DigitalMarketing = ({ data }) => {
                             )}
                         </Col>
 
-                        <Col xs={12} md={6}>
+                        <Col xs={12} lg={6}>
                             <h2 className="mb-4">
                                 {data.digitalMarketingJson &&
                                     data.digitalMarketingJson.sections[1]
@@ -133,24 +131,29 @@ const DigitalMarketing = ({ data }) => {
                                     data.digitalMarketingJson.sections[1]
                                         .blocks[2].content}
                             </p>
-                            <Button
-                                href="/"
-                                className="btn btn-primary form-control"
-                            >
-                                I’m Ready to Discuss My Project
-                            </Button>
+                            <Row className="mt-5">
+                                <Col xs={12} lg={6}>
+                                    <Button
+                                        block
+                                        onClick={handleDiscussClick}
+                                        className="btn btn-primary"
+                                    >
+                                        Let&apos;s Discuss My Project!
+                                    </Button>
+                                </Col>
+                            </Row>
                         </Col>
                     </Row>
                 </section>
 
                 {/* Section 3 */}
-                <section className="conversionPlanning mb-4 py-4">
+                <section className="conversionPlanning mb-4 py-4 alk-container">
                     <h1>
                         {data.digitalMarketingJson &&
                             data.digitalMarketingJson.sections[1].heading}
                     </h1>
-                    <Row className="px-5 pt-4">
-                        <Col xs={12} md={7}>
+                    <Row className="pt-4 flex-column-reverse flex-lg-row">
+                        <Col xs={12} lg={7}>
                             <h2 className="mb-4">
                                 {data.digitalMarketingJson &&
                                     data.digitalMarketingJson.sections[2]
@@ -173,7 +176,7 @@ const DigitalMarketing = ({ data }) => {
                             </p>
                         </Col>
 
-                        <Col xs={12} md={5}>
+                        <Col xs={12} lg={5} className="mb-4">
                             {data.growthCharts.childImageSharp && (
                                 <Img
                                     imgStyle={{
@@ -195,8 +198,8 @@ const DigitalMarketing = ({ data }) => {
 
                 {/* Section 4 */}
                 <section className="socialMediaMarketing mb-4 py-4">
-                    <Row className="px-5">
-                        <Col xs={12} md={5}>
+                    <Row className="alk-container">
+                        <Col xs={12} lg={5} className="mb-4">
                             {data.socialMedia.childImageSharp && (
                                 <Img
                                     imgStyle={{
@@ -213,13 +216,13 @@ const DigitalMarketing = ({ data }) => {
                                 />
                             )}
                         </Col>
-                        <Col xs={12} md={7}>
+                        <Col xs={12} lg={7}>
                             <h2 className="text-left font-weight-normal">
                                 {data.digitalMarketingJson &&
                                     data.digitalMarketingJson.sections[3]
                                         .blocks[0].heading}
                             </h2>
-                            <h2 className="text-right mb-4">
+                            <h2 className="text-lg-right mb-4">
                                 {data.digitalMarketingJson &&
                                     data.digitalMarketingJson.sections[3]
                                         .blocks[1].heading}
@@ -243,10 +246,21 @@ const DigitalMarketing = ({ data }) => {
                     </Row>
                 </section>
 
-                <BuildYourDream />
+                <section ref={dreamForm}>
+                    <BuildYourDream />
+                </section>
             </Layout>
         </ScrollWrapper>
     );
+};
+
+const dreamForm = React.createRef();
+
+const handleDiscussClick = () => {
+    window.scrollTo({
+        top: dreamForm.current.offsetTop - 80,
+        behavior: "smooth",
+    });
 };
 
 const handleScroll = () => {};
