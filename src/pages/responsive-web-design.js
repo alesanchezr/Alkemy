@@ -23,7 +23,7 @@ const WebDesign = ({ data }) => {
     // function for creating a list of Plan features
     const planFeatures = plan => {
         return (
-            <ul className="fa-ul">
+            <ul className="fa-ul w-50 w-lg-100 mx-auto my-3">
                 {plan.features.map((feature, index) => {
                     return (
                         <li key={index}>
@@ -44,8 +44,8 @@ const WebDesign = ({ data }) => {
     const planCards = plans => {
         return plans.map((plan, index) => {
             return (
-                <Col key={index} className="my-auto plan">
-                    <Card className="my-4 p-4 planCard">
+                <Col key={index} xs={12} lg={4} className="my-auto plan">
+                    <Card className="my-4 px-2 py-4 p-md-4 planCard">
                         <h2 className="text-center mb-4">{plan.name}</h2>
                         <FontAwesomeIcon
                             icon={plan.icon}
@@ -85,7 +85,7 @@ const WebDesign = ({ data }) => {
                 <SEO title={pageTitle.name} />
 
                 {/* Section 1 */}
-                <section className="px-5 my-5">
+                <section className="alk-container my-5">
                     <Row>
                         <Col>
                             <h2 className="mb-4">
@@ -102,8 +102,8 @@ const WebDesign = ({ data }) => {
                             </p>
                         </Col>
                     </Row>
-                    <Row className="flex-column-reverse flex-md-row">
-                        <Col xs={12} sm={6}>
+                    <Row className="flex-column-reverse flex-lg-row">
+                        <Col xs={12} lg={6}>
                             <h2 className="mb-4">
                                 {
                                     data.webDesignJson.sections[0].blocks[1]
@@ -123,8 +123,9 @@ const WebDesign = ({ data }) => {
                                 }
                             </p>
                             <Row>
-                                <Col xs={12} sm={6}>
+                                <Col xs={12} sm={6} className="mb-4">
                                     <Button
+                                        block
                                         onClick={handleViewPlansClick}
                                         color="primary"
                                     >
@@ -133,6 +134,7 @@ const WebDesign = ({ data }) => {
                                 </Col>
                                 <Col xs={12} sm={6}>
                                     <Button
+                                        block
                                         onClick={handleQuoteClick}
                                         color="primary"
                                     >
@@ -141,7 +143,7 @@ const WebDesign = ({ data }) => {
                                 </Col>
                             </Row>
                         </Col>
-                        <Col xs={12} sm={6} className="text-center">
+                        <Col xs={12} lg={6} className="text-center">
                             {data.screenDesign.childImageSharp && (
                                 <Img
                                     className="my-5 md-my-auto"
@@ -156,12 +158,12 @@ const WebDesign = ({ data }) => {
                 </section>
 
                 {/* Section 2 */}
-                <section className="deliverYourMessage mb-4 py-5">
-                    <Row className="px-5">
-                        <Col xs={12} md={6}>
+                <section className="deliverYourMessage mb-lg-4 py-5">
+                    <Row className="alk-container">
+                        <Col xs={12} lg={6}>
                             {data.screenClean.childImageSharp && (
                                 <Img
-                                    className="my-auto"
+                                    className="my-lg-auto mb-5"
                                     fluid={
                                         data.screenClean.childImageSharp.fluid
                                     }
@@ -170,7 +172,7 @@ const WebDesign = ({ data }) => {
                             )}
                         </Col>
 
-                        <Col xs={12} md={6}>
+                        <Col xs={12} lg={6}>
                             <h2 className="mb-4">
                                 {
                                     data.webDesignJson.sections[1].blocks[0]
@@ -183,21 +185,26 @@ const WebDesign = ({ data }) => {
                                         .content
                                 }
                             </p>
-                            <Button
-                                onClick={handleViewPlansClick}
-                                color="primary"
-                            >
-                                View our Web Design Plans
-                            </Button>
+                            <Row>
+                                <Col xs={12} md={6} className="my-4">
+                                    <Button
+                                        block
+                                        onClick={handleViewPlansClick}
+                                        color="primary"
+                                    >
+                                        View our Web Design Plans
+                                    </Button>
+                                </Col>
+                            </Row>
                         </Col>
                     </Row>
                 </section>
 
                 {/* Section 3 */}
-                <section className="wordpressDesign mb-4 py-4">
+                <section className="wordpressDesign mb-4 pb-4 py-lg-4">
                     <h1>{data.webDesignJson.sections[1].heading}</h1>
-                    <Row className="px-5 pt-4">
-                        <Col xs={12} md={7}>
+                    <Row className="alk-container pt-lg-4 flex-column-reverse flex-lg-row">
+                        <Col xs={12} lg={7}>
                             <h2 className="mb-4">
                                 {
                                     data.webDesignJson.sections[2].blocks[0]
@@ -212,10 +219,10 @@ const WebDesign = ({ data }) => {
                             </p>
                         </Col>
 
-                        <Col xs={12} md={5}>
+                        <Col xs={12} lg={5}>
                             {data.wordpressLogo.childImageSharp && (
                                 <Img
-                                    className="my-auto"
+                                    className="my-lg-auto"
                                     fluid={
                                         data.wordpressLogo.childImageSharp.fluid
                                     }
@@ -231,7 +238,7 @@ const WebDesign = ({ data }) => {
                     ref={plansSection}
                     className="webDesignPlans mb-4 py-4"
                 >
-                    <Row className="px-5">
+                    <Row className="alk-container">
                         <Col>
                             <h2 className="text-center mb-4">
                                 {
@@ -247,10 +254,10 @@ const WebDesign = ({ data }) => {
                             </p>
                         </Col>
                     </Row>
-                    <Row className="my-4 px-5" noGutters>
+                    <Row className="my-4 alk-container" noGutters>
                         {planCards(data.webDesignJson.sections[4].plans)}
                     </Row>
-                    <Row className="my-5 px-5" noGutters>
+                    <Row className="my-5 alk-container" noGutters>
                         {disclaimers(data.webDesignJson.sections[3].blocks[0])}
                     </Row>
                 </section>
