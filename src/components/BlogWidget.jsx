@@ -48,7 +48,7 @@ const BlogWidget = props => {
                                 </CardTitle>
                             </Link>
                         </CardBody>
-                        <CardImgOverlay className="d-none d-md-block">
+                        <CardImgOverlay className="d-none d-lg-block">
                             <CardBody>
                                 <CardText>
                                     {edge.node.frontmatter.excerpt ? (

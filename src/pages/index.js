@@ -138,7 +138,7 @@ const HomePage = ({ data }) => {
                     <CardDeck className="my-auto">
                         <Row>
                             <Col xs={12} sm={6} lg={3}>
-                                <Card className="border-0 p-3 animated bounceInUp cardOne h-100">
+                                <Card className="border-0 p-0 p-lg-3 animated bounceInUp cardOne h-100">
                                     {data.webDesign.childImageSharp && (
                                         <Img
                                             imgStyle={{
@@ -190,7 +190,7 @@ const HomePage = ({ data }) => {
                                 </Card>
                             </Col>
                             <Col xs={12} sm={6} lg={3}>
-                                <Card className="border-0 p-3 animated bounceInUp cardTwo h-100">
+                                <Card className="border-0 p-0 p-lg-3 animated bounceInUp cardTwo h-100">
                                     {data.webDevelopment.childImageSharp && (
                                         <Img
                                             imgStyle={{
@@ -242,7 +242,7 @@ const HomePage = ({ data }) => {
                                 </Card>
                             </Col>
                             <Col xs={12} sm={6} lg={3}>
-                                <Card className="border-0 p-3 animated bounceInUp cardThree h-100">
+                                <Card className="border-0 p-0 p-lg-3 animated bounceInUp cardThree h-100">
                                     {data.eCommerce.childImageSharp && (
                                         <Img
                                             imgStyle={{
@@ -294,7 +294,7 @@ const HomePage = ({ data }) => {
                                 </Card>
                             </Col>
                             <Col xs={12} sm={6} lg={3}>
-                                <Card className="border-0 p-3 animated bounceInUp cardFour">
+                                <Card className="border-0 p-0 p-lg-3 animated bounceInUp cardFour">
                                     {data.digitalMarketing.childImageSharp && (
                                         <Img
                                             imgStyle={{
@@ -385,12 +385,12 @@ const HomePage = ({ data }) => {
                         <Row className="align-items-center">
                             <Col
                                 xs={12}
-                                md={5}
+                                lg={5}
                                 className="align-items-center px-0 px-lg-5"
                             >
                                 {data.ourPassion.childImageSharp && (
                                     <Img
-                                        className="ourPassionImg animated slideInLeft mb-5 mb-md-0"
+                                        className="ourPassionImg animated slideInLeft mb-5 mb-lg-0"
                                         fluid={
                                             data.ourPassion.childImageSharp
                                                 .fluid
@@ -401,7 +401,7 @@ const HomePage = ({ data }) => {
                             </Col>
                             <Col
                                 xs={12}
-                                md={7}
+                                lg={7}
                                 className="align-items-center px-0 px-lg-5"
                             >
                                 <h2>

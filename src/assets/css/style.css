@@ -11432,6 +11432,13 @@ button:focus {
   bottom: 1em;
 }
 
+@media only screen and (max-width: 991px) {
+  .servicesHome .card .card-img-overlay .card-footer {
+    position: relative;
+    margin-top: 1em;
+  }
+}
+
 @media only screen and (min-width: 992px) {
   .servicesHome .card:hover .card-img-overlay {
     opacity: 1;

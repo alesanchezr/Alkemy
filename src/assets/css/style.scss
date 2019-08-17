@@ -862,6 +862,10 @@ button:focus {
           left: 0;
           right: 0;
           bottom: 1em;
+          @media only screen and (max-width: 991px) {
+            position: relative;
+            margin-top: 1em;
+          }
       }
     }
 
