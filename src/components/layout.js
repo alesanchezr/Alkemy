@@ -29,6 +29,8 @@ import {
     faStar,
     faSearch,
     faGlobe,
+    faFlask,
+    faChevronRight
 } from "@fortawesome/free-solid-svg-icons";
 import {
     faCalendarAlt,
@@ -60,7 +62,9 @@ library.add(
     faGlobe,
     faStar,
     faSearch,
-    faUser
+    faUser,
+    faFlask,
+    faChevronRight
 );
 
 const Layout = ({
