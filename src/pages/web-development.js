@@ -54,8 +54,8 @@ const WebDevelopment = ({ data }) => {
                             </p>
                         </Col>
                     </Row>
-                    <Row className="flex-column-reverse flex-md-row align-items-center">
-                        <Col xs={12} sm={6}>
+                    <Row className="flex-column-reverse flex-lg-row align-items-center">
+                        <Col xs={12} lg={6}>
                             <h2 className="mb-4">
                                 {
                                     data.webDevelopmentJson.sections[0]
@@ -74,7 +74,7 @@ const WebDevelopment = ({ data }) => {
                                         .blocks[3].content
                                 }
                             </p>
-                            <Row>
+                            <Row className="my-5">
                                 <Col xs={12}>
                                     <Button
                                         onClick={handleDiscussClick}
@@ -86,7 +86,7 @@ const WebDevelopment = ({ data }) => {
                                 </Col>
                             </Row>
                         </Col>
-                        <Col xs={12} sm={6} className="text-center">
+                        <Col xs={12} lg={6} className="text-center mb-5">
                             {data.webDevFlasks.childImageSharp && (
                                 <Img
                                     className="mx-auto"
@@ -104,16 +104,13 @@ const WebDevelopment = ({ data }) => {
 
                 {/* Section 2 */}
                 <section className="deliverYourMessage alk-container">
-                    <Row className="align-items-center">
-                        <Col xs={12} md={6}>
+                    <Row className="align-items-center flex-column flex-lg-row">
+                        <Col xs={12} lg={6} className="mt-5 mb-4">
                             {data.webDevGraphic.childImageSharp && (
                                 <Img
-                                    imgStyle={{
-                                        maxHeight: "auto",
-                                        maxWidth: "550px",
-                                        objectFit: "contain",
-                                        margin: "0",
-                                    }}
+                                    imgStyle={{ objectFit: "contain" }}
+                                    style={{ maxWidth: "500px" }}
+                                    className="mx-auto"
                                     fluid={
                                         data.webDevGraphic.childImageSharp.fluid
                                     }
@@ -122,8 +119,8 @@ const WebDevelopment = ({ data }) => {
                             )}
                         </Col>
 
-                        <Col xs={12} md={6}>
-                            <h2 className="mb-4">
+                        <Col xs={12} lg={6}>
+                            <h2 className="mt-5 mb-4">
                                 {
                                     data.webDevelopmentJson.sections[1]
                                         .blocks[0].heading
@@ -135,13 +132,17 @@ const WebDevelopment = ({ data }) => {
                                         .blocks[0].content
                                 }
                             </p>
-                            <Button
-                                onClick={handleDiscussClick}
-                                color="primary"
-                                block
-                            >
-                                Let&apos;s Discuss My Project
-                            </Button>
+                            <Row className="my-5">
+                                <Col xs={12} lg={6}>
+                                    <Button
+                                        onClick={handleDiscussClick}
+                                        color="primary"
+                                        block
+                                    >
+                                        Let&apos;s Discuss My Project
+                                    </Button>
+                                </Col>
+                            </Row>
                         </Col>
                     </Row>
                 </section>
