@@ -37,6 +37,7 @@ $container-max-widths: (
   lg: 960px,
   xl: 1520px,
 );
+
 @import "../../../node_modules/bootstrap/scss/bootstrap.scss";
 
 
@@ -1117,6 +1118,11 @@ div.spinContainer{
 
 .whoWeAre{
   height: 100vh - calcVh($header-height + $subheader-height);
+  .img-col{
+    @media screen and (min-width:1024px){
+      height: 100% !important;
+    }
+  }
   .arrow{
     @media screen and (min-width: 990px){
       width: 70%;
@@ -1130,9 +1136,13 @@ div.spinContainer{
   background: url('../images/about/city-bg.jpg') no-repeat center center;
   background-size: cover;
   min-height: 100vh - calcVh($header-height);
+
   .coreValues{
     background: rgba(0,0,0,.7);
     color: white;
+    @media screen and (max-width: 768px){
+      margin-top: 16rem;
+    }
 
     .valueTitle{
       color: $alkemy_light_yellow;
@@ -1144,8 +1154,8 @@ div.spinContainer{
   	}
 
   	ol{
-  	    list-style: none;
-  	    counter-reset: alkemy-counter;
+      list-style: none;
+      counter-reset: alkemy-counter;
 
   		li:before{
   			content: '\f0c3';

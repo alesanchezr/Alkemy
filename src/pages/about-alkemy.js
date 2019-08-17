@@ -35,9 +35,14 @@ const AboutAlkemy = ({ data }) => {
                 {/* Section 1 */}
                 <section className="whoWeAre">
                     <Row className="align-items-center h-100">
-                        <Col xs={12} sm={6} className="text-center h-100">
+                        <Col
+                            xs={12}
+                            lg={6}
+                            className="text-center mb-5 img-col"
+                        >
                             {data.puzzlePieces.childImageSharp && (
                                 <Img
+                                    imgStyle={{ objectFit: "cover" }}
                                     className="h-100"
                                     fluid={
                                         data.puzzlePieces.childImageSharp.fluid
@@ -46,18 +51,21 @@ const AboutAlkemy = ({ data }) => {
                                 />
                             )}
                         </Col>
-                        <Col xs={12} sm={6}>
-                            <h2 className="mb-4">
-                                {data.aboutJson &&
-                                    data.aboutJson.sections[0].blocks[0]
-                                        .heading}
-                            </h2>
-                            <p className="mb-4">
-                                {data.aboutJson &&
-                                    data.aboutJson.sections[0].blocks[0]
-                                        .content}
-                            </p>
-                            <div className="arrow">
+                        <Col xs={12} lg={6}>
+                            <div className="alk-container">
+                                <h2 className="mb-4">
+                                    {data.aboutJson &&
+                                        data.aboutJson.sections[0].blocks[0]
+                                            .heading}
+                                </h2>
+                                <p className="mb-4">
+                                    {data.aboutJson &&
+                                        data.aboutJson.sections[0].blocks[0]
+                                            .content}
+                                </p>
+                            </div>
+
+                            <div className="arrow ml-4 ml-lg-0">
                                 {data.arrowLine.childImageSharp && (
                                     <Img
                                         objectFit="contain"
@@ -74,10 +82,10 @@ const AboutAlkemy = ({ data }) => {
                 </section>
 
                 {/* Section 2 */}
-                <section className="aboutValues py-4">
-                    <Row className="px-5 py-4">
+                <section className="aboutValues py-4 alk-container ">
+                    <Row className="py-4 px-0">
                         <Col xs={12} md={8}>
-                            <div className="coreValues p-5 font-weight-light">
+                            <div className="coreValues py-4 pl-5 pr-3 p-lg-5 font-weight-light">
                                 <ol>
                                     <li>
                                         <span className="valueTitle">
@@ -143,7 +151,7 @@ const AboutAlkemy = ({ data }) => {
                 </section>
 
                 {/* Section 3 */}
-                <section className="ourPassion py-4">
+                <section className="ourPassion py-4 alk-container">
                     <Row className="py-2">
                         <Col xs={12}>
                             <div>
