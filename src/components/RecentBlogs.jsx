@@ -30,7 +30,7 @@ const RecentBlogs = props => {
                 <Row>
                     <Col xs={12}>
                         <Row>
-                            <Col xs={12} lg={3}>
+                            <Col xs={12} lg={3} className="mb-4 mb-lg-0">
                                 <Card className="blogCard">
                                     <Row className="align-items-center">
                                         <Col xs={12}>
@@ -41,10 +41,6 @@ const RecentBlogs = props => {
                                                 }
                                             >
                                                 <Img
-                                                    imgStyle={{
-                                                        minHeight: "200px",
-                                                        height: "200px",
-                                                    }}
                                                     className="card-img-top"
                                                     fluid={
                                                         blogData[1].node
@@ -98,7 +94,7 @@ const RecentBlogs = props => {
                                     </Row>
                                 </Card>
                             </Col>
-                            <Col xs={12} lg={9} className="height-fix">
+                            <Col xs={12} lg={9} className="height-fix mb-4 mb-lg-0">
                                 <Card className="blogCard">
                                     <Row className="align-items-center no-gutters">
                                         <Col xs={12} lg={6} className="p-4">
@@ -183,7 +179,7 @@ const RecentBlogs = props => {
 
         return blogsArray.map((e, index) => {
             return (
-                <Col xs={12} lg={3} key={index} className="my-5 h-100">
+                <Col xs={12} lg={3} key={index} className="mb-4 mb-lg-0 h-100">
                     <Card className="blogCard">
                         <Link to={e.node.frontmatter.path}>
                             <Img
