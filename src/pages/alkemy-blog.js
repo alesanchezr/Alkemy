@@ -55,7 +55,8 @@ const AlkemyBlog = ({
     addJS(
         `body`,
         null,
-        `//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ae21853f0b21631`
+        `//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ae21853f0b21631`,
+        `addThis`
     );
 
     let createBlogArray = (arr, home = true) => {

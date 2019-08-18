@@ -1458,3 +1458,14 @@ div.spinContainer{
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
 }
+
+body{
+  .addthis-smartlayers{
+    display: none;
+  }
+  &.blog,&.blog-single-page{
+    .addthis-smartlayers {
+      display: block;
+    }
+  }
+}

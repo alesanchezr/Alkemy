@@ -17879,4 +17879,12 @@ div.spinContainer {
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
 }
+
+body .addthis-smartlayers {
+  display: none;
+}
+
+body.blog .addthis-smartlayers, body.blog-single-page .addthis-smartlayers {
+  display: block;
+}
 /*# sourceMappingURL=style.css.map */
