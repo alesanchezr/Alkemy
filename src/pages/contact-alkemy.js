@@ -37,7 +37,7 @@ const ContactAlkemy = ({ data }) => {
                 {/* Section 1 */}
                 <section className="contactIntro py-5">
                     <Row className="align-items-center px-5">
-                        <Col xs={12} md={6}>
+                        <Col xs={12} lg={6} className="mb-5">
                             <div className="mr-4">
                                 <h2>
                                     {data.contactJson &&
@@ -83,7 +83,7 @@ const ContactAlkemy = ({ data }) => {
                                 </ul>
                             </div>
                         </Col>
-                        <Col xs={12} md={6}>
+                        <Col xs={12} lg={6}>
                             {data.contactImg.childImageSharp && (
                                 <Img
                                     fluid={
@@ -99,10 +99,10 @@ const ContactAlkemy = ({ data }) => {
                 {/* Section 2 */}
                 <section className="contactDetails py-4">
                     <Row className="justify-content-center">
-                        <Col xs={12} md={6}>
+                        <Col xs={12} lg={6} className="mb-5">
                             <ContactForm />
                         </Col>
-                        <Col xs={12} md={5}>
+                        <Col xs={12} lg={5}>
                             <CompanyInfo />
                             <Row className="h-50 mt-5">
                                 <Col xs={12}>
