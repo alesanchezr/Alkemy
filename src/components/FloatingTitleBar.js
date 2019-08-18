@@ -10,14 +10,14 @@ const FloatingTitleBar = props => {
     return (
         <Container
             fluid
-            className="d-none d-md-block position-sticky text-white blog-title-bar alk-container"
+            className="position-sticky text-white blog-title-bar alk-container"
             style={{ ...style }}
         >
-            <Row className="align-items-center">
-                <Col md={9}>
+            <Row className="align-items-center h-100">
+                <Col xs={12} md={9}>
                     <h3 className="mb-0">{props.title}</h3>
                 </Col>
-                <Col md={3}>
+                <Col md={3} className="d-none d-md-block">
                     <BlogInfoBar
                         category={props.category}
                         time={props.time}

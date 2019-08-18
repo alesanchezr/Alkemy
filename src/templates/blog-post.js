@@ -127,21 +127,30 @@ class BlogPostTemplate extends React.Component {
                     date={post.frontmatter.date}
                     author={post.frontmatter.author}
                 />
-                <Container fluid className="blog-single mb-5">
+                <div className="alk-container blog-single mb-5">
                     <section className="blog-category-filter my-3">
                         <Row className="align-items-center h-100">
-                            <Col md={8} className="d-none d-md-block" />
-                            <Col xs={12} sm={4}>
+                            <Col
+                                xs={12}
+                                sm={{ size: 10, offset: 2 }}
+                                md={{ size: 8, offset: 4 }}
+                                lg={{ size: 6, offset: 6 }}
+                                xl={{ size: 4, offset: 8 }}
+                            >
                                 {/* Category Dropdown */}
                                 <FormGroup row className="align-items-center">
                                     <Label
                                         for="categories"
-                                        xs={3}
-                                        className="text-right text-muted"
+                                        xs={12}
+                                        sm={3}
+                                        className="text-sm-right text-muted"
                                     >
                                         Jump to:
                                     </Label>
-                                    <Col xs={9}>
+                                    <Col 
+                                        xs={12}
+                                        sm={9}
+                                        >
                                         <Context.Consumer>
                                             {({ actions }) => (
                                                 <Select
@@ -170,10 +179,10 @@ class BlogPostTemplate extends React.Component {
                     </section>
                     <section className="blog-single-post-info">
                         <Row>
-                            <Col xs={12} md={6}>
+                            <Col xs={12} lg={6}>
                                 <h2>{post.frontmatter.title}</h2>
                                 <Row className="my-4">
-                                    <Col md={6}>
+                                    <Col xs={12} lg={12}>
                                         <BlogInfoBar
                                             category={post.frontmatter.category}
                                             time={post.frontmatter.readingTime}
@@ -185,8 +194,8 @@ class BlogPostTemplate extends React.Component {
                                 <Row>
                                     <Col
                                         xs={12}
-                                        md={4}
-                                        className="mb-5 mb-md-0"
+                                        lg={4}
+                                        className="mb-5 mb-lg-0"
                                     >
                                         <Img
                                             className="h-100"
@@ -200,7 +209,7 @@ class BlogPostTemplate extends React.Component {
                                             View My Profile...
                                         </Link>
                                     </Col>
-                                    <Col xs={12} md={8}>
+                                    <Col xs={12} lg={8}>
                                         <h3>{author.name}</h3>
                                         <p>{author.bio}</p>
                                     </Col>
@@ -208,8 +217,8 @@ class BlogPostTemplate extends React.Component {
                             </Col>
                             <Col
                                 xs={12}
-                                md={6}
-                                className="mb-5 mb-md-0 order-first order-md-last"
+                                lg={6}
+                                className="mb-5 mb-lg-0 order-first order-lg-last"
                             >
                                 <Img
                                     className="h-100"
@@ -222,7 +231,7 @@ class BlogPostTemplate extends React.Component {
                             </Col>
                         </Row>
                     </section>
-                </Container>
+                </div>
 
                 <FloatingTitleBar
                     title={post.frontmatter.title}
@@ -230,17 +239,17 @@ class BlogPostTemplate extends React.Component {
                     time={post.frontmatter.readingTime}
                 />
 
-                <Container className="my-5">
+                <div className="my-5 alk-container">
                     <MDXProvider components={components}>
                         <MDXRenderer>{post.code.body}</MDXRenderer>
                     </MDXProvider>
-                </Container>
+                </div>
                 <hr
                     style={{
                         marginBottom: rhythm(1),
                     }}
                 />
-                <Container fluid className="blog-single-post-nav">
+                <div className="blog-single-post-nav alk-container">
                     <ul
                         className="blog-single-post-nav-ul ml-0"
                         style={{
@@ -266,7 +275,7 @@ class BlogPostTemplate extends React.Component {
                             )}
                         </li>
                     </ul>
-                </Container>
+                </div>
                 <FreeWebsiteAnalysis />
             </Layout>
         );

@@ -10,7 +10,7 @@ const BlogInfoBar = props => {
         return (
             <>
                 <Col>
-                    <p className="d-flex align-items-center mb-md-0">
+                    <p className="d-flex align-items-center mb-md-0 blog-info-category">
                         <FontAwesomeIcon
                             icon={["far", "list-alt"]}
                             size="sm"
@@ -21,7 +21,7 @@ const BlogInfoBar = props => {
                     </p>
                 </Col>
                 <Col>
-                    <p className="d-flex align-items-center justify-content-center mb-md-0">
+                    <p className="d-flex align-items-center blog-info-time mb-md-0">
                         <FontAwesomeIcon
                             icon={["far", "clock"]}
                             size="sm"
@@ -33,7 +33,7 @@ const BlogInfoBar = props => {
                 </Col>
                 {props.author && props.author.length > 0 ? (
                     <Col>
-                        <p className="d-flex align-items-center justify-content-end mb-md-0">
+                        <p className="d-flex align-items-center justify-content-lg-end mb-md-0">
                             <FontAwesomeIcon
                                 icon={["far", "user"]}
                                 size="sm"

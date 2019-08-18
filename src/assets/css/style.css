@@ -17776,13 +17776,56 @@ div.spinContainer {
 .blog-title-bar {
   margin-top: 8.5rem;
   top: 73px;
-  height: 75px;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   background: #2bb3e5;
   z-index: 1000;
 }
 
+@media screen and (min-width: 1024px) {
+  .blog-title-bar {
+    height: 75px;
+  }
+}
+
 .blog-title-bar .row {
   height: 75px;
+}
+
+@media screen and (min-width: 1024px) {
+  .blog-title-bar .blog-info-category {
+    -webkit-box-pack: end !important;
+        -ms-flex-pack: end !important;
+            justify-content: flex-end !important;
+  }
+}
+
+.blog-info-category {
+  -webkit-box-pack: end !important;
+      -ms-flex-pack: end !important;
+          justify-content: flex-end !important;
+}
+
+@media screen and (min-width: 1024px) {
+  .blog-info-category {
+    -webkit-box-pack: start !important;
+        -ms-flex-pack: start !important;
+            justify-content: flex-start !important;
+  }
+}
+
+.blog-info-time {
+  -webkit-box-pack: start !important;
+      -ms-flex-pack: start !important;
+          justify-content: flex-start !important;
+}
+
+@media screen and (min-width: 1024px) {
+  .blog-info-time {
+    -webkit-box-pack: end !important;
+        -ms-flex-pack: end !important;
+            justify-content: flex-end !important;
+  }
 }
 
 .blog #bodyWrap, .blog-single-page #bodyWrap {
