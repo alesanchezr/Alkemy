@@ -16472,6 +16472,7 @@ body {
 html, body {
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
 }
 
 #bodyWrap {
@@ -17717,10 +17718,6 @@ div.spinContainer {
   background: #2bb3e5;
 }
 
-.blogSearch.row {
-  padding: .5rem;
-}
-
 .blog-featured {
   min-height: 50vh;
 }
@@ -17760,11 +17757,12 @@ div.spinContainer {
   background: rgba(43, 179, 229, 0.1);
 }
 
-.blogCard.alt {
-  -ms-flex: 0 0 25%;
-  -webkit-box-flex: 0;
-          flex: 0 0 25%;
-  max-width: 25%;
+@media screen and (min-width: 768px) {
+  .blogCard.alt {
+    -ms-flex: 0 0 25%;
+    -webkit-box-flex: 0;
+            flex: 0 0 25%;
+  }
 }
 
 .blogCard .card-body {
@@ -17817,5 +17815,29 @@ div.spinContainer {
 
 .blog-single-page #main:not(.footer) a:hover {
   color: #0B3C5D;
+}
+
+.height-fix {
+  height: 100% !important;
+}
+
+@media screen and (min-width: 1023px) {
+  .height-fix {
+    height: auto !important;
+  }
+}
+
+@media (min-width: 1023px) {
+  .image-fix {
+    height: 200px;
+  }
+}
+
+.clamp {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
 }
 /*# sourceMappingURL=style.css.map */

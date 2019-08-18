@@ -134,9 +134,9 @@ const AlkemyBlog = ({
             return (
                 <>
                     {_.isEqual(_.sortBy(blogs), _.sortBy(edges)) ? (
-                        <section className="blog-featured position-relative px-4">
+                        <section className="blog-featured position-relative alk-container">
                             <Row className="h-100 align-items-center">
-                                <Col xs={12} md={6} className="h-100 px-5">
+                                <Col xs={12} lg={6} className="h-100">
                                     <h2>
                                         {blogs &&
                                             blogs[0].node.frontmatter.title}
@@ -171,8 +171,8 @@ const AlkemyBlog = ({
                                 </Col>
                                 <Col
                                     xs={12}
-                                    md={6}
-                                    className="mb-5 mb-md-0 order-first order-md-last px-4"
+                                    lg={6}
+                                    className="mb-5 mb-lg-0 order-first order-lg-last"
                                 >
                                     <Img
                                         className="h-100"
@@ -188,9 +188,9 @@ const AlkemyBlog = ({
                     ) : null}
 
                     {_.isEqual(_.sortBy(blogs), _.sortBy(edges)) ? (
-                        <section className="py-4 blog-post-listing px-5">
+                        <section className="py-4 blog-post-listing alk-container">
                             <Row>
-                                <Col xs={12} md={9}>
+                                <Col xs={12} lg={9}>
                                     <RecentBlogs
                                         className=""
                                         blogdata={
@@ -199,7 +199,7 @@ const AlkemyBlog = ({
                                         layout="home"
                                     />
                                 </Col>
-                                <Col md={3} className="d-none d-md-block">
+                                <Col lg={3} className="d-none d-lg-block">
                                     <LatestFromCategory
                                         blogdata={blogs && blogs}
                                         categories={blogs && blogCategories()}
@@ -208,11 +208,10 @@ const AlkemyBlog = ({
                             </Row>
                         </section>
                     ) : (
-                        <section className="py-4 blog-post-listing px-4">
+                        <section className="py-4 blog-post-listing">
                             <Row>
                                 <Col xs={12}>
                                     <RecentBlogs
-                                        className="px-4"
                                         blogdata={createBlogArray(blogs, false)}
                                         layout="alt"
                                     />
@@ -224,7 +223,7 @@ const AlkemyBlog = ({
             );
         } else {
             return (
-                <section className="py-4 blog-post-listing px-4">
+                <section className="py-4 blog-post-listing alk-container">
                     <Row>
                         <Col xs={12}>
                             <RecentBlogs blogdata={blogs} layout="alt" />
@@ -248,9 +247,15 @@ const AlkemyBlog = ({
                     {({ actions }) => {
                         return (
                             <section className="blog-category-filter my-3">
-                                <Row className="align-items-center h-100 px-4">
-                                    <Col md={8} className="d-none d-md-block" />
-                                    <Col xs={12} sm={4} className="px-4">
+                                <Row className="align-items-center h-100 alk-container">
+                                    <Col 
+                                        xs={12} 
+                                        sm={{size: 10,offset:2}} 
+                                        md={{size:8,offset:4}} 
+                                        lg={{size:6,offset:6}} 
+                                        xl={{size:4,offset:8}} 
+                                        >
+
                                         {/* Category Dropdown */}
                                         <FormGroup
                                             row
@@ -258,12 +263,14 @@ const AlkemyBlog = ({
                                         >
                                             <Label
                                                 for="categories"
-                                                xs={3}
+                                                xs={4}
                                                 className="text-right text-muted"
                                             >
                                                 Jump to:
                                             </Label>
-                                            <Col xs={9}>
+                                            <Col 
+                                                xs={8}
+                                                >
                                                 <Select
                                                     className="category-select"
                                                     classNamePrefix="select"

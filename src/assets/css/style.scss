@@ -131,6 +131,7 @@ $alkemy_card_border: #84BAD9;
 html,body{
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
 }
 
 // add overflow-x hidden to bodyWrap to avoid window.pageYOffset being undetected
@@ -1301,9 +1302,9 @@ div.spinContainer{
   }
 }
 
-.blogSearch.row {
-  padding: .5rem;
-}
+// .blogSearch.row {
+//   padding: .5rem;
+// }
 
 .blog-featured{
   min-height: $half_viewport;
@@ -1340,9 +1341,10 @@ div.spinContainer{
   height: 100%;
   background: $alkemy_light_blue;
   &.alt{
-    -ms-flex: 0 0 25%;
-    flex: 0 0 25%;
-    max-width: 25%;
+    @media screen and (min-width: 768px){
+      -ms-flex: 0 0 25%;
+      flex: 0 0 25%;
+    }
   }
   .card-body{
     padding: 1.25rem;
@@ -1405,4 +1407,25 @@ div.spinContainer{
       }
     }
   }
+}
+
+.height-fix{
+  height: 100% !important;
+  @media screen and (min-width:1023px){
+    height: auto !important;
+  }
+}
+
+.image-fix{
+  @media (min-width:1023px) {
+    height: 200px;
+  }
+}
+
+.clamp{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
 }

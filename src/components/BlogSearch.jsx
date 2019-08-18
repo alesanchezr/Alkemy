@@ -71,7 +71,7 @@ export default class BlogSearch extends React.Component {
 
     render() {
         return (
-            <Row className="blogSearch px-0">
+            <Row className="blogSearch">
                 <Col>
                     <Context.Consumer>
                         {({ actions }) => {
