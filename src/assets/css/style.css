@@ -16649,7 +16649,7 @@ a {
   .cover-text-row,
   .container-fluid,
   .alk-container {
-    padding: .5rem 2.5rem;
+    padding: .5rem 3.5rem;
   }
 }
 
@@ -17240,7 +17240,6 @@ button:focus {
   position: relative;
   -webkit-transition: .3s linear;
   transition: .3s linear;
-  /* height: 100%; */
   padding: 0;
 }
 
@@ -17251,6 +17250,7 @@ button:focus {
     min-height: fit-content;
     position: absolute;
     opacity: 0;
+    font-size: 18px;
   }
 }
 
