@@ -78,7 +78,8 @@ const Layout = ({
 }) => {
     useEffect(() => {
         if (typeof window !== "undefined") {
-            document.body.classList = bodyClasses + " body-wrap";
+            let overflowControl = bodyClasses.includes(`blog-single-page`)?``:` body-wrap`;
+            document.body.classList = bodyClasses + overflowControl;
         }
     }, []);
     return (
