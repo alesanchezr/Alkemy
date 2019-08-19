@@ -854,13 +854,13 @@ button:focus {
     .card-img-overlay{
       position: relative;
       transition: .3s linear;
-      /* height: 100%; */
       padding: 0;
 
       @media only screen and (min-width: 992px){
         min-height: fit-content;
         position: absolute;
         opacity: 0;
+        font-size: 18px;
       }
 
       .card-footer {
