@@ -16829,6 +16829,12 @@ a {
           align-items: center;
 }
 
+@media screen and (max-width: 767px) {
+  .subHeader h1 {
+    font-size: 2.25rem;
+  }
+}
+
 .subHeader a:hover {
   text-decoration: none;
 }
