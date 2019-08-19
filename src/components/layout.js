@@ -78,7 +78,7 @@ const Layout = ({
 }) => {
     useEffect(() => {
         if (typeof window !== "undefined") {
-            document.body.classList = bodyClasses;
+            document.body.classList = bodyClasses + " body-wrap";
         }
     }, []);
     return (

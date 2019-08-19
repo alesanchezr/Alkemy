@@ -20,6 +20,6 @@ exports.onServiceWorkerUpdateReady = () => {
   }
 }
 
-exports.onRouteUpdate = () => {
-  window.location.action === "PUSH" && window.scrollTo(0, 0)
+exports.onRouteUpdate = (args) => {
+  if (typeof window !== `undefined` && args.location.action===`PUSH`) { window.scrollTo(0, 0)}
 }

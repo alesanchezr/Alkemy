@@ -128,14 +128,9 @@ $alkemy_card_border: #84BAD9;
   visibility: hidden;
 }
 
-html,body{
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-}
 
 // add overflow-x hidden to bodyWrap to avoid window.pageYOffset being undetected
-#bodyWrap{
+#bodyWrap,.body-wrap{
   overflow-x: hidden;
 }
 
