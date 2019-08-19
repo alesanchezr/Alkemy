@@ -53,7 +53,7 @@ class AuthorProfile extends React.Component {
     };
 
     render() {
-        const pageTitle = "Alkemy Blog";
+        const pageTitle = {url:`/alkemy-blog`,name:`Alkemy Blog`};
         const edges = this.props.data.allMdx.edges;
         const author = this.props.data.allAuthorsJson.edges[0].node;
 
@@ -97,18 +97,23 @@ class AuthorProfile extends React.Component {
                 title={author.name}
                 headerTitle={[true, pageTitle]}
                 search={true}
-                bodyClasses="blog"
+                bodyClasses="blog-author"
                 renderHeaderSolid={true}
             >
                 <SEO
                     title={author.name}
                     description={author.name + "-" + author.bio}
                 />
-                <Container fluid className="blog-author pb-5">
+                <div className="alk-container blog-author pb-5">
                     <section className="blog-category-filter my-3">
                         <Row className="align-items-center h-100">
-                            <Col md={8} className="d-none d-md-block" />
-                            <Col xs={12} sm={4}>
+                            <Col
+                                xs={12}
+                                sm={{ size: 10, offset: 2 }}
+                                md={{ size: 8, offset: 4 }}
+                                lg={{ size: 6, offset: 6 }}
+                                xl={{ size: 4, offset: 8 }}
+                            >
                                 {/* Category Dropdown */}
                                 <FormGroup row className="align-items-center">
                                     <Label
@@ -146,11 +151,10 @@ class AuthorProfile extends React.Component {
                         </Row>
                     </section>
                     <section className="blog-author-profile my-5">
-                        <Row>
-                            <Col xs={12} md={4}>
+                        <Row className="h-100">
+                            <Col xs={12} lg={4} className="h-100 mb-4">
                                 <Img
-                                    className="h-100"
-                                    style={{ width: "90%" }}
+                                    className="h-100 author-photo"
                                     fluid={author.photo.childImageSharp.fluid}
                                     alt={
                                         "Photo of " +
@@ -167,16 +171,16 @@ class AuthorProfile extends React.Component {
                                     Visit My Website
                                 </a>
                             </Col>
-                            <Col xs={12} md={8}>
+                            <Col xs={12} lg={8}>
                                 <Row>
                                     <Col className="align-items-center">
                                         <h2>{author.name}</h2>
                                     </Col>
                                     <Col className="align-items-center">
-                                        <p className="font-weight-bold text-right mb-0">
+                                        <p className="font-weight-bold text-lg-right mb-0">
                                             {author.position}
                                         </p>
-                                        <p className="text-muted text-right mb-0">
+                                        <p className="text-muted text-lg-right mb-0">
                                             {author.company}
                                         </p>
                                     </Col>
@@ -190,7 +194,7 @@ class AuthorProfile extends React.Component {
                             </Col>
                         </Row>
                     </section>
-                </Container>
+                </div>
                 <FreeWebsiteAnalysis />
             </Layout>
         );

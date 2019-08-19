@@ -1451,6 +1451,13 @@ div.spinContainer{
   }
 }
 
+.author-photo{
+  width: 90%;
+  @media (max-width: 1023px){
+    width: 100%;
+  }
+}
+
 .clamp{
   overflow: hidden;
   text-overflow: ellipsis;
