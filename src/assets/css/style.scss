@@ -7,6 +7,9 @@
  License URI:  https://opensource.org/licenses/MIT
 */
 
+// Font Import
+@import url('https://fonts.googleapis.com/css?family=Calligraffitti|Raleway:500&display=swap');
+
 // Import BT sources
 @import "../../../node_modules/bootstrap/scss/functions.scss";
 @import "../../../node_modules/bootstrap/scss/variables.scss";
@@ -1475,4 +1478,29 @@ body{
       display: block;
     }
   }
+}
+
+.scroll{
+  background: url('../images/scroll.png') top center no-repeat;
+  background-size: cover;
+  min-height: 86vh;
+}
+
+.scroll-text{
+  font-family: 'Raleway', sans-serif;
+  padding: 0 8vw;
+  margin-top: calc(8em);
+  @media screen and (max-width: 767px) {
+    margin-top: calc(7em);
+    margin-bottom: calc(7em);
+    min-height: 80vh;
+  }
+  h2{
+    font-family: 'Calligraffitti', cursive;
+  }
+}
+
+.page-404 #main .alk-container{
+  max-width: 1080px;
+  width: 100%;
 }

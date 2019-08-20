@@ -6,6 +6,7 @@
  License:      MIT License
  License URI:  https://opensource.org/licenses/MIT
 */
+@import url("https://fonts.googleapis.com/css?family=Calligraffitti|Raleway:500&display=swap");
 /*!
  * Font Awesome Free 5.10.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
@@ -17896,5 +17897,34 @@ body .addthis-smartlayers {
 
 body.blog .addthis-smartlayers, body.blog-single-page .addthis-smartlayers {
   display: block;
+}
+
+.scroll {
+  background: url("../images/scroll.png") top center no-repeat;
+  background-size: cover;
+  min-height: 86vh;
+}
+
+.scroll-text {
+  font-family: 'Raleway', sans-serif;
+  padding: 0 8vw;
+  margin-top: calc(8em);
+}
+
+@media screen and (max-width: 767px) {
+  .scroll-text {
+    margin-top: calc(7em);
+    margin-bottom: calc(7em);
+    min-height: 80vh;
+  }
+}
+
+.scroll-text h2 {
+  font-family: 'Calligraffitti', cursive;
+}
+
+.page-404 #main .alk-container {
+  max-width: 1080px;
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */
