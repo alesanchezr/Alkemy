@@ -17919,6 +17919,14 @@ body.blog .addthis-smartlayers, body.blog-single-page .addthis-smartlayers {
   }
 }
 
+@media screen and (max-width: 767px) and (max-width: 411px) {
+  .scroll-text {
+    margin-top: calc(10em);
+    margin-bottom: calc(9em);
+    padding: 0 3vw;
+  }
+}
+
 .scroll-text h2 {
   font-family: 'Calligraffitti', cursive;
 }
