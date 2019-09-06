@@ -1,4 +1,4 @@
-<img src="https://www.alkemyinc.com/assets/alkemy_logo_vertical.png" width="250" alt="Alkemy, Inc. Logo" title="Alkemy, Inc. Logo">
+<img src="https://www.alkemy.dev/assets/alkemy_logo_vertical.png" width="250" alt="Alkemy, Inc. Logo" title="Alkemy, Inc. Logo">
 
 <h3>Alkemy, Inc.</h3>
 https://www.alkemyinc.com
