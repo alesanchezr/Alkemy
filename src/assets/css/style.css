@@ -17397,6 +17397,20 @@ section.thankYou form input,
   padding: 1.4rem;
 }
 
+.formDefaults form input.form-control, section.contactForm form input.form-control, section.dreamForm form input.form-control, section.thankYou form input.form-control, .blogSearch form input.form-control {
+  height: calc(1.85em + 0.75rem + 2px);
+}
+
+.formDefaults form .form-control, section.contactForm form .form-control, section.dreamForm form .form-control, section.thankYou form .form-control, .blogSearch form .form-control,
+.formDefaults form button,
+section.contactForm form button,
+section.dreamForm form button,
+section.thankYou form button,
+.blogSearch form button {
+  font-size: calc(18px + .2vw);
+  padding: 0.375rem 0.75rem;
+}
+
 .formDefaults form input[type=file], section.contactForm form input[type=file], section.dreamForm form input[type=file], section.thankYou form input[type=file], .blogSearch form input[type=file] {
   padding: unset;
   -webkit-box-shadow: unset;
@@ -17618,14 +17632,20 @@ div.spinContainer {
 }
 
 .contactDetails .intl-tel-input.allow-dropdown .flag-container {
-  left: 22px;
+  left: 7px;
 }
 
 .contactDetails select,
 .contactDetails div.intl-tel-input.allow-dropdown input,
 .contactDetails div.intl-tel-input.allow-dropdown input[type=tel],
 .contactDetails div.intl-tel-input.allow-dropdown input[type=text] {
-  text-indent: 22px;
+  text-indent: 7px;
+}
+
+.contactDetails .intl-tel-input .country-list {
+  color: black;
+  width: 100%;
+  left: -6px;
 }
 
 .contactDetails textarea {
