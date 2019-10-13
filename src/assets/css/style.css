@@ -6417,7 +6417,7 @@ pre code {
 
 @media (min-width: 1600px) {
   .container {
-    max-width: 1520px;
+    max-width: 1080px;
   }
 }
 
@@ -16971,7 +16971,7 @@ div.intl-tel-input.allow-dropdown input[type=text] {
 div.intl-tel-input input,
 div.intl-tel-input input[type=tel],
 div.intl-tel-input input[type=text] {
-  padding: .65rem;
+  padding: .4rem;
 }
 
 /* Blockquotes */
@@ -17386,6 +17386,15 @@ section.thankYou form button,
   -webkit-box-shadow: 2px 4px 6px;
           box-shadow: 2px 4px 6px;
   border-radius: 2px;
+}
+
+
+.formDefaults form select,
+section.contactForm form select,
+section.dreamForm form select,
+section.thankYou form select,
+.blogSearch form select {
+  height: calc(2em + 0.75em + 2px);
 }
 
 .formDefaults form textarea, section.contactForm form textarea, section.dreamForm form textarea, section.thankYou form textarea, .blogSearch form textarea,

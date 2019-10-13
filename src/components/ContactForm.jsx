@@ -267,7 +267,7 @@ export default class ContactForm extends React.Component {
                                                         "fullName"
                                                     )
                                                 }
-                                                placeholder="Please tell us your Full Name"
+                                                placeholder="Full Name"
                                             />
                                             <FormFeedback className="my-3">
                                                 {
@@ -303,7 +303,7 @@ export default class ContactForm extends React.Component {
                                                         "companyName"
                                                     )
                                                 }
-                                                placeholder="What is your Company Name?"
+                                                placeholder="Company Name"
                                             />
                                         </Col>
                                     </FormGroup>
@@ -332,7 +332,7 @@ export default class ContactForm extends React.Component {
                                                         "email"
                                                     )
                                                 }
-                                                placeholder="Enter your Email Address"
+                                                placeholder="Email Address"
                                             />
                                             <FormFeedback>
                                                 {this.state.errors.emailFormat}

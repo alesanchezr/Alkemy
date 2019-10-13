@@ -257,7 +257,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                                 onChange={e =>
                                                     this.handleFieldChange(e)
                                                 }
-                                                placeholder="Please tell us your Full Name"
+                                                placeholder="Full Name"
                                             />
                                             <FormFeedback className="my-3">
                                                 {
@@ -290,7 +290,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                                 onChange={e =>
                                                     this.handleFieldChange(e)
                                                 }
-                                                placeholder="Enter your Email Address"
+                                                placeholder="Email Address"
                                             />
 
                                             <FormFeedback className="my-3">
@@ -321,7 +321,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                         onChange={e =>
                                             this.handleFieldChange(e)
                                         }
-                                        placeholder="What is your Website Address? (ex. www.yourwebsite.com)"
+                                        placeholder="Website Address"
                                     />
                                     <FormFeedback className="my-3">
                                         {this.state.errors.websiteURLFormat}
