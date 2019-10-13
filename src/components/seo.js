@@ -108,7 +108,7 @@ function SEO({
                 content="Screenshot of the Alkemy, Inc. Website."
             />
 
-            <link rel="canonical" href="https://www.alkemyinc.com" />
+            <link rel="canonical" href={window.location.href} />
             <meta name="msapplication-TileImage" content={msTileImg} />
             <meta name="msapplication-TileColor" content="#ffffff" />
 
