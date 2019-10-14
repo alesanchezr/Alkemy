@@ -32,6 +32,8 @@ import favicon16 from "../assets/images/favicons/favicon-16x16.png";
 import favicon32 from "../assets/images/favicons/favicon-32x32.png";
 import favicon96 from "../assets/images/favicons/favicon-96x96.png";
 
+const windowGlobal = typeof window!=="undefined" ? window : null;
+
 function SEO({
     description,
     lang,
@@ -108,7 +110,7 @@ function SEO({
                 content="Screenshot of the Alkemy, Inc. Website."
             />
 
-            <link rel="canonical" href={window.location.href} />
+            <link rel="canonical" href={windowGlobal.location.href} />
             <meta name="msapplication-TileImage" content={msTileImg} />
             <meta name="msapplication-TileColor" content="#ffffff" />
 
