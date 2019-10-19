@@ -60,7 +60,7 @@ const _menuArray = [
 const _subLinks = [
     { name: "Privacy Policy", id: "1", url: "/privacy-policy" },
     { name: "Terms & Conditions", id: "2", url: "/terms-and-conditions" },
-    { name: "Site Map", id: "3", url: "/sitemap.xml" },
+    { name: "Sitemap", id: "3", url: "/sitemap.xml" },
 ];
 
 const Footer = () => (
@@ -117,13 +117,21 @@ const renderSubLinks = menu => {
         if (index !== menu.length - 1) {
             return (
                 <span key={item.id}>
-                    <Link to={item.url}>{item.name}&nbsp;|&nbsp;</Link>
+                    {item.name.toLowerCase() === "sitemap" ? (
+                        <a href={item.url}>{item.name}&nbsp;|&nbsp;</a>
+                    ) : (
+                        <Link to={item.url}>{item.name}&nbsp;|&nbsp;</Link>
+                    )}
                 </span>
             );
         } else {
             return (
                 <span key={item.id}>
-                    <Link to={item.url}>{item.name}</Link>
+                    {item.name.toLowerCase() === "sitemap" ? (
+                        <a href={item.url}>{item.name}</a>
+                    ) : (
+                        <Link to={item.url}>{item.name}</Link>
+                    )}
                 </span>
             );
         }
