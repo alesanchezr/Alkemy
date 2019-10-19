@@ -36,7 +36,7 @@ const TermsAndConditions = ({ data }) => {
                         <Col xs={12}>
                             <p>
                                 These terms and conditions outline the rules and
-                                regulations for the use of Alkemy, Inc's
+                                regulations for the use of Alkemy, Inc&apos;s
                                 Website.
                             </p>{" "}
                             <br />
@@ -54,40 +54,44 @@ const TermsAndConditions = ({ data }) => {
                             <p>
                                 By accessing this website we assume you accept
                                 these terms and conditions in full. Do not
-                                continue to use Alkemy, Inc's website if you do
-                                not accept all of the terms and conditions
-                                stated on this page.
+                                continue to use Alkemy, Inc&apos;s website if
+                                you do not accept all of the terms and
+                                conditions stated on this page.
                             </p>
                             <p>
                                 The following terminology applies to these Terms
                                 and Conditions, Privacy Statement and Disclaimer
-                                Notice and any or all Agreements: "Client",
-                                "You" and "Your" refers to you, the person
+                                Notice and any or all Agreements:
+                                &lsquo;Client&rsquo;, &lsquo;You&rsquo; and
+                                &lsquo;Your&rsquo; refers to you, the person
                                 accessing this website and accepting the
-                                Company's terms and conditions. "The Company",
-                                "Ourselves", "We", "Our" and "Us", refers to our
-                                Company. "Party", "Parties", or "Us", refers to
-                                both the Client and ourselves, or either the
-                                Client or ourselves. All terms refer to the
-                                offer, acceptance and consideration of payment
-                                necessary to undertake the process of our
-                                assistance to the Client in the most appropriate
-                                manner, whether by formal meetings of a fixed
-                                duration, or any other means, for the express
-                                purpose of meeting the Client's needs in respect
-                                of provision of the Company's stated
-                                services/products, in accordance with and
-                                subject to, prevailing law of United States. Any
-                                use of the above terminology or other words in
-                                the singular, plural, capitalisation and/or
-                                he/she or they, are taken as interchangeable and
-                                therefore as referring to same.
+                                Company&apos;s terms and conditions. &lsquo;The
+                                Company&rsquo;, &lsquo;Ourselves&rsquo;,
+                                &lsquo;We&rsquo;, &lsquo;Our&rsquo; and
+                                &lsquo;Us&rsquo;, refers to our Company.
+                                &lsquo;Party&rsquo;, &lsquo;Parties&rsquo;, or
+                                &lsquo;Us&rsquo;, refers to both the Client and
+                                ourselves, or either the Client or ourselves.
+                                All terms refer to the offer, acceptance and
+                                consideration of payment necessary to undertake
+                                the process of our assistance to the Client in
+                                the most appropriate manner, whether by formal
+                                meetings of a fixed duration, or any other
+                                means, for the express purpose of meeting the
+                                Client&apos;s needs in respect of provision of the
+                                Company&apos;s stated services/products, in
+                                accordance with and subject to, prevailing law
+                                of United States. Any use of the above
+                                terminology or other words in the singular,
+                                plural, capitalisation and/or he/she or they,
+                                are taken as interchangeable and therefore as
+                                referring to same.
                             </p>
                             <h2>Cookies</h2>
                             <p>
                                 We employ the use of cookies. By using Alkemy,
-                                Inc's website you consent to the use of cookies
-                                in accordance with Alkemy, Inc's privacy policy.
+                                Inc&apos;s website you consent to the use of cookies
+                                in accordance with Alkemy, Inc&apos;s privacy policy.
                             </p>
                             <p>
                                 Most of the modern day interactive web sites use
@@ -100,7 +104,7 @@ const TermsAndConditions = ({ data }) => {
                             </p>
                             <h2>License</h2>
                             <p>
-                                Unless otherwise stated, Alkemy, Inc and/or it's
+                                Unless otherwise stated, Alkemy, Inc and/or it&apos;s
                                 licensors own the intellectual property rights
                                 for all material on Alkemy, Inc. All
                                 intellectual property rights are reserved. You
@@ -148,7 +152,7 @@ const TermsAndConditions = ({ data }) => {
                                     Certain parts of this website offer the
                                     opportunity for users to post and exchange
                                     opinions, information, material and data
-                                    ('Comments') in areas of the website.
+                                    (&apos;Comments&apos;) in areas of the website.
                                     Alkemy, Inc does not screen, edit, publish
                                     or review Comments prior to their appearance
                                     on the website and Comments do not reflect
@@ -249,7 +253,7 @@ const TermsAndConditions = ({ data }) => {
                                     imply sponsorship, endorsement or approval
                                     of the linking party and its products or
                                     services; and (c) fits within the context of
-                                    the linking party's site.
+                                    the linking party&apos;s site.
                                 </li>
                                 <li>
                                     We may consider and approve in our sole
@@ -309,7 +313,7 @@ const TermsAndConditions = ({ data }) => {
                                 sponsorship, endorsement or approval of the
                                 linking party and it products or services; and
                                 (c) fits within the context of the linking
-                                party's site.
+                                party&apos;s site.
                             </p>
                             <p>
                                 If you are among the organizations listed in
@@ -344,11 +348,11 @@ const TermsAndConditions = ({ data }) => {
                                     By use of any other description of our Web
                                     site or material being linked to that makes
                                     sense within the context and format of
-                                    content on the linking party's site.
+                                    content on the linking party&apos;s site.
                                 </li>
                             </ol>
                             <p>
-                                No use of Alkemy, Inc's logo or other artwork
+                                No use of Alkemy, Inc&apos;s logo or other artwork
                                 will be allowed for linking absent a trademark
                                 license agreement.
                             </p>
