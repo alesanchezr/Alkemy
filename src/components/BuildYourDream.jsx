@@ -249,7 +249,8 @@ export default class BuildYourDream extends React.Component {
                                             "phone"
                                         )
                                     }
-                                    defaultValue={this.state.formValues.phone}
+                                    defaultCountry="USA"
+                                    defaultValue="+1 954 555 1212"
                                 />
                                 <FormFeedback>
                                     {this.state.errors.phone}

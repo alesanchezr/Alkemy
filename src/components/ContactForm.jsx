@@ -360,9 +360,8 @@ export default class ContactForm extends React.Component {
                                                         "phone"
                                                     )
                                                 }
-                                                defaultValue={
-                                                    this.state.formValues.phone
-                                                }
+                                                defaultCountry="USA"
+                                                defaultValue="+1 954 555 1212"
                                                 invalid={
                                                     typeof this.state.errors
                                                         .phone !==
@@ -395,8 +394,11 @@ export default class ContactForm extends React.Component {
                                                     )
                                                 }
                                                 invalid={
-                                                    typeof this.state.errors.reason !== "undefined" &&
-                                                    this.state.errors.reason.length > 0
+                                                    typeof this.state.errors
+                                                        .reason !==
+                                                        "undefined" &&
+                                                    this.state.errors.reason
+                                                        .length > 0
                                                 }
                                             >
                                                 <option
