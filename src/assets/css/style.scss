@@ -42,7 +42,7 @@ $container-max-widths: (
   sm: 540px,
   md: 720px,
   lg: 960px,
-  xl: 1520px,
+  xl: 1080px,
 );
 
 @import "../../../node_modules/bootstrap/scss/bootstrap.scss";
@@ -609,7 +609,7 @@ div.intl-tel-input{
   input,
   input[type=tel],
   input[type=text]{
-    padding: .65rem;
+    padding: .4rem;
   }
 }
 
@@ -984,6 +984,10 @@ section.recentBlogPosts{
     button {
       box-shadow: 2px 4px 6px;
       border-radius: 2px;
+    }
+
+    select{
+      height: calc(2em + 0.75em + 2px);
     }
 
     textarea,

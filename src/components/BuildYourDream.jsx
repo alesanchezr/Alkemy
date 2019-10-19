@@ -207,7 +207,7 @@ export default class BuildYourDream extends React.Component {
                                     onChange={e =>
                                         this.handleFieldChange(e, "fullName")
                                     }
-                                    placeholder="Please tell us your Full Name"
+                                    placeholder="Full Name"
                                 />
                                 <FormFeedback className="my-3">
                                     {this.state.errors.fullNameLength}
@@ -228,7 +228,7 @@ export default class BuildYourDream extends React.Component {
                                     onChange={e =>
                                         this.handleFieldChange(e, "email")
                                     }
-                                    placeholder="Enter your Email Address"
+                                    placeholder="Email Address"
                                 />
                                 <FormFeedback>
                                     {this.state.errors.emailFormat}
@@ -325,7 +325,7 @@ export default class BuildYourDream extends React.Component {
                                                 "websiteURL"
                                             )
                                         }
-                                        placeholder="What is the address for your site? (www.yoursite.com)"
+                                        placeholder="Website Address"
                                     />
                                     <FormFeedback>
                                         {this.state.errors.websiteURLFormat}
@@ -424,7 +424,7 @@ export default class BuildYourDream extends React.Component {
                                     onChange={e =>
                                         this.handleFieldChange(e, "companyName")
                                     }
-                                    placeholder="What is your Company Name?"
+                                    placeholder="Company Name"
                                 />
                             </FormGroup>
                         </Col>
@@ -444,7 +444,7 @@ export default class BuildYourDream extends React.Component {
                                     }
                                 >
                                     <option value="" disabled>
-                                        Select your Industry
+                                        Select Your Industry
                                     </option>
                                     <option>Food & Beverage</option>
                                     <option>Government</option>
@@ -485,7 +485,7 @@ export default class BuildYourDream extends React.Component {
                                                 "otherIndustry"
                                             )
                                         }
-                                        placeholder="Please tell us your Industry."
+                                        placeholder="Your Industry"
                                     />
                                 ) : null}
                             </FormGroup>
