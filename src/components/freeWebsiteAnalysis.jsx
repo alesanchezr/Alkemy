@@ -218,8 +218,8 @@ export default class FreeWebsiteAnalysis extends React.Component {
                         <h1 className="text-center">LET&lsquo;S GET STARTED</h1>
                         <div className="container">
                             <p>
-                                Are you interested in a Completely FREE Analysis
-                                of your Website and it&lsquo;s current SEO
+                                Are you interested in a completely FREE analysis
+                                of your website and its current SEO
                                 issues? Please provide us with your name, email
                                 address, and website&lsquo;s URL and we&lsquo;ll
                                 handle the rest!
