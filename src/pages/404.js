@@ -7,6 +7,20 @@ import Img from "gatsby-image";
 import "../utils/utils.js";
 import { Col, Row } from "reactstrap";
 
+/*
+Layout props:
+  pageTitle: SEO friendly title for the title bar
+  headerTitle: array that defines subheader props
+      [
+        boolean (is there a subheader),
+        {
+            name: string (subheader text),
+            url: string (link for subheader text)
+        }
+      ]
+  bodyClasses: additional classes to add to body tag
+*/
+
 const pageTitle = { name: "404: Not Found" ,url:"/"};
 
 const NotFoundPage = ({ data }) => (
