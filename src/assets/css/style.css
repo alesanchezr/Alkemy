@@ -17786,6 +17786,15 @@ div.spinContainer {
   background: rgba(43, 179, 229, 0.1);
 }
 
+.blogCard a {
+  height: 100%;
+}
+
+.blogCard .card-img-top{
+  height: 100%;
+}
+
+
 @media screen and (min-width: 768px) {
   .blogCard.alt {
     -ms-flex: 0 0 25%;
