@@ -934,6 +934,7 @@ section.recentBlogPosts{
           border-radius: 0;
           height: 100%;
         }
+        
         .card-img-overlay{
           .card-footer {
             position: absolute;
@@ -1523,6 +1524,7 @@ body{
     margin-top: calc(7em);
     margin-bottom: calc(7em);
     min-height: 80vh;
+  }
     @media screen and (max-width:411px){
       margin-top: calc(10em);
       margin-bottom: calc(9em);
@@ -1532,7 +1534,7 @@ body{
   h2{
     font-family: 'Calligraffitti', cursive;
   }
-}
+
 
 .page-404 #main .alk-container{
   max-width: 1080px;
