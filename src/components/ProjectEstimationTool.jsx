@@ -11,18 +11,6 @@ import {
     FormText,
 } from "reactstrap";
 import Stepper from "react-stepper-horizontal";
-import IntlTelInput from "react-intl-tel-input";
-import "react-intl-tel-input/dist/main.css";
-import ThankYou from "./thankYou.jsx";
-import ReCAPTCHA from "react-google-recaptcha";
-
-const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY;
-if (typeof window !== "undefined") {
-    window.recaptchaOptions = {
-        useRecaptchaNet: true,
-        removeOnUnmount: false,
-    };
-}
 
 export default class ProjectEstimationTool extends Component {
     constructor() {
@@ -39,22 +27,22 @@ export default class ProjectEstimationTool extends Component {
             },
             stepperSteps: [
                 {
-                    title: "Step One",
+                    title: "FrontEnd",
                     onClick: e =>
                         this.state.formStep[e.currentTarget.innerHTML],
                 },
                 {
-                    title: "Step Two",
+                    title: "BackEnd",
                     onClick: e =>
                         this.state.formStep[e.currentTarget.innerHTML],
                 },
                 {
-                    title: "Step Three",
+                    title: "Marketing",
                     onClick: e =>
                         this.state.formStep[e.currentTarget.innerHTML],
                 },
                 {
-                    title: "Step Four",
+                    title: "Extra Services",
                     onClick: e =>
                         this.state.formStep[e.currentTarget.innerHTML],
                 },
@@ -74,7 +62,6 @@ export default class ProjectEstimationTool extends Component {
             }
         }
         this.setState({ formValues });
-
     };
 
     // handles button click (next or back)
@@ -85,15 +72,12 @@ export default class ProjectEstimationTool extends Component {
             action === "next" &&
             this.state.formStep < this.state.stepperSteps.length - 1
         ) {
-            let valid = this.validate();
-
-            if (valid) {
-                this.setState(prevState => {
-                    return {
-                        formstep: prevState.formStep++,
-                    };
-                });
-            }
+            
+            this.setState(prevState => {
+                return {
+                    formstep: prevState.formStep++,
+                };
+            });
         }
 
         // handle regular form back click
@@ -107,46 +91,7 @@ export default class ProjectEstimationTool extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        let valid = this.validate();
-
-        const encode = data => {
-            return Object.keys(data)
-                .map(
-                    key =>
-                        encodeURIComponent(key) +
-                        "=" +
-                        encodeURIComponent(data[key])
-                )
-                .join("&");
-        };
-
-        const recaptchaValue = this.state.formValues["g-recaptcha-response"];
-
-        if (valid && recaptchaValue.length > 0) {
-            fetch("/", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                },
-                body: encode({
-                    "form-name": "dreamForm",
-                    ...this.state.formValues,
-                }),
-            })
-                .then(res => {
-                    this.setState({
-                        success: true,
-                    });
-                    console.log(res);
-                })
-                .catch(error => console.log(error));
-        } else {
-            let errors = { ...this.state.errors };
-            errors.ReCAPTCHA = "ReCAPTCHA Verification Needed to Submit Form.";
-            this.setState({
-                errors,
-            });
-        }
+        
     };
 
     // handles the cases for rendering each step of the form
@@ -200,21 +145,7 @@ export default class ProjectEstimationTool extends Component {
                         </Col>
                         <Col xs={12} md={4} className="my-2 py-0">
                             <FormGroup>
-                                <IntlTelInput
-                                    type="tel"
-                                    fieldName="phone"
-                                    format
-                                    containerClassName="intl-tel-input"
-                                    className="form-control"
-                                    onPhoneNumberChange={(valid, value) =>
-                                        this.handleFieldChange(
-                                            [valid, value],
-                                            "phone"
-                                        )
-                                    }
-                                    defaultCountry="USA"
-                                    defaultValue="+1 954 555 1212"
-                                />
+                                
                                 <FormFeedback>
                                     {this.state.errors.phone}
                                 </FormFeedback>
@@ -453,233 +384,72 @@ export default class ProjectEstimationTool extends Component {
                                 ) : null}
                             </FormGroup>
                         </Col>
-                        <Col xs={12} className="my-2 py-0">
-                            <FormGroup>
-                                <ReCAPTCHA
-                                    className="recaptcha"
-                                    sitekey={RECAPTCHA_KEY}
-                                    onChange={this.handleRecaptcha}
-                                />
-                                <FormText
-                                    color="danger"
-                                    className="text-center"
-                                >
-                                    {this.state.errors.ReCAPTCHA}
-                                </FormText>
-                            </FormGroup>
-                        </Col>
                     </Row>
                 );
             default:
                 return null;
         }
     };
-
-    isEnabled = () => {
-        // Step 1 of Form
-        if (
-            this.state.formStep === 0 &&
-            this.state.formValues.fullName.length > 0 &&
-            this.state.formValues.email.length > 0 &&
-            this.state.formValues.phone.length > 0
-        ) {
-            return true;
-        }
-        // Step 2 of Form
-        if (
-            this.state.formStep === 1 &&
-            this.state.formValues.hasWebsite.length > 0
-        ) {
-            if (this.state.formValues.hasWebsite === "no") {
-                return true;
-            } else if (
-                this.state.formValues.hasWebsite === "yes" &&
-                this.state.formValues.websiteURL.length > 5
-            ) {
-                return true;
-            }
-        }
-        // Step 3 of Form
-        if (
-            this.state.formStep === 2 &&
-            this.state.formValues.budget.length > 0 &&
-            this.state.formValues.timeframe.length > 0
-        )
-            return true;
-        // Step 4 of Form
-        if (
-            this.state.formStep === 3 &&
-            this.state.formValues.companyName.length > 0 &&
-            this.state.formValues.industry.length > 0
-        )
-            return true;
-        else return false;
-    };
-
-    validate = () => {
-        let isError = false;
-        let errors = {};
-
-        // Full Name Field Validation
-        if (this.state.formValues.fullName.length > 0) {
-            let nameArray = this.state.formValues.fullName.split(" ");
-            // check name is at least 2 words
-            if (nameArray.length < 2) {
-                isError = true;
-                errors.fullNameLength = "Only first name was entered.";
-            } else if (nameArray.length >= 2) {
-                for (let val in nameArray) {
-                    if (nameArray[val].length < 2) {
-                        isError = true;
-                        errors.fullNameLength =
-                            "Length of each name must be 2 or more characters.";
-                    }
-                }
-            }
-        }
-
-        // Email Validation
-        let emailReg = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        let emailValid = emailReg.test(
-            String(this.state.formValues.email.toLowerCase())
-        );
-
-        if (!emailValid) {
-            isError = true;
-            errors.emailFormat = "Invalid format. Must be name@domain.com";
-        }
-
-        // Phone Validation
-        let phoneReg = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s/0-9]*$/;
-        let phone = this.state.formValues.phone;
-        let phoneValidate = phoneReg.test(String(phone));
-
-        if (phoneValidate === false) {
-            isError = true;
-            errors.phone = "Not a valid phone number.";
-        }
-
-        // websiteURLFormat Validation
-        let urlReg = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([-.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
-        let url = this.state.formValues.websiteURL;
-        let urlValidate = urlReg.test(String(url));
-
-        if (
-            this.state.formValues.hasWebsite === "yes" &&
-            urlValidate === false
-        ) {
-            isError = true;
-            errors.websiteURLFormat =
-                "Website format is invalid. Must be of type www.yoursite.com";
-        }
-
-        if (isError) {
-            this.setState({
-                ...this.state,
-                errors: { ...errors },
-            });
-            return false;
-        }
-        if (!isError) return true;
-    };
-
+    
     render() {
         return (
-            <>
-                {this.state.success ? (
-                    <ThankYou />
-                ) : (
-                    <section className="dreamForm py-5 px-3">
-                        <h1 className="text-center mb-3">
-                            Let Us Build Your Dream
-                        </h1>
-                        <div className="container">
-                            <p>
-                                We can prepare a custom estimate based on your
-                                specific needs. Just fill out the fields below
-                                so that we can get a better picture of what kind
-                                of site you will need and we’ll do the rest. As
-                                soon as we have had a chance to review your
-                                information, you’ll get a follow-up call from
-                                one of our team members to discuss your project
-                                further and iron out all of the details.
-                            </p>
+            <Form
+                name="projectEstimator"
+                onSubmit={e => this.handleSubmit(e)}
+                className="py-3 mb-0"
+            >
+                <Stepper
+                    activeColor="#2bb3e5"
+                    activeTitleColor="#2bb3e5"
+                    completeColor="#206a98"
+                    completeTitleColor="#206a98"
+                    steps={this.state.stepperSteps}
+                    activeStep={this.state.formStep}
+                />
 
-                            <Form
-                                name="dreamForm"
-                                data-netlify="true"
-                                data-netlify-honeypot="bot-field"
-                                data-netlify-recaptcha="true"
-                                onSubmit={e => this.handleSubmit(e)}
-                                ref={this.dreamForm}
-                                className="py-3 mb-0"
-                            >
-                                <Stepper
-                                    activeColor="#2bb3e5"
-                                    activeTitleColor="#2bb3e5"
-                                    completeColor="#206a98"
-                                    completeTitleColor="#206a98"
-                                    steps={this.state.stepperSteps}
-                                    activeStep={this.state.formStep}
-                                />
+                <div className="my-3">
+                    {this.renderForm(this.state.formStep)}
+                </div>
+                <FormGroup className="text-center">
+                    <Button
+                        color="secondary"
+                        className={
+                            this.state.formStep === 0
+                                ? "d-none"
+                                : "mr-5"
+                        }
+                        onClick={e =>
+                            this.handleButtonClick(e, "back")
+                        }
+                    >
+                        Back
+                    </Button>
+                    <Button
+                        color="primary"
 
-                                <div className="my-3">
-                                    {this.renderForm(this.state.formStep)}
-                                </div>
-                                <FormGroup className="text-center">
-                                    <Button
-                                        color="secondary"
-                                        className={
-                                            this.state.formStep === 0
-                                                ? "d-none"
-                                                : "mr-5"
-                                        }
-                                        onClick={e =>
-                                            this.handleButtonClick(e, "back")
-                                        }
-                                    >
-                                        Back
-                                    </Button>
-                                    <Button
-                                        color="primary"
-                                        disabled={!this.isEnabled}
-                                        type={
-                                            this.state.formStep <
-                                            this.state.stepperSteps.length - 1
-                                                ? "button"
-                                                : "submit"
-                                        }
-                                        onClick={e => {
-                                            this.state.formStep <
-                                            this.state.stepperSteps.length - 1
-                                                ? this.handleButtonClick(
-                                                      e,
-                                                      "next"
-                                                  )
-                                                : this.handleSubmit(e);
-                                        }}
-                                    >
-                                        {this.state.formStep <
-                                        this.state.stepperSteps.length - 1
-                                            ? "Next Step"
-                                            : "Submit My Request"}
-                                    </Button>
-                                </FormGroup>
-                                <input
-                                    type="hidden"
-                                    name="form-name"
-                                    value="dreamForm"
-                                />
-                                <input
-                                    type="hidden"
-                                    name="bot-field"
-                                    className="hp"
-                                />
-                            </Form>
-                        </div>
-                    </section>
-                )}
-            </>
+                        type={
+                            this.state.formStep <
+                            this.state.stepperSteps.length - 1
+                                ? "button"
+                                : "submit"
+                        }
+                        onClick={e => {
+                            this.state.formStep <
+                            this.state.stepperSteps.length - 1
+                                ? this.handleButtonClick(
+                                        e,
+                                        "next"
+                                    )
+                                : this.handleSubmit(e);
+                        }}
+                    >
+                        {this.state.formStep <
+                        this.state.stepperSteps.length - 1
+                            ? "Next Step"
+                            : "Calculate Total"}
+                    </Button>
+                </FormGroup>
+            </Form>
         );
     }
 }
