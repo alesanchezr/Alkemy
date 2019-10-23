@@ -926,8 +926,13 @@ section.recentBlogPosts{
         border-radius: 0;
         border: none;
         
+        a {
+          height: 100%;
+        }  
+
         .card-img-top{
           border-radius: 0;
+          height: 100%;
         }
         .card-img-overlay{
           .card-footer {
