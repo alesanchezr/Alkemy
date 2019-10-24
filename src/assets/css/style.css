@@ -6442,6 +6442,7 @@ pre code {
 .no-gutters {
   margin-right: 0;
   margin-left: 0;
+  width: 100%;
 }
 
 .no-gutters > .col,
@@ -17951,7 +17952,7 @@ body.blog .addthis-smartlayers, body.blog-single-page .addthis-smartlayers {
   }
 }
 
-@media screen and (max-width: 767px) and (max-width: 411px) {
+@media screen and (max-width: 411px) {
   .scroll-text {
     margin-top: calc(10em);
     margin-bottom: calc(9em);
@@ -17959,7 +17960,7 @@ body.blog .addthis-smartlayers, body.blog-single-page .addthis-smartlayers {
   }
 }
 
-.scroll-text h2 {
+h2 {
   font-family: 'Calligraffitti', cursive;
 }
 
