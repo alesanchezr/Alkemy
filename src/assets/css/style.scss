@@ -938,6 +938,8 @@ section.recentBlogPosts{
   
         .card-body{
           background: rgba(black,.8);
+          overflow: hidden;
+          text-overflow: ellipsis;
           a h4.card-title{
             white-space: nowrap; 
             overflow: hidden;
@@ -954,6 +956,7 @@ section.recentBlogPosts{
           padding: 0;
           border: 1px solid $alkemy_blue;
           height: 100%;
+          overflow: hidden;
   
           @media only screen and (min-width: 992px){
             min-height: fit-content;
@@ -968,6 +971,9 @@ section.recentBlogPosts{
               opacity: 1;
               color: white;
               background: rgba(0,0,0,.90);
+              height: 100%;
+              overflow: hidden;
+              text-overflow: ellipsis;
             }
           }
         }
