@@ -17331,6 +17331,8 @@ section.recentBlogPosts .card-deck .row .blogCard .card-img-overlay .card-footer
 
 section.recentBlogPosts .card-deck .row .blogCard .card-body {
   background: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 section.recentBlogPosts .card-deck .row .blogCard .card-body a h4.card-title {
@@ -17348,6 +17350,8 @@ section.recentBlogPosts .card-deck .row .blogCard .card-img-overlay {
   transition: .3s linear;
   padding: 0;
   border: 1px solid #2bb3e5;
+  height: 100%;
+  overflow: hidden;
 }
 
 @media only screen and (min-width: 992px) {
@@ -17365,6 +17369,9 @@ section.recentBlogPosts .card-deck .row .blogCard .card-img-overlay {
     opacity: 1;
     color: white;
     background: rgba(0, 0, 0, 0.9);
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
