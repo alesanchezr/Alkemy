@@ -943,7 +943,7 @@ section.recentBlogPosts{
         }
   
         .card-body{
-          background: rgba(black,.8);
+          background: rgba(black,.9);
           overflow: hidden;
           text-overflow: ellipsis;
           a h4.card-title{
@@ -957,6 +957,9 @@ section.recentBlogPosts{
         }
         
         .card-img-overlay{
+          .card-body{
+            background: unset;
+          }
           position: relative;
           transition: .3s linear;
           padding: 0;
