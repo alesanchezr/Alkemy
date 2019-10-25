@@ -69,6 +69,7 @@ function SEO({
     const metaDescription = description
         ? description
         : site.siteMetadata.description;
+    const siteUrl = site.siteMetadata.siteUrl;
     const pageAuthor = author ? author : site.siteMetadata.author;
     const pageKeywords = keywords ? keywords : site.siteMetadata.keywords;
     const articleDate = date ? date : null;
@@ -104,7 +105,7 @@ function SEO({
 
             <meta name="apple-mobile-web-app-title" content="Alkemy, Inc." />
 
-            <meta property="og:image" content={ogImage} />
+            <meta property="og:image" content={siteUrl + ogImage} />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={metaDescription} />
             <meta property="og:type" content="website" />
@@ -113,11 +114,8 @@ function SEO({
             <meta name="twitter:creator" content={pageAuthor} />
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={metaDescription} />
-            <meta name="twitter:image" content={ogImage}></meta>
-            <meta
-                name="twitter:image:alt"
-                content={ogImageText}
-            />
+            <meta name="twitter:image" content={siteUrl + ogImage}></meta>
+            <meta name="twitter:image:alt" content={ogImageText} />
 
             <link
                 rel="canonical"

@@ -124,7 +124,7 @@ class BlogPostTemplate extends React.Component {
                 renderHeaderSolid={true}
             >
                 <SEO
-                    coverImage={siteUrl+post.frontmatter.cover.childImageSharp.fluid.src}
+                    coverImage={post.frontmatter.cover.childImageSharp.fluid.src}
                     coverDescription={post.frontmatter.coverAlt}
                     title={post.frontmatter.title}
                     description={post.frontmatter.description || post.excerpt}
