@@ -15,8 +15,12 @@ Layout props:
   headerTitle: array that defines subheader props
       [
         boolean (is there a subheader),
-        string (subheader text)
+        {
+            name: string (subheader text),
+            url: string (link for subheader text)
+        }
       ]
+  bodyClasses: additional classes to add to body tag
 */
 
 const WebDesign = ({ data }) => {

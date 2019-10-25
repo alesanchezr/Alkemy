@@ -71,6 +71,7 @@ class BlogPostTemplate extends React.Component {
         const data = this.props.data;
         const post = data.mdx;
         const siteTitle = data.site.siteMetadata.title;
+        const siteUrl = data.site.siteMetadata.siteUrl;
         const { previous, next } = this.props.pageContext;
 
         const pageTitle = { name: "Alkemy Blog", url: "/alkemy-blog" };
@@ -112,6 +113,7 @@ class BlogPostTemplate extends React.Component {
             `//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ae21853f0b21631`
         );
 
+        
         return (
             <Layout
                 location={this.props.location}
@@ -122,6 +124,8 @@ class BlogPostTemplate extends React.Component {
                 renderHeaderSolid={true}
             >
                 <SEO
+                    coverImage={post.frontmatter.cover.childImageSharp.fluid.src}
+                    coverDescription={post.frontmatter.coverAlt}
                     title={post.frontmatter.title}
                     description={post.frontmatter.description || post.excerpt}
                     date={post.frontmatter.date}
@@ -147,10 +151,7 @@ class BlogPostTemplate extends React.Component {
                                     >
                                         Jump to:
                                     </Label>
-                                    <Col 
-                                        xs={12}
-                                        sm={9}
-                                        >
+                                    <Col xs={12} sm={9}>
                                         <Context.Consumer>
                                             {({ actions }) => (
                                                 <Select
@@ -290,51 +291,52 @@ BlogPostTemplate.propTypes = {
 export default BlogPostTemplate;
 
 export const query = graphql`
-    query BlogPostQuery($slug: String!, $author: String!) {
-        site {
-            siteMetadata {
-                title
-                author
-            }
-        }
-        mdx(fields: { slug: { eq: $slug } }) {
-            code {
-                body
-            }
-            frontmatter {
-                title
-                date(formatString: "MMMM, DD, YYYY")
-                author
-                category
-                readingTime
-                tags
-                excerpt
-                cover {
-                    ...fluidImageSmall
-                }
-                coverAlt
-            }
-        }
-        allMdx {
-            edges {
-                node {
-                    frontmatter {
-                        category
-                    }
-                }
-            }
-        }
-        allAuthorsJson(filter: { name: { regex: $author } }) {
-            edges {
-                node {
-                    name
-                    slug
-                    bio
-                    photo {
-                        ...fluidImageXS
-                    }
-                }
-            }
-        }
-    }
-`;
+           query BlogPostQuery($slug: String!, $author: String!) {
+               site {
+                   siteMetadata {
+                       title
+                       author
+                       siteUrl
+                   }
+               }
+               mdx(fields: { slug: { eq: $slug } }) {
+                   code {
+                       body
+                   }
+                   frontmatter {
+                       title
+                       date(formatString: "MMMM, DD, YYYY")
+                       author
+                       category
+                       readingTime
+                       tags
+                       excerpt
+                       cover {
+                           ...fluidImageSmall
+                       }
+                       coverAlt
+                   }
+               }
+               allMdx {
+                   edges {
+                       node {
+                           frontmatter {
+                               category
+                           }
+                       }
+                   }
+               }
+               allAuthorsJson(filter: { name: { regex: $author } }) {
+                   edges {
+                       node {
+                           name
+                           slug
+                           bio
+                           photo {
+                               ...fluidImageXS
+                           }
+                       }
+                   }
+               }
+           }
+       `;
