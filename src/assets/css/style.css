@@ -17938,20 +17938,25 @@ body.blog .addthis-smartlayers, body.blog-single-page .addthis-smartlayers {
   display: block;
 }
 
-.scroll {
+.page-404 #main .alk-container {
+  max-width: 1080px;
+  width: 100%;
+}
+
+.page-404 #main .alk-container .scroll {
   background: url("../images/scroll.png") top center no-repeat;
   background-size: cover;
   min-height: 86vh;
 }
 
-.scroll-text {
+.page-404 #main .alk-container .scroll .scroll-text {
   font-family: 'Raleway', sans-serif;
   padding: 0 8vw;
   margin-top: calc(8em);
 }
 
 @media screen and (max-width: 767px) {
-  .scroll-text {
+  .page-404 #main .alk-container .scroll .scroll-text {
     margin-top: calc(7em);
     margin-bottom: calc(7em);
     min-height: 80vh;
@@ -17959,19 +17964,14 @@ body.blog .addthis-smartlayers, body.blog-single-page .addthis-smartlayers {
 }
 
 @media screen and (max-width: 411px) {
-  .scroll-text {
+  .page-404 #main .alk-container .scroll .scroll-text {
     margin-top: calc(10em);
     margin-bottom: calc(9em);
     padding: 0 3vw;
   }
 }
 
-.scroll-text h2 {
+.page-404 #main .alk-container .scroll .scroll-text h2 {
   font-family: 'Calligraffitti', cursive;
-}
-
-.page-404 #main .alk-container {
-  max-width: 1080px;
-  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */

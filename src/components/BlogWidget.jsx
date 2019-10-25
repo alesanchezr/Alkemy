@@ -78,8 +78,8 @@ const BlogWidget = props => {
     return (
         <>
             <div className="container-fluid p-5">
-                <h2 className="pb-3">Check Out Our Recent Posts</h2>
-                <CardDeck>
+                <h2 className="pb-3 text-xl-center">Check Out Our Recent Posts</h2>
+                <CardDeck className="justify-content-xl-center">
                     <Row className="no-gutters">{Posts}</Row>
                 </CardDeck>
             </div>
