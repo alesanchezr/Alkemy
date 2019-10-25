@@ -43,6 +43,8 @@ function SEO({
     keywords,
     children,
     date,
+    coverImage,
+    coverDescription
 }) {
     const { site } = useStaticQuery(
         graphql`
@@ -60,10 +62,16 @@ function SEO({
         `
     );
 
-    const metaDescription = description?description:site.siteMetadata.description;
-    const pageAuthor = author?author:site.siteMetadata.author;
-    const pageKeywords = keywords?keywords:site.siteMetadata.keywords;
-    const articleDate = date?date:null;
+    const ogImage = coverImage ? coverImage : screenshot;
+    const ogImageText = coverDescription
+        ? coverDescription
+        : "Screenshot of the Alkemy, Inc. Website.";
+    const metaDescription = description
+        ? description
+        : site.siteMetadata.description;
+    const pageAuthor = author ? author : site.siteMetadata.author;
+    const pageKeywords = keywords ? keywords : site.siteMetadata.keywords;
+    const articleDate = date ? date : null;
     const siteAddress = site.siteMetadata.siteUrl;
 
     return (
@@ -96,7 +104,7 @@ function SEO({
 
             <meta name="apple-mobile-web-app-title" content="Alkemy, Inc." />
 
-            <meta property="og:image" content={screenshot} />
+            <meta property="og:image" content={ogImage} />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={metaDescription} />
             <meta property="og:type" content="website" />
@@ -105,14 +113,19 @@ function SEO({
             <meta name="twitter:creator" content={pageAuthor} />
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={metaDescription} />
+            <meta name="twitter:image" content={ogImage}></meta>
             <meta
                 name="twitter:image:alt"
-                content="Screenshot of the Alkemy, Inc. Website."
+                content={ogImageText}
             />
 
             <link
                 rel="canonical"
-                href={windowGlobal&&windowGlobal.location?windowGlobal.location.href:''}
+                href={
+                    windowGlobal && windowGlobal.location
+                        ? windowGlobal.location.href
+                        : ""
+                }
             />
             <meta name="msapplication-TileImage" content={msTileImg} />
             <meta name="msapplication-TileColor" content="#ffffff" />
@@ -300,6 +313,8 @@ SEO.propTypes = {
     date: PropTypes.string,
     author: PropTypes.string,
     children: PropTypes.object,
+    coverImage: PropTypes.string,
+    coverDescription: PropTypes.string
 };
 
 export default SEO;
