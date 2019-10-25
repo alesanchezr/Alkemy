@@ -37,7 +37,7 @@ export default class BuildYourDream extends React.Component {
                 email: "",
                 phone: "",
                 hasWebsite: "no",
-                websiteURL: "",
+                websiteAddress: "",
                 companyName: "",
                 budget: "",
                 timeframe: "",
@@ -51,7 +51,7 @@ export default class BuildYourDream extends React.Component {
                 fullNameLength: "",
                 otherIndustryLength: "",
                 phone: "",
-                websiteURLFormat: "",
+                websiteAddressFormat: "",
                 ReCAPTCHA: "",
             },
             stepperSteps: [
@@ -108,7 +108,7 @@ export default class BuildYourDream extends React.Component {
                 fullNameLength: "",
                 otherIndustryLength: "",
                 phone: "",
-                websiteURLFormat: "",
+                websiteAddressFormat: "",
                 ReCAPTCHA: "",
             },
         });
@@ -158,7 +158,7 @@ export default class BuildYourDream extends React.Component {
         };
 
         const recaptchaValue = this.state.formValues["g-recaptcha-response"];
-
+        console.log("test encode: ",encode(this.state.formValues));
         if (valid && recaptchaValue.length > 0) {
             fetch("/", {
                 method: "POST",
@@ -311,24 +311,26 @@ export default class BuildYourDream extends React.Component {
                                     <Input
                                         type="url"
                                         name="websiteAddress"
-                                        value={this.state.formValues.websiteURL}
+                                        value={
+                                            this.state.formValues.websiteAddress
+                                        }
                                         invalid={
                                             typeof this.state.errors
-                                                .websiteURLFormat !==
+                                                .websiteAddressFormat !==
                                                 "undefined" &&
-                                            this.state.errors.websiteURLFormat
+                                            this.state.errors.websiteAddressFormat
                                                 .length > 0
                                         }
                                         onChange={e =>
                                             this.handleFieldChange(
                                                 e,
-                                                "websiteURL"
+                                                "websiteAddress"
                                             )
                                         }
                                         placeholder="Website Address"
                                     />
                                     <FormFeedback>
-                                        {this.state.errors.websiteURLFormat}
+                                        {this.state.errors.websiteAddressFormat}
                                     </FormFeedback>
                                 </FormGroup>
                             </Col>
@@ -531,7 +533,7 @@ export default class BuildYourDream extends React.Component {
                 return true;
             } else if (
                 this.state.formValues.hasWebsite === "yes" &&
-                this.state.formValues.websiteURL.length > 5
+                this.state.formValues.websiteAddress.length > 5
             ) {
                 return true;
             }
@@ -596,9 +598,9 @@ export default class BuildYourDream extends React.Component {
             errors.phone = "Not a valid phone number.";
         }
 
-        // websiteURLFormat Validation
+        // websiteAddressFormat Validation
         let urlReg = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([-.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
-        let url = this.state.formValues.websiteURL;
+        let url = this.state.formValues.websiteAddress;
         let urlValidate = urlReg.test(String(url));
 
         if (
@@ -606,7 +608,7 @@ export default class BuildYourDream extends React.Component {
             urlValidate === false
         ) {
             isError = true;
-            errors.websiteURLFormat =
+            errors.websiteAddressFormat =
                 "Website format is invalid. Must be of type www.yoursite.com";
         }
 

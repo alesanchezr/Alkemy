@@ -17335,6 +17335,8 @@ section.recentBlogPosts .card-deck .row .blogCard .card-img-overlay .card-footer
 
 section.recentBlogPosts .card-deck .row .blogCard .card-body {
   background: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 section.recentBlogPosts .card-deck .row .blogCard .card-body a h4.card-title {
@@ -17352,6 +17354,8 @@ section.recentBlogPosts .card-deck .row .blogCard .card-img-overlay {
   transition: .3s linear;
   padding: 0;
   border: 1px solid #2bb3e5;
+  height: 100%;
+  overflow: hidden;
 }
 
 @media only screen and (min-width: 992px) {
@@ -17369,6 +17373,9 @@ section.recentBlogPosts .card-deck .row .blogCard .card-img-overlay {
     opacity: 1;
     color: white;
     background: rgba(0, 0, 0, 0.9);
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
@@ -17936,39 +17943,40 @@ body.blog .addthis-smartlayers, body.blog-single-page .addthis-smartlayers {
   display: block;
 }
 
-.scroll {
+.page-404 #main .alk-container {
+  max-width: 1080px;
+  width: 100%;
+}
+
+.page-404 #main .alk-container .scroll {
   background: url("../images/scroll.png") top center no-repeat;
   background-size: cover;
   min-height: 86vh;
 }
 
-.scroll-text {
+.page-404 #main .alk-container .scroll .scroll-text {
   font-family: 'Raleway', sans-serif;
   padding: 0 8vw;
   margin-top: calc(8em);
 }
 
 @media screen and (max-width: 767px) {
-  .scroll-text {
+  .page-404 #main .alk-container .scroll .scroll-text {
     margin-top: calc(7em);
     margin-bottom: calc(7em);
     min-height: 80vh;
   }
 }
 
-  .scroll-text {
+@media screen and (max-width: 411px) {
+  .page-404 #main .alk-container .scroll .scroll-text {
     margin-top: calc(10em);
     margin-bottom: calc(9em);
     padding: 0 3vw;
   }
 }
 
-h2 {
+.page-404 #main .alk-container .scroll .scroll-text h2 {
   font-family: 'Calligraffitti', cursive;
-}
-
-.page-404 #main .alk-container {
-  max-width: 1080px;
-  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */

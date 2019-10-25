@@ -944,6 +944,8 @@ section.recentBlogPosts{
   
         .card-body{
           background: rgba(black,.8);
+          overflow: hidden;
+          text-overflow: ellipsis;
           a h4.card-title{
             white-space: nowrap; 
             overflow: hidden;
@@ -959,6 +961,8 @@ section.recentBlogPosts{
           transition: .3s linear;
           padding: 0;
           border: 1px solid $alkemy_blue;
+          height: 100%;
+          overflow: hidden;
   
           @media only screen and (min-width: 992px){
             min-height: fit-content;
@@ -973,6 +977,9 @@ section.recentBlogPosts{
               opacity: 1;
               color: white;
               background: rgba(0,0,0,.90);
+              height: 100%;
+              overflow: hidden;
+              text-overflow: ellipsis;
             }
           }
         }
@@ -1510,34 +1517,37 @@ body{
   }
 }
 
-.scroll{
-  background: url('../images/scroll.png') top center no-repeat;
-  background-size: cover;
-  min-height: 86vh;
-}
+.page-404 {
+  #main .alk-container {
+    max-width: 1080px;
+    width: 100%;
 
-.scroll-text{
-  font-family: 'Raleway', sans-serif;
-  padding: 0 8vw;
-  margin-top: calc(8em);
-  @media screen and (max-width: 767px) {
-    margin-top: calc(7em);
-    margin-bottom: calc(7em);
-    min-height: 80vh;
-  }
-    @media screen and (max-width:411px){
-      margin-top: calc(10em);
-      margin-bottom: calc(9em);
-      padding: 0 3vw;
+    .scroll {
+      background: url('../images/scroll.png') top center no-repeat;
+      background-size: cover;
+      min-height: 86vh;
+
+      .scroll-text {
+        font-family: 'Raleway', sans-serif;
+        padding: 0 8vw;
+        margin-top: calc(8em);
+
+        @media screen and (max-width: 767px) {
+          margin-top: calc(7em);
+          margin-bottom: calc(7em);
+          min-height: 80vh;
+        }
+
+        @media screen and (max-width:411px) {
+          margin-top: calc(10em);
+          margin-bottom: calc(9em);
+          padding: 0 3vw;
+        }
+
+        h2 {
+          font-family: 'Calligraffitti', cursive;
+        }
+      }
     }
-  
-  h2{
-    font-family: 'Calligraffitti', cursive;
   }
-
-
-.page-404 #main .alk-container{
-  max-width: 1080px;
-  width: 100%;
-}
 }
