@@ -17319,8 +17319,13 @@ section.recentBlogPosts .card-deck .row .blogCard {
   border: none;
 }
 
+section.recentBlogPosts .card-deck .row .blogCard a {
+  height: 100%;
+}
+
 section.recentBlogPosts .card-deck .row .blogCard .card-img-top {
   border-radius: 0;
+  height: 100%;
 }
 
 section.recentBlogPosts .card-deck .row .blogCard .card-img-overlay .card-footer {
@@ -17329,7 +17334,7 @@ section.recentBlogPosts .card-deck .row .blogCard .card-img-overlay .card-footer
 }
 
 section.recentBlogPosts .card-deck .row .blogCard .card-body {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -17351,6 +17356,10 @@ section.recentBlogPosts .card-deck .row .blogCard .card-img-overlay {
   border: 1px solid #2bb3e5;
   height: 100%;
   overflow: hidden;
+}
+
+section.recentBlogPosts .card-deck .row .blogCard .card-img-overlay .card-body {
+  background: unset;
 }
 
 @media only screen and (min-width: 992px) {
