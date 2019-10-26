@@ -15,6 +15,8 @@ import RecentBlogs from "../components/RecentBlogs.jsx";
 import LatestFromCategory from "../components/LatestFromCategory.jsx";
 import PropTypes from "prop-types";
 
+
+
 /*
 Layout props:
   pageTitle: SEO friendly title for the title bar
