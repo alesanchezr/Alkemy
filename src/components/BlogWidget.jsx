@@ -45,18 +45,18 @@ const BlogWidget = props => {
                         <CardBody>
                             <Link to={edge.node.frontmatter.path}>
                                 <CardTitle tag="h4">
-                                    {_.truncate(edge.node.frontmatter.title,{
-                                    'length': 25,
-                                'omission': ' [...]'})}
+                                    {edge.node.frontmatter.title}
                                 </CardTitle>
                             </Link>
                         </CardBody>
                         <CardImgOverlay className="d-none d-lg-block">
                             <CardBody>
                                 <CardText>
-                                    {edge.node.frontmatter.excerpt ? (
-                                        edge.node.frontmatter.excerpt
-                                    ) : (
+                                    {_.truncate(edge.node.frontmatter.excerpt, {
+                                    'omission': ' ...'}) ? _.truncate(
+                                        edge.node.frontmatter.excerpt,{
+                                        'omission': ' ...'})
+                                     : (
                                         <Loading />
                                     )}
                                 </CardText>
