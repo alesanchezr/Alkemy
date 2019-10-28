@@ -395,6 +395,7 @@ export default class BuildYourDream extends React.Component {
                                 </Label>
                                 <Input
                                     type="textarea"
+                                    rows="3"
                                     name="designExamples"
                                     value={this.state.formValues.designExamples}
                                     onChange={e =>
