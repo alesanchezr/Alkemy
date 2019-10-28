@@ -1180,8 +1180,9 @@ div.spinContainer{
   min-height: 100vh - calcVh($header-height);
 
   .coreValues{
-    background: rgba(0,0,0,.7);
+    background: rgba(0,0,0,.9);
     color: white;
+    line-height: 1.2;
     @media screen and (max-width: 768px){
       margin-top: 16rem;
     }
@@ -1197,6 +1198,10 @@ div.spinContainer{
 
     @extend %fa-icon;
     @extend .fas;
+
+    span {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
 
   	ol{
       list-style: none;

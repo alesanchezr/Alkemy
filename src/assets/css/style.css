@@ -17597,8 +17597,9 @@ div.spinContainer {
 }
 
 .aboutValues .coreValues {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.9);
   color: white;
+  line-height: 1.2;
 }
 
 @media screen and (max-width: 768px) {
@@ -17614,6 +17615,10 @@ div.spinContainer {
 
 .aboutValues .coreValues ul {
   list-style: disc;
+}
+
+.aboutValues .coreValues span {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .aboutValues .coreValues ol {

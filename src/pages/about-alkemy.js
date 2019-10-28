@@ -88,7 +88,7 @@ const AboutAlkemy = ({ data }) => {
                 <section className="aboutValues py-4 alk-container ">
                     <Row className="py-4 px-0">
                         <Col xs={12} md={8}>
-                            <div className="coreValues py-4 pl-5 pr-3 p-lg-5 font-weight-light">
+                            <div className="coreValues py-4 pl-5 pr-3 p-lg-5 font-weight-normal">
                                 <ol>
                                     <li>
                                         <span className="valueTitle">
@@ -96,21 +96,26 @@ const AboutAlkemy = ({ data }) => {
                                                 data.aboutJson.sections[1]
                                                     .blocks[0].heading}
                                         </span>
-                                        <br />
-                                        {data.aboutJson &&
-                                            data.aboutJson.sections[1].blocks[0]
-                                                .content}
+                                        <span>
+                                            <br />
+                                            {data.aboutJson &&
+                                                data.aboutJson.sections[1].blocks[0]
+                                                    .content}
+                                        </span>
                                     </li>
                                     <li>
+                                       
                                         <span className="valueTitle">
                                             {data.aboutJson &&
                                                 data.aboutJson.sections[1]
                                                     .blocks[1].heading}
                                         </span>
-                                        <br />
-                                        {data.aboutJson &&
-                                            data.aboutJson.sections[1].blocks[1]
-                                                .content}
+                                        <span>
+                                            <br />
+                                            {data.aboutJson &&
+                                                data.aboutJson.sections[1].blocks[1]
+                                                    .content}
+                                        </span>
                                         <ul>
                                             <li>
                                                 <span className="valueTitle">
@@ -119,9 +124,11 @@ const AboutAlkemy = ({ data }) => {
                                                             .sections[1]
                                                             .blocks[2].heading}
                                                 </span>{" "}
-                                                {data.aboutJson &&
-                                                    data.aboutJson.sections[1]
-                                                        .blocks[2].content}
+                                                <span>
+                                                    {data.aboutJson &&
+                                                        data.aboutJson.sections[1]
+                                                            .blocks[2].content}
+                                                </span>
                                             </li>
                                             <li>
                                                 <span className="valueTitle">
@@ -130,9 +137,11 @@ const AboutAlkemy = ({ data }) => {
                                                             .sections[1]
                                                             .blocks[3].heading}
                                                 </span>{" "}
-                                                {data.aboutJson &&
-                                                    data.aboutJson.sections[1]
-                                                        .blocks[3].content}
+                                                <span>
+                                                    {data.aboutJson &&
+                                                        data.aboutJson.sections[1]
+                                                            .blocks[3].content}
+                                                </span>
                                             </li>
                                         </ul>
                                     </li>
@@ -142,10 +151,12 @@ const AboutAlkemy = ({ data }) => {
                                                 data.aboutJson.sections[1]
                                                     .blocks[4].heading}
                                         </span>
+                                        <span>
                                         <br />
-                                        {data.aboutJson &&
-                                            data.aboutJson.sections[1].blocks[4]
-                                                .content}
+                                            {data.aboutJson &&
+                                                data.aboutJson.sections[1].blocks[4]
+                                                    .content}
+                                        </span>
                                     </li>
                                 </ol>
                             </div>
