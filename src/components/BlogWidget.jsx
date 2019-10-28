@@ -15,6 +15,7 @@ import {
     Button,
 } from "reactstrap";
 import Loading from "./loading.jsx";
+import _ from "lodash";
 
 // Blog post widget to display 3 blog posts from graphQL data.
 // When using this widget, make sure to pass a prop, "posts",
@@ -44,7 +45,9 @@ const BlogWidget = props => {
                         <CardBody>
                             <Link to={edge.node.frontmatter.path}>
                                 <CardTitle tag="h4">
-                                    {edge.node.frontmatter.title}
+                                    {_.truncate(edge.node.frontmatter.title,{
+                                    'length': 25,
+                                'omission': ' [...]'})}
                                 </CardTitle>
                             </Link>
                         </CardBody>
