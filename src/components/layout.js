@@ -8,9 +8,12 @@ import { Location } from "@reach/router";
 import Header from "./header";
 import Footer from "./footer";
 
+
 const Modernizr = typeof window!=='undefined' && require("../utils/modernizr-custom");
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -125,6 +128,7 @@ const Layout = ({
                                 size="3x"
                                 color="white"
                                 className="callNowButton"
+                                
                             />
                         </a>
                     </div>

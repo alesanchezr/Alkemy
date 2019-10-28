@@ -8,6 +8,7 @@
 require('./src/assets/css/layout.css')
 require('./src/assets/css/style.css')
 require('./src/assets/css/animate.css')
+require("@fortawesome/fontawesome-svg-core/styles.css");
 
 exports.onServiceWorkerUpdateReady = () => {
   const answer = window.confirm(
