@@ -2,6 +2,7 @@ import React,{useEffect} from "react";
 import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import { fluidImageSmall } from "../utils/utils.js";
+import { trunc } from "../utils/utils.js";
 import {
     CardDeck,
     Card,

@@ -10,6 +10,10 @@ export const fluidImage = graphql`
     }
 `;
 
+export const trunc = data => {
+    return data.substring(0, 50) + "...";
+};
+
 export const fluidImageSmall = graphql`
     fragment fluidImageSmall on File {
         childImageSharp {
