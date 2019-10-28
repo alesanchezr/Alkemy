@@ -53,10 +53,10 @@ const BlogWidget = props => {
                             <CardBody>
                                 <CardText>
                                     {_.truncate(edge.node.frontmatter.excerpt, {
-                                    'length': 80,
+                                    'length': 145,
                                     'omission': ' ...'}) ? _.truncate(
                                         edge.node.frontmatter.excerpt,{
-                                        'length': 80,
+                                        'length': 145,
                                         'omission': ' ...'})
                                      : (
                                         <Loading />
