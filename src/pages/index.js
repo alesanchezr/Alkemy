@@ -173,10 +173,12 @@ const HomePage = ({ data }) => {
                                     <CardImgOverlay className="h-100">
                                         <CardBody className="d-flex align-items-end justify-content-center">
                                             <CardText>
-                                                {
+                                                {_.truncate(
                                                     data.homepageJson
                                                         .sections[1].blocks[0]
-                                                        .content
+                                                        .content,{
+                                                        'length': 160,
+                                                        'omission': ' ...'})
                                                 }
                                             </CardText>
                                         </CardBody>
