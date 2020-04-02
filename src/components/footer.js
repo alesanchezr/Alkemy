@@ -77,6 +77,18 @@ const Footer = () => (
                 colors={["white", "white", "white"]}
                 className="position-absolute mb-3"
             />
+            <a
+                className="upcity"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://upcity.com/local-marketing-agencies/profiles/alkemy-inc"
+            >
+                <img
+                    src="https://app.upcity.com/images/badges/tla.png"
+                    width="200px"
+                    height="50px"
+                />
+            </a>
         </Row>
     </footer>
 );
