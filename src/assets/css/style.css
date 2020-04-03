@@ -16911,6 +16911,27 @@ a {
   }
 }
 
+.footer .upcity {
+  position: relative;
+  margin: 0 auto 2rem 3rem;
+}
+
+@media screen and (min-width: 500px) {
+  .footer .upcity {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 900px) {
+  .footer .upcity img {
+    width: 125px;
+    height: auto;
+  }
+}
+
 .socialLinks {
   font-size: 1.2rem;
 }
