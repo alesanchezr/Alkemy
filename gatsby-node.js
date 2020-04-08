@@ -119,9 +119,6 @@
             ) {
               edges {
                 node {
-                  code {
-                    scope
-                  }
                   fields {
                     slug
                   }

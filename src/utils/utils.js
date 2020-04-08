@@ -44,3 +44,10 @@ export function addJS(position = `head`, jsCode, source) {
         el[0].appendChild(s);
     }
 }
+
+export function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+}
