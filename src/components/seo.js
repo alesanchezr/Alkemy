@@ -205,19 +205,19 @@ function SEO({
     	`}</script>
             {/* End Facebook Pixel Code */}
 
-            {/* <script defer type="application/ld+json">
+            <script defer type="application/ld+json">
                 {`{
-            "@context":"https://schema.org",
-            "@type":"WebSite",
-            "url":"${siteAddress}",
-            "name":"Alkemy, Inc.",
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "${siteAddress}/alkemy-blog",
-              "query": "required"
-            }
-          }`}
-            </script> */}
+                "@context":"https://schema.org",
+                "@type":"WebSite",
+                "url":"${siteAddress}",
+                "name":"Alkemy, Inc.",
+                "potentialAction": {
+                  "@type": "SearchAction",
+                  "target": "${siteAddress}/alkemy-blog/?s={search_term_string}",
+                  "query-input": "required name=search_term_string"
+                }
+              }`}
+            </script>
             <script defer type="application/ld+json">
                 {`{
             "@context":"https://schema.org",
