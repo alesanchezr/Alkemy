@@ -214,7 +214,7 @@ const AlkemyBlog = ({
                             </Row>
                         </section>
                     ) : (
-                        <section className="py-4 blog-post-listing">
+                        <section className="py-4 blog-post-listing alk-container">
                             <Row>
                                 <Col xs={12}>
                                     <RecentBlogs
