@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, graphql, navigate } from "gatsby";
-import MDXRenderer from "gatsby-mdx/mdx-renderer";
+import {MDXRenderer} from "gatsby-plugin-mdx";
 import { MDXProvider } from "@mdx-js/react";
 import Img from "gatsby-image";
 import { Context } from "../store/appContext.js";
@@ -242,7 +242,7 @@ class BlogPostTemplate extends React.Component {
 
                 <div className="my-5 alk-container">
                     <MDXProvider components={components}>
-                        <MDXRenderer>{post.code.body}</MDXRenderer>
+                        <MDXRenderer>{post.body}</MDXRenderer>
                     </MDXProvider>
                 </div>
                 <hr
@@ -300,9 +300,7 @@ export const query = graphql`
                    }
                }
                mdx(fields: { slug: { eq: $slug } }) {
-                   code {
-                       body
-                   }
+                    body
                    frontmatter {
                        title
                        date(formatString: "MMMM, DD, YYYY")
