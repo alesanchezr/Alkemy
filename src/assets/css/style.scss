@@ -1323,6 +1323,8 @@ div.spinContainer{
     background: $alkemy_mid_blue;
     padding: .35em .6em;
     border-radius: 0;
+    height: 50px;
+    width: 50px;
     box-shadow: none;
     &:hover,&:focus{
       scale: unset;

@@ -217,7 +217,6 @@ const RecentBlogs = props => {
             let segment = props.blogdata.slice(i - 4, 4);
 
             return (
-                <CardDeck>
                     <Row>
                         {segment.map((e, index) => {
                             return (
@@ -269,14 +268,13 @@ const RecentBlogs = props => {
                             );
                         })}
                     </Row>
-                </CardDeck>
             );
         }
     };
 
     return (
         // eslint-disable-next-line react/prop-types
-        <div {...other} className={props.className + "h-100"}>
+        <div {...other} className={props.className?props.className:"" + "h-100"}>
             {props.layout.toLowerCase() === "home"
                 ? renderBlogHome()
                 : renderAlternate()}
