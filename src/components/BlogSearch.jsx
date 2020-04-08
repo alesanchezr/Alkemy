@@ -16,6 +16,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getUrlParameter } from "../utils/utils"
 
 
+// TODO: Need to convert this BlogSearch to a functional component so we can use the useContext hook
+
 // Blog search widget
 export default class BlogSearch extends React.Component {
     constructor(props) {
