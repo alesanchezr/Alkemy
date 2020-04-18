@@ -51,7 +51,7 @@ const PrivacyPolicy = ({ data }) => {
                                 Tel: 877-425-5369{" "}
                             </address>
                             <p>
-                                It is Alkemy, Inc.&apos;s policy to respect your
+                                It is Alkemy&apos;s policy to respect your
                                 privacy regarding any information we may collect
                                 while operating our website. This Privacy Policy
                                 applies to{" "}
@@ -82,30 +82,30 @@ const PrivacyPolicy = ({ data }) => {
                             </p>
                             <h2>Website Visitors</h2>
                             <p>
-                                Like most website operators, Alkemy, Inc.
+                                Like most website operators, Alkemy
                                 collects non-personally-identifying information
                                 of the sort that web browsers and servers
                                 typically make available, such as the browser
                                 type, language preference, referring site, and
                                 the date and time of each visitor request.
-                                Alkemy, Inc.&apos;s purpose in collecting
+                                Alkemy&apos;s purpose in collecting
                                 non-personally identifying information is to
-                                better understand how Alkemy, Inc.&apos;s
+                                better understand how Alkemy&apos;s
                                 visitors use its website. From time to time,
-                                Alkemy, Inc. may release
+                                Alkemy may release
                                 non-personally-identifying information in the
                                 aggregate, e.g., by publishing a report on
                                 trends in the usage of its website.
                             </p>
                             <p>
-                                Alkemy, Inc. also collects potentially
+                                Alkemy also collects potentially
                                 personally-identifying information like Internet
                                 Protocol (IP) addresses for logged in users and
                                 for users leaving comments on
                                 <Link to="/">
                                     https://www.alkemyinc.com
                                 </Link>{" "}
-                                blog posts. Alkemy, Inc. only discloses logged
+                                blog posts. Alkemy only discloses logged
                                 in user and commenter IP addresses under the
                                 same circumstances that it uses and discloses
                                 personally-identifying information as described
@@ -115,11 +115,11 @@ const PrivacyPolicy = ({ data }) => {
                                 Gathering of Personally-Identifying Information
                             </h2>
                             <p>
-                                Certain visitors to Alkemy, Inc.&apos;s websites
-                                choose to interact with Alkemy, Inc. in ways
-                                that require Alkemy, Inc. to gather
+                                Certain visitors to Alkemy&apos;s websites
+                                choose to interact with Alkemy in ways
+                                that require Alkemy to gather
                                 personally-identifying information. The amount
-                                and type of information that Alkemy, Inc.
+                                and type of information that Alkemy
                                 gathers depends on the nature of the
                                 interaction.
                             </p>
@@ -153,33 +153,33 @@ const PrivacyPolicy = ({ data }) => {
                                 Information
                             </h2>
                             <p>
-                                Alkemy, Inc. discloses potentially
+                                Alkemy discloses potentially
                                 personally-identifying and
                                 personally-identifying information only to those
                                 of its employees, contractors and affiliated
                                 organizations that (i) need to know that
                                 information in order to process it on Alkemy,
                                 Inc.&apos;s behalf or to provide services
-                                available at Alkemy, Inc.&apos;s website, and
+                                available at Alkemy&apos;s website, and
                                 (ii) that have agreed not to disclose it to
                                 others. Some of those employees, contractors and
                                 affiliated organizations may be located outside
                                 of your home country; by using Alkemy,
                                 Inc.&apos;s website, you consent to the transfer
-                                of such information to them. Alkemy, Inc. will
+                                of such information to them. Alkemy will
                                 not rent or sell potentially
                                 personally-identifying and
                                 personally-identifying information to anyone.
                                 Other than to its employees, contractors and
                                 affiliated organizations, as described above,
-                                Alkemy, Inc. discloses potentially
+                                Alkemy discloses potentially
                                 personally-identifying and
                                 personally-identifying information only in
                                 response to a subpoena, court order or other
-                                governmental request, or when Alkemy, Inc.
+                                governmental request, or when Alkemy
                                 believes in good faith that disclosure is
                                 reasonably necessary to protect the property or
-                                rights of Alkemy, Inc., third parties or the
+                                rights of Alkemy, third parties or the
                                 public at large.
                             </p>
                             <p>
@@ -191,7 +191,7 @@ const PrivacyPolicy = ({ data }) => {
                                 Inc. may occasionally send you an email to tell
                                 you about new features, solicit your feedback,
                                 or just keep you up to date with what&apos;s
-                                going on with Alkemy, Inc. and our products. We
+                                going on with Alkemy and our products. We
                                 primarily use our blog to communicate this type
                                 of information, so we expect to keep this type
                                 of email to a minimum. If you send us a request
@@ -199,7 +199,7 @@ const PrivacyPolicy = ({ data }) => {
                                 our feedback mechanisms), we reserve the right
                                 to publish it in order to help us clarify or
                                 respond to your request or to help us support
-                                other users. Alkemy, Inc. takes all measures
+                                other users. Alkemy takes all measures
                                 reasonably necessary to protect against the
                                 unauthorized access, use, alteration or
                                 destruction of potentially
@@ -208,17 +208,17 @@ const PrivacyPolicy = ({ data }) => {
                             </p>
                             <h2>Aggregated Statistics</h2>
                             <p>
-                                Alkemy, Inc. may collect statistics about the
+                                Alkemy may collect statistics about the
                                 behavior of visitors to its website. Alkemy,
                                 Inc. may display this information publicly or
-                                provide it to others. However, Alkemy, Inc. does
+                                provide it to others. However, Alkemy does
                                 not disclose your personally-identifying
                                 information.
                             </p>
                             <h2>Cookies</h2>
                             <p>
                                 To enrich and perfect your online experience,
-                                Alkemy, Inc. uses &lsquo;Cookies&rsquo;, similar
+                                Alkemy uses &lsquo;Cookies&rsquo;, similar
                                 technologies and services provided by others to
                                 display personalized content, appropriate
                                 advertising and store your preferences on your
@@ -229,7 +229,7 @@ const PrivacyPolicy = ({ data }) => {
                                 website stores on a visitor&apos;s computer, and
                                 that the visitor&apos;s browser provides to the
                                 website each time the visitor returns. Alkemy,
-                                Inc. uses cookies to help Alkemy, Inc. identify
+                                Inc. uses cookies to help Alkemy identify
                                 and track visitors, their usage of
                                 <Link to="/">https://www.alkemyinc.com</Link>,
                                 and their website access preferences. Alkemy,
@@ -237,22 +237,22 @@ const PrivacyPolicy = ({ data }) => {
                                 placed on their computers should set their
                                 browsers to refuse cookies before using Alkemy,
                                 Inc.&apos;s websites, with the drawback that
-                                certain features of Alkemy, Inc.&apos;s websites
+                                certain features of Alkemy&apos;s websites
                                 may not function properly without the aid of
                                 cookies.
                             </p>
                             <p>
                                 By continuing to navigate our website without
                                 changing your cookie settings, you hereby
-                                acknowledge and agree to Alkemy, Inc.&apos;s use
+                                acknowledge and agree to Alkemy&apos;s use
                                 of cookies.
                             </p>
                             <h2>Privacy Policy Changes</h2>
                             <p>
                                 Although most changes are likely to be minor,
-                                Alkemy, Inc. may change its Privacy Policy from
-                                time to time, and in Alkemy, Inc.&apos;s sole
-                                discretion. Alkemy, Inc. encourages visitors to
+                                Alkemy may change its Privacy Policy from
+                                time to time, and in Alkemy&apos;s sole
+                                discretion. Alkemy encourages visitors to
                                 frequently check this page for any changes to
                                 its Privacy Policy. Your continued use of this
                                 site after any change in this Privacy Policy

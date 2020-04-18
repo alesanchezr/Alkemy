@@ -109,7 +109,7 @@ const TermsAndConditions = ({ data }) => {
                             <p>
                                 Unless otherwise stated, Alkemy, Inc and/or it&apos;s
                                 licensors own the intellectual property rights
-                                for all material on Alkemy, Inc. All
+                                for all material on Alkemy All
                                 intellectual property rights are reserved. You
                                 may view and/or print pages from
                                 <Link to="/">
@@ -301,7 +301,7 @@ const TermsAndConditions = ({ data }) => {
                                 to link); (b)the organization does not have an
                                 unsatisfactory record with us; (c) the benefit
                                 to us from the visibility associated with the
-                                hyperlink outweighs the absence of Alkemy, Inc.;
+                                hyperlink outweighs the absence of Alkemy;
                                 and (d) where the link is in the context of
                                 general resource information or is otherwise
                                 consistent with editorial content in a
