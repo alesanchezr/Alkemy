@@ -7,7 +7,7 @@ const dynamicPlugins = [];
 
 module.exports = {
     siteMetadata: {
-        siteUrl: `https://www.alkemyinc.com`,
+        siteUrl: `https://www.alkemydev.com`,
         title: `Alkemy`,
         description: `Make your next Web Development, Design, eCommerce, or Marketing project a success with Alkemy. Well Crafted, Pixel Perfect, Conversion Optimized Results.`,
         keywords: `

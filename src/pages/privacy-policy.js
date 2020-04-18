@@ -40,7 +40,7 @@ const PrivacyPolicy = ({ data }) => {
                             <h3>Your privacy is critically important to us.</h3>
                             <br />
                             <span className="text-capitalize">
-                                Alkemy, Inc
+                                Alkemy
                             </span>{" "}
                             is located at:
                             <br />
@@ -55,10 +55,10 @@ const PrivacyPolicy = ({ data }) => {
                                 privacy regarding any information we may collect
                                 while operating our website. This Privacy Policy
                                 applies to{" "}
-                                <Link to="/">https://www.alkemyinc.com</Link>{" "}
+                                <Link to="/">https://www.alkemydev.com</Link>{" "}
                                 (hereinafter, &lsquo;us&rsquo;,
                                 &lsquo;we&rsquo;, or
-                                &lsquo;https://www.alkemyinc.com&rsquo;). We
+                                &lsquo;https://www.alkemydev.com&rsquo;). We
                                 respect your privacy and are committed to
                                 protecting personally identifiable information
                                 you may provide us through the Website. We have
@@ -103,7 +103,7 @@ const PrivacyPolicy = ({ data }) => {
                                 Protocol (IP) addresses for logged in users and
                                 for users leaving comments on
                                 <Link to="/">
-                                    https://www.alkemyinc.com
+                                    https://www.alkemydev.com
                                 </Link>{" "}
                                 blog posts. Alkemy only discloses logged
                                 in user and commenter IP addresses under the
@@ -185,7 +185,7 @@ const PrivacyPolicy = ({ data }) => {
                             <p>
                                 If you are a registered user of
                                 <Link to="/">
-                                    https://www.alkemyinc.com
+                                    https://www.alkemydev.com
                                 </Link>{" "}
                                 and have supplied your email address, Alkemy,
                                 Inc. may occasionally send you an email to tell
@@ -231,7 +231,7 @@ const PrivacyPolicy = ({ data }) => {
                                 website each time the visitor returns. Alkemy,
                                 Inc. uses cookies to help Alkemy identify
                                 and track visitors, their usage of
-                                <Link to="/">https://www.alkemyinc.com</Link>,
+                                <Link to="/">https://www.alkemydev.com</Link>,
                                 and their website access preferences. Alkemy,
                                 Inc. visitors who do not wish to have cookies
                                 placed on their computers should set their

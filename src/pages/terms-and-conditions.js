@@ -114,7 +114,7 @@ const TermsAndConditions = ({ data }) => {
                                 may view and/or print pages from
                                 <Link to="/">
                                     {" "}
-                                    https://www.alkemyinc.com
+                                    https://www.alkemydev.com
                                 </Link>{" "}
                                 for your own personal use subject to
                                 restrictions set in these terms and conditions.
@@ -124,19 +124,19 @@ const TermsAndConditions = ({ data }) => {
                                 <li>
                                     Republish material from{" "}
                                     <Link to="/">
-                                        https://www.alkemyinc.com
+                                        https://www.alkemydev.com
                                     </Link>
                                 </li>
                                 <li>
                                     Sell, rent or sub-license material from{" "}
                                     <Link to="/">
-                                        https://www.alkemyinc.com
+                                        https://www.alkemydev.com
                                     </Link>
                                 </li>
                                 <li>
                                     Reproduce, duplicate or copy material from{" "}
                                     <Link to="/">
-                                        https://www.alkemyinc.com
+                                        https://www.alkemydev.com
                                     </Link>
                                 </li>
                             </ol>
@@ -324,10 +324,10 @@ const TermsAndConditions = ({ data }) => {
                                 to our website, you must notify us by sending an
                                 e-mail to{" "}
                                 <a
-                                    href="mailto:info@alkemyinc.com"
-                                    title="send an email to info@alkemyinc.com"
+                                    href="mailto:info@alkemydev.com"
+                                    title="send an email to info@alkemydev.com"
                                 >
-                                    info@alkemyinc.com
+                                    info@alkemydev.com
                                 </a>
                                 . Please include your name, your organization
                                 name, contact information (such as a phone
