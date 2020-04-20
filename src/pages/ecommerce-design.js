@@ -433,7 +433,7 @@ const EcommerceDesign = ({ data }) => {
                                     fluid={
                                         data.dcartPartner.childImageSharp.fluid
                                     }
-                                    alt="Alkemy, Inc. is a 3dcart Partner."
+                                    alt="Alkemy is a 3dcart Partner."
                                 />
                             )}
                         </Col>
@@ -451,7 +451,7 @@ const EcommerceDesign = ({ data }) => {
                                     fluid={
                                         data.dcartExpert.childImageSharp.fluid
                                     }
-                                    alt="Alkemy, Inc. is a 3dcart Certified Expert."
+                                    alt="Alkemy is a 3dcart Certified Expert."
                                 />
                             )}
                         </Col>
@@ -470,7 +470,7 @@ const EcommerceDesign = ({ data }) => {
                                         data.shopifyPartner.childImageSharp
                                             .fluid
                                     }
-                                    alt="Alkemy, Inc. is a Shopify Partner."
+                                    alt="Alkemy is a Shopify Partner."
                                 />
                             )}
                         </Col>
@@ -489,7 +489,7 @@ const EcommerceDesign = ({ data }) => {
                                         data.bigcommercePartner.childImageSharp
                                             .fluid
                                     }
-                                    alt="Alkemy, Inc. is a Big Commerce Partner."
+                                    alt="Alkemy is a Big Commerce Partner."
                                 />
                             )}
                         </Col>

@@ -68,7 +68,7 @@ export class ContactMap extends React.Component {
                                 scaledSize: new google.maps.Size(64, 64),
                             }}
                             visible={true}
-                            name={"Alkemy, Inc."}
+                            name={"Alkemy"}
                         />
                         <InfoWindow
                             marker={this.state.activeMarker}

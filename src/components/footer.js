@@ -39,7 +39,7 @@ const _menuArray = [
     {
         name: "About Us",
         id: "3",
-        links: [{ name: "About Alkemy, Inc.", id: "3a", url: "/about-alkemy" }],
+        links: [{ name: "About Alkemy", id: "3a", url: "/about-alkemy" }],
     },
     {
         name: "Contact",
@@ -69,7 +69,7 @@ const Footer = () => (
 
         <Row className="my-5 my-md-2">
             <div className="copyText text-center position-absolute my-5 my-md-2">
-                Copyright &copy; 2018, Alkemy, Inc.
+                Copyright &copy; 2018, Alkemy
                 <br />
                 {renderSubLinks(_subLinks)}
             </div>

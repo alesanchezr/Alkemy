@@ -354,7 +354,7 @@ export default class FreeWebsiteAnalysis extends React.Component {
                                             this.handleFieldChange(e)
                                         }
                                     >
-                                        I authorize Alkemy, Inc. to contact me
+                                        I authorize Alkemy to contact me
                                         via email so that I may recieve my free
                                         website analysis.
                                     </Label>

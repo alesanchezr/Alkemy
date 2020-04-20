@@ -109,12 +109,12 @@ const TermsAndConditions = ({ data }) => {
                             <p>
                                 Unless otherwise stated, Alkemy, Inc and/or it&apos;s
                                 licensors own the intellectual property rights
-                                for all material on Alkemy, Inc. All
+                                for all material on Alkemy All
                                 intellectual property rights are reserved. You
                                 may view and/or print pages from
                                 <Link to="/">
                                     {" "}
-                                    https://www.alkemyinc.com
+                                    https://www.alkemydev.com
                                 </Link>{" "}
                                 for your own personal use subject to
                                 restrictions set in these terms and conditions.
@@ -124,19 +124,19 @@ const TermsAndConditions = ({ data }) => {
                                 <li>
                                     Republish material from{" "}
                                     <Link to="/">
-                                        https://www.alkemyinc.com
+                                        https://www.alkemydev.com
                                     </Link>
                                 </li>
                                 <li>
                                     Sell, rent or sub-license material from{" "}
                                     <Link to="/">
-                                        https://www.alkemyinc.com
+                                        https://www.alkemydev.com
                                     </Link>
                                 </li>
                                 <li>
                                     Reproduce, duplicate or copy material from{" "}
                                     <Link to="/">
-                                        https://www.alkemyinc.com
+                                        https://www.alkemydev.com
                                     </Link>
                                 </li>
                             </ol>
@@ -301,7 +301,7 @@ const TermsAndConditions = ({ data }) => {
                                 to link); (b)the organization does not have an
                                 unsatisfactory record with us; (c) the benefit
                                 to us from the visibility associated with the
-                                hyperlink outweighs the absence of Alkemy, Inc.;
+                                hyperlink outweighs the absence of Alkemy;
                                 and (d) where the link is in the context of
                                 general resource information or is otherwise
                                 consistent with editorial content in a
@@ -324,10 +324,10 @@ const TermsAndConditions = ({ data }) => {
                                 to our website, you must notify us by sending an
                                 e-mail to{" "}
                                 <a
-                                    href="mailto:info@alkemyinc.com"
-                                    title="send an email to info@alkemyinc.com"
+                                    href="mailto:info@alkemydev.com"
+                                    title="send an email to info@alkemydev.com"
                                 >
-                                    info@alkemyinc.com
+                                    info@alkemydev.com
                                 </a>
                                 . Please include your name, your organization
                                 name, contact information (such as a phone

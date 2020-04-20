@@ -215,7 +215,7 @@ export default class ReactNavbar extends React.Component {
                         <img
                             className="my-auto"
                             src={alkemyLogo}
-                            alt="Alkemy, Inc."
+                            alt="Alkemy"
                         />
                     </Link>
                     <NavbarToggler

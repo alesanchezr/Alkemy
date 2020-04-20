@@ -7,8 +7,8 @@ const dynamicPlugins = [];
 
 module.exports = {
     siteMetadata: {
-        siteUrl: `https://www.alkemyinc.com`,
-        title: `Alkemy, Inc.`,
+        siteUrl: `https://www.alkemydev.com`,
+        title: `Alkemy`,
         description: `Make your next Web Development, Design, eCommerce, or Marketing project a success with Alkemy. Well Crafted, Pixel Perfect, Conversion Optimized Results.`,
         keywords: `
             Web Design Company, 
@@ -24,7 +24,7 @@ module.exports = {
             web application development
             `,
         author: `@alkemydev`,
-        company: `Alkemy, Inc.`,
+        company: `Alkemy`,
         address: `9055 Wiles Road`,
         city: `Coral Springs`,
         state: `FL`,
@@ -115,7 +115,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
-                name: `Alkemy, Inc.`,
+                name: `Alkemy`,
                 short_name: `alkemyinc`,
                 start_url: `/`,
                 background_color: `#ffffff`,

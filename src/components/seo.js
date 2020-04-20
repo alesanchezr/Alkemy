@@ -65,7 +65,7 @@ function SEO({
     const ogImage = coverImage ? coverImage : screenshot;
     const ogImageText = coverDescription
         ? coverDescription
-        : "Screenshot of the Alkemy, Inc. Website.";
+        : "Screenshot of the Alkemy Website.";
     const metaDescription = description
         ? description
         : site.siteMetadata.description;
@@ -103,7 +103,7 @@ function SEO({
             <meta name="keywords" content={pageKeywords} />
             <meta name="author" content={pageAuthor} />
 
-            <meta name="apple-mobile-web-app-title" content="Alkemy, Inc." />
+            <meta name="apple-mobile-web-app-title" content="Alkemy" />
 
             <meta property="og:image" content={siteUrl + ogImage} />
             <meta property="og:title" content={title} />
@@ -210,7 +210,7 @@ function SEO({
                 "@context":"https://schema.org",
                 "@type":"WebSite",
                 "url":"${siteAddress}",
-                "name":"Alkemy, Inc.",
+                "name":"Alkemy",
                 "potentialAction": {
                   "@type": "SearchAction",
                   "target": "${siteAddress}/alkemy-blog/?s={search_term_string}",
@@ -223,7 +223,7 @@ function SEO({
             "@context":"https://schema.org",
             "@type":"Organization",
             "url":"${siteAddress}",
-            "name":"Alkemy, Inc.",
+            "name":"Alkemy",
             "logo": "${siteAddress}${logo}",
             "sameAs":[
               "https://www.facebook.com/alkemydev",
