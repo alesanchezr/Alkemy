@@ -116,7 +116,7 @@ module.exports = {
             resolve: `gatsby-plugin-manifest`,
             options: {
                 name: `Alkemy`,
-                short_name: `alkemyinc`,
+                short_name: `Alkemy`,
                 start_url: `/`,
                 background_color: `#ffffff`,
                 theme_color: `#2bb3e5`,
