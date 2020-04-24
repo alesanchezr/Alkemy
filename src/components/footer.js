@@ -81,7 +81,7 @@ const Footer = () => (
                 className="upcity"
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://upcity.com/local-marketing-agencies/profiles/alkemy"
+                href="https://upcity.com/profiles/alkemy"
             >
                 <img
                     src="https://app.upcity.com/images/badges/tla.png"
