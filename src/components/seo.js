@@ -89,11 +89,9 @@ function SEO({
                 { httpEquiv: "X-UA-Compatible", content: "IE=edge,chrome=1" },
             ].concat(meta)}
         >
-            {/* <html
+            <html
                 lang={lang ? lang : "en"}
-                amp
-                xmlns="http://www.w3.org/1999/xhtml"
-            /> */}
+            />
             <meta
                 name="msvalidate.01"
                 content="304B53089DF131D38A8031F5232E9FB1"
