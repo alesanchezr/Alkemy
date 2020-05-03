@@ -5,9 +5,18 @@ const mapPagesUrls = {
 }
 const dynamicPlugins = [];
 
+const {
+    NODE_ENV,
+    URL: NETLIFY_SITE_URL = "https://www.example.com",
+    DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+    CONTEXT: NETLIFY_ENV = NODE_ENV,
+} = process.env;
+const isNetlifyProduction = NETLIFY_ENV === "production";
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
+
 module.exports = {
     siteMetadata: {
-        siteUrl: `https://www.alkemydev.com`,
+        siteUrl,
         title: `Alkemy`,
         description: `Make your next Web Development, Design, eCommerce, or Marketing project a success with Alkemy. Well Crafted, Pixel Perfect, Conversion Optimized Results.`,
         keywords: `
@@ -187,15 +196,20 @@ module.exports = {
         {
             resolve: "gatsby-plugin-robots-txt",
             options: {
-                host: "https://www.alkemydev.com",
-                sitemap: "https://www.alkemydev.com/sitemap.xml",
-                resolveEnv: () => process.env.GATSBY_ENV,
+                resolveEnv: () => NETLIFY_ENV,
                 env: {
-                    development: {
-                        policy: [{ userAgent: "*", disallow: ["/"] }],
-                    },
                     production: {
-                        policy: [{ userAgent: "*", allow: "/" }],
+                        policy: [{ userAgent: "*" }],
+                    },
+                    "branch-deploy": {
+                        policy: [{ userAgent: "*", disallow: ["/"] }],
+                        sitemap: null,
+                        host: null,
+                    },
+                    "deploy-preview": {
+                        policy: [{ userAgent: "*", disallow: ["/"] }],
+                        sitemap: null,
+                        host: null,
                     },
                 },
             },
