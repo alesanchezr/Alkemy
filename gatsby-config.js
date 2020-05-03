@@ -184,6 +184,22 @@ module.exports = {
                 exclude: ["error", "warn"], // <- will be removed all console calls except these
             },
         },
+        {
+            resolve: "gatsby-plugin-robots-txt",
+            options: {
+                host: "https://www.alkemydev.com",
+                sitemap: "https://www.alkemydev.com/sitemap.xml",
+                resolveEnv: () => process.env.GATSBY_ENV,
+                env: {
+                    development: {
+                        policy: [{ userAgent: "*", disallow: ["/"] }],
+                    },
+                    production: {
+                        policy: [{ userAgent: "*", allow: "/" }],
+                    },
+                },
+            },
+        },
         // {
         //     resolve: "gatsby-plugin-guess-js",
         //     options: {
