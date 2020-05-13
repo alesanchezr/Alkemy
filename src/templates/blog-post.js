@@ -124,7 +124,9 @@ class BlogPostTemplate extends React.Component {
                 renderHeaderSolid={true}
             >
                 <SEO
-                    coverImage={post.frontmatter.cover.childImageSharp.fluid.src}
+                    coverImage={
+                        post.frontmatter.cover.childImageSharp.fluid.src
+                    }
                     coverDescription={post.frontmatter.coverAlt}
                     title={post.frontmatter.title}
                     description={post.frontmatter.description || post.excerpt}
@@ -204,6 +206,7 @@ class BlogPostTemplate extends React.Component {
                                                 author.photo.childImageSharp
                                                     .fluid
                                             }
+                                            objectFit={author.name.toLowerCase()==="alkemy"?"contain":"cover"}
                                             alt={"Photo of " + author.name}
                                         />
                                         <Link to={"/author" + author.slug}>
