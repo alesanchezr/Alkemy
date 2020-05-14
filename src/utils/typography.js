@@ -21,7 +21,7 @@ const typography = new Typography({
         "Helvetica",
         "Arial",
         "sans-serif",
-    ],
+    ]
 });
 
 export default typography;

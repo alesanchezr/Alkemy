@@ -89,9 +89,7 @@ function SEO({
                 { httpEquiv: "X-UA-Compatible", content: "IE=edge,chrome=1" },
             ].concat(meta)}
         >
-            <html
-                lang={lang ? lang : "en"}
-            />
+            <html lang={lang ? lang : "en"} />
             <meta
                 name="msvalidate.01"
                 content="304B53089DF131D38A8031F5232E9FB1"
@@ -145,7 +143,10 @@ function SEO({
             <link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
             <link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
             <link rel="icon" type="image/png" sizes="96x96" href={favicon96} />
-
+            <link
+                href="https://fonts.googleapis.com/css?family=Calligraffitti|Raleway:500&display=swap"
+                rel="stylesheet"
+            />
             <TypographyStyle typography={typography} />
             <GoogleFont typography={typography} />
 

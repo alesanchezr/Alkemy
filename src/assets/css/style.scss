@@ -7,9 +7,6 @@
  License URI:  https://opensource.org/licenses/MIT
 */
 
-// Font Import
-@import url('https://fonts.googleapis.com/css?family=Calligraffitti|Raleway:500&display=swap');
-
 // Import BT sources
 @import "../../../node_modules/bootstrap/scss/functions.scss";
 @import "../../../node_modules/bootstrap/scss/variables.scss";
@@ -166,6 +163,10 @@ body{
 /* Bootstrap Override */
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
   font-weight: 600;
+}
+
+body{
+  font-family: unset;
 }
 
 @media (max-width: 575.98px) {
@@ -1435,7 +1436,7 @@ div.spinContainer{
     height: $header-height;
   }
   background: $alkemy_blue;
-  z-index: 1000;
+  z-index: 100;
   .row{
     height: $header-height;
   }
