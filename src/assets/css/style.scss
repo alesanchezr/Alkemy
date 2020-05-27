@@ -1588,3 +1588,44 @@ body{
     }
   }
 }
+
+
+// Care plans
+
+.wordpressCarePlans {
+  font-family: 'Avenir Next',
+  'Helvetica Neue',
+  'Segoe UI',
+  'Helvetica',
+  'Arial',
+  sans-serif;
+
+  section:not(.hero){
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+  }
+
+  .hero {
+    position : relative;
+    width: 100%;
+    height : 480px;
+    margin-bottom: 10vh;
+    
+    .row{
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #000000 17.33%, rgba(0, 0, 0, 0) 89.24%),
+      url('../images/carePlans/wordpress-care-plans.jpg') fixed center no-repeat;
+      background-size: cover;
+    }
+
+    p {
+      --minFontSize: 24px;
+      --maxFontSize: 42px;
+      --scaler: 10vw;
+      font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSize));
+      font-weight: regular;
+      color: white;
+    }
+  }
+}

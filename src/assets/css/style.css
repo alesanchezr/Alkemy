@@ -18217,4 +18217,37 @@ body.blog .addthis-smartlayers, body.blog-single-page .addthis-smartlayers {
   text-align: left;
   margin: 3rem 0 2rem 0;
 }
+
+.wordpressCarePlans {
+  font-family: 'Avenir Next', 'Helvetica Neue', 'Segoe UI', 'Helvetica', 'Arial', sans-serif;
+}
+
+.wordpressCarePlans section:not(.hero) {
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+}
+
+.wordpressCarePlans .hero {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  margin-bottom: 10vh;
+}
+
+.wordpressCarePlans .hero .row {
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, right top, color-stop(17.33%, #000000), color-stop(89.24%, rgba(0, 0, 0, 0))), url("../images/carePlans/wordpress-care-plans.jpg") fixed center no-repeat;
+  background: linear-gradient(90deg, #000000 17.33%, rgba(0, 0, 0, 0) 89.24%), url("../images/carePlans/wordpress-care-plans.jpg") fixed center no-repeat;
+  background-size: cover;
+}
+
+.wordpressCarePlans .hero p {
+  --minFontSize: 24px;
+  --maxFontSize: 42px;
+  --scaler: 10vw;
+  font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSize));
+  font-weight: regular;
+  color: white;
+}
 /*# sourceMappingURL=style.css.map */

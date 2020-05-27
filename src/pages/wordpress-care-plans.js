@@ -87,10 +87,20 @@ const WebDesign = ({ data }) => {
                 <SEO title={pageTitle.name} />
 
                 {/* Hero Section */}
-                <section className="hero alk-container my-5">
-                    <Row>
-                        <Col xs={12} md={6}>
-                            
+                <section className="hero">
+                    <Row className="alk-container mx-0 align-items-center">
+                        <Col xs={12} lg={6}>
+                            <p className="mb-5">
+                                Let us keep your site running at it&apos;s best,
+                                with first class hosting and website support.
+                            </p>
+                            <Button
+                                block
+                                onClick={handleViewPlansClick}
+                                color="primary"
+                            >
+                                See Our Care Plans
+                            </Button>
                         </Col>
                     </Row>
                 </section>
@@ -98,70 +108,41 @@ const WebDesign = ({ data }) => {
                 {/* Section 1 */}
                 <section className="alk-container my-5">
                     <Row>
-                        <Col>
+                        <Col xs={12} lg={6}>
                             <h2 className="mb-4">
                                 {
-                                    data.webDesignJson.sections[0].blocks[0]
-                                        .heading
+                                    data.websiteCarePlansJson.sections[0]
+                                        .blocks[0].heading
                                 }
                             </h2>
                             <p className="mb-5">
                                 {
-                                    data.webDesignJson.sections[0].blocks[0]
-                                        .content
+                                    data.websiteCarePlansJson.sections[0]
+                                        .blocks[0].content
+                                }
+                            </p>
+                            <p className="mb-5">
+                                {
+                                    data.websiteCarePlansJson.sections[0]
+                                        .blocks[1].content
+                                }
+                            </p>
+                            <p className="mb-5">
+                                {
+                                    data.websiteCarePlansJson.sections[0]
+                                        .blocks[2].content
                                 }
                             </p>
                         </Col>
-                    </Row>
-                    <Row className="flex-column-reverse flex-lg-row">
                         <Col xs={12} lg={6}>
-                            <h2 className="mb-4">
-                                {
-                                    data.webDesignJson.sections[0].blocks[1]
-                                        .heading
-                                }
-                            </h2>
-                            <p className="mb-4">
-                                {
-                                    data.webDesignJson.sections[0].blocks[1]
-                                        .content
-                                }
-                            </p>
-                            <p className="mb-4">
-                                {
-                                    data.webDesignJson.sections[0].blocks[2]
-                                        .content
-                                }
-                            </p>
-                            <Row>
-                                <Col xs={12} sm={6} className="mb-4">
-                                    <Button
-                                        block
-                                        onClick={handleViewPlansClick}
-                                        color="primary"
-                                    >
-                                        View our Web Design Plans
-                                    </Button>
-                                </Col>
-                                <Col xs={12} sm={6}>
-                                    <Button
-                                        block
-                                        onClick={handleQuoteClick}
-                                        color="primary"
-                                    >
-                                        Get a Custom Quote
-                                    </Button>
-                                </Col>
-                            </Row>
-                        </Col>
-                        <Col xs={12} lg={6} className="text-center">
-                            {data.screenDesign.childImageSharp && (
+                            {data.wordpressDashboard.childImageSharp && (
                                 <Img
-                                    className="my-5 md-my-auto"
+                                    className="my-5 my-lg-0"
                                     fluid={
-                                        data.screenDesign.childImageSharp.fluid
+                                        data.wordpressDashboard.childImageSharp
+                                            .fluid
                                     }
-                                    alt="Crafting beautiful responsive websites, one page at a time."
+                                    alt="Wordpress plugins updated by professionals"
                                 />
                             )}
                         </Col>
@@ -172,11 +153,12 @@ const WebDesign = ({ data }) => {
                 <section className="deliverYourMessage mb-lg-4 py-5">
                     <Row className="alk-container">
                         <Col xs={12} lg={6}>
-                            {data.screenClean.childImageSharp && (
+                            {data.wordpressDashboard.childImageSharp && (
                                 <Img
                                     className="my-lg-auto mb-5"
                                     fluid={
-                                        data.screenClean.childImageSharp.fluid
+                                        data.wordpressDashboard.childImageSharp
+                                            .fluid
                                     }
                                     alt="Clean, Professional, Handcrafted websites that are designed to convert."
                                 />
@@ -186,14 +168,14 @@ const WebDesign = ({ data }) => {
                         <Col xs={12} lg={6}>
                             <h2 className="mb-4">
                                 {
-                                    data.webDesignJson.sections[1].blocks[0]
-                                        .heading
+                                    data.websiteCarePlansJson.sections[1]
+                                        .blocks[0].heading
                                 }
                             </h2>
                             <p className="text-white">
                                 {
-                                    data.webDesignJson.sections[1].blocks[0]
-                                        .content
+                                    data.websiteCarePlansJson.sections[1]
+                                        .blocks[0].content
                                 }
                             </p>
                             <Row>
@@ -213,29 +195,30 @@ const WebDesign = ({ data }) => {
 
                 {/* Section 3 */}
                 <section className="wordpressDesign mb-4 pb-4 py-lg-4">
-                    <h1>{data.webDesignJson.sections[1].heading}</h1>
+                    <h1>{data.websiteCarePlansJson.sections[1].heading}</h1>
                     <Row className="alk-container pt-lg-4 flex-column-reverse flex-lg-row">
                         <Col xs={12} lg={7}>
                             <h2 className="mb-4">
                                 {
-                                    data.webDesignJson.sections[2].blocks[0]
-                                        .heading
+                                    data.websiteCarePlansJson.sections[2]
+                                        .blocks[0].heading
                                 }
                             </h2>
                             <p className="">
                                 {
-                                    data.webDesignJson.sections[2].blocks[0]
-                                        .content
+                                    data.websiteCarePlansJson.sections[2]
+                                        .blocks[0].content
                                 }
                             </p>
                         </Col>
 
                         <Col xs={12} lg={5}>
-                            {data.wordpressLogo.childImageSharp && (
+                            {data.wordpressDashboard.childImageSharp && (
                                 <Img
-                                    className="my-lg-auto"
+                                    className="my-4 my-lg-0"
                                     fluid={
-                                        data.wordpressLogo.childImageSharp.fluid
+                                        data.wordpressDashboard.childImageSharp
+                                            .fluid
                                     }
                                     alt="Wordpress Websites, built from the ground up on the best CMS in the world."
                                 />
@@ -253,23 +236,25 @@ const WebDesign = ({ data }) => {
                         <Col>
                             <h2 className="text-center mb-4">
                                 {
-                                    data.webDesignJson.sections[3].blocks[0]
-                                        .heading
+                                    data.websiteCarePlansJson.sections[3]
+                                        .blocks[0].heading
                                 }
                             </h2>
                             <p>
                                 {
-                                    data.webDesignJson.sections[3].blocks[0]
-                                        .content
+                                    data.websiteCarePlansJson.sections[3]
+                                        .blocks[0].content
                                 }
                             </p>
                         </Col>
                     </Row>
                     <Row className="my-4 alk-container" noGutters>
-                        {planCards(data.webDesignJson.sections[4].plans)}
+                        {planCards(data.websiteCarePlansJson.sections[4].plans)}
                     </Row>
                     <Row className="my-5 alk-container" noGutters>
-                        {disclaimers(data.webDesignJson.sections[3].blocks[0])}
+                        {disclaimers(
+                            data.websiteCarePlansJson.sections[3].blocks[0]
+                        )}
                     </Row>
                 </section>
 
@@ -299,7 +284,7 @@ const handleScroll = () => {};
 
 export const query = graphql`
     {
-        webDesignJson {
+        websiteCarePlansJson {
             sections {
                 id
                 blocks {
@@ -310,19 +295,13 @@ export const query = graphql`
                 plans {
                     name
                     icon
-                    priceFrom
+                    price
                     features
                 }
             }
         }
-        screenDesign: file(relativePath: { regex: "/screen-design.png/" }) {
+        wordpressDashboard: file(relativePath: { regex: "/wordpress-dashboard.jpg/" }) {
             ...fluidImageXS
-        }
-        screenClean: file(relativePath: { regex: "/website-clean.jpg/" }) {
-            ...fluidImageSmall
-        }
-        wordpressLogo: file(relativePath: { regex: "/wordpress-logo.png/" }) {
-            ...fluidImageSmall
         }
     }
 `;
