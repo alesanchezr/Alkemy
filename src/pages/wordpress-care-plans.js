@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import "../utils/utils.js";
@@ -25,6 +25,17 @@ Layout props:
 */
 
 const WebDesign = ({ data }) => {
+    const [modal, setModal] = useState(false);
+    const [plan, setPlan] = useState(null);
+
+    useEffect(()=>{
+        if(plan!==null){
+            setModal(true)
+        }else{
+            modal===true?setModal(false):false;
+        }
+    },[plan]);
+
     // function for creating a list of Plan features
     const planFeatures = plan => {
         return (

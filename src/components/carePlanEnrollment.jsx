@@ -25,8 +25,8 @@ if (typeof window !== "undefined") {
 }
 
 export default class CarePlanEnrollment extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             success: false,
@@ -61,6 +61,8 @@ export default class CarePlanEnrollment extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
         let valid = this.validate();
+        let plan = this.props.plan;
+
         // handle form submit here
         const encode = data => {
             return Object.keys(data)
@@ -84,6 +86,7 @@ export default class CarePlanEnrollment extends React.Component {
                 },
                 body: encode({
                     "form-name": "freeWebsiteAnalysis",
+                    "plan": plan,
                     ...this.state.formValues,
                 }),
                 // eslint-disable-next-line no-unused-vars
