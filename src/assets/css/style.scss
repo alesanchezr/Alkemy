@@ -1593,6 +1593,11 @@ body{
 // Care plans
 
 .wordpressCarePlans {
+  --minFontSize: 24px;
+  --maxFontSize: 42px;
+  --maxFontSizeCallout: 60px;
+  --scaler: 10vw;
+
   font-family: 'Avenir Next',
   'Helvetica Neue',
   'Segoe UI',
@@ -1620,12 +1625,28 @@ body{
     }
 
     p {
-      --minFontSize: 24px;
-      --maxFontSize: 42px;
-      --scaler: 10vw;
       font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSize));
       font-weight: regular;
       color: white;
+    }
+  }
+
+  .imagineCallout{
+    @extend .deliverYourMessage;
+    font-family: Avenir Next;
+    h2{
+      font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSizeCallout));
+      line-height: 60px;
+      font-weight: 400;
+    }
+    p{
+      font-style: normal;
+      font-weight: normal;
+      font-size: clamp(var(--minFontSize), var(--scaler), 24px);
+      line-height: 32px;
+      @media screen and (min-width: 1080px){
+        width: 50%;
+      }
     }
   }
 }

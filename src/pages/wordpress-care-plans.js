@@ -150,45 +150,21 @@ const WebDesign = ({ data }) => {
                 </section>
 
                 {/* Section 2 */}
-                <section className="deliverYourMessage mb-lg-4 py-5">
-                    <Row className="alk-container">
-                        <Col xs={12} lg={6}>
-                            {data.wordpressDashboard.childImageSharp && (
-                                <Img
-                                    className="my-lg-auto mb-5"
-                                    fluid={
-                                        data.wordpressDashboard.childImageSharp
-                                            .fluid
-                                    }
-                                    alt="Clean, Professional, Handcrafted websites that are designed to convert."
-                                />
-                            )}
-                        </Col>
-
-                        <Col xs={12} lg={6}>
+                <section className="imagineCallout mb-lg-4 py-5">
+                    <Row className="alk-container text-center my-auto">
+                        <Col xs={12}>
                             <h2 className="mb-4">
                                 {
                                     data.websiteCarePlansJson.sections[1]
                                         .blocks[0].heading
                                 }
                             </h2>
-                            <p className="text-white">
+                            <p className="mx-auto">
                                 {
                                     data.websiteCarePlansJson.sections[1]
                                         .blocks[0].content
                                 }
                             </p>
-                            <Row>
-                                <Col xs={12} md={6} className="my-4">
-                                    <Button
-                                        block
-                                        onClick={handleViewPlansClick}
-                                        color="primary"
-                                    >
-                                        View our Web Design Plans
-                                    </Button>
-                                </Col>
-                            </Row>
                         </Col>
                     </Row>
                 </section>
