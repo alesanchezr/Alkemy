@@ -36,8 +36,7 @@ export default class CarePlanEnrollment extends React.Component {
                 email: "",
                 webAddress: "",
                 currentHost: "",
-                acceptMigrationYes: true,
-                acceptMigrationNo: false,
+                acceptMigration: true,
             },
             errors: {
                 fullNameLength: "",
@@ -408,7 +407,7 @@ export default class CarePlanEnrollment extends React.Component {
                                             aria-labelledby="acceptMigrationYes"
                                             checked={
                                                 this.state.formValues
-                                                    .acceptMigrationYes
+                                                    .acceptMigration
                                             }
                                             onChange={e =>
                                                 this.handleFieldChange(e)
@@ -427,8 +426,8 @@ export default class CarePlanEnrollment extends React.Component {
                                             name="acceptMigrationNo"
                                             aria-labelledby="acceptMigrationNo"
                                             checked={
-                                                this.state.formValues
-                                                    .acceptMigrationNo
+                                                !this.state.formValues
+                                                    .acceptMigration
                                             }
                                             onChange={e =>
                                                 this.handleFieldChange(e)
