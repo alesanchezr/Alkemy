@@ -67,8 +67,16 @@ $container-max-widths: (
   @return $value / ($value * 0 + 1);
 }
 
+html{
+  --minBodyFontSize: 1rem;
+  --minFontSize: 24px;
+  --maxFontSize: 42px;
+  --maxFontSizeCallout: 60px;
+  --scaler: 10vw;
+}
+
 body{
-  font-size: calc(18px + .2vw);
+  font-size: clamp(var(--minBodyFontSize), var(--scaler), 18px);
   header{
     @media (min-width: 1023px) and (max-width: 1108px) {
       font-size: calc(16px);
@@ -1593,11 +1601,6 @@ body{
 // Care plans
 
 .wordpressCarePlans {
-  --minFontSize: 24px;
-  --maxFontSize: 42px;
-  --maxFontSizeCallout: 60px;
-  --scaler: 10vw;
-
   font-family: 'Avenir Next',
   'Helvetica Neue',
   'Segoe UI',
@@ -1626,14 +1629,19 @@ body{
 
     p {
       font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSize));
-      font-weight: regular;
+      font-weight: 400;
       color: white;
     }
   }
 
   .imagineCallout{
     @extend .deliverYourMessage;
-    font-family: Avenir Next;
+    font-family: 'Avenir Next',
+    'Helvetica Neue',
+    'Segoe UI',
+    'Helvetica',
+    'Arial',
+    sans-serif;
     h2{
       font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSizeCallout));
       line-height: 60px;
@@ -1641,12 +1649,97 @@ body{
     }
     p{
       font-style: normal;
-      font-weight: normal;
+      font-weight: 400;
       font-size: clamp(var(--minFontSize), var(--scaler), 24px);
       line-height: 32px;
       @media screen and (min-width: 1080px){
         width: 50%;
       }
     }
+  }
+
+  .planFeatures{
+    h2{
+      margin-bottom: 50px;
+      font-weight: 400;
+      font-size: clamp(var(--minFontSize), var(--scaler), 42px);
+      line-height: 66px;
+    }
+
+    h3{
+      font-weight: bold;
+      font-size: clamp(var(--minFontSize), var(--scaler), 36px);
+      line-height: 46px;
+    }
+
+    .careplanFeatureIcon{
+      color: $alkemy_blue;
+      width: auto;
+      height: clamp(var(--minFontSize), var(--scaler), 52px);
+    }
+  }
+  .carePlanDetails{
+    h2 {
+      margin-bottom: 50px;
+      font-weight: 400;
+      font-size: clamp(var(--minFontSize), var(--scaler), 42px);
+      line-height: 63px;
+    }
+  }
+  .plan{
+    h2{
+      font-weight: bold;
+      line-height: 63px;
+    }
+    &:nth-of-type(odd){
+      @media screen and (min-width:1080px) {
+        .planCard{
+          min-height: 800px;
+          height: 100%;
+        }
+      }
+    }
+    .planCard {
+      & .card-header {
+        background: transparent;
+        border: none;
+      }
+    }
+  }
+
+  .contentEditsCallout{
+    @extend .imagineCallout;
+
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    
+    h2{
+      font-size: clamp(var(--minFontSize), var(--scaler), 56px);
+      line-height: 72px;
+      margin-bottom: 35px;
+    }
+
+    h3{
+      font-weight: 400;
+      font-size: clamp(var(--minFontSize), var(--scaler), 36px);
+      line-height: 42px;
+    }
+
+    p{
+      font-weight: 200;
+      font-size: clamp(var(--minFontSize), var(--scaler), 18px);
+      line-height: 36px;
+    }
+
+    .feature p{
+      @media screen and (min-width:1080px) {
+            max-width: 400px;
+            width: 100%;
+      }
+    }
+  }
+
+  section.contactForm{
+    margin: 0;
   }
 }

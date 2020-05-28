@@ -2,7 +2,15 @@ import React, {useState, useEffect} from "react";
 import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import "../utils/utils.js";
-import { Card, Button, Col, Row } from "reactstrap";
+import {
+    Card,
+    Button,
+    Col,
+    Row,
+    CardHeader,
+    CardFooter,
+    CardBody,
+} from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Layout from "../components/layout";
 import ScrollWrapper from "../components/scrollWrapper.jsx";
@@ -61,12 +69,25 @@ const WebDesign = ({ data }) => {
         return plans.map((plan, index) => {
             return (
                 <Col key={index} xs={12} lg={4} className="my-auto plan">
-                    <Card className="my-4 px-2 py-4 p-md-4 planCard">
-                        <h2 className="text-center mb-4">{plan.name}</h2>
-                        <p className="text-center my-4">
-                            Only ${plan.price} per month *
-                        </p>
-                        {planFeatures(plan)}
+                    <Card className="my-4 px-2 py-auto p-md-4 planCard">
+                        <CardHeader>
+                            <h2 className="text-center my-4">{plan.name}</h2>
+                            <p className="text-center">
+                                Only ${plan.price} per month *
+                            </p>
+                        </CardHeader>
+                        <CardBody>
+                            {planFeatures(plan)}
+                        </CardBody>
+                        <CardFooter>
+                            <Button
+                                block
+                                onClick={handleViewPlansClick}
+                                color="secondary"
+                            >
+                                Enroll Now
+                            </Button>
+                        </CardFooter>
                     </Card>
                 </Col>
             );
@@ -82,6 +103,76 @@ const WebDesign = ({ data }) => {
             );
         });
     };
+
+    const getFeatures = () => {
+        return data.websiteCarePlansJson.sections[2].blocks.map((data, index) => {
+                return index !== 0 ? (
+                    <Col
+                        key={index}
+                        xs={12}
+                        md={6}
+                        className={index % 2 ? "pr-lg-5" : "pl-lg-5"}
+                    >
+                        <Row className="align-items-center">
+                            <Col xs={2} className="pr-md-0">
+                                <FontAwesomeIcon
+                                    icon={data.icon}
+                                    className="careplanFeatureIcon"
+                                />
+                            </Col>
+                            <Col xs={10} className="pl-md-2">
+                                <h3 className="mb-4 my-auto">{data.heading}</h3>
+                            </Col>
+                        </Row>
+                        <p
+                            className="mt-3 mb-5"
+                            dangerouslySetInnerHTML={{
+                                __html: data.content,
+                            }}
+                        ></p>
+                    </Col>
+                ) : null;
+        });
+    }
+
+    const getContentEdits = ()=>{
+        return data.websiteCarePlansJson.sections[5].blocks.map((item, index) => {
+            if(index>0 && index < 4 && index !== 3){
+                return (
+                    <Col
+                        key={index}
+                        xs={12}
+                        md={4}
+                        className="feature text-center my-auto"
+                    >
+                        <h3 className="mb-4">{item.heading}</h3>
+                        <p className="mx-auto">{item.content}</p>
+                    </Col>
+                );
+            }
+
+            if(index === 3){
+                return (
+                    <Col
+                        xs={12}
+                        md={4}
+                        className="feature text-center my-auto"
+                        key={index}
+                    >
+                        <h3 className="mb-4">{item.heading}</h3>
+                        <p className="mx-auto">
+                            {item.content}
+                            <br />
+                            {
+                                data.websiteCarePlansJson.sections[5].blocks[4]
+                                    .content
+                            }
+                        </p>
+                    </Col>
+                );
+            }
+        });
+    }
 
     const pageTitle = {
         name: "Wordpress Care Plans",
@@ -181,68 +272,56 @@ const WebDesign = ({ data }) => {
                 </section>
 
                 {/* Section 3 */}
-                <section className="wordpressDesign mb-4 pb-4 py-lg-4">
-                    <h1>{data.websiteCarePlansJson.sections[1].heading}</h1>
-                    <Row className="alk-container pt-lg-4 flex-column-reverse flex-lg-row">
-                        <Col xs={12} lg={7}>
-                            <h2 className="mb-4">
-                                {
-                                    data.websiteCarePlansJson.sections[2]
-                                        .blocks[0].heading
-                                }
-                            </h2>
-                            <p className="">
-                                {
-                                    data.websiteCarePlansJson.sections[2]
-                                        .blocks[0].content
-                                }
-                            </p>
-                        </Col>
-
-                        <Col xs={12} lg={5}>
-                            {data.wordpressDashboard.childImageSharp && (
-                                <Img
-                                    className="my-4 my-lg-0"
-                                    fluid={
-                                        data.wordpressDashboard.childImageSharp
-                                            .fluid
-                                    }
-                                    alt="Wordpress Websites, built from the ground up on the best CMS in the world."
-                                />
-                            )}
-                        </Col>
-                    </Row>
+                <section className="planFeatures mb-4 pb-4 py-lg-4">
+                    <h2 className="alk-container">
+                        {
+                            data.websiteCarePlansJson.sections[2].blocks[0]
+                                .heading
+                        }
+                    </h2>
+                    <Row className="alk-container pt-lg-4">{getFeatures()}</Row>
                 </section>
 
                 {/* Section 4 */}
                 <section
                     ref={plansSection}
-                    className="webDesignPlans mb-4 py-4"
+                    className="alk-container carePlanDetails mb-4 py-4"
                 >
-                    <Row className="alk-container">
-                        <Col>
-                            <h2 className="text-center mb-4">
+                    <h2 className="text-center mb-4">
+                        {
+                            data.websiteCarePlansJson.sections[3].blocks[0]
+                                .heading
+                        }
+                    </h2>
+                    <Row className="my-4" noGutters>
+                        {planCards(data.websiteCarePlansJson.sections[4].plans)}
+                    </Row>
+                    <Row className="my-5" noGutters>
+                        {disclaimers(
+                            data.websiteCarePlansJson.sections[3].blocks[0]
+                        )}
+                    </Row>
+                </section>
+
+                {/* Section 5 */}
+                <section className="contentEditsCallout mb-0">
+                    <Row className="alk-container text-center my-auto">
+                        <Col xs={12} className="sectionDesc mb-4">
+                            <h2>
                                 {
-                                    data.websiteCarePlansJson.sections[3]
+                                    data.websiteCarePlansJson.sections[5]
                                         .blocks[0].heading
                                 }
                             </h2>
-                            <p>
+                            <p className="mx-auto w-100 mb-5">
                                 {
-                                    data.websiteCarePlansJson.sections[3]
+                                    data.websiteCarePlansJson.sections[5]
                                         .blocks[0].content
                                 }
                             </p>
                         </Col>
                     </Row>
-                    <Row className="my-4 alk-container" noGutters>
-                        {planCards(data.websiteCarePlansJson.sections[4].plans)}
-                    </Row>
-                    <Row className="my-5 alk-container" noGutters>
-                        {disclaimers(
-                            data.websiteCarePlansJson.sections[3].blocks[0]
-                        )}
-                    </Row>
+                    <Row>{getContentEdits()}</Row>
                 </section>
 
                 <FreeWebsiteAnalysis />
@@ -275,13 +354,13 @@ export const query = graphql`
             sections {
                 id
                 blocks {
+                    icon
                     heading
                     content
                     disclaimers
                 }
                 plans {
                     name
-                    icon
                     price
                     features
                 }

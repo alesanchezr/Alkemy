@@ -29,8 +29,37 @@
         "id": "3",
         "blocks": [
           {
-            "heading": "Beautiful Designs, Built On the Most Powerful CMS in the World",
-            "content": "It's hard to ignore Wordpress in the modern age of the web. Greater than 30% of all websites are currently built on Wordpress due to the strength of it's community and the size of it's plugin library. If you are looking to get a cost effective site, and would like to leverage the power of Wordpress, we are happy to help you build your dream."
+            "heading": "What sets our care plans apart?"
+          },
+          {
+            "icon": "life-ring",
+            "heading": "Full Service Support",
+            "content": "Sometimes you need extra help. If you ever find yourself in need of support, we are just an email away. Our team is always happy to help resolve any issue you can think of."
+          },
+          {
+            "icon": "shield-alt",
+            "heading": "Robust Security",
+            "content": "According to <a href='https://www.securitymagazine.com/articles/87787-hackers-attack-every-39-seconds' target='_blank' rel='noreferrer noopenner nofollow'>Security Magazine</a>, websites experience a hacker attack every 39 seconds.  We ensure your your site is secured with daily scans, malware monitoring and removal, password securing via Google Captcha, and Intelligent IP Blocking."
+          },
+          {
+            "icon": "cogs",
+            "heading": "Software Updates",
+            "content": "One of the leading causes of Wordpress vulnerabilities or crashes are due to plugins not being updated regularly or properly. We handle your plugins,  Wordpress Core, and PHP updates to ensure that your site always puts it best foot forward."
+          },
+          {
+            "icon": "server",
+            "heading": "First Class Hosting",
+            "content": "Your site deserves the best, so we start by hosting it on a premium website host. With 99% uptime and 24/7/365 monitoring to ensure your site doesn’t go down, we’ve got you covered."
+          },
+          {
+            "icon": "tachometer-alt",
+            "heading": "Incredible Performance",
+            "content": "Whether your visitor is coming from New York or Osaka, our CDN will select the closest point of presence (POP) to serve your website from. This, combined with advanced website caching technology results in load times that positively impact your SEO and even your conversions."
+          },
+          {
+            "icon": "database",
+            "heading": "Nightly Backups",
+            "content": "We understand how important your website is. So to protect one of your most valuable assets, we employ nightly backups to Google Cloud Platform servers. Our backups and monitoring work together to ensure that your site is prepared for any eventuality."
           }
         ]
       },
@@ -38,13 +67,10 @@
         "id": "4",
         "blocks": [
           {
-            "heading": "First Class Responsive Web Design",
-            "content": "Responsive websites and applications are a cornerstone of the modern world. In addition, every business or professional needs a modern and responsive website to sell more effectively. With our responsive web design services, we can help your business with it’s unique needs!",
+            "heading": "Care Plans designed with your business in mind.",
             "disclaimers": [
-              "* Additional content can be calculated separately based on the needs of your business. Please notify your project manager of any other content that you need and we will be happy to help.  Please note, these packages are not optimized for E-commerce functionality. Visit our E-Commerce Design section for more information about our E-Commerce Packages.",
-              "** Dynamic content can be edited, but some limitations apply based on your selected website design. Speak to your project manager for details on these limitations and how they can be overcome.",
-              "*** Basic Technical SEO includes on-page meta and optimized page/link structure. Other SEO services not included.",
-              "**** Technical SEO Plus includes everything from basic, plus additional customization based on your industry. Rich Snippets, Image Meta, and preliminary SEO analysis."
+              "* Prices represent websites built by Alkemy on our preferred host. Websites not designed by Alkemy may be subject to a migration to our preferred host and a one time setup fee of $250.",
+              "** Discount of 25% from standard labor rate. Discount may be subject to change."
             ]
           }
         ]
@@ -52,46 +78,71 @@
       {
         "plans": [
           {
-            "name": "Essentials Plan",
-            "icon": "chart-pie",
-            "price": "",
+            "name": "The Basics",
+            "price": "154",
             "features": [
-              "Up to 5 pages designed & coded",
-              "Static Content",
-              "1 Hero Image",
-              "Category Banners",
-              "Basic Technical SEO***"
+              "Premium Website Hosting",
+              "Website SSL",
+              "CDN (Content Delivery Network)",
+              "Daily Security Scans",
+              "Malware Removal",
+              "Wordpress/Plugin Updates",
+              "Basic Email Support",
+              "Video Training Manuals (Licensed)",
+              "Monthly Reporting"
             ]
           },
           {
-            "name": "Growth Plan",
-            "icon": "chart-line",
-            "price": "From $14,999",
+            "name": "Full Coverage",
+            "price": "654",
             "features": [
-              "Up to 10 pages Designed & Coded",
-              "Dynamic Content (Can be edited**)",
-              "1 Hero Image or 3 Slide Carousel",
-              "Category Banners",
-              "Progressive Web App (PWA)",
-              "Lighthouse Tested and Optimized",
-              "Powerful Form Handling",
-              "Google Analytics Integration and Setup",
-              "Technical SEO plus ****",
-              "Custom Blog Design, Coding, Setup and Training."
+              "Includes all of the features from The Basics and Advanced",
+              "Unlimited Discounted Labor Rate **",
+              "Monthly SEO Audit",
+              "Monthly Accessibility Audit",
+              "Broken Link Repair",
+              "301 Redirects Repair",
+              "Priority Support",
+              "Weekly Reporting",
+              "Monthly Strategy Call",
+              "Website Review (Quarterly)"
             ]
           },
           {
-            "name": "Startup Plan",
-            "icon": "rocket",
-            "price": "From $9,999",
+            "name": "Advanced",
+            "price": "254",
             "features": [
-              "Up to 7 pages Designed & Coded",
-              "Static Content",
-              "1 Hero Image or 3 Slide Carousel",
-              "Category Banners",
-              "Powerful Form Handling",
-              "Basic Technical SEO*** + Image meta"
+              "Includes all features from The Basics",
+              "Unlimited Content Edits",
+              "Priority Support",
+              "Auto-updated Website Privacy Policy and Terms & Conditions",
+              "Licensed use of our commonly used plugins",
+              "Monthly Reporting"
             ]
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "blocks": [
+          {
+            "heading": "What can I do with content edits?",
+            "content": "Typically, content edits refer to any change that can be done in 30 minutes or less without editing your website code. If you have a more complex problem, we are happy to troubleshoot it and discuss what resolutions we can offer. Below are some examples of use cases that can be covered with your unlimited content edits."
+          },
+          {
+            "heading": "Text Changes",
+            "content": "Add or Edit a blog post, page, WooCommerce product, etc. "
+          },
+          {
+            "heading": "Software Changes",
+            "content": "Edit your menus and widgets, Install or Activate plugins, etc."
+          },
+          {
+            "heading": "Q & A",
+            "content": "Have other questions?"
+          },
+          {
+            "content": "We’re happy to help."
           }
         ]
       }

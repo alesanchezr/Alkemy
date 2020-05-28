@@ -33,7 +33,13 @@ import {
     faSearch,
     faGlobe,
     faFlask,
-    faChevronRight
+    faChevronRight,
+    faLifeRing,
+    faShieldAlt,
+    faCogs,
+    faServer,
+    faTachometerAlt,
+    faDatabase
 } from "@fortawesome/free-solid-svg-icons";
 import {
     faCalendarAlt,
@@ -41,7 +47,7 @@ import {
     faCheckCircle,
     faListAlt,
     faClock,
-    faUser,
+    faUser
 } from "@fortawesome/free-regular-svg-icons";
 
 library.add(
@@ -67,7 +73,13 @@ library.add(
     faSearch,
     faUser,
     faFlask,
-    faChevronRight
+    faChevronRight,
+    faLifeRing,
+    faShieldAlt,
+    faCogs,
+    faServer,
+    faTachometerAlt,
+    faDatabase
 );
 
 const Layout = ({

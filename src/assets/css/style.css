@@ -16624,8 +16624,16 @@ a.text-dark:hover, a.text-dark:focus {
 /* VH Conversion Function */
 /* Transition Mixin */
 /* Fonts */
+html {
+  --minBodyFontSize: 1rem;
+  --minFontSize: 24px;
+  --maxFontSize: 42px;
+  --maxFontSizeCallout: 60px;
+  --scaler: 10vw;
+}
+
 body {
-  font-size: calc(18px + .2vw);
+  font-size: clamp(var(--minBodyFontSize), var(--scaler), 18px);
 }
 
 @media (min-width: 1023px) and (max-width: 1108px) {
@@ -17693,7 +17701,7 @@ section.contactForm, section.dreamForm, section.thankYou {
 }
 
 /* Responsive Web Design Page */
-section.deliverYourMessage, .wordpressCarePlans section.imagineCallout {
+section.deliverYourMessage, .wordpressCarePlans section.imagineCallout, .wordpressCarePlans section.contentEditsCallout {
   background: #0B3C5D;
   color: white;
 }
@@ -18219,10 +18227,6 @@ body.blog .addthis-smartlayers, body.blog-single-page .addthis-smartlayers {
 }
 
 .wordpressCarePlans {
-  --minFontSize: 24px;
-  --maxFontSize: 42px;
-  --maxFontSizeCallout: 60px;
-  --scaler: 10vw;
   font-family: 'Avenir Next', 'Helvetica Neue', 'Segoe UI', 'Helvetica', 'Arial', sans-serif;
 }
 
@@ -18248,30 +18252,107 @@ body.blog .addthis-smartlayers, body.blog-single-page .addthis-smartlayers {
 
 .wordpressCarePlans .hero p {
   font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSize));
-  font-weight: regular;
+  font-weight: 400;
   color: white;
 }
 
-.wordpressCarePlans .imagineCallout {
-  font-family: Avenir Next;
+.wordpressCarePlans .imagineCallout, .wordpressCarePlans .contentEditsCallout {
+  font-family: 'Avenir Next', 'Helvetica Neue', 'Segoe UI', 'Helvetica', 'Arial', sans-serif;
 }
 
-.wordpressCarePlans .imagineCallout h2 {
+.wordpressCarePlans .imagineCallout h2, .wordpressCarePlans .contentEditsCallout h2 {
   font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSizeCallout));
   line-height: 60px;
   font-weight: 400;
 }
 
-.wordpressCarePlans .imagineCallout p {
+.wordpressCarePlans .imagineCallout p, .wordpressCarePlans .contentEditsCallout p {
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: clamp(var(--minFontSize), var(--scaler), 24px);
   line-height: 32px;
 }
 
 @media screen and (min-width: 1080px) {
-  .wordpressCarePlans .imagineCallout p {
+  .wordpressCarePlans .imagineCallout p, .wordpressCarePlans .contentEditsCallout p {
     width: 50%;
   }
+}
+
+.wordpressCarePlans .planFeatures h2 {
+  margin-bottom: 50px;
+  font-weight: 400;
+  font-size: clamp(var(--minFontSize), var(--scaler), 42px);
+  line-height: 66px;
+}
+
+.wordpressCarePlans .planFeatures h3 {
+  font-weight: bold;
+  font-size: clamp(var(--minFontSize), var(--scaler), 36px);
+  line-height: 46px;
+}
+
+.wordpressCarePlans .planFeatures .careplanFeatureIcon {
+  color: #2bb3e5;
+  width: auto;
+  height: clamp(var(--minFontSize), var(--scaler), 52px);
+}
+
+.wordpressCarePlans .carePlanDetails h2 {
+  margin-bottom: 50px;
+  font-weight: 400;
+  font-size: clamp(var(--minFontSize), var(--scaler), 42px);
+  line-height: 63px;
+}
+
+.wordpressCarePlans .plan h2 {
+  font-weight: bold;
+  line-height: 63px;
+}
+
+@media screen and (min-width: 1080px) {
+  .wordpressCarePlans .plan:nth-of-type(odd) .planCard {
+    min-height: 800px;
+    height: 100%;
+  }
+}
+
+.wordpressCarePlans .plan .planCard .card-header {
+  background: transparent;
+  border: none;
+}
+
+.wordpressCarePlans .contentEditsCallout {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+
+.wordpressCarePlans .contentEditsCallout h2 {
+  font-size: clamp(var(--minFontSize), var(--scaler), 56px);
+  line-height: 72px;
+  margin-bottom: 35px;
+}
+
+.wordpressCarePlans .contentEditsCallout h3 {
+  font-weight: 400;
+  font-size: clamp(var(--minFontSize), var(--scaler), 36px);
+  line-height: 42px;
+}
+
+.wordpressCarePlans .contentEditsCallout p {
+  font-weight: 200;
+  font-size: clamp(var(--minFontSize), var(--scaler), 18px);
+  line-height: 36px;
+}
+
+@media screen and (min-width: 1080px) {
+  .wordpressCarePlans .contentEditsCallout .feature p {
+    max-width: 400px;
+    width: 100%;
+  }
+}
+
+.wordpressCarePlans section.contactForm {
+  margin: 0;
 }
 /*# sourceMappingURL=style.css.map */
