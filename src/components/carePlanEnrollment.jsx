@@ -239,19 +239,18 @@ export default class CarePlanEnrollment extends React.Component {
                 toggle={this.props.toggle}
                 className="careModal"
             >
-                {this.state.success ? (
-                    <ThankYou />
-                ) : (
-                    <div className="carePlanEnrollment">
-                        <ModalHeader
-                            toggle={this.props.toggle}
-                            className="subHeader mx-0 alk-container font-weight-normal text-white"
-                            close={closeBtn}
-                            tag="h2"
-                        >
-                            Care Plan Enrollment
-                        </ModalHeader>
-
+                <div className="carePlanEnrollment">
+                    <ModalHeader
+                        toggle={this.props.toggle}
+                        className="subHeader mx-0 alk-container font-weight-normal text-white"
+                        close={closeBtn}
+                        tag="h2"
+                    >
+                        Care Plan Enrollment
+                    </ModalHeader>
+                    {this.state.success ? (
+                        <ThankYou />
+                    ) : (
                         <div className="alk-container">
                             <h2 className="text-center mb-5">
                                 Signing up is as easy as 1 - 2 - 3.
@@ -548,8 +547,8 @@ export default class CarePlanEnrollment extends React.Component {
                                 />
                             </Form>
                         </div>
-                    </div>
-                )}
+                    )}
+                </div>
             </Modal>
         );
     }
