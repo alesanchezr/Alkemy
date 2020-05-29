@@ -448,7 +448,6 @@ export default class CarePlanEnrollment extends React.Component {
                                         <ListGroupItem
                                             tag="li"
                                             className="bg-transparent border-0"
-                                            check
                                         >
                                             <Label
                                                 check
@@ -459,10 +458,7 @@ export default class CarePlanEnrollment extends React.Component {
                                                 }
                                             >
                                                 <Input
-                                                    checkedDefault={
-                                                        this.state.formValues
-                                                            .acceptMigration
-                                                    }
+                                                    defaultChecked
                                                     type="radio"
                                                     name="acceptMigration"
                                                     value={true}
@@ -480,7 +476,6 @@ export default class CarePlanEnrollment extends React.Component {
                                         <ListGroupItem
                                             tag="li"
                                             className="bg-transparent border-0"
-                                            check
                                         >
                                             <Label
                                                 check
