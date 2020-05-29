@@ -448,24 +448,26 @@ export default class CarePlanEnrollment extends React.Component {
                                         <ListGroupItem
                                             tag="li"
                                             className="bg-transparent border-0"
+                                            check
                                         >
                                             <Label
                                                 check
                                                 for="acceptMigrationYes"
-                                                id="acceptMigrationYes"
                                                 className="text-left"
                                                 onClick={e =>
                                                     this.handleFieldChange(e)
                                                 }
                                             >
                                                 <Input
-                                                    type="radio"
-                                                    name="acceptMigrationYes"
-                                                    aria-labelledby="acceptMigrationYes"
-                                                    checked={
+                                                    checkedDefault={
                                                         this.state.formValues
                                                             .acceptMigration
                                                     }
+                                                    type="radio"
+                                                    name="acceptMigration"
+                                                    value={true}
+                                                    id="acceptMigrationYes"
+                                                    aria-labelledby="acceptMigrationYes"
                                                     onChange={e =>
                                                         this.handleFieldChange(
                                                             e
@@ -478,11 +480,11 @@ export default class CarePlanEnrollment extends React.Component {
                                         <ListGroupItem
                                             tag="li"
                                             className="bg-transparent border-0"
+                                            check
                                         >
                                             <Label
                                                 check
                                                 for="acceptMigrationNo"
-                                                id="acceptMigrationNo"
                                                 className="text-left"
                                                 onClick={e =>
                                                     this.handleFieldChange(e)
@@ -490,12 +492,10 @@ export default class CarePlanEnrollment extends React.Component {
                                             >
                                                 <Input
                                                     type="radio"
-                                                    name="acceptMigrationNo"
+                                                    name="acceptMigration"
+                                                    value={false}
+                                                    id="acceptMigrationNo"
                                                     aria-labelledby="acceptMigrationNo"
-                                                    checked={
-                                                        !this.state.formValues
-                                                            .acceptMigration
-                                                    }
                                                     onChange={e =>
                                                         this.handleFieldChange(
                                                             e
