@@ -18355,4 +18355,28 @@ body.blog .addthis-smartlayers, body.blog-single-page .addthis-smartlayers {
 .wordpressCarePlans section.contactForm {
   margin: 0;
 }
+
+.wordpressCarePlans .modal-dialog.careModal {
+  max-width: 900px;
+}
+
+.wordpressCarePlans .modal-dialog.careModal .carePlanEnrollment {
+  background-color: rgba(43, 179, 229, 0.1);
+}
+
+.wordpressCarePlans .modal-dialog.careModal .carePlanEnrollment .modal-header.subHeader {
+  margin-top: 0;
+  margin-bottom: 5vh;
+}
+
+.wordpressCarePlans .modal-dialog.careModal .carePlanEnrollment .modal-header.subHeader h2.modal-title {
+  font-size: clamp(var(--minFontSize), var(--scaler), 50px);
+  width: 100% !important;
+  text-align: center;
+}
+
+.wordpressCarePlans .modal-dialog.careModal .carePlanEnrollment input[type="text"] {
+  -webkit-box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.565);
+          box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.565);
+}
 /*# sourceMappingURL=style.css.map */

@@ -32,17 +32,9 @@ Layout props:
   bodyClasses: additional classes to add to body tag
 */
 
-const WebDesign = ({ data }) => {
-    const [modal, setModal] = useState(false);
+const WordpressCarePlans = ({ data }) => {
+    const [careModal, setCareModal] = useState(false);
     const [plan, setPlan] = useState(null);
-
-    useEffect(()=>{
-        if(plan!==null){
-            setModal(true)
-        }else{
-            modal===true?setModal(false):false;
-        }
-    },[plan]);
 
     // function for creating a list of Plan features
     const planFeatures = plan => {
@@ -65,6 +57,11 @@ const WebDesign = ({ data }) => {
         );
     };
 
+    const handleShowEnrollment = plan => {
+        setPlan(plan);
+        setCareModal(!careModal);
+    }
+
     const planCards = plans => {
         return plans.map((plan, index) => {
             return (
@@ -82,7 +79,7 @@ const WebDesign = ({ data }) => {
                         <CardFooter>
                             <Button
                                 block
-                                onClick={handleViewPlansClick}
+                                onClick={e=>handleShowEnrollment(plan)}
                                 color="secondary"
                             >
                                 Enroll Now
@@ -323,6 +320,11 @@ const WebDesign = ({ data }) => {
                     </Row>
                     <Row>{getContentEdits()}</Row>
                 </section>
+                <CarePlanEnrollment
+                    isOpen={careModal}
+                    toggle={()=>setCareModal(!careModal)}
+                    plan={plan}
+                />
 
                 <FreeWebsiteAnalysis />
             </Layout>
@@ -336,12 +338,6 @@ const plansSection = React.createRef();
 const handleViewPlansClick = () => {
     window.scrollTo({
         top: plansSection.current.offsetTop - 80,
-        behavior: "smooth",
-    });
-};
-const handleQuoteClick = () => {
-    window.scrollTo({
-        top: dreamForm.current.offsetTop - 80,
         behavior: "smooth",
     });
 };
@@ -372,4 +368,4 @@ export const query = graphql`
     }
 `;
 
-export default WebDesign;
+export default WordpressCarePlans;

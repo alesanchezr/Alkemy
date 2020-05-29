@@ -10,9 +10,14 @@ import {
     Label,
     Input,
     FormText,
+    Modal,
+    ListGroup,
+    ListGroupItem,
+    ModalHeader,
 } from "reactstrap";
 import ThankYou from "./thankYou.jsx";
 import ReCAPTCHA from "react-google-recaptcha";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // eslint-disable-next-line no-undef
 const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY;
@@ -216,24 +221,41 @@ export default class CarePlanEnrollment extends React.Component {
         if (!isError) return true;
     };
 
+    
+
     render() {
+        const closeBtn = (
+            <button className="close" onClick={this.props.toggle} style={{
+                position: "absolute",
+                right: "40px",
+                top: "42.5px"
+            }}>
+                <FontAwesomeIcon icon="times-circle" color="white"></FontAwesomeIcon>
+            </button>
+        );
         return (
-            <>
+            <Modal
+                isOpen={this.props.isOpen}
+                toggle={this.props.toggle}
+                className="careModal"
+            >
                 {this.state.success ? (
                     <ThankYou />
                 ) : (
-                    <section className="carePlanEnrollment py-5 px-3">
-                        <Row className="subHeader mx-0 alk-container">
-                            <Col xs={12} className="px-0">
-                                <h1 className="m-0 font-weight-normal text-white text-center">
-                                    Care Plan Enrollment
-                                </h1>
-                            </Col>
-                        </Row>
-                        <h2 className="text-center">
-                            Signing up is as easy as 1 - 2 - 3.
-                        </h2>
-                        <div className="container">
+                    <div className="carePlanEnrollment">
+                        <ModalHeader
+                            toggle={this.props.toggle}
+                            className="subHeader mx-0 alk-container font-weight-normal text-white"
+                            close={closeBtn}
+                            tag="h2"
+                        >
+                            Care Plan Enrollment
+                        </ModalHeader>
+
+                        <div className="alk-container">
+                            <h2 className="text-center mb-5">
+                                Signing up is as easy as 1 - 2 - 3.
+                            </h2>
                             <ol>
                                 <li>Provide your website information</li>
                                 <li>Our team will process your request</li>
@@ -242,7 +264,7 @@ export default class CarePlanEnrollment extends React.Component {
                                     everything
                                 </li>
                             </ol>
-                            <p>
+                            <p className="mb-0">
                                 No payment is taken until we have reviewed your
                                 request and completed the setup call.
                             </p>
@@ -252,10 +274,14 @@ export default class CarePlanEnrollment extends React.Component {
                                 data-netlify-honeypot="bot-field"
                                 data-netlify-recaptcha="true"
                                 onSubmit={e => this.handleSubmit(e)}
-                                className="py-3 mb-0"
+                                className="mb-0"
                             >
                                 <Row form className="my-2 py-0">
-                                    <Col xs={12} md={6} className="my-2 py-0">
+                                    <Col
+                                        xs={12}
+                                        md={6}
+                                        className="pr-lg-4 py-0"
+                                    >
                                         <FormGroup>
                                             <Label
                                                 for="fullName"
@@ -289,7 +315,11 @@ export default class CarePlanEnrollment extends React.Component {
                                             </FormFeedback>
                                         </FormGroup>
                                     </Col>
-                                    <Col xs={12} md={6} className="my-2 py-0">
+                                    <Col
+                                        xs={12}
+                                        md={6}
+                                        className="pl-lg-4 py-0"
+                                    >
                                         <FormGroup>
                                             <Label
                                                 for="email"
@@ -321,9 +351,13 @@ export default class CarePlanEnrollment extends React.Component {
                                         </FormGroup>
                                     </Col>
                                 </Row>
-                                <Row form className="my-2 py-0">
-                                    <Col xs={12} md={6} className="my-2 py-0">
-                                        <FormGroup className="my-2">
+                                <Row form className="py-0">
+                                    <Col
+                                        xs={12}
+                                        md={6}
+                                        className="pr-lg-4 py-0"
+                                    >
+                                        <FormGroup>
                                             <Label
                                                 for="webAddress"
                                                 id="webAddress"
@@ -356,7 +390,11 @@ export default class CarePlanEnrollment extends React.Component {
                                             </FormFeedback>
                                         </FormGroup>
                                     </Col>
-                                    <Col xs={12} md={6} className="my-2 py-0">
+                                    <Col
+                                        xs={12}
+                                        md={6}
+                                        className="pl-lg-4 py-0"
+                                    >
                                         <FormGroup>
                                             <Label
                                                 for="currentHost"
@@ -371,10 +409,11 @@ export default class CarePlanEnrollment extends React.Component {
                                                 aria-labelledby="currentHost"
                                                 invalid={
                                                     typeof this.state.errors
-                                                        .currentHostLength !==
+                                                        .currentHost !==
                                                         "undefined" &&
                                                     this.state.errors
-                                                        .currentHost.length > 0
+                                                        .currentHostLength
+                                                        .length > 0
                                                 }
                                                 onChange={e =>
                                                     this.handleFieldChange(e)
@@ -397,47 +436,72 @@ export default class CarePlanEnrollment extends React.Component {
                                     className="mt-4 mb-0 text-center"
                                 >
                                     Are you willing to be migrated to our
-                                    perfered host?
-                                    <Label
-                                        for="acceptMigrationYes"
-                                        id="acceptMigrationYes"
-                                        className="text-left"
-                                        onClick={e => this.handleFieldChange(e)}
+                                    perfered host?{" "}
+                                    <ListGroup
+                                        horizontal
+                                        className="d-inline-flex"
                                     >
-                                        <Input
-                                            type="checkbox"
-                                            name="acceptMigrationYes"
-                                            aria-labelledby="acceptMigrationYes"
-                                            checked={
-                                                this.state.formValues
-                                                    .acceptMigration
-                                            }
-                                            onChange={e =>
-                                                this.handleFieldChange(e)
-                                            }
-                                        />
-                                        Yes
-                                    </Label>
-                                    <Label
-                                        for="acceptMigrationNo"
-                                        id="acceptMigrationNo"
-                                        className="text-left"
-                                        onClick={e => this.handleFieldChange(e)}
-                                    >
-                                        <Input
-                                            type="checkbox"
-                                            name="acceptMigrationNo"
-                                            aria-labelledby="acceptMigrationNo"
-                                            checked={
-                                                !this.state.formValues
-                                                    .acceptMigration
-                                            }
-                                            onChange={e =>
-                                                this.handleFieldChange(e)
-                                            }
-                                        />
-                                        No
-                                    </Label>
+                                        <ListGroupItem
+                                            tag="li"
+                                            className="bg-transparent border-0"
+                                        >
+                                            <Label
+                                                check
+                                                for="acceptMigrationYes"
+                                                id="acceptMigrationYes"
+                                                className="text-left"
+                                                onClick={e =>
+                                                    this.handleFieldChange(e)
+                                                }
+                                            >
+                                                <Input
+                                                    type="radio"
+                                                    name="acceptMigrationYes"
+                                                    aria-labelledby="acceptMigrationYes"
+                                                    checked={
+                                                        this.state.formValues
+                                                            .acceptMigration
+                                                    }
+                                                    onChange={e =>
+                                                        this.handleFieldChange(
+                                                            e
+                                                        )
+                                                    }
+                                                />{" "}
+                                                Yes
+                                            </Label>
+                                        </ListGroupItem>
+                                        <ListGroupItem
+                                            tag="li"
+                                            className="bg-transparent border-0"
+                                        >
+                                            <Label
+                                                check
+                                                for="acceptMigrationNo"
+                                                id="acceptMigrationNo"
+                                                className="text-left"
+                                                onClick={e =>
+                                                    this.handleFieldChange(e)
+                                                }
+                                            >
+                                                <Input
+                                                    type="radio"
+                                                    name="acceptMigrationNo"
+                                                    aria-labelledby="acceptMigrationNo"
+                                                    checked={
+                                                        !this.state.formValues
+                                                            .acceptMigration
+                                                    }
+                                                    onChange={e =>
+                                                        this.handleFieldChange(
+                                                            e
+                                                        )
+                                                    }
+                                                />{" "}
+                                                No
+                                            </Label>
+                                        </ListGroupItem>
+                                    </ListGroup>
                                     <FormFeedback className="text-center mb-4">
                                         {this.state.errors.authCheck}
                                     </FormFeedback>
@@ -484,9 +548,9 @@ export default class CarePlanEnrollment extends React.Component {
                                 />
                             </Form>
                         </div>
-                    </section>
+                    </div>
                 )}
-            </>
+            </Modal>
         );
     }
 }

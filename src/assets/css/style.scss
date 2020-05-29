@@ -1742,4 +1742,31 @@ body{
   section.contactForm{
     margin: 0;
   }
+
+  .modal-dialog{
+    &.careModal{
+      max-width: 900px;
+
+      .carePlanEnrollment {
+        background-color: $alkemy_light_blue;
+
+        .modal-header.subHeader {
+          margin-top: 0;
+          margin-bottom: 5vh;
+
+          h2.modal-title{
+            font-size: clamp(var(--minFontSize), var(--scaler), 50px);
+            width: 100% !important;
+            text-align: center;
+          }
+        }
+
+        input[type="text"]{
+          box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.565);
+        }
+      }
+
+      
+    }
+  }
 }

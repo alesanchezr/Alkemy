@@ -39,7 +39,8 @@ import {
     faCogs,
     faServer,
     faTachometerAlt,
-    faDatabase
+    faDatabase,
+    faTimesCircle
 } from "@fortawesome/free-solid-svg-icons";
 import {
     faCalendarAlt,
@@ -79,7 +80,8 @@ library.add(
     faCogs,
     faServer,
     faTachometerAlt,
-    faDatabase
+    faDatabase,
+    faTimesCircle
 );
 
 const Layout = ({
