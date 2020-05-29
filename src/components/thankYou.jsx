@@ -16,7 +16,7 @@ const ThankYou = () => {
             <div className="container">
                 <p>
                     Thank You for Choosing Alkemy! We have successfully received
-                    your contact form submission. As soon as one of our team
+                    your request. As soon as one of our team
                     members has reviewed your request, we will contact you to
                     discuss the next steps.
                 </p>

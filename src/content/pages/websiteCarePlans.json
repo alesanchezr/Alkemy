@@ -1,0 +1,151 @@
+[
+  {
+    "sections":[
+      {
+        "id": "1",
+        "blocks": [
+          {
+            "heading": "We’ve got your back.",
+            "content": "You’ve invested a lot of money into your website, and now it’s our turn to help you keep it running smoothly."
+          },
+          {
+            "content": "Our professional and experienced Wordpress gurus are here to monitor and maintain your site so that you can stay ahead of any eventuality."
+          },
+          {
+            "content": "With regular backups, security, premium hosting, and round the clock 24/7 monitoring we make sure that your site has all of the tools needed to bring its A game."
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "blocks": [
+          {
+            "heading": "Imagine peace of mind.",
+            "content": "24/7/365 Monitoring, Robust Security, Blazing Speed, Nightly Backups, and much much more..."
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "blocks": [
+          {
+            "heading": "What sets our care plans apart?"
+          },
+          {
+            "icon": "life-ring",
+            "heading": "Full Service Support",
+            "content": "Sometimes you need extra help. If you ever find yourself in need of support, we are just an email away. Our team is always happy to help resolve any issue you can think of."
+          },
+          {
+            "icon": "shield-alt",
+            "heading": "Robust Security",
+            "content": "According to <a href='https://www.securitymagazine.com/articles/87787-hackers-attack-every-39-seconds' target='_blank' rel='noreferrer noopenner nofollow'>Security Magazine</a>, websites experience a hacker attack every 39 seconds.  We ensure your your site is secured with daily scans, malware monitoring and removal, password securing via Google Captcha, and Intelligent IP Blocking."
+          },
+          {
+            "icon": "cogs",
+            "heading": "Software Updates",
+            "content": "One of the leading causes of Wordpress vulnerabilities or crashes are due to plugins not being updated regularly or properly. We handle your plugins,  Wordpress Core, and PHP updates to ensure that your site always puts it best foot forward."
+          },
+          {
+            "icon": "server",
+            "heading": "First Class Hosting",
+            "content": "Your site deserves the best, so we start by hosting it on a premium website host. With 99% uptime and 24/7/365 monitoring to ensure your site doesn’t go down, we’ve got you covered."
+          },
+          {
+            "icon": "tachometer-alt",
+            "heading": "Incredible Performance",
+            "content": "Whether your visitor is coming from New York or Osaka, our CDN will select the closest point of presence (POP) to serve your website from. This, combined with advanced website caching technology results in load times that positively impact your SEO and even your conversions."
+          },
+          {
+            "icon": "database",
+            "heading": "Nightly Backups",
+            "content": "We understand how important your website is. So to protect one of your most valuable assets, we employ nightly backups to Google Cloud Platform servers. Our backups and monitoring work together to ensure that your site is prepared for any eventuality."
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "blocks": [
+          {
+            "heading": "Care Plans designed with your business in mind.",
+            "disclaimers": [
+              "* Prices represent websites built by Alkemy on our preferred host. Websites not designed by Alkemy may be subject to a migration to our preferred host and a one time setup fee of $250.",
+              "** Discount of 25% from standard labor rate. Discount may be subject to change."
+            ]
+          }
+        ]
+      },
+      {
+        "plans": [
+          {
+            "name": "The Basics",
+            "price": "154",
+            "features": [
+              "Premium Website Hosting",
+              "Website SSL",
+              "CDN (Content Delivery Network)",
+              "Daily Security Scans",
+              "Malware Removal",
+              "Wordpress/Plugin Updates",
+              "Basic Email Support",
+              "Video Training Manuals (Licensed)",
+              "Monthly Reporting"
+            ]
+          },
+          {
+            "name": "Full Coverage",
+            "price": "654",
+            "features": [
+              "Includes all of the features from The Basics and Advanced",
+              "Unlimited Discounted Labor Rate **",
+              "Monthly SEO Audit",
+              "Monthly Accessibility Audit",
+              "Broken Link Repair",
+              "301 Redirects Repair",
+              "Priority Support",
+              "Weekly Reporting",
+              "Monthly Strategy Call",
+              "Website Review (Quarterly)"
+            ]
+          },
+          {
+            "name": "Advanced",
+            "price": "254",
+            "features": [
+              "Includes all features from The Basics",
+              "Unlimited Content Edits",
+              "Priority Support",
+              "Auto-updated Website Privacy Policy and Terms & Conditions",
+              "Licensed use of our commonly used plugins",
+              "Monthly Reporting"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "blocks": [
+          {
+            "heading": "What can I do with content edits?",
+            "content": "Typically, content edits refer to any change that can be done in 30 minutes or less without editing your website code. If you have a more complex problem, we are happy to troubleshoot it and discuss what resolutions we can offer. Below are some examples of use cases that can be covered with your unlimited content edits."
+          },
+          {
+            "heading": "Text Changes",
+            "content": "Add or Edit a blog post, page, WooCommerce product, etc. "
+          },
+          {
+            "heading": "Software Changes",
+            "content": "Edit your menus and widgets, Install or Activate plugins, etc."
+          },
+          {
+            "heading": "Q & A",
+            "content": "Have other questions?"
+          },
+          {
+            "content": "We’re happy to help."
+          }
+        ]
+      }
+    ]
+  }
+]
