@@ -18400,4 +18400,8 @@ body.blog .addthis-smartlayers, body.blog-single-page .addthis-smartlayers {
   -webkit-box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.565);
           box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.565);
 }
+
+.wordpressCarePlans .modal-dialog.careModal .carePlanEnrollment section.thankYou {
+  background: transparent;
+}
 /*# sourceMappingURL=style.css.map */

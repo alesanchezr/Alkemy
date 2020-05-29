@@ -91,7 +91,8 @@ export default class CarePlanEnrollment extends React.Component {
                 },
                 body: encode({
                     "form-name": "carePlanEnrollment",
-                    "plan": plan,
+                    "plan": plan.name,
+                    "price": plan.price,
                     ...this.state.formValues,
                 }),
                 // eslint-disable-next-line no-unused-vars
