@@ -67,7 +67,7 @@ export default class CarePlanEnrollment extends React.Component {
         e.preventDefault();
         let valid = this.validate();
         let plan = this.props.plan;
-
+        
         // handle form submit here
         const encode = data => {
             return Object.keys(data)
