@@ -39,7 +39,7 @@ const WordpressCarePlans = ({ data }) => {
     // function for creating a list of Plan features
     const planFeatures = plan => {
         return (
-            <ul className="fa-ul w-50 w-lg-100 mx-auto my-3">
+            <ul className="fa-ul w-75 w-lg-100 mx-auto my-3">
                 {plan.features.map((feature, index) => {
                     return (
                         <li key={index}>
@@ -140,7 +140,7 @@ const WordpressCarePlans = ({ data }) => {
                         key={index}
                         xs={12}
                         md={4}
-                        className="feature text-center my-auto"
+                        className="feature text-center my-5"
                     >
                         <h3 className="mb-4">{item.heading}</h3>
                         <p className="mx-auto">{item.content}</p>
@@ -269,14 +269,14 @@ const WordpressCarePlans = ({ data }) => {
                 </section>
 
                 {/* Section 3 */}
-                <section className="planFeatures mb-4 pb-4 py-lg-4">
-                    <h2 className="alk-container">
+                <section className="alk-container planFeatures mb-4 pb-4 py-lg-4">
+                    <h2 className="">
                         {
                             data.websiteCarePlansJson.sections[2].blocks[0]
                                 .heading
                         }
                     </h2>
-                    <Row className="alk-container pt-lg-4">{getFeatures()}</Row>
+                    <Row className="pt-lg-4">{getFeatures()}</Row>
                 </section>
 
                 {/* Section 4 */}
@@ -301,8 +301,8 @@ const WordpressCarePlans = ({ data }) => {
                 </section>
 
                 {/* Section 5 */}
-                <section className="contentEditsCallout mb-0">
-                    <Row className="alk-container text-center my-auto">
+                <section className="contentEditsCallout mb-0 alk-container">
+                    <Row className="text-center my-auto">
                         <Col xs={12} className="sectionDesc mb-4">
                             <h2>
                                 {
@@ -322,7 +322,7 @@ const WordpressCarePlans = ({ data }) => {
                 </section>
                 <CarePlanEnrollment
                     isOpen={careModal}
-                    toggle={()=>setCareModal(!careModal)}
+                    toggle={() => setCareModal(!careModal)}
                     plan={plan}
                 />
 

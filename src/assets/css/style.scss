@@ -1618,6 +1618,10 @@ body{
     width: 100%;
     height : 480px;
     margin-bottom: 10vh;
+
+    @media screen and (max-width: 990px) {
+      height: 100%;
+    }
     
     .row{
       width: 100%;
@@ -1625,6 +1629,11 @@ body{
       background: linear-gradient(90deg, #000000 17.33%, rgba(0, 0, 0, 0) 89.24%),
       url('../images/carePlans/wordpress-care-plans.jpg') fixed center no-repeat;
       background-size: cover;
+
+      @media screen and (max-width: 990px) {
+        padding-top: 5vh;
+        padding-bottom: 5vh;
+      }
     }
 
     p {
@@ -1703,6 +1712,12 @@ body{
       & .card-header {
         background: transparent;
         border: none;
+      }
+
+      button {
+        background-color: $alkemy_blue;
+        border: none;
+        padding: 10px 20px;
       }
     }
   }
