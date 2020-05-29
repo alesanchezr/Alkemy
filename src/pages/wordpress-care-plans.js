@@ -70,7 +70,7 @@ const WordpressCarePlans = ({ data }) => {
         ];
         return plans.map((plan, index) => {
             return (
-                <Col key={index} xs={12} lg={4} className="my-auto plan">
+                <Col key={index} xs={12} lg={4} className={orderClasses[index] +"my-auto plan"}>
                     <Card
                         className={
                             orderClasses[index] +
