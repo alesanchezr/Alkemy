@@ -18323,9 +18323,9 @@ body.blog .addthis-smartlayers, body.blog-single-page .addthis-smartlayers {
   line-height: 63px;
 }
 
-@media screen and (min-width: 1080px) {
+@media screen and (min-width: 992px) {
   .wordpressCarePlans .plan:nth-of-type(odd) .planCard {
-    min-height: 800px;
+    min-height: 700px;
     height: 100%;
   }
 }
@@ -18389,9 +18389,11 @@ body.blog .addthis-smartlayers, body.blog-single-page .addthis-smartlayers {
 }
 
 .wordpressCarePlans .modal-dialog.careModal .carePlanEnrollment .modal-header.subHeader h2.modal-title {
-  font-size: clamp(var(--minFontSize), var(--scaler), 50px);
-  width: 100% !important;
+  font-size: clamp(12px, 5vh, 50px);
+  line-height: clamp(12px, 6vh, 50px);
+  width: 100%;
   text-align: center;
+  text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.565);
 }
 
 .wordpressCarePlans .modal-dialog.careModal .carePlanEnrollment input[type="text"] {

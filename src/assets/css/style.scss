@@ -1701,9 +1701,9 @@ body{
       line-height: 63px;
     }
     &:nth-of-type(odd){
-      @media screen and (min-width:1080px) {
+      @media screen and (min-width:992px) {
         .planCard{
-          min-height: 800px;
+          min-height: 700px;
           height: 100%;
         }
       }
@@ -1770,9 +1770,12 @@ body{
           margin-bottom: 5vh;
 
           h2.modal-title{
-            font-size: clamp(var(--minFontSize), var(--scaler), 50px);
-            width: 100% !important;
+            font-size: clamp(12px, 5vh, 50px);
+            line-height: clamp(12px, 6vh, 50px);
+            width: 100%;
             text-align: center;
+
+            text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.565);
           }
         }
 

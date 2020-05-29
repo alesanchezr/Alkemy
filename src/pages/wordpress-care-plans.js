@@ -63,23 +63,31 @@ const WordpressCarePlans = ({ data }) => {
     }
 
     const planCards = plans => {
+        let orderClasses = [
+            "order-1 order-lg-0 ",
+            "order-0 order-lg-1 ",
+            "order-2 ",
+        ];
         return plans.map((plan, index) => {
             return (
                 <Col key={index} xs={12} lg={4} className="my-auto plan">
-                    <Card className="my-4 px-2 py-auto p-md-4 planCard">
+                    <Card
+                        className={
+                            orderClasses[index] +
+                            "my-4 px-2 py-auto p-md-4 planCard"
+                        }
+                    >
                         <CardHeader>
                             <h2 className="text-center my-4">{plan.name}</h2>
                             <p className="text-center">
                                 Only ${plan.price} per month *
                             </p>
                         </CardHeader>
-                        <CardBody>
-                            {planFeatures(plan)}
-                        </CardBody>
+                        <CardBody>{planFeatures(plan)}</CardBody>
                         <CardFooter>
                             <Button
                                 block
-                                onClick={e=>handleShowEnrollment(plan)}
+                                onClick={e => handleShowEnrollment(plan)}
                                 color="secondary"
                             >
                                 Enroll Now
@@ -134,6 +142,7 @@ const WordpressCarePlans = ({ data }) => {
 
     const getContentEdits = ()=>{
         return data.websiteCarePlansJson.sections[5].blocks.map((item, index) => {
+            
             if(index>0 && index < 4 && index !== 3){
                 return (
                     <Col
