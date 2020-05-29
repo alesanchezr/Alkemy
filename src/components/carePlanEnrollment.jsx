@@ -448,7 +448,6 @@ export default class CarePlanEnrollment extends React.Component {
                                         <ListGroupItem
                                             tag="li"
                                             className="bg-transparent border-0"
-                                            check
                                         >
                                             <Label
                                                 check
@@ -477,7 +476,6 @@ export default class CarePlanEnrollment extends React.Component {
                                         <ListGroupItem
                                             tag="li"
                                             className="bg-transparent border-0"
-                                            check
                                         >
                                             <Label
                                                 check
