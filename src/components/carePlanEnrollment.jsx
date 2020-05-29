@@ -535,7 +535,7 @@ export default class CarePlanEnrollment extends React.Component {
                                 <input
                                     type="hidden"
                                     name="form-name"
-                                    value="freeWebsiteAnalysis"
+                                    value="carePlanEnrollment"
                                 />
                                 <Label
                                     for="bot-field"
