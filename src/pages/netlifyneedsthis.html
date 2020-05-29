@@ -20,7 +20,7 @@ data-netlify-honeypot="bot-field"
         name="phone"
         />
 
-      <p className="text-center">Do you presently have a website?</p>
+      <p class="text-center">Do you presently have a website?</p>
 
         <input
           type="radio"
@@ -75,7 +75,7 @@ data-netlify-honeypot="bot-field"
         type="file"
         accept="image/*"
         name="logo"
-        className="pl-0"
+        class="pl-0"
         />
 
 
@@ -105,12 +105,75 @@ data-netlify-honeypot="bot-field"
 
             <input
             type="text"
-            className="my-2"
+            class="my-2"
             name="otherIndustry"
             />
 
 
 
   <input type="hidden" name="form-name" value="dreamForm" />
-  <input type="text" name="bot-field" className="hp"/>
+  <input type="text" name="bot-field" class="hp"/>
+</Form>
+
+<Form name="carePlanEnrollment" data-netlify="true" data-netlify-honeypot="bot-field" data-netlify-recaptcha="true"
+  class="mb-0"
+  >
+  <div class="my-2 py-0">
+    <div class="pr-lg-4 py-0">
+    <div>
+      <label for="fullName" id="fullName" >
+        Full Name
+      </label>
+      <Input type="text" name="fullName" aria-labelledby="fullName" placeholder="Full Name"/>
+    </div>
+    </div>
+    <div xs={12} md={6} class="pl-lg-4 py-0">
+    <div>
+      <label for="email" id="email" >
+        Email Address
+      </label>
+      <Input type="text" name="email" aria-labelledby="email" placeholder="Email Address"/>
+    </div>
+    </div>
+  </div>
+  <div form class="py-0">
+    <div xs={12} md={6} class="pr-lg-4 py-0">
+    <div>
+      <label for="webAddress" id="webAddress">
+        Website Address
+      </label>
+      <Input type="text" name="webAddress" aria-labelledby="webAddress" placeholder="Website Address">
+    </div>
+    </div>
+    <div xs={12} md={6} class="pl-lg-4 py-0">
+    <div>
+      <label for="currentHost" id="currentHost" >
+        Current Website Host
+      </label>
+      <Input type="text" name="currentHost" aria-labelledby="currentHost" placeholder="Current Website Host"/>
+    </div>
+    </div>
+  </div>
+
+  <div check class="mt-4 mb-0 text-center">
+    Are you willing to be migrated to our
+    perfered host?{" "}
+    <ul class="d-inline-flex">
+      <li class="bg-transparent border-0">
+        <label check for="acceptMigrationYes" id="acceptMigrationYes" class="text-left">
+          <Input type="radio" name="acceptMigrationYes" aria-labelledby="acceptMigrationYes" />
+          Yes
+        </label>
+      </li>
+      <li class="bg-transparent border-0">
+        <label check for="acceptMigrationNo" id="acceptMigrationNo" class="text-left">
+          <Input type="radio" name="acceptMigrationNo" aria-labelledby="acceptMigrationNo" />
+          No
+        </label>
+      </li>
+    </ul>
+  </div>
+
+  <input type="hidden" name="form-name" value="carePlanEnrollment" />
+  <input type="text" name="bot-field" class="hp" aria-labelledby="bot-field" />
 </Form>
