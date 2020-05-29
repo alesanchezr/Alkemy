@@ -459,10 +459,7 @@ export default class CarePlanEnrollment extends React.Component {
                                                 }
                                             >
                                                 <Input
-                                                    checkedDefault={
-                                                        this.state.formValues
-                                                            .acceptMigration
-                                                    }
+                                                    defaultChecked
                                                     type="radio"
                                                     name="acceptMigration"
                                                     value={true}
