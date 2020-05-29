@@ -41,7 +41,7 @@ export default class CarePlanEnrollment extends React.Component {
                 email: "",
                 webAddress: "",
                 currentHost: "",
-                acceptMigration: true,
+                acceptMigration: true
             },
             errors: {
                 fullNameLength: "",
@@ -53,6 +53,8 @@ export default class CarePlanEnrollment extends React.Component {
         };
         this.recaptchaRef = React.createRef();
     }
+
+
 
     handleRecaptcha = value => {
         let errors = { ...this.state.errors };
@@ -66,7 +68,6 @@ export default class CarePlanEnrollment extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
         let valid = this.validate();
-        let plan = this.props.plan;
         
         // handle form submit here
         const encode = data => {
@@ -91,13 +92,16 @@ export default class CarePlanEnrollment extends React.Component {
                 },
                 body: encode({
                     "form-name": "carePlanEnrollment",
-                    "plan": plan.name,
-                    "price": plan.price,
-                    ...this.state.formValues,
-                }),
+                    selectedPlan: this.props.plan.name,
+                    price: this.props.plan.price,
+                    ...this.state.formValues
+                })
                 // eslint-disable-next-line no-unused-vars
             })
-                .then(() => {
+                .then(response => {
+                    if(response.ok===false) {
+                        throw Error(response.statusText);
+                    }
                     this.setState({
                         success: true,
                     });
