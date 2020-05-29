@@ -161,18 +161,21 @@ data-netlify-honeypot="bot-field"
     <ul class="d-inline-flex">
       <li class="bg-transparent border-0">
         <label check for="acceptMigrationYes" id="acceptMigrationYes" class="text-left">
-          <input type="radio" name="acceptMigrationYes" aria-labelledby="acceptMigrationYes" />
+          <input type="radio" name="acceptMigration" value="Yes" aria-labelledby="acceptMigrationYes" />
           Yes
         </label>
       </li>
       <li class="bg-transparent border-0">
         <label check for="acceptMigrationNo" id="acceptMigrationNo" class="text-left">
-          <input type="radio" name="acceptMigrationNo" aria-labelledby="acceptMigrationNo" />
+          <input type="radio" name="acceptMigration" value="No" aria-labelledby="acceptMigrationNo" />
           No
         </label>
       </li>
     </ul>
   </div>
+
+  <input type="text" name="selectedPlan" />
+  <input type="text" name="price" />
 
   <input type="hidden" name="form-name" value="carePlanEnrollment" />
   <input type="text" name="bot-field" class="hp" aria-labelledby="bot-field" />
