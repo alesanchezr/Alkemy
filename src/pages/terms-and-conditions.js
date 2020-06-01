@@ -1,7 +1,4 @@
-import React,{useEffect,useState} from "react";
-import {Link} from "gatsby";
-import { Col, Row } from "reactstrap";
-import { addJS } from "../utils/utils.js";
+import React,{useEffect} from "react";
 import Layout from "../components/layout";
 import ScrollWrapper from "../components/scrollWrapper.jsx";
 import BuildYourDream from "../components/BuildYourDream.jsx";
@@ -24,30 +21,20 @@ Layout props:
 const TermsAndConditions = ({ data }) => {
     // pageTitle: SEO friendly title for the title bar
     const pageTitle = { name: "Terms & Conditions", url: "/terms-and-conditions" };
-    
-    const [state,setState] = useState(null);
 
-    useEffect(() => {
-        if (typeof window !== "undefined" && terms.current !== null) {
-            fetch(
-                "https://app.termageddon.com/api/policy/ZFdwUE1IVmlTMFpKY1ZwNGJVRTlQUT09?no-title=true"
-            )
-                .then(res => res.text())
-                .then(res => setState(res));
-        }
+    useEffect( () => {
+        fetch(
+            "https://app.termageddon.com/api/policy/ZFdwUE1IVmlTMFpKY1ZwNGJVRTlQUT09?no-title=true"
+        )
+            .then(res => res.text())
+            .then(res => (terms.current.innerHTML = res));
     }, []);
 
-    useEffect(() => {
-        if (typeof window !== "undefined" ) {
-            terms.current.innerHTML = state
-        }
-    });
-
-    addJS(
-        `body`,
-        false,
-        `//app.termageddon.com/js/termageddon.js`
-    );
+    // useEffect(() => {
+    //     if (typeof window !== "undefined" ) {
+    //         terms.current.innerHTML = state
+    //     }
+    // });
 
     return (
         <ScrollWrapper onWindowScroll={handleScroll}>
